@@ -1,9 +1,10 @@
-node_modules/
-.next/
-out/
+*.tsbuildinfo
+.DS_Store
 .env
 .env.local
 .env.production
-*.tsbuildinfo
+.next/
 next-env.d.ts
-.DS_Store
+node_modules/
+out/
+public/posts/launch-01/

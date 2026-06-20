@@ -445,6 +445,353 @@ function RecentPostCard({ post, index }: { post: Post; index: number }) {
   )
 }
 
+// ---------- Post Calendar (monthly grid view) ----------
+function PostCalendar() {
+  const [month, setMonth] = useState(() => new Date().getMonth())
+  const [year, setYear] = useState(() => new Date().getFullYear())
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate()
+  const firstDay = new Date(year, month, 1).getDay()
+  const monthName = new Date(year, month).toLocaleDateString("en-US", { month: "long", year: "numeric" })
+
+  // Planned posts for this month
+  const posts = [
+    { date: 22, title: "What Goes in a Film Budget", status: "draft", pillar: "Budget School", time: "10:00 AM" },
+    { date: 24, title: "The Real Cost of Subscriptions", status: "ready", pillar: "One-Time Revolution", time: "10:00 AM" },
+    { date: 26, title: "Why I Built Gary Budgets", status: "draft", pillar: "Behind the Build", time: "10:00 AM" },
+  ]
+
+  const prevMonth = () => { if (month === 0) { setMonth(11); setYear(y => y - 1) } else setMonth(m => m - 1) }
+  const nextMonth = () => { if (month === 11) { setMonth(0); setYear(y => y + 1) } else setMonth(m => m + 1) }
+
+  const pillars = ["Budget School", "One-Time Revolution", "Behind the Build"]
+  const pillarColors: Record<string, string> = {
+    "Budget School": "#4a9eff",
+    "One-Time Revolution": "#ffb347",
+    "Behind the Build": "#b44aff",
+  }
+
+  return (
+    <div className="neon-panel">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-5">
+        <div className="panel-title mb-0">Content Calendar</div>
+        <div className="flex items-center gap-2">
+          <button className="btn-ghost text-xs px-2" onClick={prevMonth}>←</button>
+          <span className="text-sm font-semibold text-gray-200 w-40 text-center">{monthName}</span>
+          <button className="btn-ghost text-xs px-2" onClick={nextMonth}>→</button>
+        </div>
+      </div>
+
+      {/* Pillar legend */}
+      <div className="flex gap-4 mb-4 text-[10px] text-text-muted">
+        {pillars.map(p => (
+          <span key={p} className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded" style={{ background: pillarColors[p] }} />
+            {p}
+          </span>
+        ))}
+      </div>
+
+      {/* Day headers */}
+      <div className="grid grid-cols-7 gap-0.5 mb-0.5">
+        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(d => (
+          <div key={d} className="text-[9px] text-text-muted uppercase tracking-wider text-center py-2">{d}</div>
+        ))}
+      </div>
+
+      {/* Calendar grid */}
+      <div className="grid grid-cols-7 gap-0.5">
+        {/* Empty cells before first day */}
+        {Array.from({ length: firstDay }).map((_, i) => (
+          <div key={`empty-${i}`} className="aspect-square rounded-lg" />
+        ))}
+
+        {/* Day cells */}
+        {Array.from({ length: daysInMonth }).map((_, i) => {
+          const day = i + 1
+          const dayPosts = posts.filter(p => p.date === day)
+          const isToday = day === new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()
+
+          return (
+            <div key={day} className={`aspect-square rounded-lg p-1 border transition-all ${
+              isToday ? "border-red-600/50 bg-red-900/10" : "border-border/50 hover:border-border-light"
+            }`} style={{ background: dayPosts.length > 0 ? "rgba(255,255,255,0.02)" : "transparent" }}>
+              <div className={`text-[10px] font-medium ${isToday ? "text-red-400" : "text-text-muted"}`}>{day}</div>
+              <div className="space-y-0.5 mt-0.5">
+                {dayPosts.map((p, pi) => (
+                  <div key={pi} className="flex items-center gap-1">
+                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: pillarColors[p.pillar] }} />
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[7px] text-gray-300 truncate">{p.title}</div>
+                      <div className="text-[6px] text-text-muted">{p.time}</div>
+                    </div>
+                    {p.status === "ready" && <div className="w-1 h-1 rounded-full bg-green-400 flex-shrink-0" />}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Legend */}
+      <div className="flex items-center gap-4 mt-4 text-[10px] text-text-muted">
+        <span className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400" /> Ready
+        </span>
+        <span className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-text-muted" /> Draft
+        </span>
+        <span className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 rounded border border-red-600/50 bg-red-900/10" /> Today
+        </span>
+      </div>
+    </div>
+  )
+}
+
+// ---------- Launch Post — 6 Images Carousel ----------
+const LAUNCH_POST = {
+  title: "Why Your Indie Film Needs a Budget",
+  caption: `You don't need a Hollywood budget to make a great film. You need a plan.
+
+🎬 The director's chair looks good. But the real story? It starts with the numbers.
+
+Here's what most indie filmmakers don't think about:
+
+1️⃣ GEAR is obvious. Everyone budgets for the camera.
+But gear isn't what eats your budget.
+
+2️⃣ FOOD. Feeding a crew of 20 for 12 days? That's not craft services — that's a line item.
+
+3️⃣ PETTY CASH. Coffee runs, parking, tape, batteries, last-minute props.
+It adds up faster than you think.
+
+4️⃣ THE SCHEDULE. A good shoot plan = a good budget plan.
+Every hour of overtime costs money.
+
+The truth? Most indie films blow 30% of their budget on things nobody planned for.
+
+Gary Budgets makes it simple.
+One price. One tool. No surprises.
+
+Sign up for the waitlist → garybudgets.com`,
+  images: [
+    { src: "/posts/launch-01/01-hook-directors-chair.png", label: "The Hook" },
+    { src: "/posts/launch-01/02-camera-gear.png", label: "Gear isn't the problem" },
+    { src: "/posts/launch-01/03-food-costs.png", label: "Feeding the crew" },
+    { src: "/posts/launch-01/04-small-expenses.png", label: "Small costs add up" },
+    { src: "/posts/launch-01/05-planning-clipboard.png", label: "Plan your budget" },
+    { src: "/posts/launch-01/06-waitlist-cta.png", label: "Join the waitlist" },
+  ],
+  hashtags: "#indiefilm #filmbudget #garybudgets #filmfinance #indiefilmmaking #filmmakingtips #lowbudgetfilm #filmproducer #indiefilmcommunity #budgeting",
+  scheduledFor: "Mon, Jun 22 · 10:00 AM",
+  pillar: "Launch Campaign",
+}
+
+function ComposeTab({ onPublish }: { onPublish: (caption: string, file: File | null) => void }) {
+  const [selectedImage, setSelectedImage] = useState(0)
+  const [approvalStatus, setApprovalStatus] = useState<"pending" | "approved" | "rejected">("pending")
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+      {/* Left: Image carousel preview */}
+      <div className="lg:col-span-3 neon-panel">
+        <div className="panel-title">Post Preview — {LAUNCH_POST.title}</div>
+
+        {/* Main image */}
+        <div className="relative mb-3 rounded-lg overflow-hidden border border-border" style={{ background: "#000", aspectRatio: "9/16", maxHeight: 500 }}>
+          <img
+            src={LAUNCH_POST.images[selectedImage].src}
+            alt=""
+            className="w-full h-full object-contain"
+            style={{ background: "#0a0a0a" }}
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+            <div className="text-xs font-medium text-white">{selectedImage + 1} / {LAUNCH_POST.images.length}</div>
+            <div className="text-[10px] text-gray-300">{LAUNCH_POST.images[selectedImage].label}</div>
+          </div>
+        </div>
+
+        {/* Thumbnail strip */}
+        <div className="flex gap-2 overflow-x-auto pb-1">
+          {LAUNCH_POST.images.map((img, i) => (
+            <button
+              key={i}
+              onClick={() => setSelectedImage(i)}
+              className={`flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all ${
+                selectedImage === i ? "border-red-500" : "border-border hover:border-border-light"
+              }`}
+            >
+              <img src={img.src} alt="" className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+
+        {/* Caption preview */}
+        <div className="mt-4" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--color-border)", borderRadius: 8, padding: 12 }}>
+          <div className="text-[10px] font-semibold text-text-muted uppercase tracking-wider mb-2">Caption</div>
+          <div className="text-xs text-gray-300 whitespace-pre-line leading-relaxed max-h-48 overflow-y-auto">{LAUNCH_POST.caption}</div>
+        </div>
+      </div>
+
+      {/* Right: Details & Approval */}
+      <div className="lg:col-span-2 space-y-3">
+        <div className="neon-panel">
+          <div className="panel-title">Post Details</div>
+          <div className="space-y-3">
+            <div>
+              <div className="text-[10px] text-text-muted mb-0.5">Campaign</div>
+              <div className="text-xs font-medium text-gray-200">{LAUNCH_POST.pillar}</div>
+            </div>
+            <div>
+              <div className="text-[10px] text-text-muted mb-0.5">Scheduled</div>
+              <div className="text-xs font-medium text-gray-200">{LAUNCH_POST.scheduledFor}</div>
+            </div>
+            <div>
+              <div className="text-[10px] text-text-muted mb-0.5">Format</div>
+              <div className="text-xs font-medium text-gray-200">Carousel — 6 slides</div>
+            </div>
+            <div>
+              <div className="text-[10px] text-text-muted mb-0.5">Hashtags</div>
+              <div className="flex flex-wrap gap-1 mt-1">
+                {LAUNCH_POST.hashtags.split(" ").map((tag, i) => (
+                  <span key={i} className="text-[9px] px-1.5 py-0.5 rounded" style={{ background: "rgba(74,158,255,0.08)", color: "#4a9eff" }}>{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="neon-panel">
+          <div className="panel-title">Approval</div>
+          <div className="space-y-3">
+            <div className={`flex items-center gap-2 p-3 rounded-lg text-xs ${
+              approvalStatus === "approved" ? "bg-green-900/20 text-green-400" :
+              approvalStatus === "rejected" ? "bg-red-900/20 text-red-400" :
+              "bg-amber-900/20 text-amber-400"
+            }`}>
+              {approvalStatus === "approved" ? "✅ Approved" :
+               approvalStatus === "rejected" ? "❌ Changes Requested" :
+               "⏳ Awaiting Approval"}
+            </div>
+
+            <button className="btn-primary w-full text-xs py-2"
+              onClick={() => setApprovalStatus("approved")}>
+              Approve & Publish
+            </button>
+            <button className="btn-secondary w-full text-xs py-2"
+              onClick={() => setApprovalStatus("rejected")}>
+              Request Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ---------- Queue Tab ----------
+function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | null) => void }) {
+  const [queue, setQueue] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch("/api/queue")
+      .then((r) => r.json())
+      .then((d) => setQueue(d.posts || d.queue || []))
+      .catch(() => {})
+      .finally(() => setLoading(false))
+  }, [])
+
+  // If no queue from API, show the planned posts
+  const plannedPosts = [
+    {
+      id: "launch-01",
+      title: "Why Your Indie Film Needs a Budget",
+      caption: LAUNCH_POST.caption.slice(0, 80) + "...",
+      status: "ready",
+      pillar: "Launch Campaign",
+      scheduled: LAUNCH_POST.scheduledFor,
+      images: 6,
+    },
+    {
+      id: "gar-01",
+      title: "What Actually Goes in a Film Budget",
+      caption: "Your film budget is more than a spreadsheet. Above the Line: story, producer, director, cast...",
+      status: "draft",
+      pillar: "Budget School",
+      scheduled: "Mon, Jun 22 · 10:00 AM",
+      images: 5,
+    },
+    {
+      id: "gar-02",
+      title: "The Real Cost of Subscriptions",
+      caption: "You're paying $489/year for something that should cost $49 once. Gary Budgets: $49. One time. Forever.",
+      status: "ready",
+      pillar: "One-Time Revolution",
+      scheduled: "Wed, Jun 24 · 10:00 AM",
+      images: 5,
+    },
+    {
+      id: "gar-03",
+      title: "Why I Built Gary Budgets",
+      caption: "I almost quit filmmaking because of a spreadsheet. So I built a budgeting tool that feels like a film set, not a CPA office.",
+      status: "draft",
+      pillar: "Behind the Build",
+      scheduled: "Fri, Jun 26 · 10:00 AM",
+      images: 5,
+    },
+  ]
+
+  const displayQueue = queue.length > 0 ? queue : plannedPosts
+
+  const pillarColors: Record<string, string> = {
+    "Launch Campaign": "#ef4444",
+    "Budget School": "#4a9eff",
+    "One-Time Revolution": "#ffb347",
+    "Behind the Build": "#b44aff",
+  }
+
+  return (
+    <div className="space-y-3">
+      {displayQueue.map((item: any, i: number) => (
+        <div key={item.id || i} className="neon-panel flex items-center gap-4">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-[10px] px-1.5 py-0.5 rounded font-medium"
+                style={{ background: `${pillarColors[item.pillar] || "#666"}20`, color: pillarColors[item.pillar] || "#666" }}>
+                {item.pillar}
+              </span>
+              {item.images && (
+                <span className="text-[9px] text-text-muted">
+                  <Image size={10} className="inline mr-0.5" />{item.images} slides
+                </span>
+              )}
+            </div>
+            <h4 className="text-sm font-semibold text-gray-200">{item.title}</h4>
+            <p className="text-xs text-text-muted line-clamp-1 mt-0.5">{item.caption}</p>
+            <div className="flex items-center gap-3 text-[10px] text-text-muted mt-1">
+              <span className="flex items-center gap-1"><Calendar size={10} />{item.scheduled}</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <span className={`text-[10px] px-2 py-1 rounded font-medium ${
+              item.status === "ready" ? "bg-green-900/30 text-green-400" : "bg-surface-3 text-text-muted"
+            }`}>
+              {item.status === "ready" ? "Ready" : "Draft"}
+            </span>
+            <button className="btn-primary text-xs py-1.5 px-3" disabled={item.status !== "ready"}>
+              <Send size={11} className="inline mr-1" /> Publish
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 // ---------- Main Dashboard ----------
 export default function Dashboard() {
   const [data, setData] = useState<DashboardData | null>(null)
@@ -469,6 +816,27 @@ export default function Dashboard() {
   }
 
   useEffect(() => { fetchData() }, [])
+
+  const handlePublish = async (caption: string, file: File | null) => {
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = async (e) => {
+      const base64 = (e.target?.result as string).split(",")[1]
+      try {
+        const r = await fetch("/api/publish", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ caption, image_base64: base64, filename: file.name }),
+        })
+        const result = await r.json()
+        if (result.error) throw new Error(result.error)
+        fetchData()
+      } catch (err: any) {
+        alert("Publish failed: " + err.message)
+      }
+    }
+    reader.readAsDataURL(file)
+  }
 
   const recentPosts = data?.posts
     .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
@@ -502,9 +870,9 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto px-6 py-5">
         {/* Tab Navigation */}
         <div className="tab-list mb-5 inline-flex">
-          {["overview", "posts", "compose", "queue", "inspire"].map((tab) => {
+          {["overview", "calendar", "posts", "compose", "queue", "inspire"].map((tab) => {
             const labels: Record<string, string> = {
-              overview: "Overview", posts: "Post History", compose: "Compose",
+              overview: "Overview", calendar: "Calendar", posts: "Post History", compose: "Compose",
               queue: "Queue", inspire: "Inspiration",
             }
             return (
@@ -582,6 +950,11 @@ export default function Dashboard() {
           </div>
         )}
 
+        {/* ====== CALENDAR TAB ====== */}
+        {activeTab === "calendar" && (
+          <PostCalendar />
+        )}
+
         {/* ====== POST HISTORY TAB ====== */}
         {activeTab === "posts" && data && (
           <div className="neon-panel">
@@ -598,20 +971,12 @@ export default function Dashboard() {
 
         {/* ====== COMPOSE TAB ====== */}
         {activeTab === "compose" && (
-          <div className="neon-panel">
-            <div className="panel-title">Compose New Post</div>
-            <p className="text-xs text-text-muted mb-2">Composer coming in next pass</p>
-          </div>
+          <ComposeTab onPublish={handlePublish} />
         )}
 
         {/* ====== QUEUE TAB ====== */}
         {activeTab === "queue" && (
-          <div className="neon-panel">
-            <div className="flex items-center justify-between mb-4">
-              <div className="panel-title mb-0">Post Queue</div>
-            </div>
-            <p className="text-xs text-text-muted">Queue coming in next pass</p>
-          </div>
+          <QueueTab onPublish={handlePublish} />
         )}
 
         {/* ====== INSPIRATION TAB ====== */}
