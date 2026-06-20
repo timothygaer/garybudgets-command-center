@@ -1,26 +1,214 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-red-950: #1a0000;
+  --color-red-900: #2d0000;
+  --color-red-850: #3d0000;
+  --color-red-800: #5c0000;
+  --color-red-700: #8b0000;
+  --color-red-600: #c41e1e;
+  --color-red-500: #dc2626;
+  --color-red-400: #ef4444;
+  --color-accent: #dc2626;
+  --color-surface: #111111;
+  --color-surface-2: #1a1a1a;
+  --color-surface-3: #222222;
+  --color-border: #2a2a2a;
+  --color-border-light: #333333;
+  --color-text-muted: #888888;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #0a0a0a;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Card style */
+.card {
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+.card:hover {
+  border-color: #3a3a3a;
+}
+
+/* Stat card */
+.stat-card {
+  background: linear-gradient(135deg, #111111 0%, #1a0a0a 100%);
+  border: 1px solid #2a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+}
+.stat-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ef4444;
+}
+.stat-card .label {
+  font-size: 0.875rem;
+  color: #888;
+  margin-top: 4px;
+}
+.stat-card .change {
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+/* Sidebar nav */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #888;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+.nav-item:hover {
+  background: #1a1a1a;
+  color: #ef4444;
+}
+.nav-item.active {
+  background: #1a0a0a;
+  color: #ef4444;
+  border: 1px solid #2a1a1a;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #dc2626;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #b91c1c;
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #888;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary:hover {
+  border-color: #dc2626;
+  color: #ef4444;
+}
+
+/* Inputs */
+.input-field {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #e5e5e5;
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-field:focus {
+  border-color: #dc2626;
+}
+.input-field::placeholder {
+  color: #555;
+}
+
+/* Tabs */
+.tab-list {
+  display: flex;
+  gap: 2px;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 3px;
+}
+.tab-trigger {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #888;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab-trigger:hover {
+  color: #e5e5e5;
+}
+.tab-trigger.active {
+  background: #dc2626;
+  color: white;
+}
+
+/* Queue items */
+.queue-item {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: border-color 0.2s;
+}
+.queue-item:hover {
+  border-color: #dc2626;
+}
+
+/* Status badges */
+.badge {
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge-draft { background: #222; color: #888; }
+.badge-ready { background: #1a3a1a; color: #4ade80; }
+.badge-posted { background: #1a1a3a; color: #818cf8; }
+.badge-awaiting { background: #3a2a1a; color: #fbbf24; }
+
+/* Loading shimmer */
+.shimmer {
+  background: linear-gradient(90deg, #1a1a1a 25%, #222 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
