@@ -578,12 +578,12 @@ One price. One tool. No surprises.
 
 Sign up for the waitlist → garybudgets.com`,
   images: [
-    { src: "/posts/launch-01/01-hook-directors-chair.png", label: "The Hook" },
-    { src: "/posts/launch-01/02-camera-gear.png", label: "Gear isn't the problem" },
-    { src: "/posts/launch-01/03-food-costs.png", label: "Feeding the crew" },
-    { src: "/posts/launch-01/04-small-expenses.png", label: "Small costs add up" },
-    { src: "/posts/launch-01/05-planning-clipboard.png", label: "Plan your budget" },
-    { src: "/posts/launch-01/06-waitlist-cta.png", label: "Join the waitlist" },
+    { src: "https://files.catbox.moe/2oz5f9.png", label: "The Hook" },
+    { src: "https://files.catbox.moe/u0c1fk.png", label: "Gear isn't the problem" },
+    { src: "https://files.catbox.moe/9vgr1x.png", label: "Feeding the crew" },
+    { src: "https://files.catbox.moe/l7ap5l.png", label: "Small costs add up" },
+    { src: "https://files.catbox.moe/g33cws.png", label: "Plan your budget" },
+    { src: "https://files.catbox.moe/doxzyd.png", label: "Join the waitlist" },
   ],
   hashtags: "#indiefilm #filmbudget #garybudgets #filmfinance #indiefilmmaking #filmmakingtips #lowbudgetfilm #filmproducer #indiefilmcommunity #budgeting",
   scheduledFor: "Mon, Jun 22 · 10:00 AM",
