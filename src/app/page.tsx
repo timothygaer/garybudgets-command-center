@@ -284,9 +284,10 @@ function EngagementTips() {
 // ---------- Upcoming Posts ----------
 function UpcomingPosts() {
   const upcoming = [
-    { title: "What Goes in a Film Budget", date: "Mon, Jun 22", time: "10:00 AM", status: "draft", pillar: "Budget School" },
-    { title: "The Real Cost of Subscriptions", date: "Wed, Jun 24", time: "10:00 AM", status: "ready", pillar: "One-Time Revolution" },
-    { title: "Why I Built Gary Budgets", date: "Fri, Jun 26", time: "10:00 AM", status: "draft", pillar: "Behind the Build" },
+    { title: "Your $50K Film Is Not a $50K Film", date: "Mon, Jun 22", time: "7:00 PM ET", status: "draft", pillar: "Budget School" },
+    { title: "5 Budget Lines Indie Producers Forget", date: "Tue, Jun 23", time: "7:00 PM ET", status: "draft", pillar: "Budget School" },
+    { title: "Above-the-Line vs Below-the-Line", date: "Wed, Jun 24", time: "12:00 PM ET", status: "draft", pillar: "Budget School" },
+    { title: "Tax Incentives Are Budget Strategy", date: "Thu, Jun 25", time: "9:00 AM ET", status: "draft", pillar: "Industry Watch" },
   ]
 
   return (
@@ -454,21 +455,23 @@ function PostCalendar() {
   const firstDay = new Date(year, month, 1).getDay()
   const monthName = new Date(year, month).toLocaleDateString("en-US", { month: "long", year: "numeric" })
 
-  // Planned posts for this month
+  // Planned posts for this month — updated week of June 22, 2026
   const posts = [
-    { date: 22, title: "What Goes in a Film Budget", status: "draft", pillar: "Budget School", time: "10:00 AM" },
-    { date: 24, title: "The Real Cost of Subscriptions", status: "ready", pillar: "One-Time Revolution", time: "10:00 AM" },
-    { date: 26, title: "Why I Built Gary Budgets", status: "draft", pillar: "Behind the Build", time: "10:00 AM" },
+    { date: 22, title: "Your $50K Film Is Not a $50K Film", status: "draft", pillar: "Budget School", time: "7:00 PM ET" },
+    { date: 23, title: "5 Budget Lines Producers Forget", status: "draft", pillar: "Budget School", time: "7:00 PM ET" },
+    { date: 24, title: "ATL vs BTL", status: "draft", pillar: "Budget School", time: "12:00 PM ET" },
+    { date: 25, title: "Tax Incentives = Budget Strategy", status: "draft", pillar: "Industry Watch", time: "9:00 AM ET" },
   ]
 
   const prevMonth = () => { if (month === 0) { setMonth(11); setYear(y => y - 1) } else setMonth(m => m - 1) }
   const nextMonth = () => { if (month === 11) { setMonth(0); setYear(y => y + 1) } else setMonth(m => m + 1) }
 
-  const pillars = ["Budget School", "One-Time Revolution", "Behind the Build"]
+  const pillars = ["Budget School", "Industry Watch"]
   const pillarColors: Record<string, string> = {
     "Budget School": "#4a9eff",
     "One-Time Revolution": "#ffb347",
     "Behind the Build": "#b44aff",
+    "Industry Watch": "#ef4444",
   }
 
   return (
@@ -708,40 +711,40 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
   // If no queue from API, show the planned posts
   const plannedPosts = [
     {
-      id: "launch-01",
-      title: "Why Your Indie Film Needs a Budget",
-      caption: LAUNCH_POST.caption.slice(0, 80) + "...",
-      status: "ready",
-      pillar: "Launch Campaign",
-      scheduled: LAUNCH_POST.scheduledFor,
+      id: "GB-2026-06-22-01",
+      title: "Your $50K Film Is Not a $50K Film",
+      caption: "A warning-style carousel showing hidden costs that make indie budgets explode before production starts.",
+      status: "awaiting images",
+      pillar: "Budget School",
+      scheduled: "Mon, Jun 22 · 7:00 PM ET",
       images: 6,
     },
     {
-      id: "gar-01",
-      title: "What Actually Goes in a Film Budget",
-      caption: "Your film budget is more than a spreadsheet. Above the Line: story, producer, director, cast...",
-      status: "draft",
+      id: "GB-2026-06-23-02",
+      title: "5 Budget Lines Indie Producers Forget",
+      caption: "A saveable checklist carousel covering the line items most first-time producers miss.",
+      status: "awaiting images",
       pillar: "Budget School",
-      scheduled: "Mon, Jun 22 · 10:00 AM",
-      images: 5,
+      scheduled: "Tue, Jun 23 · 7:00 PM ET",
+      images: 6,
     },
     {
-      id: "gar-02",
-      title: "The Real Cost of Subscriptions",
-      caption: "You're paying $489/year for something that should cost $49 once. Gary Budgets: $49. One time. Forever.",
-      status: "ready",
-      pillar: "One-Time Revolution",
-      scheduled: "Wed, Jun 24 · 10:00 AM",
-      images: 5,
+      id: "GB-2026-06-24-03",
+      title: "Above-the-Line vs Below-the-Line",
+      caption: "A plain-English film budgeting explainer built for saves and shares.",
+      status: "awaiting images",
+      pillar: "Budget School",
+      scheduled: "Wed, Jun 24 · 12:00 PM ET",
+      images: 6,
     },
     {
-      id: "gar-03",
-      title: "Why I Built Gary Budgets",
-      caption: "I almost quit filmmaking because of a spreadsheet. So I built a budgeting tool that feels like a film set, not a CPA office.",
-      status: "draft",
-      pillar: "Behind the Build",
-      scheduled: "Fri, Jun 26 · 10:00 AM",
-      images: 5,
+      id: "GB-2026-06-25-04",
+      title: "Industry Trend: Tax Incentives Are Budget Strategy",
+      caption: "A timely industry-style explainer about why incentives matter for indie film budgets.",
+      status: "awaiting images",
+      pillar: "Industry Watch",
+      scheduled: "Thu, Jun 25 · 9:00 AM ET",
+      images: 6,
     },
   ]
 
@@ -752,6 +755,7 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
     "Budget School": "#4a9eff",
     "One-Time Revolution": "#ffb347",
     "Behind the Build": "#b44aff",
+    "Industry Watch": "#ef4444",
   }
 
   return (
@@ -764,9 +768,9 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
                 style={{ background: `${pillarColors[item.pillar] || "#666"}20`, color: pillarColors[item.pillar] || "#666" }}>
                 {item.pillar}
               </span>
-              {item.images && (
+              {(item.images || item.slides?.length) && (
                 <span className="text-[9px] text-text-muted">
-                  <Image size={10} className="inline mr-0.5" />{item.images} slides
+                  <Image size={10} className="inline mr-0.5" />{item.images || item.slides?.length} slides
                 </span>
               )}
             </div>
@@ -797,7 +801,7 @@ export default function Dashboard() {
   const [data, setData] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [activeTab, setActiveTab] = useState("overview")
+  const [activeTab, setActiveTab] = useState("calendar")
 
   const fetchData = async () => {
     setLoading(true)
