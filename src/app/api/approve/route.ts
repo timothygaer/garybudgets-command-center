@@ -1,5 +1,5 @@
 // API route for approving posts
-// Writes to /tmp/manifest.json (the only writable location on Vercel)
+// Triggers publishing or scheduling based on the post's proposed_schedule
 import { readFile, writeFile, copyFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
@@ -7,52 +7,102 @@ import { join } from "path"
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
 
-async function ensureWritableManifest(): Promise<string> {
-  // If /tmp version exists, use it (it may have been updated by a previous approval)
+async function ensureWritableManifest(): Promise<any> {
   if (existsSync(WRITABLE_PATH)) {
-    return WRITABLE_PATH
+    const content = await readFile(WRITABLE_PATH, "utf-8")
+    return { manifest: JSON.parse(content), path: WRITABLE_PATH }
   }
-  // Copy the git repo version to /tmp
   if (existsSync(SRC_PATH)) {
     await copyFile(SRC_PATH, WRITABLE_PATH)
-    return WRITABLE_PATH
+    const content = await readFile(WRITABLE_PATH, "utf-8")
+    return { manifest: JSON.parse(content), path: WRITABLE_PATH }
   }
-  throw new Error("No manifest.json found in repo")
+  throw new Error("No manifest.json found")
+}
+
+async function saveManifest(manifest: any, path: string) {
+  await writeFile(path, JSON.stringify(manifest, null, 2))
 }
 
 export async function POST(request: Request) {
   try {
     const { post_id } = await request.json()
-
     if (!post_id) {
       return Response.json({ error: "post_id required" }, { status: 400 })
     }
 
-    const manifestPath = await ensureWritableManifest()
-    const content = await readFile(manifestPath, "utf-8")
-    const manifest = JSON.parse(content)
-
-    // Find the post
+    const { manifest, path } = await ensureWritableManifest()
     const postIndex = manifest.posts.findIndex((p: any) => p.id === post_id)
     if (postIndex === -1) {
       return Response.json({ error: `Post ${post_id} not found` }, { status: 404 })
     }
 
     const post = manifest.posts[postIndex]
+    const schedule = post.proposed_schedule || post.original_schedule
 
-    // Set approved status
+    // Mark as approved
     manifest.posts[postIndex].status = "approved"
     manifest.posts[postIndex].approved_at = new Date().toISOString()
+    await saveManifest(manifest, path)
 
-    // Write to writable /tmp
-    await writeFile(manifestPath, JSON.stringify(manifest, null, 2))
+    // Check if this post is marked for immediate publish
+    const isImmediate = post.proposed_schedule === "Immediate on approval" || 
+                        post.original_schedule === "Immediate on approval"
 
+    if (isImmediate) {
+      // Post 1 - publish immediately via the publish API
+      try {
+        const publishUrl = `https://${request.headers.get("host") || "garybudgets-command-center.vercel.app"}/api/publish`
+        const publishResp = await fetch(publishUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            caption: post.caption + "\n\n" + post.hashtags,
+            image_urls: post.image_urls,
+            post_id: post.id,
+          }),
+        })
+        const publishResult = await publishResp.json()
+        
+        if (publishResult.success || publishResult.media_id) {
+          manifest.posts[postIndex].status = "posted"
+          manifest.posts[postIndex].posted_at = new Date().toISOString()
+          manifest.posts[postIndex].instagram_url = publishResult.permalink || `https://www.instagram.com/p/${publishResult.media_id}/`
+          manifest.posts[postIndex].instagram_media_id = publishResult.media_id
+          await saveManifest(manifest, path)
+          
+          return Response.json({
+            success: true,
+            message: `"${post.title}" posted immediately`,
+            post_id,
+            posted: true,
+            instagram_url: manifest.posts[postIndex].instagram_url,
+          })
+        } else {
+          return Response.json({
+            success: true,
+            message: `"${post.title}" approved but publish failed: ${publishResult.error || "unknown"}`,
+            post_id,
+          })
+        }
+      } catch (publishErr: any) {
+        return Response.json({
+          success: true,
+          message: `"${post.title}" approved but publish call failed: ${publishErr.message}`,
+          post_id,
+        })
+      }
+    }
+
+    // Scheduled post — just mark approved
     return Response.json({
       success: true,
-      message: `"${post.title}" approved`,
+      message: `"${post.title}" approved and scheduled for ${schedule}`,
       post_id,
-      scheduled_for: post.proposed_schedule || post.original_schedule,
+      scheduled_for: schedule,
+      posted: false,
     })
+
   } catch (err: any) {
     return Response.json({ error: err.message }, { status: 500 })
   }
