@@ -10,7 +10,7 @@ import {
   BarChart3, Calendar, Send, Plus, RefreshCw, TrendingUp,
   Clock, Image, ArrowUp, ArrowDown, Activity, Search,
   Hash, Lightbulb, ChevronDown, ChevronUp, ExternalLink,
-  MessageCircle, Target, Zap,
+  MessageCircle, Target, Zap, CheckCheck,
 } from "lucide-react"
 
 // ---------- Types ----------
@@ -695,60 +695,91 @@ function ComposeTab({ onPublish }: { onPublish: (caption: string, file: File | n
   )
 }
 
+// ---------- Slide Carousel Preview ----------
+function SlidePreview({ slides, fileIds }: { slides: any[]; fileIds: string[] }) {
+  const [expanded, setExpanded] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  if (!slides || slides.length === 0) return null
+
+  const previewSlides = slides.slice(0, 3)
+  const hasMore = slides.length > 3
+
+  return (
+    <>
+      {!expanded ? (
+        <div className="flex gap-1.5 mt-2 cursor-pointer" onClick={() => setExpanded(true)}>
+          {previewSlides.map((slide: any, i: number) => (
+            <div key={i} className="relative w-14 h-20 rounded overflow-hidden border border-white/10 flex-shrink-0 group">
+              <img
+                src={`https://drive.google.com/thumbnail?id=${fileIds[i]}&sz=w200`}
+                alt={slide.heading}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-end p-0.5">
+                <span className="text-[7px] bg-black/70 text-white px-0.5 rounded truncate w-full">
+                  {slide.slide}
+                </span>
+              </div>
+            </div>
+          ))}
+          {hasMore && (
+            <div className="w-14 h-20 rounded border border-white/10 flex items-center justify-center bg-surface-3 flex-shrink-0 cursor-pointer">
+              <span className="text-[10px] text-text-muted">+{slides.length - 3}</span>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="mt-2">
+          <div className="flex gap-2 overflow-x-auto pb-2">
+            {slides.map((slide: any, i: number) => (
+              <div key={i} className="flex-shrink-0">
+                <img
+                  src={`https://drive.google.com/thumbnail?id=${fileIds[i]}&sz=w200`}
+                  alt={slide.heading}
+                  className="w-24 h-32 object-cover rounded border border-white/10"
+                  loading="lazy"
+                />
+                <span className="text-[9px] text-text-muted block mt-0.5 text-center">
+                  {slide.heading}
+                </span>
+              </div>
+            ))}
+          </div>
+          <button
+            className="text-[10px] text-accent-blue mt-1 hover:underline"
+            onClick={() => setExpanded(false)}
+          >
+            Collapse
+          </button>
+        </div>
+      )}
+    </>
+  )
+}
+
 // ---------- Queue Tab ----------
 function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | null) => void }) {
   const [queue, setQueue] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [approving, setApproving] = useState<string | null>(null)
 
-  useEffect(() => {
+  const loadQueue = () => {
+    setLoading(true)
     fetch("/api/queue")
       .then((r) => r.json())
-      .then((d) => setQueue(d.posts || d.queue || []))
+      .then((d) => {
+        const q = d.queue || d.posts || []
+        setQueue(q)
+      })
       .catch(() => {})
       .finally(() => setLoading(false))
+  }
+
+  useEffect(() => {
+    loadQueue()
   }, [])
-
-  // If no queue from API, show the planned posts
-  const plannedPosts = [
-    {
-      id: "GB-2026-06-22-01",
-      title: "Your $50K Film Is Not a $50K Film",
-      caption: "A warning-style carousel showing hidden costs that make indie budgets explode before production starts.",
-      status: "awaiting images",
-      pillar: "Budget School",
-      scheduled: "Mon, Jun 22 · 7:00 PM ET",
-      images: 6,
-    },
-    {
-      id: "GB-2026-06-23-02",
-      title: "5 Budget Lines Indie Producers Forget",
-      caption: "A saveable checklist carousel covering the line items most first-time producers miss.",
-      status: "awaiting images",
-      pillar: "Budget School",
-      scheduled: "Tue, Jun 23 · 7:00 PM ET",
-      images: 6,
-    },
-    {
-      id: "GB-2026-06-24-03",
-      title: "Above-the-Line vs Below-the-Line",
-      caption: "A plain-English film budgeting explainer built for saves and shares.",
-      status: "awaiting images",
-      pillar: "Budget School",
-      scheduled: "Wed, Jun 24 · 12:00 PM ET",
-      images: 6,
-    },
-    {
-      id: "GB-2026-06-25-04",
-      title: "Industry Trend: Tax Incentives Are Budget Strategy",
-      caption: "A timely industry-style explainer about why incentives matter for indie film budgets.",
-      status: "awaiting images",
-      pillar: "Industry Watch",
-      scheduled: "Thu, Jun 25 · 9:00 AM ET",
-      images: 6,
-    },
-  ]
-
-  const displayQueue = queue.length > 0 ? queue : plannedPosts
 
   const pillarColors: Record<string, string> = {
     "Launch Campaign": "#ef4444",
@@ -758,40 +789,135 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
     "Industry Watch": "#ef4444",
   }
 
+  const statusConfig: Record<string, { label: string; color: string; bg: string }> = {
+    "awaiting_images": { label: "Awaiting Images", color: "#f59e0b", bg: "bg-amber-900/20" },
+    "awaiting_image": { label: "Awaiting Images", color: "#f59e0b", bg: "bg-amber-900/20" },
+    "ready": { label: "Ready", color: "#22c55e", bg: "bg-green-900/20" },
+    "approved": { label: "Approved", color: "#3b82f6", bg: "bg-blue-900/20" },
+    "draft": { label: "Draft", color: "#6b7280", bg: "bg-surface-3" },
+    "posted": { label: "Posted", color: "#8b5cf6", bg: "bg-purple-900/20" },
+    "scheduled": { label: "Scheduled", color: "#06b6d4", bg: "bg-cyan-900/20" },
+  }
+
+  const getStatus = (status: string) => statusConfig[status] || statusConfig.draft
+
+  const handleApprove = async (item: any) => {
+    setApproving(item.id)
+    try {
+      const r = await fetch("/api/approve", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ post_id: item.id }),
+      })
+      const data = await r.json()
+      if (data.success) {
+        loadQueue()
+      } else {
+        alert("Failed to approve: " + (data.error || "Unknown error"))
+      }
+    } catch (err: any) {
+      alert("Failed to approve: " + err.message)
+    } finally {
+      setApproving(null)
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="text-text-muted text-sm">Loading queue...</div>
+      </div>
+    )
+  }
+
+  if (queue.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <div className="text-text-muted text-sm mb-2">No posts in the queue</div>
+        <div className="text-xs text-text-muted/60">Generate weekly content to see posts here.</div>
+      </div>
+    )
+  }
+
   return (
-    <div className="space-y-3">
-      {displayQueue.map((item: any, i: number) => (
-        <div key={item.id || i} className="neon-panel flex items-center gap-4">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-[10px] px-1.5 py-0.5 rounded font-medium"
-                style={{ background: `${pillarColors[item.pillar] || "#666"}20`, color: pillarColors[item.pillar] || "#666" }}>
-                {item.pillar}
-              </span>
-              {(item.images || item.slides?.length) && (
-                <span className="text-[9px] text-text-muted">
-                  <Image size={10} className="inline mr-0.5" />{item.images || item.slides?.length} slides
-                </span>
+    <div className="space-y-4">
+      {queue.map((item: any, i: number) => {
+        const st = getStatus(item.status || "draft")
+
+        return (
+          <div key={item.id || i} className="neon-panel">
+            <div className="flex items-start gap-4">
+              {/* Slide thumbnails */}
+              {item.slidePreviews && item.slidePreviews.length > 0 && (
+                <div className="flex-shrink-0 hidden sm:flex flex-col gap-1">
+                  {item.slidePreviews.slice(0, 6).map((sp: any, si: number) => (
+                    <img
+                      key={si}
+                      src={sp.thumbnail}
+                      alt={sp.heading}
+                      className="w-10 h-14 object-cover rounded border border-white/10"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
               )}
-            </div>
-            <h4 className="text-sm font-semibold text-gray-200">{item.title}</h4>
-            <p className="text-xs text-text-muted line-clamp-1 mt-0.5">{item.caption}</p>
-            <div className="flex items-center gap-3 text-[10px] text-text-muted mt-1">
-              <span className="flex items-center gap-1"><Calendar size={10} />{item.scheduled}</span>
+
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded font-medium"
+                    style={{ background: `${pillarColors[item.pillar] || "#666"}20`, color: pillarColors[item.pillar] || "#666" }}>
+                    {item.pillar}
+                  </span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded font-medium ${st.bg}`}
+                    style={{ color: st.color }}>
+                    {st.label}
+                  </span>
+                  {(item.slide_count || item.slides?.length) && (
+                    <span className="text-[9px] text-text-muted">
+                      <Image size={10} className="inline mr-0.5" />{item.slide_count || item.slides?.length} slides
+                    </span>
+                  )}
+                </div>
+                <h4 className="text-sm font-semibold text-gray-200">{item.title}</h4>
+                <p className="text-xs text-text-muted line-clamp-2 mt-0.5">{item.caption}</p>
+                <div className="flex items-center gap-3 text-[10px] text-text-muted mt-1">
+                  <span className="flex items-center gap-1"><Calendar size={10} />{item.original_schedule || item.scheduled}</span>
+                </div>
+
+                {/* Slide carousel preview inline */}
+                {item.slidePreviews && (
+                  <SlidePreview
+                    slides={item.slides || item.slidePreviews.map((sp: any) => ({ slide: sp.slide, heading: sp.heading }))}
+                    fileIds={item.slidePreviews.map((sp: any) => sp.file_id)}
+                  />
+                )}
+              </div>
+
+              <div className="flex flex-col items-end gap-2 flex-shrink-0 ml-2">
+                {(item.status === "ready" || item.status === "awaiting_images" || item.status === "awaiting_image") && (
+                  <button
+                    className="btn-primary text-xs py-1.5 px-3"
+                    onClick={() => handleApprove(item)}
+                    disabled={approving === item.id}
+                  >
+                    {approving === item.id ? "Scheduling..." : "Approve & Schedule"}
+                  </button>
+                )}
+                {item.status === "approved" && (
+                  <span className="text-[10px] text-blue-400 font-medium flex items-center gap-1">
+                    <Clock size={10} /> Scheduled
+                  </span>
+                )}
+                {item.status === "posted" && (
+                  <span className="text-[10px] text-purple-400 font-medium flex items-center gap-1">
+                    <CheckCheck size={10} /> Posted
+                  </span>
+                )}
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <span className={`text-[10px] px-2 py-1 rounded font-medium ${
-              item.status === "ready" ? "bg-green-900/30 text-green-400" : "bg-surface-3 text-text-muted"
-            }`}>
-              {item.status === "ready" ? "Ready" : "Draft"}
-            </span>
-            <button className="btn-primary text-xs py-1.5 px-3" disabled={item.status !== "ready"}>
-              <Send size={11} className="inline mr-1" /> Publish
-            </button>
-          </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }
