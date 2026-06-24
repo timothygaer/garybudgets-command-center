@@ -695,76 +695,37 @@ function ComposeTab({ onPublish }: { onPublish: (caption: string, file: File | n
   )
 }
 
-// ---------- Slide Carousel Preview ----------
+// ---------- Slide Preview (all 6 images, always visible, larger) ----------
 function SlidePreview({ slides }: { slides: any[] }) {
-  const [expanded, setExpanded] = useState(false)
-
   if (!slides || slides.length === 0) return null
 
-  const previewSlides = slides.slice(0, 3)
-  const hasMore = slides.length > 3
-
   return (
-    <>
-      {!expanded ? (
-        <div className="flex gap-2 mt-3 cursor-pointer" onClick={() => setExpanded(true)}>
-          {previewSlides.map((slide: any, i: number) => (
-            <div key={i} className="relative w-[100px] h-[133px] rounded-lg overflow-hidden border border-white/10 flex-shrink-0 group bg-surface-3">
-              {slide.image_url ? (
-                <img
-                  src={slide.image_url}
-                  alt={slide.heading}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <Image size={20} className="text-text-muted/40" />
-                </div>
-              )}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-1">
-                <span className="text-[9px] text-white font-medium">{slide.slide}. {slide.heading}</span>
-              </div>
-            </div>
-          ))}
-          {hasMore && (
-            <div className="w-[100px] h-[133px] rounded-lg border border-white/10 flex items-center justify-center bg-surface-3 flex-shrink-0 cursor-pointer">
-              <span className="text-sm text-text-muted">+{slides.length - 3}</span>
-            </div>
-          )}
-        </div>
-      ) : (
-        <div className="mt-3">
-          <div className="flex gap-3 overflow-x-auto pb-3">
-            {slides.map((slide: any, i: number) => (
-              <div key={i} className="flex-shrink-0">
-                {slide.image_url ? (
-                  <img
-                    src={slide.image_url}
-                    alt={slide.heading}
-                    className="w-[140px] h-[187px] object-cover rounded-lg border border-white/10"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="w-[140px] h-[187px] rounded-lg border border-white/10 flex items-center justify-center bg-surface-3">
-                    <Image size={30} className="text-text-muted/40" />
-                  </div>
-                )}
-                <span className="text-[10px] text-text-muted block mt-1 text-center">
-                  {slide.slide}. {slide.heading}
-                </span>
-              </div>
-            ))}
+    <div className="flex gap-3 overflow-x-auto pb-2 mt-2">
+      {slides.map((slide: any, i: number) => (
+        <div key={i} className="flex-shrink-0">
+          {slide.image_url ? (
+            <img
+              src={slide.image_url}
+              alt={slide.heading}
+              className="w-[140px] h-[187px] object-cover rounded-lg border border-white/10"
+              loading="lazy"
+              onError={(e) => {
+                // Fallback if image fails to load
+                (e.target as HTMLImageElement).style.display = 'none';
+                (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+          ) : null}
+          {/* Fallback placeholder, hidden by default */}
+          <div className="w-[140px] h-[187px] rounded-lg border border-white/10 flex items-center justify-center bg-surface-3 hidden">
+            <Image size={30} className="text-text-muted/40" />
           </div>
-          <button
-            className="text-[10px] text-accent-blue mt-1 hover:underline"
-            onClick={() => setExpanded(false)}
-          >
-            Collapse
-          </button>
+          <span className="text-[10px] text-text-muted block mt-1 text-center max-w-[140px] truncate">
+            {slide.slide}. {slide.heading}
+          </span>
         </div>
-      )}
-    </>
+      ))}
+    </div>
   )
 }
 
