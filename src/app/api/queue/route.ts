@@ -1,12 +1,15 @@
 // Serve the manifest file as the queue
+// Tries multiple locations: git repo path, then /tmp fallback
 import { readFile } from "fs/promises"
 import { existsSync } from "fs"
+import { join } from "path"
 
-const MANIFEST_PATH = "/Users/dit/workspace/garybudgets-command-center/manifest.json"
+// On Vercel, the project root is where the app code lives
+const VERIFIED_PATH = join(process.cwd(), "manifest.json")
 const FALLBACK_PATH = "/tmp/gb-posts/manifest.json"
 
 export async function GET() {
-  let manifestPath = MANIFEST_PATH
+  let manifestPath = VERIFIED_PATH
 
   if (!existsSync(manifestPath)) {
     manifestPath = FALLBACK_PATH
@@ -25,20 +28,16 @@ export async function GET() {
 
     // Add Drive thumbnail URLs for each image
     const postsWithPreviews = manifest.posts.map((post: any) => {
-      const slidePreviews = post.image_file_ids.map((fileId: string, i: number) => {
-        // Google Drive thumbnail URL format
-        return {
-          slide: i + 1,
-          file_id: fileId,
-          thumbnail: `https://drive.google.com/thumbnail?id=${fileId}&sz=w400`,
-          name: post.image_file_names?.[i] || "",
-          heading: post.slides?.[i]?.heading || `Slide ${i + 1}`,
-        }
-      })
+      const slidePreviews = (post.image_file_ids || []).map((fileId: string, i: number) => ({
+        slide: i + 1,
+        file_id: fileId,
+        thumbnail: `https://drive.google.com/thumbnail?id=${fileId}&sz=w400`,
+        name: post.image_file_names?.[i] || "",
+        heading: post.slides?.[i]?.heading || `Slide ${i + 1}`,
+      }))
       return {
         ...post,
         slidePreviews,
-        // Remove raw file IDs from top level to avoid bloat
         image_file_ids: undefined,
         image_file_names: undefined,
       }
