@@ -696,9 +696,8 @@ function ComposeTab({ onPublish }: { onPublish: (caption: string, file: File | n
 }
 
 // ---------- Slide Carousel Preview ----------
-function SlidePreview({ slides, fileIds }: { slides: any[]; fileIds: string[] }) {
+function SlidePreview({ slides }: { slides: any[] }) {
   const [expanded, setExpanded] = useState(false)
-  const [currentSlide, setCurrentSlide] = useState(0)
 
   if (!slides || slides.length === 0) return null
 
@@ -708,41 +707,51 @@ function SlidePreview({ slides, fileIds }: { slides: any[]; fileIds: string[] })
   return (
     <>
       {!expanded ? (
-        <div className="flex gap-1.5 mt-2 cursor-pointer" onClick={() => setExpanded(true)}>
+        <div className="flex gap-2 mt-3 cursor-pointer" onClick={() => setExpanded(true)}>
           {previewSlides.map((slide: any, i: number) => (
-            <div key={i} className="relative w-14 h-20 rounded overflow-hidden border border-white/10 flex-shrink-0 group">
-              <img
-                src={`https://drive.google.com/thumbnail?id=${fileIds[i]}&sz=w200`}
-                alt={slide.heading}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 flex items-end p-0.5">
-                <span className="text-[7px] bg-black/70 text-white px-0.5 rounded truncate w-full">
-                  {slide.slide}
-                </span>
+            <div key={i} className="relative w-[100px] h-[133px] rounded-lg overflow-hidden border border-white/10 flex-shrink-0 group bg-surface-3">
+              {slide.image_url ? (
+                <img
+                  src={slide.image_url}
+                  alt={slide.heading}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <Image size={20} className="text-text-muted/40" />
+                </div>
+              )}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-1">
+                <span className="text-[9px] text-white font-medium">{slide.slide}. {slide.heading}</span>
               </div>
             </div>
           ))}
           {hasMore && (
-            <div className="w-14 h-20 rounded border border-white/10 flex items-center justify-center bg-surface-3 flex-shrink-0 cursor-pointer">
-              <span className="text-[10px] text-text-muted">+{slides.length - 3}</span>
+            <div className="w-[100px] h-[133px] rounded-lg border border-white/10 flex items-center justify-center bg-surface-3 flex-shrink-0 cursor-pointer">
+              <span className="text-sm text-text-muted">+{slides.length - 3}</span>
             </div>
           )}
         </div>
       ) : (
-        <div className="mt-2">
-          <div className="flex gap-2 overflow-x-auto pb-2">
+        <div className="mt-3">
+          <div className="flex gap-3 overflow-x-auto pb-3">
             {slides.map((slide: any, i: number) => (
               <div key={i} className="flex-shrink-0">
-                <img
-                  src={`https://drive.google.com/thumbnail?id=${fileIds[i]}&sz=w200`}
-                  alt={slide.heading}
-                  className="w-24 h-32 object-cover rounded border border-white/10"
-                  loading="lazy"
-                />
-                <span className="text-[9px] text-text-muted block mt-0.5 text-center">
-                  {slide.heading}
+                {slide.image_url ? (
+                  <img
+                    src={slide.image_url}
+                    alt={slide.heading}
+                    className="w-[140px] h-[187px] object-cover rounded-lg border border-white/10"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-[140px] h-[187px] rounded-lg border border-white/10 flex items-center justify-center bg-surface-3">
+                    <Image size={30} className="text-text-muted/40" />
+                  </div>
+                )}
+                <span className="text-[10px] text-text-muted block mt-1 text-center">
+                  {slide.slide}. {slide.heading}
                 </span>
               </div>
             ))}
@@ -793,9 +802,9 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
     "awaiting_images": { label: "Awaiting Images", color: "#f59e0b", bg: "bg-amber-900/20" },
     "awaiting_image": { label: "Awaiting Images", color: "#f59e0b", bg: "bg-amber-900/20" },
     "ready": { label: "Ready", color: "#22c55e", bg: "bg-green-900/20" },
-    "approved": { label: "Approved", color: "#3b82f6", bg: "bg-blue-900/20" },
+    "approved": { label: "Approved ✓", color: "#3b82f6", bg: "bg-blue-900/20" },
     "draft": { label: "Draft", color: "#6b7280", bg: "bg-surface-3" },
-    "posted": { label: "Posted", color: "#8b5cf6", bg: "bg-purple-900/20" },
+    "posted": { label: "Posted ✓", color: "#8b5cf6", bg: "bg-purple-900/20" },
     "scheduled": { label: "Scheduled", color: "#06b6d4", bg: "bg-cyan-900/20" },
   }
 
@@ -840,28 +849,15 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {queue.map((item: any, i: number) => {
         const st = getStatus(item.status || "draft")
+        const scheduleLabel = item.proposed_schedule || item.original_schedule || item.scheduled
 
         return (
-          <div key={item.id || i} className="neon-panel">
-            <div className="flex items-start gap-4">
-              {/* Slide thumbnails */}
-              {item.slidePreviews && item.slidePreviews.length > 0 && (
-                <div className="flex-shrink-0 hidden sm:flex flex-col gap-1">
-                  {item.slidePreviews.slice(0, 6).map((sp: any, si: number) => (
-                    <img
-                      key={si}
-                      src={sp.thumbnail}
-                      alt={sp.heading}
-                      className="w-10 h-14 object-cover rounded border border-white/10"
-                      loading="lazy"
-                    />
-                  ))}
-                </div>
-              )}
-
+          <div key={item.id || i} className="neon-panel p-5">
+            {/* Header row */}
+            <div className="flex items-start justify-between gap-4 mb-3">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-[10px] px-1.5 py-0.5 rounded font-medium"
@@ -872,31 +868,18 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
                     style={{ color: st.color }}>
                     {st.label}
                   </span>
-                  {(item.slide_count || item.slides?.length) && (
-                    <span className="text-[9px] text-text-muted">
-                      <Image size={10} className="inline mr-0.5" />{item.slide_count || item.slides?.length} slides
-                    </span>
-                  )}
+                  <span className="text-[9px] text-text-muted">
+                    <Image size={10} className="inline mr-0.5" />{item.slide_count || item.slides?.length || 0} slides
+                  </span>
                 </div>
-                <h4 className="text-sm font-semibold text-gray-200">{item.title}</h4>
-                <p className="text-xs text-text-muted line-clamp-2 mt-0.5">{item.caption}</p>
-                <div className="flex items-center gap-3 text-[10px] text-text-muted mt-1">
-                  <span className="flex items-center gap-1"><Calendar size={10} />{item.original_schedule || item.scheduled}</span>
-                </div>
-
-                {/* Slide carousel preview inline */}
-                {item.slidePreviews && (
-                  <SlidePreview
-                    slides={item.slides || item.slidePreviews.map((sp: any) => ({ slide: sp.slide, heading: sp.heading }))}
-                    fileIds={item.slidePreviews.map((sp: any) => sp.file_id)}
-                  />
-                )}
+                <h2 className="text-base font-semibold text-gray-100">{item.title}</h2>
               </div>
 
-              <div className="flex flex-col items-end gap-2 flex-shrink-0 ml-2">
+              {/* Action area */}
+              <div className="flex flex-col items-end gap-2 flex-shrink-0">
                 {(item.status === "ready" || item.status === "awaiting_images" || item.status === "awaiting_image") && (
                   <button
-                    className="btn-primary text-xs py-1.5 px-3"
+                    className="bg-accent-blue text-black text-xs font-semibold py-2 px-4 rounded-lg hover:bg-blue-400 transition disabled:opacity-50"
                     onClick={() => handleApprove(item)}
                     disabled={approving === item.id}
                   >
@@ -904,17 +887,60 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
                   </button>
                 )}
                 {item.status === "approved" && (
-                  <span className="text-[10px] text-blue-400 font-medium flex items-center gap-1">
-                    <Clock size={10} /> Scheduled
+                  <span className="text-[11px] text-blue-400 font-medium flex items-center gap-1">
+                    <Clock size={12} /> Scheduled
                   </span>
                 )}
                 {item.status === "posted" && (
-                  <span className="text-[10px] text-purple-400 font-medium flex items-center gap-1">
-                    <CheckCheck size={10} /> Posted
+                  <span className="text-[11px] text-purple-400 font-medium flex items-center gap-1">
+                    <CheckCheck size={12} /> Posted
                   </span>
                 )}
               </div>
             </div>
+
+            {/* Schedule info */}
+            <div className="flex items-center gap-2 text-[11px] text-text-muted mb-3">
+              <Calendar size={11} />
+              {item.status === "awaiting_images" && item.proposed_schedule ? (
+                <span>Approves to: <span className="text-gray-300 font-medium">{scheduleLabel}</span></span>
+              ) : (
+                <span>{scheduleLabel}</span>
+              )}
+            </div>
+
+            {/* Caption preview */}
+            {item.caption && (
+              <div className="mb-3">
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Caption</div>
+                <p className="text-xs text-gray-300 line-clamp-3 leading-relaxed">{item.caption}</p>
+              </div>
+            )}
+
+            {/* Hashtags */}
+            {item.hashtags && (
+              <div className="mb-3">
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Hashtags</div>
+                <p className="text-[10px] text-accent-blue/80">{item.hashtags}</p>
+              </div>
+            )}
+
+            {/* Slide previews */}
+            {item.slidePreviews && item.slidePreviews.length > 0 && (
+              <div>
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Slides</div>
+                <SlidePreview slides={item.slidePreviews} />
+              </div>
+            )}
+
+            {/* Posted info */}
+            {item.status === "posted" && item.instagram_url && (
+              <div className="mt-2 text-[10px] text-text-muted">
+                Posted: <a href={item.instagram_url} target="_blank" rel="noopener noreferrer" className="text-accent-blue hover:underline">
+                  View on Instagram ↗
+                </a>
+              </div>
+            )}
           </div>
         )
       })}

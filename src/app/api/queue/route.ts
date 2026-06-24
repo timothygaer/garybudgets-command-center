@@ -1,10 +1,8 @@
-// Serve the manifest file as the queue
-// Tries multiple locations: git repo path, then /tmp fallback
+// Serve the manifest file as the queue with image URLs and full post details
 import { readFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
 
-// On Vercel, the project root is where the app code lives
 const VERIFIED_PATH = join(process.cwd(), "manifest.json")
 const FALLBACK_PATH = "/tmp/gb-posts/manifest.json"
 
@@ -26,20 +24,25 @@ export async function GET() {
     const content = await readFile(manifestPath, "utf-8")
     const manifest = JSON.parse(content)
 
-    // Add Drive thumbnail URLs for each image
+    // Build slide previews using the public catbox URLs
     const postsWithPreviews = manifest.posts.map((post: any) => {
-      const slidePreviews = (post.image_file_ids || []).map((fileId: string, i: number) => ({
-        slide: i + 1,
-        file_id: fileId,
-        thumbnail: `https://drive.google.com/thumbnail?id=${fileId}&sz=w400`,
-        name: post.image_file_names?.[i] || "",
-        heading: post.slides?.[i]?.heading || `Slide ${i + 1}`,
+      const urls = post.image_urls || []
+      const slidePreviews = (post.slides || []).map((slide: any, i: number) => ({
+        slide: slide.slide,
+        heading: slide.heading,
+        prompt_summary: slide.prompt_summary,
+        image_url: urls[i] || "",
+        file_id: post.image_file_ids?.[i] || "",
       }))
+
       return {
         ...post,
         slidePreviews,
+        // Clean up internal fields
         image_file_ids: undefined,
         image_file_names: undefined,
+        drive_assets_folder_id: undefined,
+        drive_post_folder_id: undefined,
       }
     })
 
@@ -48,7 +51,7 @@ export async function GET() {
       week: manifest.week_start,
       week_folder_id: manifest.week_folder_id,
     })
-  } catch {
+  } catch (err) {
     return Response.json({ queue: [], message: "Could not parse manifest" })
   }
 }
