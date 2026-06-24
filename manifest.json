@@ -14,25 +14,66 @@
       "caption": "Your $50K film is not a $50K film if the boring lines are missing.\n\nMost indie budgets remember the camera. They forget the costs that keep the production alive: insurance, payroll/fringes, meals, permits, data, post, delivery, and contingency.\n\nBefore you ask for money, build the boring lines first. They save the shoot.\n\nSave this before your next budget pass.",
       "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #filmfinance #indiefilmmaker #producerlife #budgetingtips #shortfilm",
       "slides": [
-        {"slide": 1, "heading": "Hook", "prompt_summary": "Production office at night, laptop spreadsheet, text: YOUR $50K FILM IS NOT A $50K FILM"},
-        {"slide": 2, "heading": "Gear is only the obvious cost", "prompt_summary": "Camera gear overhead, text: GEAR IS THE OBVIOUS COST"},
-        {"slide": 3, "heading": "The missing lines", "prompt_summary": "Budget spreadsheet with circled items, text: THE MISSING LINES"},
-        {"slide": 4, "heading": "Contingency is survival", "prompt_summary": "Producer desk emergency notes, text: CONTINGENCY IS NOT PADDING"},
-        {"slide": 5, "heading": "Budget before asking for money", "prompt_summary": "Investor packet desk, text: BUILD THE BORING LINES FIRST"},
-        {"slide": 6, "heading": "CTA", "prompt_summary": "Dark end card, text: SAVE THIS BEFORE YOUR NEXT BUDGET PASS"}
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Production office at night, laptop spreadsheet, text: YOUR $50K FILM IS NOT A $50K FILM"
+        },
+        {
+          "slide": 2,
+          "heading": "Gear is only the obvious cost",
+          "prompt_summary": "Camera gear overhead, text: GEAR IS THE OBVIOUS COST"
+        },
+        {
+          "slide": 3,
+          "heading": "The missing lines",
+          "prompt_summary": "Budget spreadsheet with circled items, text: THE MISSING LINES"
+        },
+        {
+          "slide": 4,
+          "heading": "Contingency is survival",
+          "prompt_summary": "Producer desk emergency notes, text: CONTINGENCY IS NOT PADDING"
+        },
+        {
+          "slide": 5,
+          "heading": "Budget before asking for money",
+          "prompt_summary": "Investor packet desk, text: BUILD THE BORING LINES FIRST"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Dark end card, text: SAVE THIS BEFORE YOUR NEXT BUDGET PASS"
+        }
       ],
       "status": "posted",
       "posted_at": "2026-06-24T06:00:10+0000",
       "instagram_url": "https://www.instagram.com/p/DZ9TFDcFBA_/",
       "instagram_media_id": "18081082352217490",
       "image_urls": [
-        "https://files.catbox.moe/fozuqe.png",
         "https://files.catbox.moe/usehqc.png",
-        "https://files.catbox.moe/345ajq.png",
-        "https://files.catbox.moe/6nau33.png",
         "https://files.catbox.moe/s3z43u.png",
-        "https://files.catbox.moe/3uate0.png"
-      ]
+        "https://files.catbox.moe/fozuqe.png",
+        "https://files.catbox.moe/6nau33.png",
+        "https://files.catbox.moe/3uate0.png",
+        "https://files.catbox.moe/345ajq.png"
+      ],
+      "image_file_ids": [
+        "1SQJtvgf7Ob3glOFMUdzc49pm0DsajEbn",
+        "1UGibiYfGfLTRy2DJ-z1b4h-u6VxjVCDf",
+        "177qKPMm1Fcn3sfKlZKdhl99YU_9_WmKr",
+        "1rwDQ0wgUNKuptuvQm_fwtNtTajDFMjIT",
+        "1my0MdrJwWdgjuZY8OUpp8FNRVLFUgy7F",
+        "1QrDQpFKN8hVtebVykO1eapAVs4-XDqmt"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "drive_order_source": "Google Drive numeric filenames 1.png-6.png"
     },
     {
       "id": "GB-2026-06-23-02",
@@ -45,22 +86,63 @@
       "caption": "The budget lines people forget are usually the lines that save the shoot.\n\nCamera, cast, and locations are easy to remember. But the real production pain often comes from the unglamorous stuff: meals, parking, data backups, insurance, permits, payroll/fringes, post, delivery, and contingency.\n\nIf your budget does not include these, it is not finished yet.\n\nSave this as a pre-greenlight checklist.",
       "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #lineproducer #productionbudget #indiefilmmaking #filmschool #filmtok",
       "slides": [
-        {"slide": 1, "heading": "Hook", "prompt_summary": "Producer desk, text: 5 BUDGET LINES INDIE PRODUCERS FORGET"},
-        {"slide": 2, "heading": "Meals", "prompt_summary": "Crew meal setup, text: 1. MEALS + CRAFTY"},
-        {"slide": 3, "heading": "Parking & Transport", "prompt_summary": "Urban set with vans, text: 2. PARKING + TRANSPORT"},
-        {"slide": 4, "heading": "Data", "prompt_summary": "Hard drives and DIT cart, text: 3. DATA MANAGEMENT"},
-        {"slide": 5, "heading": "Insurance, Permits, Payroll", "prompt_summary": "Paperwork stack, text: 4. INSURANCE + PERMITS + PAYROLL"},
-        {"slide": 6, "heading": "Post, Delivery, Contingency", "prompt_summary": "Post-production suite, text: 5. POST + DELIVERY + CONTINGENCY"}
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Producer desk, text: 5 BUDGET LINES INDIE PRODUCERS FORGET"
+        },
+        {
+          "slide": 2,
+          "heading": "Meals",
+          "prompt_summary": "Crew meal setup, text: 1. MEALS + CRAFTY"
+        },
+        {
+          "slide": 3,
+          "heading": "Parking & Transport",
+          "prompt_summary": "Urban set with vans, text: 2. PARKING + TRANSPORT"
+        },
+        {
+          "slide": 4,
+          "heading": "Data",
+          "prompt_summary": "Hard drives and DIT cart, text: 3. DATA MANAGEMENT"
+        },
+        {
+          "slide": 5,
+          "heading": "Insurance, Permits, Payroll",
+          "prompt_summary": "Paperwork stack, text: 4. INSURANCE + PERMITS + PAYROLL"
+        },
+        {
+          "slide": 6,
+          "heading": "Post, Delivery, Contingency",
+          "prompt_summary": "Post-production suite, text: 5. POST + DELIVERY + CONTINGENCY"
+        }
       ],
       "status": "awaiting_images",
       "image_urls": [
-        "https://files.catbox.moe/6jyub4.png",
-        "https://files.catbox.moe/5mzgkl.png",
         "https://files.catbox.moe/e5m7t9.png",
         "https://files.catbox.moe/vf5yrz.png",
+        "https://files.catbox.moe/6jyub4.png",
         "https://files.catbox.moe/22mex7.png",
+        "https://files.catbox.moe/5mzgkl.png",
         "https://files.catbox.moe/72idz4.png"
-      ]
+      ],
+      "image_file_ids": [
+        "1C_6kWLzJNJ251QLFS6nl7NqZZ2297WdQ",
+        "1bPcohXoWLm5NfzDJo3JzGR0Ilj584hKh",
+        "1ZKGMAjELgWtgHxeBZFYz88ZQFAxKqTv-",
+        "1fL97jBxNOhJtNi4yDQSUQ4oEtS3vu564",
+        "1T61RAO1bhe19fV-BX9G6Ypp3K4y1nWmo",
+        "1Tflo5Q-obxS7FEawcSlGC74l7zeTfdnH"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "drive_order_source": "Google Drive numeric filenames 1.png-6.png"
     },
     {
       "id": "GB-2026-06-24-03",
@@ -73,22 +155,63 @@
       "caption": "Above-the-line and below-the-line sound more complicated than they are.\n\nAbove-the-line is usually the major creative/package cost: producers, director, writer, principal cast, rights.\n\nBelow-the-line is the cost of actually making the thing: crew, equipment, locations, production, post, deliverables.\n\nA real budget needs both — and it needs the invisible math between them.\n\nSave this if those terms have ever made your head hurt.",
       "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #filmfinance #lineproducer #filmschool #indiefilmmaker #productionbudget",
       "slides": [
-        {"slide": 1, "heading": "Hook", "prompt_summary": "Split infographic, text: ABOVE-THE-LINE VS BELOW-THE-LINE"},
-        {"slide": 2, "heading": "Above-the-line", "prompt_summary": "Creative meeting table, text: ABOVE-THE-LINE"},
-        {"slide": 3, "heading": "Below-the-line", "prompt_summary": "Crew and gear, text: BELOW-THE-LINE"},
-        {"slide": 4, "heading": "Why it matters", "prompt_summary": "Budget top sheet split, text: WHY IT MATTERS"},
-        {"slide": 5, "heading": "The invisible math", "prompt_summary": "Spreadsheet + schedule board, text: THE INVISIBLE MATH"},
-        {"slide": 6, "heading": "CTA", "prompt_summary": "Dark end card, text: A GOOD BUDGET CONNECTS THE CREATIVE PLAN TO THE REAL PLAN"}
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Split infographic, text: ABOVE-THE-LINE VS BELOW-THE-LINE"
+        },
+        {
+          "slide": 2,
+          "heading": "Above-the-line",
+          "prompt_summary": "Creative meeting table, text: ABOVE-THE-LINE"
+        },
+        {
+          "slide": 3,
+          "heading": "Below-the-line",
+          "prompt_summary": "Crew and gear, text: BELOW-THE-LINE"
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Budget top sheet split, text: WHY IT MATTERS"
+        },
+        {
+          "slide": 5,
+          "heading": "The invisible math",
+          "prompt_summary": "Spreadsheet + schedule board, text: THE INVISIBLE MATH"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Dark end card, text: A GOOD BUDGET CONNECTS THE CREATIVE PLAN TO THE REAL PLAN"
+        }
       ],
       "status": "awaiting_images",
       "image_urls": [
-        "https://files.catbox.moe/1myx1c.png",
-        "https://files.catbox.moe/1i1x11.png",
         "https://files.catbox.moe/xzg9fu.png",
-        "https://files.catbox.moe/pd31it.png",
+        "https://files.catbox.moe/1myx1c.png",
+        "https://files.catbox.moe/ma2cr3.png",
         "https://files.catbox.moe/bm8zuu.png",
-        "https://files.catbox.moe/ma2cr3.png"
-      ]
+        "https://files.catbox.moe/1i1x11.png",
+        "https://files.catbox.moe/pd31it.png"
+      ],
+      "image_file_ids": [
+        "1ajN5dmtZ7a2S8foSjo_H7Utj7HLS0W3V",
+        "13ZRzmWTgaTzx9_nvjYTEdFjkysqSMEbO",
+        "1dd_qmFecwhlkh3936d8W6-jefaklWQmS",
+        "1VQGuBynl875rnqJR2-8237ht26aBW7wv",
+        "1H2nhaLRAlHbT22oL3__ZWb64R4ZQ3q9t",
+        "1JJhN1uamQL7yAOdQuPGydmnmbYd6mc3s"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "drive_order_source": "Google Drive numeric filenames 1.png-6.png"
     },
     {
       "id": "GB-2026-06-25-04",
@@ -101,22 +224,63 @@
       "caption": "Industry Watch: tax incentives are not just a finance detail. They can change the whole budget strategy.\n\nFor indie producers, the location question is rarely just \"where does the story happen?\"\n\nIt is also: where can we afford to make this, what qualifies, when does money come back, and what cashflow gap do we need to survive?\n\nThat is why incentives belong in the budget conversation early — not after the creative plan is already locked.\n\nSave this if you are packaging an indie feature.",
       "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #filmfinance #indiefilmmaker #filmproducer #productionbudget #producerlife",
       "slides": [
-        {"slide": 1, "heading": "Hook", "prompt_summary": "Map wall, text: TAX INCENTIVES ARE BUDGET STRATEGY"},
-        {"slide": 2, "heading": "Location is financial", "prompt_summary": "Location folders, text: LOCATION IS A FINANCIAL DECISION"},
-        {"slide": 3, "heading": "Qualified spend", "prompt_summary": "Checklist with icons, text: QUALIFIED SPEND MATTERS"},
-        {"slide": 4, "heading": "Cashflow gap", "prompt_summary": "Calendar and invoices, text: THE CASHFLOW GAP IS REAL"},
-        {"slide": 5, "heading": "Budget early", "prompt_summary": "Script and schedule board, text: BUDGET INCENTIVES EARLY"},
-        {"slide": 6, "heading": "CTA", "prompt_summary": "Dark end card, text: IF THE INCENTIVE CHANGES, THE BUDGET CHANGES"}
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Map wall, text: TAX INCENTIVES ARE BUDGET STRATEGY"
+        },
+        {
+          "slide": 2,
+          "heading": "Location is financial",
+          "prompt_summary": "Location folders, text: LOCATION IS A FINANCIAL DECISION"
+        },
+        {
+          "slide": 3,
+          "heading": "Qualified spend",
+          "prompt_summary": "Checklist with icons, text: QUALIFIED SPEND MATTERS"
+        },
+        {
+          "slide": 4,
+          "heading": "Cashflow gap",
+          "prompt_summary": "Calendar and invoices, text: THE CASHFLOW GAP IS REAL"
+        },
+        {
+          "slide": 5,
+          "heading": "Budget early",
+          "prompt_summary": "Script and schedule board, text: BUDGET INCENTIVES EARLY"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Dark end card, text: IF THE INCENTIVE CHANGES, THE BUDGET CHANGES"
+        }
       ],
       "status": "awaiting_images",
       "image_urls": [
-        "https://files.catbox.moe/zp4w40.png",
-        "https://files.catbox.moe/3kw5jd.png",
-        "https://files.catbox.moe/9pbav5.png",
-        "https://files.catbox.moe/5qu9ur.png",
         "https://files.catbox.moe/u23lsx.png",
-        "https://files.catbox.moe/4cy84g.png"
-      ]
+        "https://files.catbox.moe/9pbav5.png",
+        "https://files.catbox.moe/zp4w40.png",
+        "https://files.catbox.moe/4cy84g.png",
+        "https://files.catbox.moe/3kw5jd.png",
+        "https://files.catbox.moe/5qu9ur.png"
+      ],
+      "image_file_ids": [
+        "1NSQu-iuKSP8rvnhEdAGbWKIwBQH0DpvS",
+        "1nMEMnVomvjmYP6qTWyCXJojdD7LTwPcK",
+        "1kW2RlOG2K5tXlQoEbzJaUMvEQhi8LP2K",
+        "1saixAvFRsA3alJoITvwDDwJp0IaZ5FYz",
+        "1eOzL4-_VDHHe7AOe_NTqpDQE8eRPBtYl",
+        "13B5YSzroF_gimSKuvmTkm3yAdFPD0pZj"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "drive_order_source": "Google Drive numeric filenames 1.png-6.png"
     }
   ]
 }
