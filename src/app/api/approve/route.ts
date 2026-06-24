@@ -1,16 +1,23 @@
 // API route for approving posts
-// When a post is approved, this marks it in the manifest
-import { readFile, writeFile } from "fs/promises"
+// Writes to /tmp/manifest.json (the only writable location on Vercel)
+import { readFile, writeFile, copyFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
 
-const VERIFIED_PATH = join(process.cwd(), "manifest.json")
-const FALLBACK_PATH = "/tmp/gb-posts/manifest.json"
+const SRC_PATH = join(process.cwd(), "manifest.json")
+const WRITABLE_PATH = "/tmp/gb-manifest.json"
 
-function getManifestPath() {
-  if (existsSync(VERIFIED_PATH)) return VERIFIED_PATH
-  if (existsSync(FALLBACK_PATH)) return FALLBACK_PATH
-  return null
+async function ensureWritableManifest(): Promise<string> {
+  // If /tmp version exists, use it (it may have been updated by a previous approval)
+  if (existsSync(WRITABLE_PATH)) {
+    return WRITABLE_PATH
+  }
+  // Copy the git repo version to /tmp
+  if (existsSync(SRC_PATH)) {
+    await copyFile(SRC_PATH, WRITABLE_PATH)
+    return WRITABLE_PATH
+  }
+  throw new Error("No manifest.json found in repo")
 }
 
 export async function POST(request: Request) {
@@ -21,11 +28,7 @@ export async function POST(request: Request) {
       return Response.json({ error: "post_id required" }, { status: 400 })
     }
 
-    const manifestPath = getManifestPath()
-    if (!manifestPath) {
-      return Response.json({ error: "No manifest found" }, { status: 404 })
-    }
-
+    const manifestPath = await ensureWritableManifest()
     const content = await readFile(manifestPath, "utf-8")
     const manifest = JSON.parse(content)
 
@@ -41,14 +44,14 @@ export async function POST(request: Request) {
     manifest.posts[postIndex].status = "approved"
     manifest.posts[postIndex].approved_at = new Date().toISOString()
 
-    // Write back
+    // Write to writable /tmp
     await writeFile(manifestPath, JSON.stringify(manifest, null, 2))
 
     return Response.json({
       success: true,
       message: `"${post.title}" approved`,
       post_id,
-      scheduled_for: post.original_schedule,
+      scheduled_for: post.proposed_schedule || post.original_schedule,
     })
   } catch (err: any) {
     return Response.json({ error: err.message }, { status: 500 })

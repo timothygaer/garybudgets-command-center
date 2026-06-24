@@ -1,28 +1,31 @@
 // Serve the manifest file as the queue with image URLs and full post details
-import { readFile } from "fs/promises"
+// Checks /tmp first (writable, has approval updates), falls back to repo copy
+import { readFile, copyFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
 
-const VERIFIED_PATH = join(process.cwd(), "manifest.json")
-const FALLBACK_PATH = "/tmp/gb-posts/manifest.json"
+const SRC_PATH = join(process.cwd(), "manifest.json")
+const WRITABLE_PATH = "/tmp/gb-manifest.json"
+
+async function getManifestData() {
+  let manifestPath = WRITABLE_PATH
+
+  if (!existsSync(manifestPath)) {
+    // Fall back to repo copy
+    if (existsSync(SRC_PATH)) {
+      await copyFile(SRC_PATH, manifestPath)
+    } else {
+      throw new Error("No manifest found")
+    }
+  }
+
+  const content = await readFile(manifestPath, "utf-8")
+  return JSON.parse(content)
+}
 
 export async function GET() {
-  let manifestPath = VERIFIED_PATH
-
-  if (!existsSync(manifestPath)) {
-    manifestPath = FALLBACK_PATH
-  }
-
-  if (!existsSync(manifestPath)) {
-    return Response.json({
-      queue: [],
-      message: "No manifest found. Run weekly content generation first.",
-    })
-  }
-
   try {
-    const content = await readFile(manifestPath, "utf-8")
-    const manifest = JSON.parse(content)
+    const manifest = await getManifestData()
 
     // Build slide previews using the public catbox URLs
     const postsWithPreviews = manifest.posts.map((post: any) => {
@@ -38,7 +41,6 @@ export async function GET() {
       return {
         ...post,
         slidePreviews,
-        // Clean up internal fields
         image_file_ids: undefined,
         image_file_names: undefined,
         drive_assets_folder_id: undefined,
@@ -51,7 +53,7 @@ export async function GET() {
       week: manifest.week_start,
       week_folder_id: manifest.week_folder_id,
     })
-  } catch (err) {
+  } catch {
     return Response.json({ queue: [], message: "Could not parse manifest" })
   }
 }
