@@ -811,7 +811,7 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
 
   return (
     <div className="space-y-6">
-      {queue.map((item: any, i: number) => {
+      {queue.filter((item: any) => item.status !== "posted").map((item: any, i: number) => {
         const st = getStatus(item.status || "draft")
         const scheduleLabel = item.proposed_schedule || item.original_schedule || item.scheduled
 
