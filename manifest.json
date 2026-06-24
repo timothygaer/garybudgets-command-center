@@ -10,7 +10,7 @@
       "pillar": "Budget School",
       "slug": "Post01_2026-06-22",
       "slide_count": 6,
-      "original_schedule": "Mon, Jun 22 \u00b7 7:00 PM ET",
+      "original_schedule": "Mon, Jun 22 · 7:00 PM ET",
       "caption": "Your $50K film is not a $50K film if the boring lines are missing.\n\nMost indie budgets remember the camera. They forget the costs that keep the production alive: insurance, payroll/fringes, meals, permits, data, post, delivery, and contingency.\n\nBefore you ask for money, build the boring lines first. They save the shoot.\n\nSave this before your next budget pass.",
       "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #filmfinance #indiefilmmaker #producerlife #budgetingtips #shortfilm",
       "slides": [
@@ -76,214 +76,204 @@
       "instagram_media_id": "18012435365717960"
     },
     {
-      "id": "GB-2026-06-23-02",
-      "title": "5 Budget Lines Indie Producers Forget",
+      "id": "GB-2026-06-30-01",
+      "title": "The Contingency Trap — Why 10% Isn't Optional",
       "pillar": "Budget School",
-      "slug": "Post02_2026-06-23",
+      "slug": "Post01_2026-06-30",
       "slide_count": 6,
-      "original_schedule": "Tue, Jun 23 \u00b7 7:00 PM ET",
-      "proposed_schedule": "Thu, Jun 25 \u00b7 9:00 AM ET",
-      "caption": "The budget lines people forget are usually the lines that save the shoot.\n\nCamera, cast, and locations are easy to remember. But the real production pain often comes from the unglamorous stuff: meals, parking, data backups, insurance, permits, payroll/fringes, post, delivery, and contingency.\n\nIf your budget does not include these, it is not finished yet.\n\nSave this as a pre-greenlight checklist.",
-      "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #lineproducer #productionbudget #indiefilmmaking #filmschool #filmtok",
+      "original_schedule": "Tue, Jun 30 · 9:00 AM ET",
+      "proposed_schedule": "Tue, Jun 30 · 9:00 AM ET",
+      "drive_assets_folder_id": "1eP7dzV4nsSCKqFxrM3EarNGXT4HqkqyD",
+      "drive_post_folder_id": "13MfcsBWU1SUHRPWQLgdiwtI_we0tybL9",
+      "caption": "Your contingency is not extra money. It is the line that makes your budget credible.\n\nMost indie filmmakers treat the buffer as optional. Investors treat the missing buffer as a red flag.\n\nIn 2026, professional producers budget 10-15% contingency as standard risk management. Anything less and you are telling investors you have not thought about what can go wrong.\n\nThe shoot that runs long. The location that falls through. The actor who gets sick. The card that corrupts.\n\nContingency is not padding. It is production reality.\n\nSave this if you are about to cut your contingency.",
+      "hashtags": "#filmmaking #indiefilm #filmbudgeting #contingency #GaryBudgets #filmfinance #indiefilmmaker #producerlife #budgetingtips #filmproduction",
       "slides": [
         {
           "slide": 1,
           "heading": "Hook",
-          "prompt_summary": "Producer desk, text: 5 BUDGET LINES INDIE PRODUCERS FORGET"
+          "prompt_summary": "Producer desk with budget spreadsheet and red pen, text: THE CONTINGENCY TRAP"
         },
         {
           "slide": 2,
-          "heading": "Meals",
-          "prompt_summary": "Crew meal setup, text: 1. MEALS + CRAFTY"
+          "heading": "What contingency really is",
+          "prompt_summary": "Budget top sheet with highlighted contingency line, text: CONTINGENCY IS NOT PADDING"
         },
         {
           "slide": 3,
-          "heading": "Parking & Transport",
-          "prompt_summary": "Urban set with vans, text: 2. PARKING + TRANSPORT"
+          "heading": "What can go wrong",
+          "prompt_summary": "Collage of cancelled stamp, weather, sick actor, corrupted drive, text: WHAT CAN GO WRONG"
         },
         {
           "slide": 4,
-          "heading": "Data",
-          "prompt_summary": "Hard drives and DIT cart, text: 3. DATA MANAGEMENT"
+          "heading": "The investor signal",
+          "prompt_summary": "Investor packet with circled budget line, text: THE INVESTOR SIGNAL"
         },
         {
           "slide": 5,
-          "heading": "Insurance, Permits, Payroll",
-          "prompt_summary": "Paperwork stack, text: 4. INSURANCE + PERMITS + PAYROLL"
-        },
-        {
-          "slide": 6,
-          "heading": "Post, Delivery, Contingency",
-          "prompt_summary": "Post-production suite, text: 5. POST + DELIVERY + CONTINGENCY"
-        }
-      ],
-      "status": "approved",
-      "image_file_ids": [
-        "1C_6kWLzJNJ251QLFS6nl7NqZZ2297WdQ",
-        "1bPcohXoWLm5NfzDJo3JzGR0Ilj584hKh",
-        "1ZKGMAjELgWtgHxeBZFYz88ZQFAxKqTv-",
-        "1fL97jBxNOhJtNi4yDQSUQ4oEtS3vu564",
-        "1T61RAO1bhe19fV-BX9G6Ypp3K4y1nWmo",
-        "1Tflo5Q-obxS7FEawcSlGC74l7zeTfdnH"
-      ],
-      "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
-      ],
-      "image_urls": [
-        "https://files.catbox.moe/e5m7t9.png",
-        "https://files.catbox.moe/vf5yrz.png",
-        "https://files.catbox.moe/6jyub4.png",
-        "https://files.catbox.moe/22mex7.png",
-        "https://files.catbox.moe/5mzgkl.png",
-        "https://files.catbox.moe/72idz4.png"
-      ],
-      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "approved_at": "2026-06-24T07:00:00+0000"
-    },
-    {
-      "id": "GB-2026-06-24-03",
-      "title": "Above-the-Line vs Below-the-Line",
-      "pillar": "Budget School",
-      "slug": "Post03_2026-06-24",
-      "slide_count": 6,
-      "original_schedule": "Wed, Jun 24 \u00b7 12:00 PM ET",
-      "proposed_schedule": "Fri, Jun 26 \u00b7 9:00 AM ET",
-      "caption": "Above-the-line and below-the-line sound more complicated than they are.\n\nAbove-the-line is usually the major creative/package cost: producers, director, writer, principal cast, rights.\n\nBelow-the-line is the cost of actually making the thing: crew, equipment, locations, production, post, deliverables.\n\nA real budget needs both \u2014 and it needs the invisible math between them.\n\nSave this if those terms have ever made your head hurt.",
-      "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #filmfinance #lineproducer #filmschool #indiefilmmaker #productionbudget",
-      "slides": [
-        {
-          "slide": 1,
-          "heading": "Hook",
-          "prompt_summary": "Split infographic, text: ABOVE-THE-LINE VS BELOW-THE-LINE"
-        },
-        {
-          "slide": 2,
-          "heading": "Above-the-line",
-          "prompt_summary": "Creative meeting table, text: ABOVE-THE-LINE"
-        },
-        {
-          "slide": 3,
-          "heading": "Below-the-line",
-          "prompt_summary": "Crew and gear, text: BELOW-THE-LINE"
-        },
-        {
-          "slide": 4,
-          "heading": "Why it matters",
-          "prompt_summary": "Budget top sheet split, text: WHY IT MATTERS"
-        },
-        {
-          "slide": 5,
-          "heading": "The invisible math",
-          "prompt_summary": "Spreadsheet + schedule board, text: THE INVISIBLE MATH"
+          "heading": "The 10-15% rule",
+          "prompt_summary": "Pie chart with contingency highlighted, text: THE 10-15% RULE"
         },
         {
           "slide": 6,
           "heading": "CTA",
-          "prompt_summary": "Dark end card, text: A GOOD BUDGET CONNECTS THE CREATIVE PLAN TO THE REAL PLAN"
+          "prompt_summary": "Dark end card, text: DON'T CUT THE LINE THAT SAVES THE SHOOT"
         }
       ],
-      "status": "approved",
-      "image_file_ids": [
-        "1ajN5dmtZ7a2S8foSjo_H7Utj7HLS0W3V",
-        "13ZRzmWTgaTzx9_nvjYTEdFjkysqSMEbO",
-        "1dd_qmFecwhlkh3936d8W6-jefaklWQmS",
-        "1VQGuBynl875rnqJR2-8237ht26aBW7wv",
-        "1H2nhaLRAlHbT22oL3__ZWb64R4ZQ3q9t",
-        "1JJhN1uamQL7yAOdQuPGydmnmbYd6mc3s"
-      ],
-      "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
-      ],
-      "image_urls": [
-        "https://files.catbox.moe/xzg9fu.png",
-        "https://files.catbox.moe/1myx1c.png",
-        "https://files.catbox.moe/ma2cr3.png",
-        "https://files.catbox.moe/bm8zuu.png",
-        "https://files.catbox.moe/1i1x11.png",
-        "https://files.catbox.moe/pd31it.png"
-      ],
-      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "approved_at": "2026-06-24T07:00:00+0000"
+      "status": "awaiting_images",
+      "image_file_ids": [],
+      "image_file_names": [],
+      "image_urls": [],
+      "drive_order_source": "Pending upload — rename as 1.png through 6.png"
     },
     {
-      "id": "GB-2026-06-25-04",
-      "title": "Tax Incentives Are Budget Strategy",
+      "id": "GB-2026-07-02-02",
+      "title": "The Marketing Budget Crisis",
+      "pillar": "Budget School",
+      "slug": "Post02_2026-07-02",
+      "slide_count": 6,
+      "original_schedule": "Thu, Jul 2 · 9:00 AM ET",
+      "proposed_schedule": "Thu, Jul 2 · 9:00 AM ET",
+      "drive_assets_folder_id": "1-1yQnefh2dHkW1xY8E08sBKIqd0DuHb0",
+      "drive_post_folder_id": "1iD8YK-gZNagXJ-5bUOVYwhwf8dOQJFF7",
+      "caption": "Most indie budgets allocate $0 for marketing. That used to be survivable. It is not anymore.\n\nStreamers and distributors have pulled back on marketing indie acquisitions. The burden has shifted entirely to the producer.\n\nIf your budget does not include self-distribution marketing, you are not done yet.\n\nBudget at least 20-30% of your production cost for: festival fees, publicist, digital ads, key art, trailer, DCP, and delivery materials.\n\nSave this if your budget has a blank line where marketing should be.",
+      "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #marketing #indiefilmmaker #producerlife #distribution #indiefilm",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Festival poster and ad dashboard, text: THE MARKETING BUDGET CRISIS"
+        },
+        {
+          "slide": 2,
+          "heading": "The old model vs new",
+          "prompt_summary": "Split screen: distributor handshake vs producer at laptop, text: THE OLD MODEL IS GONE"
+        },
+        {
+          "slide": 3,
+          "heading": "What you need to budget",
+          "prompt_summary": "Desk with festival badge, key art, ads, text: WHAT TO BUDGET"
+        },
+        {
+          "slide": 4,
+          "heading": "20-30% rule",
+          "prompt_summary": "Budget bar with 20-30% highlighted, text: 20-30% OF PRODUCTION COST"
+        },
+        {
+          "slide": 5,
+          "heading": "The $0 mistake",
+          "prompt_summary": "Spreadsheet with $0 marketing line circled, text: THE $0 MISTAKE"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Dark end card, text: YOUR AUDIENCE NEEDS A BUDGET TOO"
+        }
+      ],
+      "status": "awaiting_images",
+      "image_file_ids": [],
+      "image_file_names": [],
+      "image_urls": [],
+      "drive_order_source": "Pending upload — rename as 1.png through 6.png"
+    },
+    {
+      "id": "GB-2026-07-03-03",
+      "title": "Insurance Isn't Optional",
+      "pillar": "Budget School",
+      "slug": "Post03_2026-07-03",
+      "slide_count": 6,
+      "original_schedule": "Fri, Jul 3 · 9:00 AM ET",
+      "proposed_schedule": "Fri, Jul 3 · 9:00 AM ET",
+      "drive_assets_folder_id": "14mEwQdSg5DSaCGNc-0zcSLWIXhPPUgKa",
+      "drive_post_folder_id": "1BvyxOuxmuS66wbIg_Vmuq-2EI9QyRt4q",
+      "caption": "Insurance costs have crept up more than most indie producers expect — 2-3% of your budget in 2026.\n\nBut here is what most people miss: skipping insurance does not just save money for the first week. It locks you out of equipment houses, locations, and distribution deals.\n\nE&O insurance alone runs $2,500-$10,000 for a 3-year term.\n\nIf your budget does not have a line for insurance, it is not fundable.\n\nSave this before your next insurance quote.",
+      "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #insurance #indiefilmmaker #producerlife #productioninsurance #filmsafety",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Insurance documents on desk, text: INSURANCE ISN'T OPTIONAL"
+        },
+        {
+          "slide": 2,
+          "heading": "What it covers",
+          "prompt_summary": "Broken camera, caution tape, text: WHAT IT COVERS"
+        },
+        {
+          "slide": 3,
+          "heading": "What it unlocks",
+          "prompt_summary": "Producer on phone, INSURANCE REQUIRED stamp, text: WHAT IT UNLOCKS"
+        },
+        {
+          "slide": 4,
+          "heading": "E&O costs",
+          "prompt_summary": "$2,500-$10,000 figure with 3-year term, text: E&O INSURANCE"
+        },
+        {
+          "slide": 5,
+          "heading": "The 2-3% rule",
+          "prompt_summary": "Budget line at 2-3%, text: BUDGET 2-3%"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Dark end card, text: IF YOUR BUDGET SKIPS INSURANCE, IT'S NOT FINISHED"
+        }
+      ],
+      "status": "awaiting_images",
+      "image_file_ids": [],
+      "image_file_names": [],
+      "image_urls": [],
+      "drive_order_source": "Pending upload — rename as 1.png through 6.png"
+    },
+    {
+      "id": "GB-2026-07-06-04",
+      "title": "Budget Danger Zones 2026",
       "pillar": "Industry Watch",
-      "slug": "Post04_2026-06-25",
+      "slug": "Post04_2026-07-06",
       "slide_count": 6,
-      "original_schedule": "Thu, Jun 25 \u00b7 9:00 AM ET",
-      "proposed_schedule": "Mon, Jun 29 \u00b7 7:00 PM ET",
-      "caption": "Industry Watch: tax incentives are not just a finance detail. They can change the whole budget strategy.\n\nFor indie producers, the location question is rarely just \"where does the story happen?\"\n\nIt is also: where can we afford to make this, what qualifies, when does money come back, and what cashflow gap do we need to survive?\n\nThat is why incentives belong in the budget conversation early \u2014 not after the creative plan is already locked.\n\nSave this if you are packaging an indie feature.",
-      "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #filmfinance #indiefilmmaker #filmproducer #productionbudget #producerlife",
+      "original_schedule": "Mon, Jul 6 · 7:00 PM ET",
+      "proposed_schedule": "Mon, Jul 6 · 7:00 PM ET",
+      "drive_assets_folder_id": "11DCQKHOO58lNdGsiBCh3JrdJ_vR5Aq1B",
+      "drive_post_folder_id": "1x3KiMqHR1CouwbcQIuULOMYt2oyZ0oy8",
+      "caption": "Industry Watch: where indie film budgets live and die in 2026.\n\nThe $3-8M range is the 2026 budget danger zone — harder to recoup than ever according to current market data. Films in this bracket face the toughest competition for festival slots, audience attention, and distribution deals.\n\nMeanwhile, sub-$3M indie films are seeing stronger returns on investment. Lean budgets, focused stories, and targeted audiences are outperforming mid-range productions.\n\nData-backed budgeting is not a luxury. It is survival.",
+      "hashtags": "#filmmaking #indiefilm #filmbudgeting #filmproduction #GaryBudgets #filmfinance #indiefilmmaker #filmindustry #indiefilmnews #productionbudget",
       "slides": [
         {
           "slide": 1,
           "heading": "Hook",
-          "prompt_summary": "Map wall, text: TAX INCENTIVES ARE BUDGET STRATEGY"
+          "prompt_summary": "Industry chart with danger zone, text: BUDGET DANGER ZONES 2026"
         },
         {
           "slide": 2,
-          "heading": "Location is financial",
-          "prompt_summary": "Location folders, text: LOCATION IS A FINANCIAL DECISION"
+          "heading": "The 3-8M danger zone",
+          "prompt_summary": "Budget range bar with danger zone, text: THE $3-8M DANGER ZONE"
         },
         {
           "slide": 3,
-          "heading": "Qualified spend",
-          "prompt_summary": "Checklist with icons, text: QUALIFIED SPEND MATTERS"
+          "heading": "Sub-$3M is winning",
+          "prompt_summary": "Comparison bar chart, text: SUB-$3M IS WINNING"
         },
         {
           "slide": 4,
-          "heading": "Cashflow gap",
-          "prompt_summary": "Calendar and invoices, text: THE CASHFLOW GAP IS REAL"
+          "heading": "Festival reality",
+          "prompt_summary": "Festival badge and schedule board, text: FESTIVAL REALITY"
         },
         {
           "slide": 5,
-          "heading": "Budget early",
-          "prompt_summary": "Script and schedule board, text: BUDGET INCENTIVES EARLY"
+          "heading": "What this means",
+          "prompt_summary": "Whiteboard with budget figures, text: WHAT THIS MEANS FOR YOU"
         },
         {
           "slide": 6,
           "heading": "CTA",
-          "prompt_summary": "Dark end card, text: IF THE INCENTIVE CHANGES, THE BUDGET CHANGES"
+          "prompt_summary": "Dark end card, text: THE DATA DOES NOT LIE. KEEP YOUR BUDGET LEAN."
         }
       ],
-      "status": "approved",
-      "image_file_ids": [
-        "1NSQu-iuKSP8rvnhEdAGbWKIwBQH0DpvS",
-        "1nMEMnVomvjmYP6qTWyCXJojdD7LTwPcK",
-        "1kW2RlOG2K5tXlQoEbzJaUMvEQhi8LP2K",
-        "1saixAvFRsA3alJoITvwDDwJp0IaZ5FYz",
-        "1eOzL4-_VDHHe7AOe_NTqpDQE8eRPBtYl",
-        "13B5YSzroF_gimSKuvmTkm3yAdFPD0pZj"
-      ],
-      "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
-      ],
-      "image_urls": [
-        "https://files.catbox.moe/u23lsx.png",
-        "https://files.catbox.moe/9pbav5.png",
-        "https://files.catbox.moe/zp4w40.png",
-        "https://files.catbox.moe/4cy84g.png",
-        "https://files.catbox.moe/3kw5jd.png",
-        "https://files.catbox.moe/5qu9ur.png"
-      ],
-      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "approved_at": "2026-06-24T07:00:00+0000"
+      "status": "awaiting_images",
+      "image_file_ids": [],
+      "image_file_names": [],
+      "image_urls": [],
+      "drive_order_source": "Pending upload — rename as 1.png through 6.png"
     }
   ]
 }
