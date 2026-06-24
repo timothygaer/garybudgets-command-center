@@ -1090,10 +1090,10 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto px-6 py-5">
         {/* Tab Navigation */}
         <div className="tab-list mb-5 inline-flex">
-          {["overview", "calendar", "posts", "compose", "queue", "inspire"].map((tab) => {
+          {["overview", "calendar", "posts", "compose", "queue", "inspire", "maintenance"].map((tab) => {
             const labels: Record<string, string> = {
               overview: "Overview", calendar: "Calendar", posts: "Post History", compose: "Compose",
-              queue: "Queue", inspire: "Inspiration",
+              queue: "Queue", inspire: "Inspiration", maintenance: "Maintenance",
             }
             return (
               <button key={tab} className={`tab-trigger ${activeTab === tab ? "active" : ""}`}
@@ -1223,11 +1223,244 @@ export default function Dashboard() {
             </div>
           </div>
         )}
+
+        {/* ====== MAINTENANCE TAB ====== */}
+        {activeTab === "maintenance" && (
+          <MaintenanceTab />
+        )}
       </div>
     </div>
   )
 
   return content
+}
+
+// ---------- Maintenance Tab ----------
+const TOKEN_DAYS_VALID = 60
+const TOKEN_CREATED_ISO = "2026-06-18T00:00:00.000Z" // approximate, set from Meta dashboard
+
+function daysUntil(dateStr: string): number {
+  const target = new Date(dateStr)
+  const now = new Date()
+  return Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
+}
+
+function tokenExpiryFromCreated(createdStr: string): { expiresAt: string, daysLeft: number } {
+  const created = new Date(createdStr)
+  const expires = new Date(created.getTime() + TOKEN_DAYS_VALID * 24 * 60 * 60 * 1000)
+  return { expiresAt: expires.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }), daysLeft: daysUntil(expires.toISOString()) }
+}
+
+function MaintenanceTab() {
+  const [activeSub, setActiveSub] = useState("schedule")
+  const [upcomingPosts, setUpcomingPosts] = useState<any[]>([])
+
+  const tokenInfo = tokenExpiryFromCreated(TOKEN_CREATED_ISO)
+  const now = new Date()
+  const ptNow = now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
+
+  useEffect(() => {
+    fetch("/api/calendar")
+      .then(r => r.json())
+      .then((d: any) => {
+        const posts = (d.events || [])
+          .filter((e: any) => e.status === "scheduled" || e.status === "pending")
+          .map((e: any) => ({
+            id: e.id, title: e.title, pillar: e.pillar, date: e.date,
+            time: e.time?.replace(" ET", " PT") || "", status: e.status,
+          }))
+        setUpcomingPosts(posts)
+      })
+      .catch(() => {})
+  }, [])
+
+  const futureCrons = [
+    { name: "GB Post 2 — 5 Budget Lines", date: "Thu 6/25", time: "6:00 AM PT", type: "Instagram Auto-Post" },
+    { name: "GB Post 3 — ATL vs BTL", date: "Fri 6/26", time: "6:00 AM PT", type: "Instagram Auto-Post" },
+    { name: "GB Post 4 — Tax Incentives", date: "Mon 6/29", time: "4:00 PM PT", type: "Instagram Auto-Post" },
+  ]
+
+  const manualTasks = [
+    {
+      what: "Refresh Instagram Access Token",
+      dueBy: tokenInfo.expiresAt,
+      urgency: tokenInfo.daysLeft,
+      instructions: [
+        "Go to https://developers.facebook.com/tools/debug/accesstoken/",
+        "Paste your current token into the debugger",
+        "Click 'Extend Access Token' to get a fresh 60-day token",
+        "Copy the new token",
+        "Open Obsidian → Private/API Keys/Instagram Graph API Token.md.md",
+        "Replace the token after the = sign",
+        "Also update it in Vercel: https://vercel.com/gary-budgets1/garybudgets-command-center/settings/environment",
+        "Update TOKEN_CREATED_ISO in page.tsx to today's date",
+      ],
+    },
+    {
+      what: "Check Google OAuth Token (Gmail/Drive)",
+      dueBy: "Only when Gmail helper stops working",
+      urgency: 30,
+      instructions: [
+        "If you see 'Google token expired' errors in Hermes:",
+        "Run: python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --check",
+        "If it says NOT_AUTHENTICATED, follow the re-auth steps in the setup wizard",
+        "Or just tell me 'my Google token expired' and I'll guide you through it",
+      ],
+    },
+    {
+      what: "Push Git Manifest After Manual Publish",
+      dueBy: "After every Instagram post",
+      urgency: 999,
+      instructions: [
+        "If a post went out manually and the Command Center still shows it as 'approved':",
+        "Run in terminal: cd ~/workspace/garybudgets-command-center && git add manifest.json && git commit -m 'update status' && git push",
+        "This syncs the manifest back to Vercel so the calendar updates",
+      ],
+    },
+  ]
+
+  return (
+    <div className="space-y-4">
+      {/* System Status */}
+      <div className="neon-panel">
+        <div className="panel-title">System Status</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+          <div className="rounded-lg border border-border p-3 bg-white/[0.02]">
+            <div className="text-[10px] text-text-muted uppercase tracking-wide mb-1">Local Time</div>
+            <div className="text-gray-200 font-medium">{ptNow}</div>
+          </div>
+          <div className="rounded-lg border border-border p-3 bg-white/[0.02]">
+            <div className="text-[10px] text-text-muted uppercase tracking-wide mb-1">Timezone</div>
+            <div className="text-gray-200 font-medium">America/Los_Angeles (PT)</div>
+          </div>
+          <div className="rounded-lg border border-border p-3 bg-white/[0.02]">
+            <div className="text-[10px] text-text-muted uppercase tracking-wide mb-1">Auto-Poster</div>
+            <div className="text-gray-200 font-medium">Approve → cron fires at scheduled PT time</div>
+          </div>
+          <div className="rounded-lg border border-border p-3 bg-white/[0.02]">
+            <div className="text-[10px] text-text-muted uppercase tracking-wide mb-1">Post Reset</div>
+            <div className="text-gray-200 font-medium">Posted status syncs to git → Vercel</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Sub-tabs */}
+      <div className="tab-list mb-3 inline-flex">
+        {["schedule", "token", "caveats"].map(tab => {
+          const subLabels: Record<string, string> = { schedule: "Upcoming Posts", token: "Token & Auth", caveats: "Manual Tasks" }
+          return (
+            <button key={tab} className={`tab-trigger ${activeSub === tab ? "active" : ""}`}
+              onClick={() => setActiveSub(tab)}>
+              {subLabels[tab]}
+            </button>
+          )
+        })}
+      </div>
+
+      {/* Upcoming Schedule */}
+      {activeSub === "schedule" && (
+        <div className="neon-panel">
+          <div className="panel-title">Upcoming Auto-Posts (PT Timezone)</div>
+          {futureCrons.length === 0 ? (
+            <p className="text-xs text-text-muted">No upcoming scheduled posts.</p>
+          ) : (
+            <div className="space-y-2">
+              {futureCrons.map((job, i) => (
+                <div key={i} className="flex items-center justify-between p-3 rounded-lg border border-border bg-white/[0.02]">
+                  <div>
+                    <div className="text-xs font-medium text-gray-200">{job.name}</div>
+                    <div className="text-[10px] text-text-muted">{job.type}</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xs text-gray-300 tabular-nums">{job.date}</div>
+                    <div className="text-[10px] text-green-400">{job.time}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Token & Auth Status */}
+      {activeSub === "token" && (
+        <div className="neon-panel">
+          <div className="panel-title">Token & Authentication Status</div>
+
+          <div className="mb-4">
+            <div className="flex items-center justify-between mb-3 p-3 rounded-lg border" style={{
+              borderColor: tokenInfo.daysLeft < 7 ? "rgba(220,38,38,0.4)" : tokenInfo.daysLeft < 14 ? "rgba(251,191,36,0.4)" : "rgba(34,197,94,0.4)",
+              background: tokenInfo.daysLeft < 7 ? "rgba(220,38,38,0.08)" : tokenInfo.daysLeft < 14 ? "rgba(251,191,36,0.08)" : "rgba(34,197,94,0.08)",
+            }}>
+              <div>
+                <div className="text-xs font-medium text-gray-200">Instagram Access Token</div>
+                <div className="text-[10px] text-text-muted">Expires: {tokenInfo.expiresAt}</div>
+                <div className="text-[10px] text-text-muted">Days remaining: {tokenInfo.daysLeft}</div>
+              </div>
+              <div className="text-sm font-bold" style={{
+                color: tokenInfo.daysLeft < 7 ? "#ef4444" : tokenInfo.daysLeft < 14 ? "#f59e0b" : "#22c55e",
+              }}>
+                {tokenInfo.daysLeft < 7 ? "⚠️ Expiring Soon" : tokenInfo.daysLeft < 14 ? "⏳ Due Soon" : "✅ Healthy"}
+              </div>
+            </div>
+          </div>
+
+          <div className="text-[10px] text-text-muted leading-relaxed">
+            <p className="mb-2"><strong className="text-gray-300">Token refresh instructions:</strong></p>
+            <ol className="list-decimal list-inside space-y-1">
+              <li>Go to <a href="https://developers.facebook.com/tools/debug/accesstoken/" target="_blank" rel="noopener noreferrer" className="text-accent-blue hover:underline">Facebook Token Debugger</a></li>
+              <li>Paste your current token and click Debug</li>
+              <li>Click <strong>"Extend Access Token"</strong> to get a fresh 60-day token</li>
+              <li>Copy the new token → update it in Obsidian and Vercel (instructions below)</li>
+            </ol>
+          </div>
+        </div>
+      )}
+
+      {/* Manual Tasks */}
+      {activeSub === "caveats" && (
+        <div className="space-y-3">
+          {manualTasks.map((task, i) => (
+            <div key={i} className="neon-panel" style={{
+              borderColor: task.dueBy && task.urgency < 7 ? "rgba(220,38,38,0.3)" : "var(--color-border)",
+            }}>
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <div className="text-xs font-medium text-gray-200">{task.what}</div>
+                  <div className="text-[10px] text-text-muted">Due: {task.dueBy}</div>
+                </div>
+                {task.urgency !== 999 && (
+                  <span className="text-[10px] px-2 py-0.5 rounded font-medium" style={{
+                    background: task.urgency < 7 ? "rgba(220,38,38,0.2)" : task.urgency < 14 ? "rgba(251,191,36,0.2)" : "rgba(34,197,94,0.2)",
+                    color: task.urgency < 7 ? "#ef4444" : task.urgency < 14 ? "#f59e0b" : "#22c55e",
+                  }}>
+                    {task.urgency} days
+                  </span>
+                )}
+              </div>
+              <ol className="list-decimal list-inside text-[10px] text-text-muted space-y-1 leading-relaxed">
+                {task.instructions.map((step, j) => (
+                  <li key={j}>{step}</li>
+                ))}
+              </ol>
+            </div>
+          ))}
+
+          {/* System Caveats */}
+          <div className="neon-panel">
+            <div className="panel-title">System Limitations & Caveats</div>
+            <ul className="text-[10px] text-text-muted space-y-2 leading-relaxed list-disc list-inside">
+              <li><strong className="text-gray-300">Cron jobs run on Timothy's Mac only</strong> — if the computer is asleep or offline when a post is scheduled, the approval watcher will catch it and publish it when the Mac wakes up.</li>
+              <li><strong className="text-gray-300">Manifest syncing</strong> — approving a post through the Command Center updates Vercel's /tmp copy. Publishing updates the local git repo and pushes it to GitHub, which Vercel picks up on next cold start.</li>
+              <li><strong className="text-gray-300">Instagram token</strong> — the token lasts 60 days from when it was last extended. If auto-publish fails with "token expired," the cron will log the error. You'll need to extend it manually.</li>
+              <li><strong className="text-gray-300">Images must be on public URLs</strong> — the publish script uses catbox.moe URLs from the manifest. If catbox goes down, uploading to a new host is manual.</li>
+              <li><strong className="text-gray-300">No duplicate prevention</strong> — if a post is approved while the approval watcher also detects it as past-due, it could try to publish twice. The publish script skips already-posted items.</li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  )
 }
 
 // ---------- Example posts ----------
