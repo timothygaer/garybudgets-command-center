@@ -840,7 +840,7 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
               <div className="flex flex-col items-end gap-2 flex-shrink-0">
                 {(item.status === "ready" || item.status === "awaiting_images" || item.status === "awaiting_image") && (
                   <button
-                    className="bg-accent-blue text-black text-xs font-semibold py-2 px-4 rounded-lg hover:bg-blue-400 transition disabled:opacity-50"
+                    className="bg-red-600 text-black text-xs font-bold py-2 px-4 rounded-lg hover:bg-red-500 transition disabled:opacity-50 border border-red-400"
                     onClick={() => handleApprove(item)}
                     disabled={approving === item.id}
                   >
