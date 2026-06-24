@@ -450,18 +450,32 @@ function RecentPostCard({ post, index }: { post: Post; index: number }) {
 function PostCalendar() {
   const [month, setMonth] = useState(() => new Date().getMonth())
   const [year, setYear] = useState(() => new Date().getFullYear())
+  const [events, setEvents] = useState<any[]>([])
+
+  useEffect(() => {
+    fetch("/api/calendar")
+      .then(r => r.json())
+      .then(d => setEvents(d.events || []))
+      .catch(() => {})
+  }, [])
 
   const daysInMonth = new Date(year, month + 1, 0).getDate()
   const firstDay = new Date(year, month, 1).getDay()
   const monthName = new Date(year, month).toLocaleDateString("en-US", { month: "long", year: "numeric" })
 
-  // Planned posts for this month — updated week of June 22, 2026
-  const posts = [
-    { date: 22, title: "Your $50K Film Is Not a $50K Film", status: "draft", pillar: "Budget School", time: "7:00 PM ET" },
-    { date: 23, title: "5 Budget Lines Producers Forget", status: "draft", pillar: "Budget School", time: "7:00 PM ET" },
-    { date: 24, title: "ATL vs BTL", status: "draft", pillar: "Budget School", time: "12:00 PM ET" },
-    { date: 25, title: "Tax Incentives = Budget Strategy", status: "draft", pillar: "Industry Watch", time: "9:00 AM ET" },
-  ]
+  // Filter events for current month
+  const posts = events
+    .filter((e: any) => {
+      const d = new Date(e.date + "T12:00:00")
+      return d.getMonth() === month && d.getFullYear() === year
+    })
+    .map((e: any) => ({
+      date: new Date(e.date + "T12:00:00").getDate(),
+      title: e.title,
+      status: e.status,
+      pillar: e.pillar,
+      time: e.time,
+    }))
 
   const prevMonth = () => { if (month === 0) { setMonth(11); setYear(y => y - 1) } else setMonth(m => m - 1) }
   const nextMonth = () => { if (month === 11) { setMonth(0); setYear(y => y + 1) } else setMonth(m => m + 1) }
@@ -529,7 +543,8 @@ function PostCalendar() {
                       <div className="text-[7px] text-gray-300 truncate">{p.title}</div>
                       <div className="text-[6px] text-text-muted">{p.time}</div>
                     </div>
-                    {p.status === "ready" && <div className="w-1 h-1 rounded-full bg-green-400 flex-shrink-0" />}
+                    {p.status === "posted" && <div className="w-1 h-1 rounded-full bg-purple-400 flex-shrink-0" />}
+                    {p.status === "scheduled" && <div className="w-1 h-1 rounded-full bg-green-400 flex-shrink-0" />}
                   </div>
                 ))}
               </div>
@@ -541,10 +556,10 @@ function PostCalendar() {
       {/* Legend */}
       <div className="flex items-center gap-4 mt-4 text-[10px] text-text-muted">
         <span className="flex items-center gap-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-green-400" /> Ready
+          <div className="w-1.5 h-1.5 rounded-full bg-purple-400" /> Posted
         </span>
         <span className="flex items-center gap-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-text-muted" /> Draft
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400" /> Scheduled
         </span>
         <span className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded border border-red-600/50 bg-red-900/10" /> Today
