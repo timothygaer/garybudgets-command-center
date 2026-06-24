@@ -6,6 +6,33 @@ import { join } from "path"
 const SRC_PATH = "/tmp/gb-manifest.json"
 const FALLBACK_PATH = join(process.cwd(), "manifest.json")
 
+type ManifestSlide = {
+  slide: number
+  heading: string
+  prompt_summary: string
+}
+
+type ManifestPost = {
+  id: string
+  title: string
+  pillar: string
+  status: string
+  proposed_schedule?: string
+  original_schedule?: string
+  posted_at?: string
+  approved_at?: string
+  caption?: string
+  hashtags?: string
+  slides?: ManifestSlide[]
+  slide_count?: number
+  image_urls?: string[]
+  instagram_url?: string
+}
+
+type Manifest = {
+  posts?: ManifestPost[]
+}
+
 export async function GET() {
   try {
     let manifestPath = SRC_PATH
@@ -17,15 +44,15 @@ export async function GET() {
     }
 
     const content = await readFile(manifestPath, "utf-8")
-    const manifest = JSON.parse(content)
+    const manifest = JSON.parse(content) as Manifest
 
     const months: Record<string, number> = {
       Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
       Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
     }
 
-    const events = manifest.posts
-      .map((post: any) => {
+    const events = (manifest.posts || [])
+      .map((post: ManifestPost) => {
         const schedStr = post.proposed_schedule || post.original_schedule || ""
         let date: string | null = null
         let calStatus = post.status === "posted" ? "posted" : "pending"
@@ -58,12 +85,32 @@ export async function GET() {
         const timeMatch = schedStr.match(/(\d+:\d+ (AM|PM) ET)/)
         const time = timeMatch ? timeMatch[1] : ""
 
+        const imageUrls = post.image_urls || []
+        const slidePreviews = (post.slides || []).map((slide: ManifestSlide, i: number) => ({
+          slide: slide.slide,
+          heading: slide.heading,
+          prompt_summary: slide.prompt_summary,
+          image_url: imageUrls[i] || "",
+        }))
+
         return {
+          id: post.id,
           date,
           title: post.title,
           pillar: post.pillar,
           status: calStatus,
+          source_status: post.status,
           time,
+          schedule_label: schedStr,
+          original_schedule: post.original_schedule || null,
+          proposed_schedule: post.proposed_schedule || null,
+          approved_at: post.approved_at || null,
+          caption: post.caption || "",
+          hashtags: post.hashtags || "",
+          slides: post.slides || [],
+          slidePreviews,
+          slide_count: post.slide_count || (post.slides || []).length,
+          image_urls: imageUrls,
           instagram_url: post.instagram_url || null,
         }
       })

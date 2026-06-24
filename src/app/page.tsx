@@ -26,6 +26,15 @@ interface Post {
 interface DashboardData {
   account: Account; insights: Record<string, number>; posts: Post[]
 }
+interface CalendarSlidePreview {
+  slide: number; heading: string; prompt_summary: string; image_url: string
+}
+interface CalendarEvent {
+  id: string; date: string; day?: number; title: string; pillar: string; status: string; source_status?: string
+  time: string; schedule_label?: string; original_schedule?: string | null; proposed_schedule?: string | null
+  approved_at?: string | null; caption?: string; hashtags?: string; slide_count?: number
+  slidePreviews?: CalendarSlidePreview[]; image_urls?: string[]; instagram_url?: string | null
+}
 
 // ---------- Sample hashtag data for demo (will be API-driven in future) ----------
 const TRENDING_HASHTAGS = [
@@ -450,7 +459,8 @@ function RecentPostCard({ post, index }: { post: Post; index: number }) {
 function PostCalendar() {
   const [month, setMonth] = useState(() => new Date().getMonth())
   const [year, setYear] = useState(() => new Date().getFullYear())
-  const [events, setEvents] = useState<any[]>([])
+  const [events, setEvents] = useState<CalendarEvent[]>([])
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null)
 
   useEffect(() => {
     fetch("/api/calendar")
@@ -463,18 +473,15 @@ function PostCalendar() {
   const firstDay = new Date(year, month, 1).getDay()
   const monthName = new Date(year, month).toLocaleDateString("en-US", { month: "long", year: "numeric" })
 
-  // Filter events for current month
+  // Filter events for current month, keeping full queue details for click-through.
   const posts = events
-    .filter((e: any) => {
+    .filter((e: CalendarEvent) => {
       const d = new Date(e.date + "T12:00:00")
       return d.getMonth() === month && d.getFullYear() === year
     })
     .map((e: any) => ({
-      date: new Date(e.date + "T12:00:00").getDate(),
-      title: e.title,
-      status: e.status,
-      pillar: e.pillar,
-      time: e.time,
+      ...e,
+      day: new Date(e.date + "T12:00:00").getDate(),
     }))
 
   const prevMonth = () => { if (month === 0) { setMonth(11); setYear(y => y - 1) } else setMonth(m => m - 1) }
@@ -487,9 +494,19 @@ function PostCalendar() {
     "Behind the Build": "#b44aff",
     "Industry Watch": "#ef4444",
   }
+  const statusColors: Record<string, string> = {
+    posted: "bg-purple-400",
+    scheduled: "bg-green-400",
+    pending: "bg-amber-400",
+  }
+  const statusLabels: Record<string, string> = {
+    posted: "Posted",
+    scheduled: "Approved & Scheduled",
+    pending: "Pending Approval",
+  }
 
   return (
-    <div className="neon-panel">
+    <div className="neon-panel relative">
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <div className="panel-title mb-0">Content Calendar</div>
@@ -527,7 +544,7 @@ function PostCalendar() {
         {/* Day cells */}
         {Array.from({ length: daysInMonth }).map((_, i) => {
           const day = i + 1
-          const dayPosts = posts.filter(p => p.date === day)
+          const dayPosts = posts.filter(p => p.day === day)
           const isToday = day === new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()
 
           return (
@@ -536,16 +553,21 @@ function PostCalendar() {
             }`} style={{ background: dayPosts.length > 0 ? "rgba(255,255,255,0.02)" : "transparent" }}>
               <div className={`text-[10px] font-medium ${isToday ? "text-red-400" : "text-text-muted"}`}>{day}</div>
               <div className="space-y-0.5 mt-0.5">
-                {dayPosts.map((p, pi) => (
-                  <div key={pi} className="flex items-center gap-1">
-                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: pillarColors[p.pillar] }} />
+                {dayPosts.map((p) => (
+                  <button
+                    key={p.id || `${p.title}-${p.date}`}
+                    type="button"
+                    className="w-full flex items-center gap-1 rounded px-0.5 py-0.5 text-left hover:bg-white/10 focus:outline-none focus:ring-1 focus:ring-red-500/70 transition"
+                    title={`Open details for ${p.title}`}
+                    onClick={() => setSelectedEvent(p)}
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: pillarColors[p.pillar] || "#6b7280" }} />
                     <div className="flex-1 min-w-0">
                       <div className="text-[7px] text-gray-300 truncate">{p.title}</div>
                       <div className="text-[6px] text-text-muted">{p.time}</div>
                     </div>
-                    {p.status === "posted" && <div className="w-1 h-1 rounded-full bg-purple-400 flex-shrink-0" />}
-                    {p.status === "scheduled" && <div className="w-1 h-1 rounded-full bg-green-400 flex-shrink-0" />}
-                  </div>
+                    <div className={`w-1 h-1 rounded-full flex-shrink-0 ${statusColors[p.status] || "bg-gray-400"}`} />
+                  </button>
                 ))}
               </div>
             </div>
@@ -554,17 +576,83 @@ function PostCalendar() {
       </div>
 
       {/* Legend */}
-      <div className="flex items-center gap-4 mt-4 text-[10px] text-text-muted">
+      <div className="flex flex-wrap items-center gap-4 mt-4 text-[10px] text-text-muted">
         <span className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded-full bg-purple-400" /> Posted
         </span>
         <span className="flex items-center gap-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-green-400" /> Scheduled
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400" /> Approved & Scheduled
+        </span>
+        <span className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-amber-400" /> Pending Approval
         </span>
         <span className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded border border-red-600/50 bg-red-900/10" /> Today
         </span>
       </div>
+
+      {selectedEvent && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4" onClick={() => setSelectedEvent(null)}>
+          <div className="neon-panel max-w-3xl w-full max-h-[85vh] overflow-y-auto p-5" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="text-[10px] px-2 py-0.5 rounded font-medium" style={{ background: `${pillarColors[selectedEvent.pillar] || "#666"}20`, color: pillarColors[selectedEvent.pillar] || "#999" }}>
+                    {selectedEvent.pillar || "Post"}
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-green-900/20 text-green-400 font-medium">
+                    {statusLabels[selectedEvent.status] || selectedEvent.status}
+                  </span>
+                </div>
+                <h2 className="text-lg font-semibold text-gray-100">{selectedEvent.title}</h2>
+              </div>
+              <button className="btn-ghost text-lg leading-none px-2" onClick={() => setSelectedEvent(null)} aria-label="Close post details">×</button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4 text-xs">
+              <div className="rounded-lg border border-border p-3 bg-white/[0.02]">
+                <div className="text-[10px] text-text-muted uppercase tracking-wide mb-1">Posts On</div>
+                <div className="text-gray-200 font-medium">{selectedEvent.schedule_label || `${selectedEvent.date} ${selectedEvent.time || ""}`}</div>
+              </div>
+              <div className="rounded-lg border border-border p-3 bg-white/[0.02]">
+                <div className="text-[10px] text-text-muted uppercase tracking-wide mb-1">Slides</div>
+                <div className="text-gray-200 font-medium">{selectedEvent.slide_count || selectedEvent.slidePreviews?.length || 0}</div>
+              </div>
+              <div className="rounded-lg border border-border p-3 bg-white/[0.02]">
+                <div className="text-[10px] text-text-muted uppercase tracking-wide mb-1">Post ID</div>
+                <div className="text-gray-200 font-medium truncate">{selectedEvent.id}</div>
+              </div>
+            </div>
+
+            {selectedEvent.caption && (
+              <div className="mb-4">
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Approved Caption</div>
+                <p className="text-xs text-gray-300 whitespace-pre-line leading-relaxed rounded-lg border border-border p-3 bg-white/[0.02]">{selectedEvent.caption}</p>
+              </div>
+            )}
+
+            {selectedEvent.hashtags && (
+              <div className="mb-4">
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Approved Hashtags</div>
+                <p className="text-[10px] text-accent-blue/80 rounded-lg border border-border p-3 bg-white/[0.02]">{selectedEvent.hashtags}</p>
+              </div>
+            )}
+
+            {selectedEvent.slidePreviews && selectedEvent.slidePreviews.length > 0 && (
+              <div className="mb-4">
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Approved Slides</div>
+                <SlidePreview slides={selectedEvent.slidePreviews} />
+              </div>
+            )}
+
+            {selectedEvent.instagram_url && (
+              <a href={selectedEvent.instagram_url} target="_blank" rel="noopener noreferrer" className="text-xs text-accent-blue hover:underline inline-flex items-center gap-1">
+                View on Instagram <ExternalLink size={12} />
+              </a>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
