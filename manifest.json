@@ -63,17 +63,25 @@
         "6.png"
       ],
       "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/6.png"
+      ],
+      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
+      "posted_at": "2026-06-24T06:11:00+0000",
+      "instagram_url": "https://www.instagram.com/p/DZ9Zx79FkQx/",
+      "instagram_media_id": "18012435365717960",
+      "image_urls_backup": [
         "https://files.catbox.moe/usehqc.png",
         "https://files.catbox.moe/s3z43u.png",
         "https://files.catbox.moe/fozuqe.png",
         "https://files.catbox.moe/6nau33.png",
         "https://files.catbox.moe/3uate0.png",
         "https://files.catbox.moe/345ajq.png"
-      ],
-      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "posted_at": "2026-06-24T06:11:00+0000",
-      "instagram_url": "https://www.instagram.com/p/DZ9Zx79FkQx/",
-      "instagram_media_id": "18012435365717960"
+      ]
     },
     {
       "id": "GB-2026-06-30-01",
@@ -119,11 +127,19 @@
           "prompt_summary": "Dark end card, text: DON'T CUT THE LINE THAT SAVES THE SHOOT"
         }
       ],
-      "status": "awaiting_images",
+      "status": "approved",
       "image_file_ids": [],
       "image_file_names": [],
-      "image_urls": [],
-      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png"
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/6.png"
+      ],
+      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png",
+      "approved_at": "2026-06-26T11:00:00+0000"
     },
     {
       "id": "GB-2026-07-02-02",
@@ -169,11 +185,19 @@
           "prompt_summary": "Dark end card, text: YOUR AUDIENCE NEEDS A BUDGET TOO"
         }
       ],
-      "status": "awaiting_images",
+      "status": "approved",
       "image_file_ids": [],
       "image_file_names": [],
-      "image_urls": [],
-      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png"
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/6.png"
+      ],
+      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png",
+      "approved_at": "2026-06-26T11:00:00+0000"
     },
     {
       "id": "GB-2026-07-03-03",
@@ -219,11 +243,19 @@
           "prompt_summary": "Dark end card, text: IF YOUR BUDGET SKIPS INSURANCE, IT'S NOT FINISHED"
         }
       ],
-      "status": "awaiting_images",
+      "status": "approved",
       "image_file_ids": [],
       "image_file_names": [],
-      "image_urls": [],
-      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png"
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/6.png"
+      ],
+      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png",
+      "approved_at": "2026-06-26T11:00:00+0000"
     },
     {
       "id": "GB-2026-07-06-04",
@@ -269,11 +301,19 @@
           "prompt_summary": "Dark end card, text: THE DATA DOES NOT LIE. KEEP YOUR BUDGET LEAN."
         }
       ],
-      "status": "awaiting_images",
+      "status": "approved",
       "image_file_ids": [],
       "image_file_names": [],
-      "image_urls": [],
-      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png"
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/6.png"
+      ],
+      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png",
+      "approved_at": "2026-06-26T11:00:00+0000"
     },
     {
       "id": "GB-2026-06-23-02",
@@ -335,18 +375,26 @@
         "6.png"
       ],
       "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/6.png"
+      ],
+      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
+      "approved_at": "2026-06-24T07:00:00+0000",
+      "posted_at": "2026-06-24T16:19:08+0000",
+      "instagram_url": "",
+      "instagram_media_id": "17934958992086786",
+      "image_urls_backup": [
         "https://files.catbox.moe/e5m7t9.png",
         "https://files.catbox.moe/vf5yrz.png",
         "https://files.catbox.moe/6jyub4.png",
         "https://files.catbox.moe/22mex7.png",
         "https://files.catbox.moe/5mzgkl.png",
         "https://files.catbox.moe/72idz4.png"
-      ],
-      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "approved_at": "2026-06-24T07:00:00+0000",
-      "posted_at": "2026-06-24T16:19:08+0000",
-      "instagram_url": "",
-      "instagram_media_id": "17934958992086786"
+      ]
     },
     {
       "id": "GB-2026-06-24-03",
@@ -408,18 +456,26 @@
         "6.png"
       ],
       "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/6.png"
+      ],
+      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
+      "approved_at": "2026-06-24T07:00:00+0000",
+      "posted_at": "2026-06-26T17:41:26+0000",
+      "instagram_url": "",
+      "instagram_media_id": "18119650222683655",
+      "image_urls_backup": [
         "https://files.catbox.moe/xzg9fu.png",
         "https://files.catbox.moe/1myx1c.png",
         "https://files.catbox.moe/ma2cr3.png",
         "https://files.catbox.moe/bm8zuu.png",
         "https://files.catbox.moe/1i1x11.png",
         "https://files.catbox.moe/pd31it.png"
-      ],
-      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "approved_at": "2026-06-24T07:00:00+0000",
-      "posted_at": "2026-06-26T17:41:26+0000",
-      "instagram_url": "",
-      "instagram_media_id": "18119650222683655"
+      ]
     },
     {
       "id": "GB-2026-06-25-04",
@@ -481,18 +537,26 @@
         "6.png"
       ],
       "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/6.png"
+      ],
+      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
+      "approved_at": "2026-06-24T07:00:00+0000",
+      "posted_at": "2026-06-26T17:42:47+0000",
+      "instagram_url": "",
+      "instagram_media_id": "17895216300352990",
+      "image_urls_backup": [
         "https://files.catbox.moe/u23lsx.png",
         "https://files.catbox.moe/9pbav5.png",
         "https://files.catbox.moe/zp4w40.png",
         "https://files.catbox.moe/4cy84g.png",
         "https://files.catbox.moe/3kw5jd.png",
         "https://files.catbox.moe/5qu9ur.png"
-      ],
-      "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "approved_at": "2026-06-24T07:00:00+0000",
-      "posted_at": "2026-06-26T17:42:47+0000",
-      "instagram_url": "",
-      "instagram_media_id": "17895216300352990"
+      ]
     }
   ]
 }
