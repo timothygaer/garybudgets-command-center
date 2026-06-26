@@ -390,7 +390,7 @@
           "prompt_summary": "Dark end card, text: A GOOD BUDGET CONNECTS THE CREATIVE PLAN TO THE REAL PLAN"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1ajN5dmtZ7a2S8foSjo_H7Utj7HLS0W3V",
         "13ZRzmWTgaTzx9_nvjYTEdFjkysqSMEbO",
@@ -416,7 +416,10 @@
         "https://files.catbox.moe/pd31it.png"
       ],
       "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "approved_at": "2026-06-24T07:00:00+0000"
+      "approved_at": "2026-06-24T07:00:00+0000",
+      "posted_at": "2026-06-26T17:41:26+0000",
+      "instagram_url": "",
+      "instagram_media_id": "18119650222683655"
     },
     {
       "id": "GB-2026-06-25-04",
