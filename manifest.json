@@ -463,7 +463,7 @@
           "prompt_summary": "Dark end card, text: IF THE INCENTIVE CHANGES, THE BUDGET CHANGES"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1NSQu-iuKSP8rvnhEdAGbWKIwBQH0DpvS",
         "1nMEMnVomvjmYP6qTWyCXJojdD7LTwPcK",
@@ -489,7 +489,10 @@
         "https://files.catbox.moe/5qu9ur.png"
       ],
       "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
-      "approved_at": "2026-06-24T07:00:00+0000"
+      "approved_at": "2026-06-24T07:00:00+0000",
+      "posted_at": "2026-06-26T17:42:47+0000",
+      "instagram_url": "",
+      "instagram_media_id": "17895216300352990"
     }
   ]
 }
