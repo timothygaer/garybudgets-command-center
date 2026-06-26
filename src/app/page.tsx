@@ -684,12 +684,12 @@ One price. One tool. No surprises.
 
 Sign up for the waitlist → garybudgets.com`,
   images: [
-    { src: "https://files.catbox.moe/2oz5f9.png", label: "The Hook" },
-    { src: "https://files.catbox.moe/u0c1fk.png", label: "Gear isn't the problem" },
-    { src: "https://files.catbox.moe/9vgr1x.png", label: "Feeding the crew" },
-    { src: "https://files.catbox.moe/l7ap5l.png", label: "Small costs add up" },
-    { src: "https://files.catbox.moe/g33cws.png", label: "Plan your budget" },
-    { src: "https://files.catbox.moe/doxzyd.png", label: "Join the waitlist" },
+    { src: "/images/launch-01/01-hook-directors-chair.png", label: "The Hook" },
+    { src: "/images/launch-01/02-camera-gear.png", label: "Gear isn't the problem" },
+    { src: "/images/launch-01/03-food-costs.png", label: "Feeding the crew" },
+    { src: "/images/launch-01/04-small-expenses.png", label: "Small costs add up" },
+    { src: "/images/launch-01/05-planning-clipboard.png", label: "Plan your budget" },
+    { src: "/images/launch-01/06-waitlist-cta.png", label: "Join the waitlist" },
   ],
   hashtags: "#indiefilm #filmbudget #garybudgets #filmfinance #indiefilmmaking #filmmakingtips #lowbudgetfilm #filmproducer #indiefilmcommunity #budgeting",
   scheduledFor: "Mon, Jun 22 · 10:00 AM",
@@ -1453,7 +1453,7 @@ function MaintenanceTab() {
               <li><strong className="text-gray-300">Cron jobs run on Timothy's Mac only</strong> — if the computer is asleep or offline when a post is scheduled, the approval watcher will catch it and publish it when the Mac wakes up.</li>
               <li><strong className="text-gray-300">Manifest syncing</strong> — approving a post through the Command Center updates Vercel's /tmp copy. Publishing updates the local git repo and pushes it to GitHub, which Vercel picks up on next cold start.</li>
               <li><strong className="text-gray-300">Instagram token</strong> — the token lasts 60 days from when it was last extended. If auto-publish fails with "token expired," the cron will log the error. You'll need to extend it manually.</li>
-              <li><strong className="text-gray-300">Images must be on public URLs</strong> — the publish script uses catbox.moe URLs from the manifest. If catbox goes down, uploading to a new host is manual.</li>
+              <li><strong className="text-gray-300">Images hosted on Vercel CDN</strong> — all carousel images are served from the repo's /public/ folder via Vercel's global CDN. No external image host needed. To add new images, push them to the repo at public/images/POST_ID/ and deploy.</li>
               <li><strong className="text-gray-300">No duplicate prevention</strong> — if a post is approved while the approval watcher also detects it as past-due, it could try to publish twice. The publish script skips already-posted items.</li>
             </ul>
           </div>

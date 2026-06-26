@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   try {
     const { caption, image_base64, filename, image_urls, post_id } = await request.json()
 
-    // If we have pre-uploaded image URLs (catbox), publish carousel directly
+    // If we have pre-uploaded image URLs (Vercel/GitHub-hosted), publish carousel directly
     if (image_urls && image_urls.length > 0) {
       const token = process.env.INSTAGRAM_ACCESS_TOKEN
       if (!token) {

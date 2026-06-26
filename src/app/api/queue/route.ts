@@ -27,7 +27,7 @@ export async function GET() {
   try {
     const manifest = await getManifestData()
 
-    // Build slide previews using the public catbox URLs
+    // Build slide previews using the Vercel-hosted image URLs
     const postsWithPreviews = manifest.posts.map((post: any) => {
       const urls = post.image_urls || []
       const slidePreviews = (post.slides || []).map((slide: any, i: number) => ({

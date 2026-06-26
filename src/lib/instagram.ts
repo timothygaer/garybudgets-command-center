@@ -61,15 +61,10 @@ export async function publishPost(imageUrl: string, caption: string) {
 }
 
 export async function uploadImageToHost(imageBase64: string, filename: string) {
-  // Upload to catbox.moe — free, no API key
-  const buffer = Buffer.from(imageBase64, "base64")
-  const form = new FormData()
-  form.append("reqtype", "fileupload")
-  form.append("fileToUpload", new Blob([buffer]), filename)
-
-  const r = await fetch("https://catbox.moe/user/api.php", { method: "POST", body: form })
-  const url = await r.text()
-  return url.trim()
+  // DEPRECATED: Images are now hosted via Vercel /public/ folder (git-pushed).
+  // This function is kept for custom uploads but will save locally.
+  // For production use, push images to the repo and deploy.
+  return "/images/custom/" + filename
 }
 
 export async function fetchPostInsights(mediaId: string) {
