@@ -246,7 +246,7 @@
           "prompt_summary": "Dark end card, text: IF YOUR BUDGET SKIPS INSURANCE, IT'S NOT FINISHED"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [],
       "image_file_names": [],
       "image_urls": [
@@ -258,7 +258,10 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/6.png"
       ],
       "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png",
-      "approved_at": "2026-06-26T11:00:00+0000"
+      "approved_at": "2026-06-26T11:00:00+0000",
+      "posted_at": "2026-06-26T18:15:19+0000",
+      "instagram_url": "",
+      "instagram_media_id": "18598481986021877"
     },
     {
       "id": "GB-2026-07-06-04",
