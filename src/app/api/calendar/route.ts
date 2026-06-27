@@ -74,6 +74,12 @@ export async function GET() {
         if (post.status === "posted" && post.posted_at) {
           const d = new Date(post.posted_at)
           date = d.toISOString().split("T")[0]
+          // Extract time from posted_at timestamp
+          const hours = d.getUTCHours()
+          const mins = d.getUTCMinutes().toString().padStart(2, "0")
+          const ampm = hours >= 12 ? "PM" : "AM"
+          const hour12 = hours % 12 || 12
+          time = `${hour12}:${mins} ${ampm} UTC`
           calStatus = "posted"
         } else if (post.status === "approved") {
           // Approved posts: show as scheduled, parse their schedule
