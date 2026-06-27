@@ -292,17 +292,29 @@ function EngagementTips() {
 
 // ---------- Upcoming Posts ----------
 function UpcomingPosts() {
-  const upcoming = [
-    { title: "Your $50K Film Is Not a $50K Film", date: "Mon, Jun 22", time: "7:00 PM ET", status: "draft", pillar: "Budget School" },
-    { title: "5 Budget Lines Indie Producers Forget", date: "Tue, Jun 23", time: "7:00 PM ET", status: "draft", pillar: "Budget School" },
-    { title: "Above-the-Line vs Below-the-Line", date: "Wed, Jun 24", time: "12:00 PM ET", status: "draft", pillar: "Budget School" },
-    { title: "Tax Incentives Are Budget Strategy", date: "Thu, Jun 25", time: "9:00 AM ET", status: "draft", pillar: "Industry Watch" },
-  ]
+  const [events, setEvents] = useState<CalendarEvent[]>([])
+  useEffect(() => {
+    fetch("/api/calendar")
+      .then(r => r.json())
+      .then(d => {
+        // Show approved/scheduled posts that are upcoming or past-approved
+        const upcoming = (d.events || [])
+          .filter((e: CalendarEvent) => e.status === "scheduled" || e.status === "posted")
+          .sort((a: CalendarEvent, b: CalendarEvent) => a.date.localeCompare(b.date))
+        setEvents(upcoming)
+      })
+      .catch(() => {})
+  }, [])
+
+  const upcoming = events.slice(0, 10)
 
   return (
     <div className="space-y-2">
+      {upcoming.length === 0 && (
+        <div className="text-xs text-text-muted text-center py-4">No upcoming posts scheduled</div>
+      )}
       {upcoming.map((item, i) => (
-        <div key={i} className="flex items-center justify-between p-3 rounded-lg" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--color-border)" }}>
+        <div key={item.id} className="flex items-center justify-between p-3 rounded-lg" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--color-border)" }}>
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold"
               style={{
@@ -317,14 +329,15 @@ function UpcomingPosts() {
             <div>
               <h4 className="text-xs font-medium text-gray-200">{item.title}</h4>
               <div className="flex items-center gap-2 text-[10px] text-text-muted mt-0.5">
-                <Calendar size={10} /> {item.date} at {item.time}
+                <Calendar size={10} /> {item.date} at {item.time || "TBD"}
               </div>
             </div>
           </div>
           <span className={`text-[10px] px-2 py-1 rounded font-medium ${
-            item.status === "ready" ? "bg-green-900/30 text-green-400" : "bg-surface-3 text-text-muted"
+            item.status === "scheduled" ? "bg-blue-900/30 text-blue-400" :
+            item.status === "posted" ? "bg-green-900/30 text-green-400" : "bg-surface-3 text-text-muted"
           }`}>
-            {item.status === "ready" ? "Ready" : "Draft"}
+            {item.status === "scheduled" ? "Scheduled" : item.status === "posted" ? "Posted" : "Draft"}
           </span>
         </div>
       ))}
