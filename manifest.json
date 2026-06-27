@@ -188,7 +188,7 @@
           "prompt_summary": "Dark end card, text: YOUR AUDIENCE NEEDS A BUDGET TOO"
         }
       ],
-      "status": "approved",
+      "status": "draft",
       "image_file_ids": [],
       "image_file_names": [],
       "image_urls": [
@@ -199,8 +199,7 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/6.png"
       ],
-      "drive_order_source": "Pending upload \u2014 rename as 1.png through 6.png",
-      "approved_at": "2026-06-26T11:00:00+0000"
+      "drive_order_source": "Pending upload — rename as 1.png through 6.png"
     },
     {
       "id": "GB-2026-07-03-03",
@@ -246,7 +245,7 @@
           "prompt_summary": "Dark end card, text: IF YOUR BUDGET SKIPS INSURANCE, IT'S NOT FINISHED"
         }
       ],
-      "status": "approved",
+      "status": "draft",
       "image_file_ids": [],
       "image_file_names": [],
       "image_urls": [
@@ -304,7 +303,7 @@
           "prompt_summary": "Dark end card, text: THE DATA DOES NOT LIE. KEEP YOUR BUDGET LEAN."
         }
       ],
-      "status": "approved",
+      "status": "draft",
       "image_file_ids": [],
       "image_file_names": [],
       "image_urls": [
