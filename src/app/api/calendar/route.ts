@@ -87,6 +87,12 @@ export async function GET() {
           date = parsed.date
           time = parsed.time
           calStatus = "scheduled"
+        } else if (post.status === "draft" && schedStr) {
+          // Draft posts: show as pending if they have a schedule
+          const parsed = parseScheduleStr(schedStr)
+          date = parsed.date
+          time = parsed.time
+          calStatus = "pending"
         } else {
           calStatus = "pending"
         }

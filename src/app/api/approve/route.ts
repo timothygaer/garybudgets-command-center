@@ -40,6 +40,17 @@ export async function POST(request: Request) {
     const post = manifest.posts[postIndex]
     const schedule = post.proposed_schedule || post.original_schedule
 
+    // Gate: do not approve if no images exist
+    const hasImages = Array.isArray(post.image_file_ids) && post.image_file_ids.length > 0
+    if (!hasImages) {
+      return Response.json({
+        success: false,
+        error: "Cannot approve — no images uploaded yet. Generate images in ChatGPT and upload to the Google Drive Assets folder first.",
+        post_id,
+        image_status: "awaiting_images",
+      }, { status: 400 })
+    }
+
     // Mark as approved
     manifest.posts[postIndex].status = "approved"
     manifest.posts[postIndex].approved_at = new Date().toISOString()

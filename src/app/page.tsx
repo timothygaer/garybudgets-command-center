@@ -297,9 +297,9 @@ function UpcomingPosts() {
     fetch("/api/calendar")
       .then(r => r.json())
       .then(d => {
-        // Show approved/scheduled posts that are upcoming or past-approved
+        // Show all upcoming posts — posted, scheduled, and draft
         const upcoming = (d.events || [])
-          .filter((e: CalendarEvent) => e.status === "scheduled" || e.status === "posted")
+          .filter((e: CalendarEvent) => e.status === "scheduled" || e.status === "posted" || e.status === "pending")
           .sort((a: CalendarEvent, b: CalendarEvent) => a.date.localeCompare(b.date))
         setEvents(upcoming)
       })
@@ -600,8 +600,56 @@ function PostCalendar() {
           <div className="w-1.5 h-1.5 rounded-full bg-amber-400" /> Pending Approval
         </span>
         <span className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-gray-400" /> Draft (no images)
+        </span>
+        <span className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded border border-red-600/50 bg-red-900/10" /> Today
         </span>
+      </div>
+
+      {/* Upcoming schedule list */}
+      <div className="mt-6">
+        <div className="text-[11px] text-text-muted font-medium uppercase tracking-wide mb-3">Upcoming Schedule</div>
+        <div className="space-y-2">
+          {events
+            .filter((e: CalendarEvent) => {
+              const d = new Date(e.date + "T12:00:00")
+              const today = new Date(new Date().toDateString())
+              return d >= today
+            })
+            .sort((a: CalendarEvent, b: CalendarEvent) => a.date.localeCompare(b.date))
+            .slice(0, 10)
+            .map((e: CalendarEvent) => {
+              const d = new Date(e.date + "T12:00:00")
+              const label = d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })
+              return (
+                <div key={e.id} className="flex items-center justify-between text-xs py-2 px-3 rounded-lg" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--color-border)" }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: pillarColors[e.pillar] || "#6b7280" }} />
+                    <span className="text-gray-200">{e.title}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-text-muted text-[10px]">{label} · {e.time}</span>
+                    <span className={`text-[9px] px-1.5 py-0.5 rounded font-medium ${
+                      e.status === "posted" ? "bg-purple-900/20 text-purple-400" :
+                      e.status === "scheduled" ? "bg-green-900/20 text-green-400" :
+                      e.status === "pending" ? "bg-amber-900/20 text-amber-400" :
+                      "bg-gray-900/20 text-gray-400"
+                    }`}>
+                      {e.status === "posted" ? "Posted" : e.status === "scheduled" ? "Scheduled" : e.status === "pending" ? "Pending" : "Draft"}
+                    </span>
+                  </div>
+                </div>
+              )
+            })}
+          {events.filter((e: CalendarEvent) => {
+            const d = new Date(e.date + "T12:00:00")
+            const today = new Date(new Date().toDateString())
+            return d >= today
+          }).length === 0 && (
+            <div className="text-[11px] text-text-muted text-center py-4">No upcoming posts scheduled</div>
+          )}
+        </div>
       </div>
 
       {selectedEvent && (
@@ -887,6 +935,17 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
 
   const getStatus = (status: string) => statusConfig[status] || statusConfig.draft
 
+  // Derive display status based on manifest status + presence of images
+  const getDisplayStatus = (item: any) => {
+    if (item.status === "posted") return "posted"
+    if (item.status === "approved") return "approved"
+    // For draft/ready/awaiting_images, check if images exist
+    const hasImages = Array.isArray(item.image_file_ids) && item.image_file_ids.length > 0
+    if (hasImages && (item.status === "draft" || item.status === "ready")) return "ready"
+    if (!hasImages && (item.status === "draft" || item.status === "awaiting_images")) return "awaiting_images"
+    return item.status || "draft"
+  }
+
   const handleApprove = async (item: any) => {
     setApproving(item.id)
     try {
@@ -928,7 +987,8 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
   return (
     <div className="space-y-6">
       {queue.filter((item: any) => item.status !== "posted").map((item: any, i: number) => {
-        const st = getStatus(item.status || "draft")
+        const displayStatus = getDisplayStatus(item)
+        const st = getStatus(displayStatus)
         const scheduleLabel = item.proposed_schedule || item.original_schedule || item.scheduled
 
         return (
@@ -954,7 +1014,7 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
 
               {/* Action area */}
               <div className="flex flex-col items-end gap-2 flex-shrink-0">
-                {(item.status === "ready" || item.status === "awaiting_images" || item.status === "awaiting_image") && (
+                {displayStatus === "ready" && (
                   <button
                     className="bg-red-600 text-black text-xs font-bold py-2 px-4 rounded-lg hover:bg-red-500 transition disabled:opacity-50 border border-red-400"
                     onClick={() => handleApprove(item)}
@@ -962,6 +1022,11 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
                   >
                     {approving === item.id ? "Scheduling..." : "Approve & Schedule"}
                   </button>
+                )}
+                {displayStatus === "awaiting_images" && (
+                  <span className="text-[11px] text-amber-400 font-medium flex items-center gap-1">
+                    <Image size={12} /> Awaiting Images
+                  </span>
                 )}
                 {item.status === "approved" && (
                   <span className="text-[11px] text-blue-400 font-medium flex items-center gap-1">
@@ -979,8 +1044,8 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
             {/* Schedule info */}
             <div className="flex items-center gap-2 text-[11px] text-text-muted mb-3">
               <Calendar size={11} />
-              {item.status === "awaiting_images" && item.proposed_schedule ? (
-                <span>Approves to: <span className="text-gray-300 font-medium">{scheduleLabel}</span></span>
+              {displayStatus === "awaiting_images" ? (
+                <span>Scheduled for: <span className="text-gray-300 font-medium">{scheduleLabel}</span></span>
               ) : (
                 <span>{scheduleLabel}</span>
               )}
