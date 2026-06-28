@@ -189,8 +189,22 @@
         }
       ],
       "status": "draft",
-      "image_file_ids": [],
-      "image_file_names": [],
+      "image_file_ids": [
+        "1vJMU8KOX1frCZHglnBe0Yi4jYrHHqiI4",
+        "1JfbZIgogiyzr0q17ftsO9yBWn7CNloLG",
+        "1zVweDo_Nik9b1iQ5NHHHmyBt0_eOha0R",
+        "1_iGR8GFnOIdwwvuKpFv8Z8RYUYiATfE_",
+        "1PYjcBUrEbDZcJG3OwH873jLLvFW3KpxW",
+        "1Xoa43sQq9sWX-GRCDHHPLunKuxJCoTQH"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/2.png",
@@ -199,7 +213,7 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/6.png"
       ],
-      "drive_order_source": "Pending upload — rename as 1.png through 6.png"
+      "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo"
     },
     {
       "id": "GB-2026-07-03-03",
@@ -207,11 +221,11 @@
       "pillar": "Budget School",
       "slug": "Post03_2026-07-03",
       "slide_count": 6,
-      "original_schedule": "Fri, Jul 3 · 6:00 AM PT",
-      "proposed_schedule": "Fri, Jul 3 · 6:00 AM PT",
+      "original_schedule": "Fri, Jul 3 \u00b7 6:00 AM PT",
+      "proposed_schedule": "Fri, Jul 3 \u00b7 6:00 AM PT",
       "drive_assets_folder_id": "14mEwQdSg5DSaCGNc-0zcSLWIXhPPUgKa",
       "drive_post_folder_id": "1BvyxOuxmuS66wbIg_Vmuq-2EI9QyRt4q",
-      "caption": "Insurance costs have crept up more than most indie producers expect — 2-3% of your budget in 2026.\n\nBut here is what most people miss: skipping insurance does not just save money for the first week. It locks you out of equipment houses, locations, and distribution deals.\n\nE&O insurance alone runs $2,500-$10,000 for a 3-year term.\n\nIf your budget does not have a line for insurance, it is not fundable.\n\nSave this before your next insurance quote.",
+      "caption": "Insurance costs have crept up more than most indie producers expect \u2014 2-3% of your budget in 2026.\n\nBut here is what most people miss: skipping insurance does not just save money for the first week. It locks you out of equipment houses, locations, and distribution deals.\n\nE&O insurance alone runs $2,500-$10,000 for a 3-year term.\n\nIf your budget does not have a line for insurance, it is not fundable.\n\nSave this before your next insurance quote.",
       "hashtags": "#filmbudget #filminsurance #indiefilm #productionsafety #filmlife",
       "slides": [
         {
@@ -246,8 +260,22 @@
         }
       ],
       "status": "draft",
-      "image_file_ids": [],
-      "image_file_names": [],
+      "image_file_ids": [
+        "1CXokUvKTCMhr6yiV0bHlZRe76Qp_WbAQ",
+        "1hYiFwgZ9X23c3DiP20HdTD8Tfw0xTVvi",
+        "1DxgOiNRxcOvRO3BrOkCVq5WBPh-Ubm0r",
+        "1dVGnFMN2shv3H6otd5dzsfMBsCOFF3kn",
+        "1A8vDW_iSB6BKfutGwq2bxQcnEVK5I18o",
+        "11JJLksJ8czOxWwOjJQcCD4gX_aXGeRAq"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/2.png",
@@ -256,7 +284,7 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/6.png"
       ],
-      "drive_order_source": "Pending upload — rename as 1.png through 6.png",
+      "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo",
       "approved_at": "2026-06-26T11:00:00+0000"
     },
     {
@@ -304,8 +332,22 @@
         }
       ],
       "status": "draft",
-      "image_file_ids": [],
-      "image_file_names": [],
+      "image_file_ids": [
+        "10-oLcAgLN_gR5eXcuYEoRHlGbei-PAMI",
+        "1qzF8X8eDsiiv2Sv2MYQm5IoT8k4SXva_",
+        "1ZLqLMuE4k-03_kMFJ8_lLuyZdxcszSWQ",
+        "1R4l8gbrh_aXAHUOxokkgpjhWpkD_7vqG",
+        "1f4q-W8s5FkKnEp21CemCgMSHred9DCSZ",
+        "1rd-al4hwP_mBt8Ha_VpQrOQ8bf0DaBGm"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/2.png",
@@ -314,7 +356,7 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/6.png"
       ],
-      "drive_order_source": "Pending upload — rename as 1.png through 6.png",
+      "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo",
       "approved_at": "2026-06-26T11:00:00+0000"
     },
     {
