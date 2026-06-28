@@ -27,7 +27,7 @@ interface DashboardData {
   account: Account; insights: Record<string, number>; posts: Post[]
 }
 interface CalendarSlidePreview {
-  slide: number; heading: string; prompt_summary: string; image_url: string
+  slide: number; heading: string; prompt_summary: string; image_url: string; file_id?: string
 }
 interface CalendarEvent {
   id: string; date: string; day?: number; title: string; pillar: string; status: string; source_status?: string
@@ -939,8 +939,9 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
   const getDisplayStatus = (item: any) => {
     if (item.status === "posted") return "posted"
     if (item.status === "approved") return "approved"
-    // For draft/ready/awaiting_images, check if images exist
-    const hasImages = Array.isArray(item.image_file_ids) && item.image_file_ids.length > 0
+    // For draft/ready/awaiting_images, check if images exist via has_images or slidePreviews file_id
+    const hasImages = item.has_images === true || 
+      (Array.isArray(item.slidePreviews) && item.slidePreviews.some((s: any) => s.file_id))
     if (hasImages && (item.status === "draft" || item.status === "ready")) return "ready"
     if (!hasImages && (item.status === "draft" || item.status === "awaiting_images")) return "awaiting_images"
     return item.status || "draft"

@@ -45,6 +45,7 @@ export async function GET() {
         image_file_names: undefined,
         drive_assets_folder_id: undefined,
         drive_post_folder_id: undefined,
+        has_images: urls.length > 0 && (post.image_file_ids?.length > 0 || false),
       }
     })
 
