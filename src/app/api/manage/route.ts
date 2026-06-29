@@ -85,3 +85,14 @@ export async function POST(request: Request) {
     return Response.json({ error: err.message }, { status: 500 })
   }
 }
+
+export async function GET() {
+  const { readFile } = await import("fs/promises")
+  const { existsSync } = await import("fs")
+  const CHANGE_REQUESTS_PATH = "/tmp/gb-change-requests.json"
+  if (!existsSync(CHANGE_REQUESTS_PATH)) {
+    return Response.json({ requests: [] })
+  }
+  const content = await readFile(CHANGE_REQUESTS_PATH, "utf-8")
+  return Response.json({ requests: JSON.parse(content) })
+}
