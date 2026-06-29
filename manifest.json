@@ -898,7 +898,7 @@
         "14pdqjr2rdbAkgpDK6pol5XLSFUnwhZOJ",
         "1gAsvV66Jiwpm90ZvLQfbk9bmvCxbumAE",
         "11mCC11pEIZj3kdnReaMalqftaEq6Xopg",
-        "1GZ2875T1FQ5vloMzI4jOknKhb40RZof1"
+        "1tvveNXtGoeYoziRrDIXvE7ePi0WM9aqr"
       ],
       "image_file_names": [
         "1.png",
@@ -927,7 +927,8 @@
         "https://media.themoviedb.org/t/p/w500/1gDV0Lm9y8ufIKzyf0h0GBgb9Zj.jpg",
         "https://media.themoviedb.org/t/p/w500/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg",
         "https://upload.wikimedia.org/wikipedia/en/a/a4/Evil_Dead_Burn_poster.jpeg"
-      ]
+      ],
+      "design_notes": "Full-width red bar with blood drip effect. Gary Budgets Horror Roll Call text is a lighter red highlight within the bar."
     }
   ]
 }
