@@ -3,8 +3,9 @@
     "post_id": "GB-2026-07-06-11",
     "message": "The final image - You went to far. All the images should have the same design and I like the design that you did for the first 5. When i said it should be the full size i meant the poster should be the full size of the window that you created int he middle of your image like you did with the other posters. ",
     "created_at": "2026-06-29T01:06:36.270Z",
-    "acknowledged_at": "2026-06-29T03:00:00.000Z",
+    "acknowledged_at": "2026-06-29T01:15:00Z",
     "resolved_at": "2026-06-29T03:00:00.000Z",
-    "resolution": "Regenerated slide 6 with poster properly scaled to fill the card area. All 6 slides now use consistent design with full-size poster images."
+    "resolution": "Regenerated slide 6 with poster properly scaled to fill the card area. All 6 slides now use consistent design with full-size poster images.",
+    "acknowledged": true
   }
 ]
