@@ -90,13 +90,13 @@ function extractHashtags(caption: string): string[] {
 // ---------- Stat Bar (compact, 8 metrics) ----------
 function StatBar({ account, insights }: { account: Account; insights: Record<string, number> }) {
   const stats = [
-    { label: "Reach", value: n(insights.reach), change: "+8%", color: "#4a9eff", icon: Eye },
-    { label: "Profile Views", value: n(insights.profile_views), change: "+5%", color: "#b44aff", icon: BarChart3 },
-    { label: "Followers", value: n(account.followers), change: "+3%", color: "#ef4444", icon: Users },
-    { label: "Website Clicks", value: n(insights.website_clicks), change: "+12%", color: "#ffb347", icon: MousePointerClick },
-    { label: "Engaged Accts", value: n(insights.accounts_engaged), change: "+7%", color: "#00ff88", icon: Activity },
-    { label: "Interactions", value: n(insights.total_interactions), change: "+9%", color: "#34d399", icon: Share2 },
-    { label: "Views", value: n(insights.views), change: "+6%", color: "#00d4ff", icon: TrendingUp },
+    { label: "Reach", value: n(insights.reach), change: "Live", color: "#4a9eff", icon: Eye },
+    { label: "Profile Views", value: n(insights.profile_views), change: "Live", color: "#b44aff", icon: BarChart3 },
+    { label: "Followers", value: n(account.followers), change: "Live", color: "#ef4444", icon: Users },
+    { label: "Website Clicks", value: n(insights.website_clicks), change: "Live", color: "#ffb347", icon: MousePointerClick },
+    { label: "Engaged Accts", value: n(insights.accounts_engaged), change: "Live", color: "#00ff88", icon: Activity },
+    { label: "Interactions", value: n(insights.total_interactions), change: "Live", color: "#34d399", icon: Share2 },
+    { label: "Views", value: n(insights.views), change: "Live", color: "#00d4ff", icon: TrendingUp },
     { label: "Posts", value: n(account.media_count), change: "—", color: "#ff6699", icon: Image },
   ]
 
@@ -189,6 +189,196 @@ function GrowthChart({ posts }: { posts: Post[] }) {
         </AreaChart>
       </ResponsiveContainer>
     </div>
+  )
+}
+
+function postTitle(post: Post): string {
+  const firstLine = (post.caption || "").split("\n").find(Boolean) || "Untitled post"
+  return firstLine.replace(/#/g, "").slice(0, 70)
+}
+
+function engagementTotal(post: Post): number {
+  return (post.like_count || 0) + (post.comments_count || 0) + (post.insights?.saved || 0)
+}
+
+function engagementRate(post: Post): number {
+  return post.insights?.reach ? engagementTotal(post) / post.insights.reach * 100 : 0
+}
+
+function recentWithInsights(posts: Post[], limit = 7): Post[] {
+  return [...posts]
+    .filter(p => p.insights)
+    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+    .slice(0, limit)
+}
+
+// ---------- Weekly Summary ----------
+function WeeklySummary({ posts }: { posts: Post[] }) {
+  const weekPosts = recentWithInsights(posts, 7)
+  const totals = weekPosts.reduce((acc, p) => {
+    acc.reach += p.insights?.reach || 0
+    acc.impressions += p.insights?.impressions || 0
+    acc.likes += p.like_count || 0
+    acc.comments += p.comments_count || 0
+    acc.saves += p.insights?.saved || 0
+    return acc
+  }, { reach: 0, impressions: 0, likes: 0, comments: 0, saves: 0 })
+  const best = [...weekPosts].sort((a, b) => (b.insights?.reach || 0) - (a.insights?.reach || 0))[0]
+
+  const cards = [
+    { label: "Posts tracked", value: weekPosts.length.toString(), icon: Image, color: "#ef4444" },
+    { label: "Total reach", value: n(totals.reach), icon: Eye, color: "#4a9eff" },
+    { label: "Interactions", value: n(totals.likes + totals.comments + totals.saves), icon: Activity, color: "#00ff88" },
+    { label: "Saves", value: n(totals.saves), icon: Bookmark, color: "#ffb347" },
+  ]
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+      {cards.map((card) => (
+        <div key={card.label} className="rounded-xl border border-border p-4" style={{ background: "rgba(255,255,255,0.025)" }}>
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-[10px] uppercase tracking-wider text-text-muted">{card.label}</span>
+            <card.icon size={14} style={{ color: card.color }} />
+          </div>
+          <div className="text-2xl font-bold" style={{ color: card.color }}>{card.value}</div>
+        </div>
+      ))}
+      <div className="md:col-span-4 rounded-xl border border-border p-3" style={{ background: "rgba(239,68,68,0.04)" }}>
+        <div className="text-[10px] uppercase tracking-wider text-text-muted mb-1">Best recent reach</div>
+        <div className="flex items-center justify-between gap-3">
+          <div className="text-sm text-gray-200 line-clamp-1">{best ? postTitle(best) : "No recent post data yet"}</div>
+          <div className="text-sm font-semibold text-blue-400">{best ? n(best.insights?.reach || 0) : "—"}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ---------- Posts of the Week ----------
+function PostsOfWeekChart({ posts }: { posts: Post[] }) {
+  const weekPosts = recentWithInsights(posts, 7)
+  const data = weekPosts.map((p, i) => ({
+    name: `Post ${weekPosts.length - i}`,
+    title: postTitle(p),
+    reach: p.insights?.reach || 0,
+    saves: p.insights?.saved || 0,
+    comments: p.comments_count || 0,
+    likes: p.like_count || 0,
+    engagement: Number(engagementRate(p).toFixed(1)),
+  })).reverse()
+
+  if (data.length === 0) return <p className="text-text-muted text-xs py-8 text-center">No post stats available yet.</p>
+
+  return (
+    <div className="space-y-4">
+      <ResponsiveContainer width="100%" height={230}>
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#181830" />
+          <XAxis dataKey="name" stroke="#555566" fontSize={10} />
+          <YAxis stroke="#555566" fontSize={10} />
+          <Tooltip
+            contentStyle={{ background: "#111120", border: "1px solid #2a2a44", borderRadius: 8, fontSize: 11 }}
+            formatter={(value: any, name: any) => [n(value), String(name || "")]} 
+            labelFormatter={(label: any) => data.find(d => d.name === label)?.title || String(label)}
+          />
+          <Bar dataKey="reach" fill="#4a9eff" radius={[4, 4, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+      <div className="space-y-2">
+        {weekPosts.slice(0, 4).map((p) => (
+          <div key={p.id} className="flex items-center gap-3 rounded-lg border border-border p-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+            <div className="w-12 h-12 rounded-md overflow-hidden bg-surface-3 flex-shrink-0">
+              {p.media_url && <img src={p.media_url} alt="" className="w-full h-full object-cover" />}
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="text-xs text-gray-200 line-clamp-1">{postTitle(p)}</div>
+              <div className="text-[10px] text-text-muted">Reach {n(p.insights?.reach || 0)} · Saves {n(p.insights?.saved || 0)} · Comments {n(p.comments_count)}</div>
+            </div>
+            <div className="text-xs font-semibold text-green-400">{engagementRate(p).toFixed(1)}%</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// ---------- Engagement Breakdown ----------
+function EngagementBreakdownChart({ posts }: { posts: Post[] }) {
+  const weekPosts = recentWithInsights(posts, 7)
+  const totals = weekPosts.reduce((acc, p) => {
+    acc.likes += p.like_count || 0
+    acc.comments += p.comments_count || 0
+    acc.saves += p.insights?.saved || 0
+    return acc
+  }, { likes: 0, comments: 0, saves: 0 })
+  const chartData = [
+    { name: "Likes", value: totals.likes, color: "#b44aff" },
+    { name: "Comments", value: totals.comments, color: "#ffb347" },
+    { name: "Saves", value: totals.saves, color: "#00ff88" },
+  ].filter(d => d.value > 0)
+
+  if (chartData.length === 0) return <p className="text-text-muted text-xs py-8 text-center">No engagement data available yet.</p>
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
+      <ResponsiveContainer width="100%" height={210}>
+        <PieChart>
+          <Pie data={chartData} dataKey="value" nameKey="name" innerRadius={48} outerRadius={82} paddingAngle={3}>
+            {chartData.map((entry, idx) => <Cell key={idx} fill={entry.color} />)}
+          </Pie>
+          <Tooltip contentStyle={{ background: "#111120", border: "1px solid #2a2a44", borderRadius: 8, fontSize: 11 }} />
+        </PieChart>
+      </ResponsiveContainer>
+      <div className="space-y-2">
+        {chartData.map((d) => (
+          <div key={d.name} className="flex items-center justify-between rounded-lg border border-border px-3 py-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+            <span className="flex items-center gap-2 text-xs text-gray-300"><span className="w-2 h-2 rounded-full" style={{ background: d.color }} />{d.name}</span>
+            <span className="text-xs font-semibold" style={{ color: d.color }}>{n(d.value)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// ---------- Content Type Performance ----------
+function ContentTypePerformance({ posts }: { posts: Post[] }) {
+  const buckets: Record<string, { count: number; reach: number; saves: number; engagement: number }> = {
+    "Budget School": { count: 0, reach: 0, saves: 0, engagement: 0 },
+    "Industry Watch": { count: 0, reach: 0, saves: 0, engagement: 0 },
+    "Question Posts": { count: 0, reach: 0, saves: 0, engagement: 0 },
+  }
+  posts.filter(p => p.insights).forEach(p => {
+    const caption = (p.caption || "").toLowerCase()
+    const key = caption.includes("?") ? "Question Posts" :
+      (caption.includes("budget") || caption.includes("cost") || caption.includes("tax")) ? "Budget School" : "Industry Watch"
+    buckets[key].count += 1
+    buckets[key].reach += p.insights?.reach || 0
+    buckets[key].saves += p.insights?.saved || 0
+    buckets[key].engagement += engagementTotal(p)
+  })
+  const chartData = Object.entries(buckets)
+    .filter(([, v]) => v.count > 0)
+    .map(([name, v]) => ({
+      name,
+      avgReach: Math.round(v.reach / v.count),
+      avgSaves: Math.round(v.saves / v.count),
+      avgEngagement: Math.round(v.engagement / v.count),
+    }))
+
+  if (chartData.length === 0) return <p className="text-text-muted text-xs py-8 text-center">No content type data available yet.</p>
+
+  return (
+    <ResponsiveContainer width="100%" height={240}>
+      <BarChart data={chartData} layout="vertical" margin={{ left: 18 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#181830" />
+        <XAxis type="number" stroke="#555566" fontSize={10} />
+        <YAxis type="category" dataKey="name" stroke="#888899" fontSize={10} width={95} />
+        <Tooltip contentStyle={{ background: "#111120", border: "1px solid #2a2a44", borderRadius: 8, fontSize: 11 }} formatter={(value: any) => n(value)} />
+        <Bar dataKey="avgReach" name="Avg Reach" fill="#4a9eff" radius={[0, 4, 4, 0]} />
+        <Bar dataKey="avgSaves" name="Avg Saves" fill="#00ff88" radius={[0, 4, 4, 0]} />
+      </BarChart>
+    </ResponsiveContainer>
   )
 }
 
@@ -1356,43 +1546,64 @@ export default function Dashboard() {
             {/* Compact stat bar */}
             <StatBar account={data.account} insights={data.insights} />
 
-            {/* Two-column layout for growth + sidebar */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              {/* Growth tracking chart — spans 2 cols */}
-              <div className="lg:col-span-2 neon-panel neon-panel-accent">
-                <div className="panel-title">Growth Tracking</div>
-                <GrowthChart posts={data.posts} />
+            {/* Weekly performance summary */}
+            <div className="neon-panel neon-panel-accent">
+              <div className="panel-title">This Week</div>
+              <WeeklySummary posts={data.posts} />
+            </div>
+
+            {/* Primary performance chart */}
+            <div className="neon-panel neon-panel-accent">
+              <div className="panel-title">Performance Over Time</div>
+              <GrowthChart posts={data.posts} />
+            </div>
+
+            {/* Core stats charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="neon-panel">
+                <div className="panel-title">Posts of the Week</div>
+                <PostsOfWeekChart posts={data.posts} />
               </div>
 
-              {/* Right sidebar — hashtag analysis */}
+              <div className="neon-panel">
+                <div className="panel-title">Engagement Breakdown</div>
+                <EngagementBreakdownChart posts={data.posts} />
+              </div>
+            </div>
+
+            <div className="neon-panel">
+              <div className="panel-title">Content Type Performance</div>
+              <ContentTypePerformance posts={data.posts} />
+            </div>
+
+            {/* Existing overview content preserved below as research/context */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="neon-panel">
                 <div className="panel-title">Hashtag Analysis</div>
                 <HashtagAnalysis />
               </div>
-            </div>
 
-            {/* Two-column: Engagement Tips + Upcoming Posts */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="neon-panel">
                 <div className="panel-title">Engagement Optimization</div>
                 <EngagementTips />
               </div>
+            </div>
 
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="neon-panel">
                 <div className="panel-title">Upcoming Posts</div>
                 <UpcomingPosts />
               </div>
-            </div>
 
-            {/* Recent Posts */}
-            <div className="neon-panel">
-              <div className="panel-title">Recent Posts</div>
-              <div className="space-y-2">
-                {recentPosts.length === 0 ? (
-                  <p className="text-text-muted text-xs py-4 text-center">No posts yet</p>
-                ) : (
-                  recentPosts.map((p, i) => <RecentPostCard key={p.id} post={p} index={i} />)
-                )}
+              <div className="neon-panel">
+                <div className="panel-title">Recent Posts</div>
+                <div className="space-y-2">
+                  {recentPosts.length === 0 ? (
+                    <p className="text-text-muted text-xs py-4 text-center">No posts yet</p>
+                  ) : (
+                    recentPosts.map((p, i) => <RecentPostCard key={p.id} post={p} index={i} />)
+                  )}
+                </div>
               </div>
             </div>
           </div>
