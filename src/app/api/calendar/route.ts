@@ -3,6 +3,7 @@ import { readFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
 import { normalizeStatus } from "@/lib/manifest"
+import { mergeApprovalsIntoManifest } from "@/app/api/approve/route"
 
 const SRC_PATH = "/tmp/gb-manifest.json"
 const FALLBACK_PATH = join(process.cwd(), "manifest.json")
@@ -64,6 +65,7 @@ export async function GET() {
 
     const content = await readFile(manifestPath, "utf-8")
     const manifest = JSON.parse(content) as Manifest
+    await mergeApprovalsIntoManifest(manifest)
 
     const events = (manifest.posts || [])
       .map((post: ManifestPost) => {

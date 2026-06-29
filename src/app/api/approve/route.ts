@@ -7,8 +7,9 @@ import { normalizeStatus } from "@/lib/manifest"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
+const APPROVED_CACHE = "/tmp/gb-approved-posts.json"
 
-async function ensureWritableManifest(): Promise<any> {
+async function ensureWritableManifest(): Promise<{ manifest: any; path: string }> {
   if (existsSync(WRITABLE_PATH)) {
     const content = await readFile(WRITABLE_PATH, "utf-8")
     return { manifest: JSON.parse(content), path: WRITABLE_PATH }
@@ -19,6 +20,45 @@ async function ensureWritableManifest(): Promise<any> {
     return { manifest: JSON.parse(content), path: WRITABLE_PATH }
   }
   throw new Error("No manifest.json found")
+}
+
+/**
+ * Read the durable approval cache. This sidecar file survives Vercel cold-starts
+ * because Vercel preserves /tmp for the lifetime of a running instance.
+ * A brand-new instance after deploy will not have this file — approval state comes
+ * from the manifest's own approved_at field in that case.
+ */
+async function readApprovedCache(): Promise<Record<string, string>> {
+  if (!existsSync(APPROVED_CACHE)) return {}
+  const content = await readFile(APPROVED_CACHE, "utf-8")
+  return JSON.parse(content)
+}
+
+async function writeApprovedCache(cache: Record<string, string>) {
+  await writeFile(APPROVED_CACHE, JSON.stringify(cache))
+}
+
+/**
+ * Merge durable approval timestamps into the manifest.
+ * Called by both Queue and Calendar APIs so they share the same logic.
+ */
+export async function mergeApprovalsIntoManifest(manifest: any): Promise<void> {
+  const cache = await readApprovedCache()
+  if (Object.keys(cache).length === 0) return
+  
+  let changed = false
+  for (const postId in cache) {
+    const post = manifest.posts.find((p: any) => p.id === postId)
+    if (post && post.status !== "posted" && !post.approved_at) {
+      post.status = "approved"
+      post.approved_at = cache[postId]
+      changed = true
+    }
+  }
+  if (changed) {
+    // Persist merged state back to /tmp so future cold-start API calls get it
+    try { await writeFile(WRITABLE_PATH, JSON.stringify(manifest, null, 2)) } catch {}
+  }
 }
 
 async function saveManifest(manifest: any, path: string) {
@@ -69,9 +109,15 @@ export async function POST(request: Request) {
     }
 
     // Mark as approved
+    const approvedAt = new Date().toISOString()
     manifest.posts[postIndex].status = "approved"
-    manifest.posts[postIndex].approved_at = new Date().toISOString()
+    manifest.posts[postIndex].approved_at = approvedAt
     await saveManifest(manifest, path)
+
+    // Also write to the durable approval cache so approval survives Vercel deploys
+    const cache = await readApprovedCache()
+    cache[post_id] = approvedAt
+    await writeApprovedCache(cache)
 
     // Check if this post is marked for immediate publish
     const isImmediate = post.proposed_schedule === "Immediate on approval" || 
