@@ -3,6 +3,7 @@
 import { readFile, copyFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
+import { normalizeStatus } from "@/lib/manifest"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
@@ -29,9 +30,7 @@ export async function GET() {
 
     // Build slide previews using the Vercel-hosted image URLs
     const postsWithPreviews = manifest.posts.map((post: any) => {
-      // Normalize stale manifests: an approved_at timestamp means the post was approved.
-      // This protects against repo deploys resurrecting draft status from before /tmp approval writes.
-      const normalizedStatus = post.status === "posted" ? "posted" : (post.approved_at ? "approved" : post.status)
+      const normalizedStatus = normalizeStatus(post)
       const urls = post.image_urls || []
       const slidePreviews = (post.slides || []).map((slide: any, i: number) => ({ 
         slide: slide.slide,

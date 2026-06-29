@@ -687,21 +687,21 @@ function PostCalendar() {
 
             {selectedEvent.caption && (
               <div className="mb-4">
-                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Approved Caption</div>
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">{selectedEvent.status === "scheduled" || selectedEvent.status === "posted" ? "Approved Caption" : "Draft Caption"}</div>
                 <p className="text-xs text-gray-300 whitespace-pre-line leading-relaxed rounded-lg border border-border p-3 bg-white/[0.02]">{selectedEvent.caption}</p>
               </div>
             )}
 
             {selectedEvent.hashtags && (
               <div className="mb-4">
-                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Approved Hashtags</div>
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">{selectedEvent.status === "scheduled" || selectedEvent.status === "posted" ? "Approved Hashtags" : "Proposed Hashtags"}</div>
                 <p className="text-[10px] text-accent-blue/80 rounded-lg border border-border p-3 bg-white/[0.02]">{selectedEvent.hashtags}</p>
               </div>
             )}
 
             {selectedEvent.slidePreviews && selectedEvent.slidePreviews.length > 0 && (
               <div className="mb-4">
-                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">Approved Slides</div>
+                <div className="text-[10px] text-text-muted font-medium uppercase tracking-wide mb-1">{selectedEvent.status === "scheduled" || selectedEvent.status === "posted" ? "Approved Slides" : "Preview Slides"}</div>
                 <SlidePreview slides={selectedEvent.slidePreviews} />
               </div>
             )}

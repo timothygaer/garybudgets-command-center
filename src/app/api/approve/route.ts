@@ -3,6 +3,7 @@
 import { readFile, writeFile, copyFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
+import { normalizeStatus } from "@/lib/manifest"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
@@ -40,9 +41,10 @@ export async function POST(request: Request) {
     const post = manifest.posts[postIndex]
     const schedule = post.proposed_schedule || post.original_schedule
 
-    // Idempotency: if a post already has an approval timestamp, keep it approved and do not re-approve.
-    // This prevents stale manifests from making previously-approved posts appear as approveable again.
-    if (post.status === "approved" || (post.approved_at && post.status !== "posted")) {
+    // Use the same shared normalizer the Queue and Calendar APIs use.
+    // This ensures a post with approved_at is never re-approvable.
+    const effectiveStatus = normalizeStatus(post)
+    if (effectiveStatus === "approved") {
       manifest.posts[postIndex].status = "approved"
       await saveManifest(manifest, path)
       return Response.json({

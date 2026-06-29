@@ -2,6 +2,7 @@
 import { readFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
+import { normalizeStatus } from "@/lib/manifest"
 
 const SRC_PATH = "/tmp/gb-manifest.json"
 const FALLBACK_PATH = join(process.cwd(), "manifest.json")
@@ -66,29 +67,27 @@ export async function GET() {
 
     const events = (manifest.posts || [])
       .map((post: ManifestPost) => {
+        const normalizedStatus = normalizeStatus(post)
         const schedStr = post.proposed_schedule || post.original_schedule || ""
         let date: string | null = null
         let time = ""
         let calStatus: string
 
-        if (post.status === "posted" && post.posted_at) {
+        if (normalizedStatus === "posted" && post.posted_at) {
           const d = new Date(post.posted_at)
           date = d.toISOString().split("T")[0]
-          // Extract time from posted_at timestamp
           const hours = d.getUTCHours()
           const mins = d.getUTCMinutes().toString().padStart(2, "0")
           const ampm = hours >= 12 ? "PM" : "AM"
           const hour12 = hours % 12 || 12
           time = `${hour12}:${mins} ${ampm} UTC`
           calStatus = "posted"
-        } else if (post.status === "approved") {
-          // Approved posts: show as scheduled, parse their schedule
+        } else if (normalizedStatus === "approved") {
           const parsed = parseScheduleStr(schedStr)
           date = parsed.date
           time = parsed.time
           calStatus = "scheduled"
-        } else if (post.status === "draft" && schedStr) {
-          // Draft posts: show as pending if they have a schedule
+        } else if (normalizedStatus === "draft" && schedStr) {
           const parsed = parseScheduleStr(schedStr)
           date = parsed.date
           time = parsed.time
