@@ -613,7 +613,7 @@
       "proposed_schedule": "Mon, Jun 29 \u00b7 9:00 AM ET",
       "drive_assets_folder_id": "1D8NkLZ7Wq4nmWNrsPl-KplQRQGOxd60T",
       "drive_post_folder_id": "1eV3I1yUEZypcrR9XavhPIQEiPzQ4oFCX",
-      "caption": "There is a filmmaking gold rush happening in Los Angeles right now, and most people do not know about it.\n\nVertical microdramas \u2014 full feature films shot in 9:16 for mobile phones \u2014 generated $7 billion in revenue last year. That is more than China's entire theatrical box office.\n\nLA production companies like Narval Films are cranking out 30+ vertical movies per month in Los Angeles at $150K-$200K each, going from script to release in under 2 months.\n\nThe crews are a mix of recent film school graduates and veteran directors who have worked at Disney, HBO, and Hulu. This is the indie film jobs story the trades are barely covering.\n\nFilmLA reports feature film production in LA is up 52% year over year, driven largely by independent films. California just expanded tax credits to $750M annually.\n\nThe catch: the content is PG-13 fantasy/romance, scripted in 60-80 cliffhanger chapters, and paid for via microtransactions. It is not cinema. But it is putting crews to work.\n\nLA City Council is now voting on funding to keep this production in Los Angeles instead of losing it to other states.",
+      "caption": "There is a filmmaking shift happening in Los Angeles right now, and most people do not know about it.\n\nVertical microdramas \u2014 full feature films shot in 9:16 for mobile phones \u2014 generated $7 billion in revenue in 2024. That is more than China's entire theatrical box office.\n\nLA production companies like Narval Films produce roughly 6 vertical movies a month at $150K-$200K each, going from script to release in under 2 months. They have made nearly 30 films since 2024 and plan to scale to 120 per year.\n\nThe crews are a mix of recent film school graduates and veteran directors who have worked at Disney, HBO, and Hulu. This is the indie film jobs story the trades are barely covering.\n\nFilmLA reports Q1 2026 feature film shoot days up 52.3% year over year, driven largely by independent films. California's expanded tax credit program (Version 4.0) is helping keep production in-state.\n\nThe catch: the content is PG-13 fantasy/romance, scripted in 60-80 cliffhanger chapters, and paid for via microtransactions. It is not cinema. But it is putting crews to work.\n\nLA City Council is now voting on funding to keep this production in Los Angeles instead of losing it to other states.",
       "hashtags": "#verticalfilm #microdrama #filmmaking #LosAngeles #indiefilm #GaryBudgets #filmproduction #filmla",
       "slides": [
         {
@@ -649,7 +649,7 @@
       ],
       "status": "draft",
       "image_file_ids": [
-        "1QttYIVDrEPiOt-NKnhkqkpBvhB7kbPOH",
+        "1DDzL6nGTFCayMv4WRDuOg5N7oMTYuoTk",
         "1dD5FWrr2FnHw6fzqlyoGoQoejvxOv4yS",
         "1sdk6kgLEzuXx03VLypO6ckHn_oTzA0O1",
         "1t7Lgz_RolrU49CemCE6n8KzKcfmmII-3",
@@ -672,7 +672,16 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/6.png"
       ],
-      "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28"
+      "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28",
+      "verified_sources": {
+        "vertical_revenue_7B": "IndieWire, June 2025 - $7B vertical drama revenue",
+        "narval_films_total_30": "IndieWire, June 2025 - nearly 30 films since May 2024",
+        "narval_monthly_output": "IndieWire, June 2025 - half-dozen per month (~6/mo)",
+        "narval_goal_120": "IndieWire, June 2025 - plans to ramp to 120/year",
+        "budget_150k_200k": "IndieWire, June 2025 - $150K-$200K per film",
+        "filmla_52pct": "ICG600 / FilmLA Q1 2026 report - 52.3% YoY increase",
+        "ca_tax_credit": "ICG600 - CA Film & TV Tax Credit Program Version 4.0"
+      }
     },
     {
       "id": "GB-2026-06-29-06",
