@@ -726,7 +726,7 @@
           "prompt_summary": "We love Evil Dead. But does the franchise still need more chapters?"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_file_ids": [
         "1Sb7Hhc_-rhh8Fo-ID4QWuR4Vm3OpEkhO"
       ],
@@ -741,7 +741,8 @@
       "source_art_url": "https://upload.wikimedia.org/wikipedia/en/a/a4/Evil_Dead_Burn_poster.jpeg",
       "release_date": "Jul 10, 2026",
       "drive_assets_folder_id": "14j_3ql0E3hAy2N_OhPQ2oWyNUw8oy96Z",
-      "drive_post_folder_id": "1ruY410vfndFBogwSQqGakFO3nIneEHtP"
+      "drive_post_folder_id": "1ruY410vfndFBogwSQqGakFO3nIneEHtP",
+      "approved_at": "2026-06-29T00:44:32.179Z"
     },
     {
       "id": "GB-2026-07-13-08",
