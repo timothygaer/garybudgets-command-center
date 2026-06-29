@@ -831,7 +831,7 @@
           "prompt_summary": "We love superhero movies — even the messy ones. This one looks like new phase energy."
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_file_ids": [
         "1nK4Wnmrq7nLbi3AsQ-CPVxPYGeiRhMVc"
       ],
@@ -846,7 +846,8 @@
       "source_art_url": "https://cdn.marvel.com/content/1x/spidermanbrandnewday_online_1080x1350_hoodie_02.webp",
       "release_date": "Jul 31, 2026",
       "drive_assets_folder_id": "1W90G-_dOOsTfBdVrduNl0b1cW1bLB-DB",
-      "drive_post_folder_id": "1mW5OHhDeowjWznbfMuaQTvQZ4xuP5xBL"
+      "drive_post_folder_id": "1mW5OHhDeowjWznbfMuaQTvQZ4xuP5xBL",
+      "approved_at": "2026-06-29T00:44:34.439Z"
     },
     {
       "id": "GB-2026-07-06-11",
