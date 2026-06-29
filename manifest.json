@@ -863,41 +863,36 @@
       "title": "Which Evil Dead Is Your Favorite?",
       "pillar": "Industry Watch",
       "slug": "Post11_2026-07-06_Evil_Dead_Favorites",
-      "slide_count": 6,
+      "slide_count": 5,
       "original_schedule": "Mon, Jul 6 · 11:00 AM ET",
       "proposed_schedule": "Mon, Jul 6 · 11:00 AM ET",
-      "caption": "With Evil Dead Burn coming, we had to run through the whole Evil Dead family.\n\nThe original is still one of the great no-budget horror miracles. Evil Dead II turns chaos into pure horror-comedy. Evil Dead 2013 is mean as hell. Evil Dead Rise proved the Deadites can survive outside the cabin.\n\nBut our favorite is still Army of Darkness. Peak Evil Dead. Peak Bruce Campbell. Completely ridiculous in the best way. Groovy forever.\n\nWhich Evil Dead movie is your favorite — and why?",
-      "hashtags": "#EvilDead #ArmyOfDarkness #BruceCampbell #EvilDeadBurn #horrorfilms #horrorcommunity #GaryBudgets #movies",
+      "caption": "A new Evil Dead is on the way, so we’re running through the franchise.\n\nThe original is still one of the great cabin-nightmare miracles. Evil Dead II pushed it into horror-comedy chaos. Army of Darkness went full medieval madness. The 2013 Evil Dead brought the brutality back hard. Evil Dead Rise proved the Deadites can work outside the cabin — and Evil Dead Burn is next.\n\nOur pick is still Army of Darkness. Peak Bruce Campbell. Peak chaos. Groovy forever.\n\nWhich Evil Dead wins for you?",
+      "hashtags": "#EvilDead #ArmyOfDarkness #BruceCampbell #HorrorMovies #GaryBudgets",
       "slides": [
         {
           "slide": 1,
-          "heading": "THE EVIL DEAD",
-          "prompt_summary": "The cabin. The book. The no-budget nightmare that started everything."
+          "heading": "THEY’RE MAKING A NEW EVIL DEAD",
+          "prompt_summary": "Hook slide asking which Evil Dead movie is the audience favorite."
         },
         {
           "slide": 2,
-          "heading": "EVIL DEAD II",
-          "prompt_summary": "Horror comedy got a chainsaw hand and never looked back."
+          "heading": "THE EVIL DEAD / EVIL DEAD II",
+          "prompt_summary": "Two-film rundown: The Evil Dead (1981) and Evil Dead II (1987)."
         },
         {
           "slide": 3,
-          "heading": "ARMY OF DARKNESS",
-          "prompt_summary": "Our favorite. Peak Evil Dead. Peak Bruce Campbell. Groovy."
+          "heading": "ARMY OF DARKNESS / EVIL DEAD",
+          "prompt_summary": "Two-film rundown: Army of Darkness (1992) and Evil Dead (2013)."
         },
         {
           "slide": 4,
-          "heading": "EVIL DEAD",
-          "prompt_summary": "Mean, bloody, and way more brutal than people expected."
+          "heading": "EVIL DEAD RISE / EVIL DEAD BURN",
+          "prompt_summary": "Two-film rundown: Evil Dead Rise (2023) and upcoming Evil Dead Burn."
         },
         {
           "slide": 5,
-          "heading": "EVIL DEAD RISE",
-          "prompt_summary": "Moved the Deadites into the city and still kept the nightmare alive."
-        },
-        {
-          "slide": 6,
-          "heading": "EVIL DEAD BURN",
-          "prompt_summary": "Next up: do we keep expanding the mythology, or go back to the core fear?"
+          "heading": "ARMY OF DARKNESS WINS IN OUR BOOK",
+          "prompt_summary": "Closing engagement slide asking what wins for the audience."
         }
       ],
       "status": "draft",
@@ -906,26 +901,23 @@
         "1WME_vyClbGp5vBWxU4PmwVwg2cJ-VNhP",
         "14pdqjr2rdbAkgpDK6pol5XLSFUnwhZOJ",
         "1gAsvV66Jiwpm90ZvLQfbk9bmvCxbumAE",
-        "11mCC11pEIZj3kdnReaMalqftaEq6Xopg",
-        "1qRIJ64uCvElay7vERshyCFkZO4o_aFDc"
+        "11mCC11pEIZj3kdnReaMalqftaEq6Xopg"
       ],
       "image_file_names": [
         "1.png",
         "2.png",
         "3.png",
         "4.png",
-        "5.png",
-        "6.png"
+        "5.png"
       ],
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/2.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/3.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/4.png",
-        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/5.png",
-        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/6.png"
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/5.png"
       ],
-      "drive_order_source": "Regenerated Jun 28 with official/public promotional poster art embedded in each slide; replacement Drive uploads supersede earlier generic-card files.",
+      "drive_order_source": "User-provided regenerated 5-slide Evil Dead carousel uploaded from Desktop on Jun 28; replaces prior 6-slide version.",
       "source_art_credit": "TMDb promotional poster images for films 1-5; official Evil Dead Burn poster via Wikipedia.",
       "drive_post_folder_id": "1M0WMn0WFy3srlO4vd3LRydtnej2M3xnM",
       "drive_assets_folder_id": "1c6B7XYHvWagfH5RenXToipA8QVLG_34q",
@@ -937,7 +929,7 @@
         "https://media.themoviedb.org/t/p/w500/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg",
         "https://upload.wikimedia.org/wikipedia/en/a/a4/Evil_Dead_Burn_poster.jpeg"
       ],
-      "design_notes": "Full-width red bar with blood drip effect. Gary Budgets Horror Roll Call text is a lighter red highlight within the bar."
+      "design_notes": "User-approved ChatGPT-generated cinematic Evil Dead carousel. No slide numbers. Five-slide structure: hook, three two-film rundown slides, Army of Darkness closer."
     }
   ]
 }
