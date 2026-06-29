@@ -922,6 +922,8 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
   const [queue, setQueue] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [approving, setApproving] = useState<string | null>(null)
+  const [changeRequest, setChangeRequest] = useState<string | null>(null) // post_id of the one being edited
+  const [changeText, setChangeText] = useState("")
 
   const loadQueue = () => {
     setLoading(true)
@@ -992,6 +994,65 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
     }
   }
 
+  const handleUnapprove = async (item: any) => {
+    if (!confirm(`Unapprove "${item.title}" — back to draft?`)) return
+    try {
+      const r = await fetch("/api/manage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "unapprove", post_id: item.id }),
+      })
+      const data = await r.json()
+      if (data.success) {
+        loadQueue()
+      } else {
+        alert(data.error || "Failed to unapprove")
+      }
+    } catch (err: any) {
+      alert("Failed to unapprove: " + err.message)
+    }
+  }
+
+  const handleDelete = async (item: any) => {
+    if (!confirm(`Delete "${item.title}" permanently? This cannot be undone.`)) return
+    try {
+      const r = await fetch("/api/manage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "delete", post_id: item.id }),
+      })
+      const data = await r.json()
+      if (data.success) {
+        loadQueue()
+      } else {
+        alert(data.error || "Failed to delete")
+      }
+    } catch (err: any) {
+      alert("Failed to delete: " + err.message)
+    }
+  }
+
+  const handleChangeRequest = async (item: any) => {
+    if (!changeText.trim()) return
+    try {
+      const r = await fetch("/api/manage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "change_request", post_id: item.id, message: changeText }),
+      })
+      const data = await r.json()
+      if (data.success) {
+        setChangeRequest(null)
+        setChangeText("")
+        alert("Change request saved. Tell Hermes you submitted a change request and they'll see it.")
+      } else {
+        alert(data.error || "Failed to save change request")
+      }
+    } catch (err: any) {
+      alert("Failed to save change request: " + err.message)
+    }
+  }
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
@@ -1054,9 +1115,27 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
                   </span>
                 )}
                 {item.status === "approved" && (
-                  <span className="text-[11px] text-blue-400 font-medium flex items-center gap-1">
-                    <Clock size={12} /> Scheduled
-                  </span>
+                  <div className="flex flex-col items-end gap-1.5">
+                    <span className="text-[11px] text-blue-400 font-medium flex items-center gap-1">
+                      <Clock size={12} /> Scheduled
+                    </span>
+                    <div className="flex gap-1.5">
+                      <button
+                        className="text-[10px] text-amber-400/70 hover:text-amber-300 border border-amber-800/30 hover:border-amber-700/50 px-2 py-1 rounded transition"
+                        onClick={() => handleUnapprove(item)}
+                        title="Move back to draft"
+                      >
+                        Unapprove
+                      </button>
+                      <button
+                        className="text-[10px] text-red-400/50 hover:text-red-300 border border-red-800/20 hover:border-red-700/40 px-2 py-1 rounded transition"
+                        onClick={() => handleDelete(item)}
+                        title="Delete this post"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
                 )}
                 {item.status === "posted" && (
                   <span className="text-[11px] text-purple-400 font-medium flex items-center gap-1">
@@ -1075,6 +1154,52 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
                 <span>{scheduleLabel}</span>
               )}
             </div>
+
+            {/* Draft post actions: change request + delete */}
+            {displayStatus === "ready" && (
+              <div className="mb-3">
+                {changeRequest === item.id ? (
+                  <div className="flex flex-col gap-2">
+                    <textarea
+                      className="w-full bg-surface-3 border border-border rounded-lg p-3 text-xs text-gray-200 placeholder-text-muted/50 resize-none"
+                      rows={3}
+                      placeholder="Describe what you want changed..."
+                      value={changeText}
+                      onChange={(e) => setChangeText(e.target.value)}
+                    />
+                    <div className="flex gap-2">
+                      <button
+                        className="text-[10px] bg-red-600/20 text-red-400 border border-red-800/40 px-3 py-1 rounded hover:bg-red-600/30 transition"
+                        onClick={() => handleChangeRequest(item)}
+                      >
+                        Submit Request
+                      </button>
+                      <button
+                        className="text-[10px] text-text-muted border border-border px-3 py-1 rounded hover:text-gray-300 transition"
+                        onClick={() => { setChangeRequest(null); setChangeText("") }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex gap-2">
+                    <button
+                      className="text-[10px] text-amber-400/70 hover:text-amber-300 border border-amber-800/30 hover:border-amber-700/50 px-2.5 py-1 rounded transition"
+                      onClick={() => setChangeRequest(item.id)}
+                    >
+                      Request Change
+                    </button>
+                    <button
+                      className="text-[10px] text-red-400/50 hover:text-red-300 border border-red-800/20 hover:border-red-700/40 px-2.5 py-1 rounded transition"
+                      onClick={() => handleDelete(item)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Caption preview */}
             {item.caption && (
