@@ -692,7 +692,7 @@
           "prompt_summary": "We love the comedy in these movies. What kind of chaos are they getting into now?"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_file_ids": [
         "1A_F99Y7jBkPj6VPsR0vPTRlcLeJACYxw"
       ],
@@ -707,7 +707,8 @@
       "source_art_url": "https://images.fandango.com/ImageRenderer/0/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/244409/minionsmonsters_presale.jpg",
       "release_date": "Jul 1, 2026",
       "drive_assets_folder_id": "1wGY7MxfEmrWRpELiRY4mY1ERjNZ8PZuM",
-      "drive_post_folder_id": "1_CAHNPqDAxOIVLCrrIoC5EUt7oKjjTBK"
+      "drive_post_folder_id": "1_CAHNPqDAxOIVLCrrIoC5EUt7oKjjTBK",
+      "approved_at": "2026-06-29T00:44:56.837Z"
     },
     {
       "id": "GB-2026-07-06-07",
