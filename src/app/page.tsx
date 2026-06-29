@@ -862,34 +862,58 @@ function ComposeTab({ onPublish }: { onPublish: (caption: string, file: File | n
 // ---------- Slide Preview (all 6 images, always visible, larger) ----------
 function SlidePreview({ slides }: { slides: any[] }) {
   if (!slides || slides.length === 0) return null
+  const [enlarged, setEnlarged] = useState<string | null>(null)
 
   return (
-    <div className="flex gap-3 overflow-x-auto pb-2 mt-2">
-      {slides.map((slide: any, i: number) => (
-        <div key={i} className="flex-shrink-0">
-          {slide.image_url ? (
-            <img
-              src={slide.image_url}
-              alt={slide.heading}
-              className="w-[140px] h-[187px] object-cover rounded-lg border border-white/10"
-              loading="lazy"
-              onError={(e) => {
-                // Fallback if image fails to load
-                (e.target as HTMLImageElement).style.display = 'none';
-                (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
-              }}
-            />
-          ) : null}
-          {/* Fallback placeholder, hidden by default */}
-          <div className="w-[140px] h-[187px] rounded-lg border border-white/10 flex items-center justify-center bg-surface-3 hidden">
-            <Image size={30} className="text-text-muted/40" />
+    <>
+      <div className="flex gap-3 overflow-x-auto pb-2 mt-2">
+        {slides.map((slide: any, i: number) => (
+          <div key={i} className="flex-shrink-0">
+            {slide.image_url ? (
+              <img
+                src={slide.image_url}
+                alt={slide.heading}
+                className="w-[140px] h-[187px] object-cover rounded-lg border border-white/10 cursor-pointer hover:opacity-80 transition-opacity"
+                loading="lazy"
+                onClick={() => setEnlarged(slide.image_url)}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                  (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+            ) : null}
+            <div className="w-[140px] h-[187px] rounded-lg border border-white/10 flex items-center justify-center bg-surface-3 hidden">
+              <Image size={30} className="text-text-muted/40" />
+            </div>
+            <span className="text-[10px] text-text-muted block mt-1 text-center max-w-[140px] truncate">
+              {slide.slide}. {slide.heading}
+            </span>
           </div>
-          <span className="text-[10px] text-text-muted block mt-1 text-center max-w-[140px] truncate">
-            {slide.slide}. {slide.heading}
-          </span>
+        ))}
+      </div>
+      {/* Full-size image overlay */}
+      {enlarged && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 py-8"
+          onClick={() => setEnlarged(null)}
+        >
+          <div className="relative max-w-2xl w-full max-h-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="absolute -top-4 -right-4 z-10 w-8 h-8 rounded-full bg-surface-3 border border-border text-text-muted flex items-center justify-center hover:text-gray-100 transition text-sm"
+              onClick={() => setEnlarged(null)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <img
+              src={enlarged}
+              alt="Full size preview"
+              className="w-full h-auto max-h-[85vh] object-contain rounded-lg border border-white/10"
+            />
+          </div>
         </div>
-      ))}
-    </div>
+      )}
+    </>
   )
 }
 
