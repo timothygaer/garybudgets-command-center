@@ -761,7 +761,7 @@
           "prompt_summary": "Christopher Nolan after Oppenheimer, Dunkirk, Interstellar, and The Dark Knight? We are listening."
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_file_ids": [
         "15oJfJu40rw7VdfU7tClrYAFWyYADzWSU"
       ],
@@ -776,7 +776,8 @@
       "source_art_url": "https://dx35vtwkllhj9.cloudfront.net/universalstudios/the-odyssey/images/regions/us/share.jpg",
       "release_date": "Jul 17, 2026",
       "drive_assets_folder_id": "1T_4uCDz9hI9cdYQtibJw0mXP5VGS4lL7",
-      "drive_post_folder_id": "1q_t5kG-BMAGJ2aV3XZSAM53K8nMX_F8K"
+      "drive_post_folder_id": "1q_t5kG-BMAGJ2aV3XZSAM53K8nMX_F8K",
+      "approved_at": "2026-06-29T00:44:33.456Z"
     },
     {
       "id": "GB-2026-07-20-09",
