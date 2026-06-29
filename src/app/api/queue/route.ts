@@ -29,8 +29,11 @@ export async function GET() {
 
     // Build slide previews using the Vercel-hosted image URLs
     const postsWithPreviews = manifest.posts.map((post: any) => {
+      // Normalize stale manifests: an approved_at timestamp means the post was approved.
+      // This protects against repo deploys resurrecting draft status from before /tmp approval writes.
+      const normalizedStatus = post.status === "posted" ? "posted" : (post.approved_at ? "approved" : post.status)
       const urls = post.image_urls || []
-      const slidePreviews = (post.slides || []).map((slide: any, i: number) => ({
+      const slidePreviews = (post.slides || []).map((slide: any, i: number) => ({ 
         slide: slide.slide,
         heading: slide.heading,
         prompt_summary: slide.prompt_summary,
@@ -40,6 +43,7 @@ export async function GET() {
 
       return {
         ...post,
+        status: normalizedStatus,
         slidePreviews,
         image_file_ids: undefined,
         image_file_names: undefined,

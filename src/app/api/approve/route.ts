@@ -40,6 +40,21 @@ export async function POST(request: Request) {
     const post = manifest.posts[postIndex]
     const schedule = post.proposed_schedule || post.original_schedule
 
+    // Idempotency: if a post already has an approval timestamp, keep it approved and do not re-approve.
+    // This prevents stale manifests from making previously-approved posts appear as approveable again.
+    if (post.status === "approved" || (post.approved_at && post.status !== "posted")) {
+      manifest.posts[postIndex].status = "approved"
+      await saveManifest(manifest, path)
+      return Response.json({
+        success: true,
+        message: `"${post.title}" was already approved and scheduled for ${schedule}`,
+        post_id,
+        scheduled_for: schedule,
+        already_approved: true,
+        posted: false,
+      })
+    }
+
     // Gate: do not approve if no images exist
     const hasImages = Array.isArray(post.image_file_ids) && post.image_file_ids.length > 0
     if (!hasImages) {
