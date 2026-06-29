@@ -892,7 +892,7 @@
           "prompt_summary": "Next up: do we keep expanding the mythology, or go back to the core fear?"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_file_ids": [
         "1VuRk33qcleNu2wXoT2YPET9BH47nyQXr",
         "1WME_vyClbGp5vBWxU4PmwVwg2cJ-VNhP",
@@ -928,7 +928,8 @@
         "https://media.themoviedb.org/t/p/w500/1gDV0Lm9y8ufIKzyf0h0GBgb9Zj.jpg",
         "https://media.themoviedb.org/t/p/w500/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg",
         "https://upload.wikimedia.org/wikipedia/en/a/a4/Evil_Dead_Burn_poster.jpeg"
-      ]
+      ],
+      "approved_at": "2026-06-29T00:45:25.655Z"
     }
   ]
 }
