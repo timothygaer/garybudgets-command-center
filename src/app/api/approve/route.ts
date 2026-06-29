@@ -1,5 +1,7 @@
 // API route for approving posts
 // Triggers publishing or scheduling based on the post's proposed_schedule
+// Also writes approval state back to the GitHub repo manifest via REST API
+// so approval survives Vercel cold-starts and new deploys.
 import { readFile, writeFile, copyFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
@@ -7,7 +9,6 @@ import { normalizeStatus } from "@/lib/manifest"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
-const APPROVED_CACHE = "/tmp/gb-approved-posts.json"
 
 async function ensureWritableManifest(): Promise<{ manifest: any; path: string }> {
   if (existsSync(WRITABLE_PATH)) {
@@ -22,47 +23,75 @@ async function ensureWritableManifest(): Promise<{ manifest: any; path: string }
   throw new Error("No manifest.json found")
 }
 
-/**
- * Read the durable approval cache. This sidecar file survives Vercel cold-starts
- * because Vercel preserves /tmp for the lifetime of a running instance.
- * A brand-new instance after deploy will not have this file — approval state comes
- * from the manifest's own approved_at field in that case.
- */
-async function readApprovedCache(): Promise<Record<string, string>> {
-  if (!existsSync(APPROVED_CACHE)) return {}
-  const content = await readFile(APPROVED_CACHE, "utf-8")
-  return JSON.parse(content)
-}
-
-async function writeApprovedCache(cache: Record<string, string>) {
-  await writeFile(APPROVED_CACHE, JSON.stringify(cache))
-}
-
-/**
- * Merge durable approval timestamps into the manifest.
- * Called by both Queue and Calendar APIs so they share the same logic.
- */
-export async function mergeApprovalsIntoManifest(manifest: any): Promise<void> {
-  const cache = await readApprovedCache()
-  if (Object.keys(cache).length === 0) return
-  
-  let changed = false
-  for (const postId in cache) {
-    const post = manifest.posts.find((p: any) => p.id === postId)
-    if (post && post.status !== "posted" && !post.approved_at) {
-      post.status = "approved"
-      post.approved_at = cache[postId]
-      changed = true
-    }
-  }
-  if (changed) {
-    // Persist merged state back to /tmp so future cold-start API calls get it
-    try { await writeFile(WRITABLE_PATH, JSON.stringify(manifest, null, 2)) } catch {}
-  }
-}
-
 async function saveManifest(manifest: any, path: string) {
   await writeFile(path, JSON.stringify(manifest, null, 2))
+}
+
+/**
+ * Write approved_at back to the GitHub repo manifest via REST API.
+ * This is the key piece: approval state goes into the source of truth,
+ * so every future Vercel deploy includes it.
+ */
+async function writeApprovalToGitHub(postId: string, approvedAt: string): Promise<boolean> {
+  const token = process.env.GITHUB_TOKEN
+  if (!token) {
+    console.log("GitHub persist: no GITHUB_TOKEN set in Vercel env")
+    return false
+  }
+
+  const url = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json"
+  const headers = {
+    "Authorization": `Bearer ${token}`,
+    "Accept": "application/vnd.github+json",
+    "User-Agent": "garybudgets command-center",
+  }
+
+  try {
+    // 1. Get current file and its SHA
+    const getResp = await fetch(url, { headers })
+    if (!getResp.ok) {
+      console.log(`GitHub GET failed: ${getResp.status}`)
+      return false
+    }
+    const fileData = await getResp.json()
+    const sha = fileData.sha
+    const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8")
+    const manifest = JSON.parse(currentContent)
+
+    // 2. Update the post
+    const postIndex = manifest.posts.findIndex((p: any) => p.id === postId)
+    if (postIndex === -1) {
+      console.log(`GitHub persist: post ${postId} not found in repo manifest`)
+      return false
+    }
+
+    manifest.posts[postIndex].status = "approved"
+    manifest.posts[postIndex].approved_at = approvedAt
+
+    // 3. Write back
+    const newContent = JSON.stringify(manifest, null, 2) + "\n"
+    const putResp = await fetch(url, {
+      method: "PUT",
+      headers: { ...headers, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: `auto: approve ${postId} for ${manifest.posts[postIndex].title || "post"}`,
+        content: Buffer.from(newContent).toString("base64"),
+        sha,
+      }),
+    })
+
+    if (putResp.ok) {
+      console.log(`GitHub persist: ${postId} written successfully`)
+      return true
+    } else {
+      const errBody = await putResp.text()
+      console.log(`GitHub persist PUT failed (${putResp.status}): ${errBody.slice(0, 200)}`)
+      return false
+    }
+  } catch (err: any) {
+    console.log(`GitHub persist fetch error: ${err.message}`)
+    return false
+  }
 }
 
 export async function POST(request: Request) {
@@ -81,8 +110,7 @@ export async function POST(request: Request) {
     const post = manifest.posts[postIndex]
     const schedule = post.proposed_schedule || post.original_schedule
 
-    // Use the same shared normalizer the Queue and Calendar APIs use.
-    // This ensures a post with approved_at is never re-approvable.
+    // Idempotency check via shared normalizer
     const effectiveStatus = normalizeStatus(post)
     if (effectiveStatus === "approved") {
       manifest.posts[postIndex].status = "approved"
@@ -97,34 +125,31 @@ export async function POST(request: Request) {
       })
     }
 
-    // Gate: do not approve if no images exist
+    // Gate: no images = can't approve
     const hasImages = Array.isArray(post.image_file_ids) && post.image_file_ids.length > 0
     if (!hasImages) {
       return Response.json({
         success: false,
-        error: "Cannot approve — no images uploaded yet. Generate images in ChatGPT and upload to the Google Drive Assets folder first.",
+        error: "Cannot approve — no images uploaded yet.",
         post_id,
         image_status: "awaiting_images",
       }, { status: 400 })
     }
 
-    // Mark as approved
+    // Mark as approved locally
     const approvedAt = new Date().toISOString()
     manifest.posts[postIndex].status = "approved"
     manifest.posts[postIndex].approved_at = approvedAt
     await saveManifest(manifest, path)
 
-    // Also write to the durable approval cache so approval survives Vercel deploys
-    const cache = await readApprovedCache()
-    cache[post_id] = approvedAt
-    await writeApprovedCache(cache)
+    // Persist to GitHub repo — this is what survives deploys
+    const githubOk = await writeApprovalToGitHub(post_id, approvedAt)
 
-    // Check if this post is marked for immediate publish
-    const isImmediate = post.proposed_schedule === "Immediate on approval" || 
+    // Check for immediate publish
+    const isImmediate = post.proposed_schedule === "Immediate on approval" ||
                         post.original_schedule === "Immediate on approval"
 
     if (isImmediate) {
-      // Post 1 - publish immediately via the publish API
       try {
         const publishUrl = `https://${request.headers.get("host") || "garybudgets-command-center.vercel.app"}/api/publish`
         const publishResp = await fetch(publishUrl, {
@@ -137,14 +162,14 @@ export async function POST(request: Request) {
           }),
         })
         const publishResult = await publishResp.json()
-        
+
         if (publishResult.success || publishResult.media_id) {
           manifest.posts[postIndex].status = "posted"
           manifest.posts[postIndex].posted_at = new Date().toISOString()
           manifest.posts[postIndex].instagram_url = publishResult.permalink || `https://www.instagram.com/p/${publishResult.media_id}/`
           manifest.posts[postIndex].instagram_media_id = publishResult.media_id
           await saveManifest(manifest, path)
-          
+
           return Response.json({
             success: true,
             message: `"${post.title}" posted immediately`,
@@ -168,13 +193,13 @@ export async function POST(request: Request) {
       }
     }
 
-    // Scheduled post — just mark approved
     return Response.json({
       success: true,
       message: `"${post.title}" approved and scheduled for ${schedule}`,
       post_id,
       scheduled_for: schedule,
       posted: false,
+      github_persisted: githubOk,
     })
 
   } catch (err: any) {
