@@ -4,7 +4,6 @@ import { readFile, copyFile } from "fs/promises"
 import { existsSync } from "fs"
 import { join } from "path"
 import { normalizeStatus } from "@/lib/manifest"
-import { mergeApprovalsIntoManifest } from "@/app/api/approve/route"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
@@ -28,7 +27,6 @@ async function getManifestData() {
 export async function GET() {
   try {
     const manifest = await getManifestData()
-    await mergeApprovalsIntoManifest(manifest)
 
     // Build slide previews using the Vercel-hosted image URLs
     const postsWithPreviews = manifest.posts.map((post: any) => {
