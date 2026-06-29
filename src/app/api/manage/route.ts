@@ -24,11 +24,40 @@ async function saveManifest(manifest: any, path: string) {
 async function writeChangeRequest(postId: string, message: string) {
   let requests: any[] = []
   if (existsSync(CHANGE_REQUESTS_PATH)) {
-    const c = await readFile(CHANGE_REQUESTS_PATH, "utf-8")
-    try { requests = JSON.parse(c) } catch {}
+    try { requests = JSON.parse(await readFile(CHANGE_REQUESTS_PATH, "utf-8")) } catch {}
   }
   requests.push({ post_id: postId, message, created_at: new Date().toISOString() })
   await writeFile(CHANGE_REQUESTS_PATH, JSON.stringify(requests, null, 2))
+  
+  // Also persist to GitHub via a dedicated file so it survives deploys
+  await writeChangeRequestToGitHub(postId, message)
+}
+
+async function writeChangeRequestToGitHub(postId: string, message: string): Promise<boolean> {
+  const token = process.env.GITHUB_TOKEN
+  if (!token) return false
+  const url = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/change-requests.json"
+  const headers = { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "User-Agent": "gb" }
+  try {
+    let existing: any[] = []
+    let sha: string | undefined
+    // Try to read existing file
+    const getResp = await fetch(url, { headers })
+    if (getResp.ok) {
+      const d = await getResp.json()
+      sha = d.sha
+      try { existing = JSON.parse(Buffer.from(d.content, "base64").toString("utf-8")) } catch {}
+    }
+    existing.push({ post_id: postId, message, created_at: new Date().toISOString() })
+    const newContent = JSON.stringify(existing, null, 2) + "\n"
+    const body: any = {
+      message: `change request: ${postId}`,
+      content: Buffer.from(newContent).toString("base64"),
+    }
+    if (sha) body.sha = sha
+    const putResp = await fetch(url, { method: "PUT", headers: { ...headers, "Content-Type": "application/json" }, body: JSON.stringify(body) })
+    return putResp.ok
+  } catch { return false }
 }
 
 // Also persist unapprove/delete to GitHub so they survive deploys
