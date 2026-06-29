@@ -793,7 +793,7 @@
           "prompt_summary": "A 1970s Detroit revenge movie with almost no dialogue sounds either insane or brilliant."
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_file_ids": [
         "1zzucDR39X1WoOwG9TgX_umEpntDw1bPL"
       ],
@@ -808,7 +808,8 @@
       "source_art_url": "https://www.freep.com/gcdn/authoring/authoring-images/2026/06/08/PDTF/90455729007-motor-city-poster-4-x-5.jpg?crop=1078,607,x0,y0&width=1078&height=607&format=pjpg&auto=webp",
       "release_date": "Jul 24, 2026",
       "drive_assets_folder_id": "1WQpKN4YVLjIwkWjz9T45XDEI3fB5WwUw",
-      "drive_post_folder_id": "1EnaMaA8td47sTPsWKeLg5mF3ChBOiXla"
+      "drive_post_folder_id": "1EnaMaA8td47sTPsWKeLg5mF3ChBOiXla",
+      "approved_at": "2026-06-29T00:44:19.435Z"
     },
     {
       "id": "GB-2026-07-27-10",
