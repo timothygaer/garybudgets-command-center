@@ -647,7 +647,7 @@
           "prompt_summary": "Dark end card, text: THE GOLD RUSH IS HERE"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_file_ids": [
         "1QttYIVDrEPiOt-NKnhkqkpBvhB7kbPOH",
         "1dD5FWrr2FnHw6fzqlyoGoQoejvxOv4yS",
@@ -672,7 +672,8 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/6.png"
       ],
-      "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28"
+      "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28",
+      "approved_at": "2026-06-29T00:44:30.731Z"
     },
     {
       "id": "GB-2026-06-29-06",
