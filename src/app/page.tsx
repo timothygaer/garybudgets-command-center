@@ -1044,7 +1044,7 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
       if (data.success) {
         setChangeRequest(null)
         setChangeText("")
-        alert("Change request saved. Tell Hermes you submitted a change request and they'll see it.")
+        alert("Change request submitted. Hermes will see it automatically within a few minutes.")
       } else {
         alert(data.error || "Failed to save change request")
       }
