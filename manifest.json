@@ -888,12 +888,12 @@
       ],
       "status": "draft",
       "image_file_ids": [
-        "10r_gPbjL6vrGkuwH97Oc-GavIqvaZUX4",
-        "1y4Rm0hT2wUX918CJNQpeWCNPRcpEHpsp",
-        "1tcpyfmzot1B7y605jnuabdhagwVVta3_",
-        "1wwDa8d5XUkhQ1hnO77gVuaGf8DyowfrL",
-        "11YevLfiJK0Px7NlcwBeXYbe83DQwsoiM",
-        "1ejUdtfHIBEmWgZ5rNZvsE87psxJWpPyA"
+        "1VuRk33qcleNu2wXoT2YPET9BH47nyQXr",
+        "1WME_vyClbGp5vBWxU4PmwVwg2cJ-VNhP",
+        "14pdqjr2rdbAkgpDK6pol5XLSFUnwhZOJ",
+        "1gAsvV66Jiwpm90ZvLQfbk9bmvCxbumAE",
+        "11mCC11pEIZj3kdnReaMalqftaEq6Xopg",
+        "1pwQJQezTtOrx5Oo9_ibvhZY9R-Kr140g"
       ],
       "image_file_names": [
         "1.png",
@@ -911,10 +911,18 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/6.png"
       ],
-      "drive_order_source": "Generated Jun 28 as Evil Dead favorites carousel; original Gary Budgets cards, one slide per movie.",
-      "source_art_credit": "Original generated Gary Budgets cards; no official poster art used",
+      "drive_order_source": "Regenerated Jun 28 with official/public promotional poster art embedded in each slide; replacement Drive uploads supersede earlier generic-card files.",
+      "source_art_credit": "TMDb promotional poster images for films 1-5; official Evil Dead Burn poster via Wikipedia.",
       "drive_post_folder_id": "1M0WMn0WFy3srlO4vd3LRydtnej2M3xnM",
-      "drive_assets_folder_id": "1c6B7XYHvWagfH5RenXToipA8QVLG_34q"
+      "drive_assets_folder_id": "1c6B7XYHvWagfH5RenXToipA8QVLG_34q",
+      "source_art_urls": [
+        "https://media.themoviedb.org/t/p/w500/54C1qdaiSijIU5NeNb4WsPJdNkG.jpg",
+        "https://media.themoviedb.org/t/p/w500/4zqCKJVHUolGs6C5AZwAZqLWixW.jpg",
+        "https://media.themoviedb.org/t/p/w500/xsgTuAtR2zSH8Umg3jWZcZjlDpe.jpg",
+        "https://media.themoviedb.org/t/p/w500/1gDV0Lm9y8ufIKzyf0h0GBgb9Zj.jpg",
+        "https://media.themoviedb.org/t/p/w500/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg",
+        "https://upload.wikimedia.org/wikipedia/en/a/a4/Evil_Dead_Burn_poster.jpeg"
+      ]
     }
   ]
 }
