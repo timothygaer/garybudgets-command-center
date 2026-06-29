@@ -58,36 +58,54 @@ async function writeApprovalToGitHub(postId: string, approvedAt: string): Promis
     const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8")
     const manifest = JSON.parse(currentContent)
 
-    // 2. Update the post
-    const postIndex = manifest.posts.findIndex((p: any) => p.id === postId)
-    if (postIndex === -1) {
-      console.log(`GitHub persist: post ${postId} not found in repo manifest`)
+    // 2. Update the post — with SHA conflict retry
+    let attempts = 0
+    const maxAttempts = 5
+    let currentSha = sha
+    
+    while (attempts < maxAttempts) {
+      // Re-read from GitHub on retry to get the fresh SHA
+      if (attempts > 0) {
+        const refreshResp = await fetch(url, { headers })
+        if (!refreshResp.ok) break
+        const freshData = await refreshResp.json()
+        currentSha = freshData.sha
+        const freshContent = Buffer.from(freshData.content, "base64").toString("utf-8")
+        const freshManifest = JSON.parse(freshContent)
+        const idx = freshManifest.posts.findIndex((p: any) => p.id === postId)
+        if (idx === -1) break
+        freshManifest.posts[idx].status = "approved"
+        freshManifest.posts[idx].approved_at = approvedAt
+        manifest.posts = freshManifest.posts
+      }
+      
+      const newContent = JSON.stringify(manifest, null, 2) + "\n"
+      const putResp = await fetch(url, {
+        method: "PUT",
+        headers: { ...headers, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: `auto: approve ${postId}`,
+          content: Buffer.from(newContent).toString("base64"),
+          sha: currentSha,
+        }),
+      })
+      
+      if (putResp.ok) {
+        console.log(`GitHub persist: ${postId} written (attempt ${attempts + 1})`)
+        return true
+      }
+      
+      const errText = await putResp.text()
+      // Retry on stale SHA (422)
+      if (putResp.status === 422 && errText.includes("sha")) {
+        attempts++
+        continue
+      }
+      console.log(`GitHub persist PUT failed (${putResp.status}): ${errText.slice(0, 200)}`)
       return false
     }
-
-    manifest.posts[postIndex].status = "approved"
-    manifest.posts[postIndex].approved_at = approvedAt
-
-    // 3. Write back
-    const newContent = JSON.stringify(manifest, null, 2) + "\n"
-    const putResp = await fetch(url, {
-      method: "PUT",
-      headers: { ...headers, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: `auto: approve ${postId} for ${manifest.posts[postIndex].title || "post"}`,
-        content: Buffer.from(newContent).toString("base64"),
-        sha,
-      }),
-    })
-
-    if (putResp.ok) {
-      console.log(`GitHub persist: ${postId} written successfully`)
-      return true
-    } else {
-      const errBody = await putResp.text()
-      console.log(`GitHub persist PUT failed (${putResp.status}): ${errBody.slice(0, 200)}`)
-      return false
-    }
+    console.log(`GitHub persist: ${postId} exhausted retries (${maxAttempts})`)
+    return false
   } catch (err: any) {
     console.log(`GitHub persist fetch error: ${err.message}`)
     return false
