@@ -188,7 +188,7 @@
           "prompt_summary": "Dark end card, text: YOUR AUDIENCE NEEDS A BUDGET TOO"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1vJMU8KOX1frCZHglnBe0Yi4jYrHHqiI4",
         "1JfbZIgogiyzr0q17ftsO9yBWn7CNloLG",
@@ -214,7 +214,10 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/6.png"
       ],
       "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo",
-      "approved_at": "2026-06-29T00:05:49.029Z"
+      "approved_at": "2026-06-29T00:05:49.029Z",
+      "posted_at": "2026-06-29T06:00:50+0000",
+      "instagram_media_id": "18400439746086318",
+      "instagram_url": "https://www.instagram.com/p/DaKLIdnlMes/"
     },
     {
       "id": "GB-2026-07-03-03",
@@ -260,7 +263,7 @@
           "prompt_summary": "Dark end card, text: IF YOUR BUDGET SKIPS INSURANCE, IT'S NOT FINISHED"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1CXokUvKTCMhr6yiV0bHlZRe76Qp_WbAQ",
         "1hYiFwgZ9X23c3DiP20HdTD8Tfw0xTVvi",
@@ -286,7 +289,10 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/6.png"
       ],
       "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo",
-      "approved_at": "2026-06-26T11:00:00+0000"
+      "approved_at": "2026-06-26T11:00:00+0000",
+      "posted_at": "2026-06-30T06:00:49+0000",
+      "instagram_media_id": "18076836989312153",
+      "instagram_url": "https://www.instagram.com/p/DaMv7LglMNA/"
     },
     {
       "id": "GB-2026-07-06-04",
