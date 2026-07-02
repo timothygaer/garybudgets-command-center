@@ -981,7 +981,7 @@
           "prompt_summary": "Dark end card, text: BUDGET DISCIPLINE IS STRATEGY, NOT FRUGALITY"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/2.png",
@@ -991,7 +991,14 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/6.png"
       ],
       "image_file_ids": [],
-      "image_file_names": [],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
       "drive_order_source": "Pending image generation \u2014 prompt package needed",
       "verified_sources": {
         "Minions budget $85M": {
@@ -1128,7 +1135,7 @@
           "prompt_summary": "Dark end card, text: IF AI IS IN YOUR WORKFLOW, IT BELONGS IN YOUR BUDGET"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/2.png",
@@ -1138,7 +1145,14 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/6.png"
       ],
       "image_file_ids": [],
-      "image_file_names": [],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
       "drive_order_source": "Pending image generation \u2014 prompt package needed",
       "verified_sources": {
         "AI 3-4x efficiency": {
@@ -1255,7 +1269,9 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/6.png"
       ],
       "image_file_ids": [],
-      "image_file_names": [],
+      "image_file_names": [
+        "1.png"
+      ],
       "drive_order_source": "Pending image generation \u2014 prompt package needed",
       "verified_sources": {
         "VP market size $4.37B": {
