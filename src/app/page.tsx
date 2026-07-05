@@ -1121,7 +1121,8 @@ function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | nul
       .then((r) => r.json())
       .then((d) => {
         const q = d.queue || d.posts || []
-        setQueue(q)
+        // Only show posts that need action — hide posted items
+        setQueue(q.filter((item: any) => item.status !== "posted"))
       })
       .catch(() => {})
       .finally(() => setLoading(false))
