@@ -712,7 +712,7 @@
           "prompt_summary": "We love the comedy in these movies. What kind of chaos are they getting into now?"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1A_F99Y7jBkPj6VPsR0vPTRlcLeJACYxw"
       ],
@@ -728,7 +728,10 @@
       "release_date": "Jul 1, 2026",
       "drive_assets_folder_id": "1wGY7MxfEmrWRpELiRY4mY1ERjNZ8PZuM",
       "drive_post_folder_id": "1_CAHNPqDAxOIVLCrrIoC5EUt7oKjjTBK",
-      "approved_at": "2026-06-29T00:45:44.740Z"
+      "approved_at": "2026-06-29T00:45:44.740Z",
+      "posted_at": "2026-07-12T18:16:45+0000",
+      "instagram_url": "",
+      "instagram_media_id": "18159028261477803"
     },
     {
       "id": "GB-2026-07-06-07",
