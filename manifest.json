@@ -655,7 +655,7 @@
           "prompt_summary": "Dark end card, text: THE GOLD RUSH IS HERE"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1DDzL6nGTFCayMv4WRDuOg5N7oMTYuoTk",
         "1dD5FWrr2FnHw6fzqlyoGoQoejvxOv4yS",
@@ -690,7 +690,10 @@
         "filmla_52pct": "ICG600 / FilmLA Q1 2026 report - 52.3% YoY increase",
         "ca_tax_credit": "ICG600 - CA Film & TV Tax Credit Program Version 4.0"
       },
-      "approved_at": null
+      "approved_at": null,
+      "posted_at": "2026-07-12T18:16:10+0000",
+      "instagram_url": "",
+      "instagram_media_id": "18106162772010881"
     },
     {
       "id": "GB-2026-06-29-06",
