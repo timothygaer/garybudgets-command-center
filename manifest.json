@@ -338,7 +338,7 @@
           "prompt_summary": "Dark end card, text: THE DATA DOES NOT LIE. KEEP YOUR BUDGET LEAN."
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "10-oLcAgLN_gR5eXcuYEoRHlGbei-PAMI",
         "1qzF8X8eDsiiv2Sv2MYQm5IoT8k4SXva_",
@@ -364,7 +364,9 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/6.png"
       ],
       "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo",
-      "approved_at": "2026-06-26T11:00:00+0000"
+      "approved_at": "2026-06-26T11:00:00+0000",
+      "posted_at": "2026-07-06T16:00:00+0000",
+      "instagram_url": "https://www.instagram.com/p/18132073810609790/"
     },
     {
       "id": "GB-2026-06-23-02",
@@ -742,7 +744,7 @@
           "prompt_summary": "We love Evil Dead. But does the franchise still need more chapters?"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1Sb7Hhc_-rhh8Fo-ID4QWuR4Vm3OpEkhO"
       ],
@@ -758,7 +760,9 @@
       "release_date": "Jul 10, 2026",
       "drive_assets_folder_id": "14j_3ql0E3hAy2N_OhPQ2oWyNUw8oy96Z",
       "drive_post_folder_id": "1ruY410vfndFBogwSQqGakFO3nIneEHtP",
-      "approved_at": "2026-06-29T00:44:32.179Z"
+      "approved_at": "2026-06-29T00:44:32.179Z",
+      "posted_at": "2026-07-06T10:00:00+0000",
+      "instagram_url": "https://www.instagram.com/p/18085364510639675/"
     },
     {
       "id": "GB-2026-07-13-08",
@@ -902,7 +906,7 @@
           "prompt_summary": "Closing engagement slide asking what wins for the audience."
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1VuRk33qcleNu2wXoT2YPET9BH47nyQXr",
         "1WME_vyClbGp5vBWxU4PmwVwg2cJ-VNhP",
@@ -937,7 +941,9 @@
         "https://upload.wikimedia.org/wikipedia/en/a/a4/Evil_Dead_Burn_poster.jpeg"
       ],
       "design_notes": "User-approved ChatGPT-generated cinematic Evil Dead carousel. No slide numbers. Five-slide structure: hook, three two-film rundown slides, Army of Darkness closer.",
-      "approved_at": null
+      "approved_at": null,
+      "posted_at": "2026-07-06T10:00:00+0000",
+      "instagram_url": "https://www.instagram.com/p/18124036339600015/"
     },
     {
       "id": "GB-2026-07-03-12",
@@ -981,7 +987,7 @@
           "prompt_summary": "Dark end card, text: BUDGET DISCIPLINE IS STRATEGY, NOT FRUGALITY"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/2.png",
@@ -1091,7 +1097,9 @@
             }
           ]
         }
-      }
+      },
+      "posted_at": "2026-07-03T09:00:00+0000",
+      "instagram_url": "https://www.instagram.com/p/17870264124652736/"
     },
     {
       "id": "GB-2026-07-07-13",
@@ -1135,7 +1143,7 @@
           "prompt_summary": "Dark end card, text: IF AI IS IN YOUR WORKFLOW, IT BELONGS IN YOUR BUDGET"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/2.png",
@@ -1215,7 +1223,9 @@
             }
           ]
         }
-      }
+      },
+      "posted_at": "2026-07-07T06:00:00+0000",
+      "instagram_url": "https://www.instagram.com/p/18011499560731703/"
     },
     {
       "id": "GB-2026-07-08-14",
