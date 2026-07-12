@@ -1284,11 +1284,23 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/6.png"
       ],
-      "image_file_ids": [],
-      "image_file_names": [
-        "1.png"
+      "image_file_ids": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
       ],
-      "drive_order_source": "Pending image generation \u2014 prompt package needed",
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "drive_order_source": "AI generated via chatgpt-imagegen on Jul 12 via codex backend",
       "verified_sources": {
         "VP market size $4.37B": {
           "value": "$4.37 billion in 2026, growing at 14.10% CAGR",
