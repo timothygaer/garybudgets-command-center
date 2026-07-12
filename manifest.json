@@ -1403,7 +1403,7 @@
         {
           "slide": 6,
           "heading": "CTA",
-          "prompt_summary": "Dark end card, text: BUY SOON IF THE PRICE HASN'T UPDATED. USED MARKET FIRST."
+          "prompt_summary": "Dark end card, text: SIGN UP FOR THE BETA AT GARYBUDGETS.COM"
         }
       ],
       "status": "draft",
@@ -1415,9 +1415,23 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/5.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/6.png"
       ],
-      "image_file_ids": [],
-      "image_file_names": [],
-      "drive_order_source": "Pending image generation — prompt package needed",
+      "image_file_ids": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "drive_order_source": "AI generated via chatgpt-imagegen on Jul 12 via codex backend",
       "verified_sources": {
         "Blackmagic Pyxis 12K $5K to $6.6K": {
           "value": "Pyxis 12K jumped from $5,000 to $6,600",
