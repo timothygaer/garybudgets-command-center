@@ -1497,44 +1497,44 @@
     },
     {
       "id": "GB-2026-07-10-16",
-      "title": "Minions & Monsters \u2014 16 Years, $5.6 Billion, Still No Oscar",
+      "title": "Minions & Monsters \u2014 The Exact Oscar Record Behind a $5.6B Franchise",
       "pillar": "Industry Watch",
       "slug": "Post16_2026-07-10",
       "slide_count": 6,
       "original_schedule": "Fri, Jul 10 \u00b7 9:00 AM PT",
       "proposed_schedule": "Fri, Jul 10 \u00b7 9:00 AM PT",
-      "caption": "The Minions franchise has earned $5.6 billion at the global box office across seven films. It is the highest-grossing animated franchise of all time. It has two Oscar nominations. Zero wins.\n\nHollywood Reporter called it the franchise's \"paradox\": $5.5 billion in box office muscle, but little awards or cultural prestige to match.\n\nMinions & Monsters is Pierre Coffin's first solo directing effort and premiered at Annecy Film Festival to strong reviews \u2014 \"smarter, wilder and funnier than the seventh entry in any animated franchise has a right to be.\"\n\nBut the awards gap raises a question worth talking about: do commercial numbers and audience love matter more than industry honors? Or is there something about the way the industry measures success that undervalues reliable, repeatable, accessible entertainment?\n\nFor indie filmmakers, the answer is practical: the audience vote counts. The box office is real. Budget discipline is strategy. Everything else is debate.\n\nWhat matters more to you \u2014 an Oscar nomination or a film that pays for the next one?",
-      "hashtags": "#MinionsAndMonsters #filmbudget #boxoffice #indiefilm #GaryBudgets",
+      "caption": "Minions & Monsters is the seventh Despicable Me / Minions franchise film \u2014 and the awards story around it is specific, not vague.\n\nThe franchise had earned more than $5.5B worldwide before this new movie, with Deadline citing $5.6B combined across Despicable Me and Minions titles. Yet its Oscar record is tiny: two nominations, both for Despicable Me 2 \u2014 Best Animated Feature and Best Original Song for Pharrell Williams\u2019 \u201cHappy.\u201d Zero wins.\n\nThat means the nominated film in the franchise was Despicable Me 2. The rest of the pre-2026 franchise \u2014 Despicable Me, Minions, Despicable Me 3, Minions: The Rise of Gru, and Despicable Me 4 \u2014 built massive audience demand without Oscar recognition.\n\nNow Minions & Monsters arrives with a reported $85M budget, an $80M domestic five-day projection, a $170M global opening-weekend projection, and the best early review score Deadline cited for the series.\n\nFor filmmakers, that is the budget lesson: awards can help, but audience demand and cost discipline are the business. Build the plan that lets the next film happen.\n\nWould you rather have the prestige signal \u2014 or the movie that pays for the next one?",
+      "hashtags": "#MinionsAndMonsters #DespicableMe #filmbudget #boxoffice #GaryBudgets",
       "slides": [
         {
           "slide": 1,
           "heading": "Hook",
-          "prompt_summary": "Minions character on red carpet holding a Golden Banana trophy, text: $5.6B. ZERO OSCARS."
+          "prompt_summary": "MINIONS & MONSTERS \u2014 16 YEARS, $5.6B BOX OFFICE, ZERO OSCARS"
         },
         {
           "slide": 2,
-          "heading": "The numbers",
-          "prompt_summary": "$5.6 billion displayed as cash stacks, text: HIGHEST-GROSSING ANIMATED FRANCHISE OF ALL TIME"
+          "heading": "The movie",
+          "prompt_summary": "Exact facts about Minions & Monsters: July 1, 2026 release, 7th franchise film, Pierre Coffin solo directing effort, 1920s Hollywood premise"
         },
         {
           "slide": 3,
-          "heading": "The awards gap",
-          "prompt_summary": "Oscar statuette with a question mark, text: TWO NOMINATIONS. ZERO WINS."
+          "heading": "Oscar record",
+          "prompt_summary": "Only Despicable Me 2 got the franchise Oscar nominations: Best Animated Feature and Best Original Song \u201cHappy\u201d; zero wins"
         },
         {
           "slide": 4,
-          "heading": "Critical respect",
-          "prompt_summary": "Critic quote card with 92% Fresh score, text: BEST REVIEWED IN FRANCHISE \u2014 92% RT"
+          "heading": "Business case",
+          "prompt_summary": "$5.5B+ franchise gross, $170M projected global opening, $85M reported budget, 92% early RT score cited by Deadline"
         },
         {
           "slide": 5,
-          "heading": "The takeaway",
-          "prompt_summary": "Split: awards trophy vs audience cheering, text: THE AUDIENCE VOTE COUNTS"
+          "heading": "The lesson",
+          "prompt_summary": "Awards vs audience demand: 2 nominations versus $5.6B global box office"
         },
         {
           "slide": 6,
           "heading": "CTA",
-          "prompt_summary": "Dark end card, text: SIGN UP FOR THE BETA AT GARYBUDGETS.COM"
+          "prompt_summary": "MAKE THE MATH FIRST, NOT LAST \u2014 JOIN THE BETA AT GARYBUDGETS.COM"
         }
       ],
       "status": "draft",
@@ -1562,7 +1562,7 @@
         "5.png",
         "6.png"
       ],
-      "drive_order_source": "AI generated via chatgpt-imagegen on Jul 12 via codex backend",
+      "drive_order_source": "Redo from scratch Jul 12: replaced local/Vercel slide images with exact Minions & Monsters / Despicable Me 2 nomination copy; Google Drive OAuth unavailable.",
       "verified_sources": {
         "$5.6B franchise total": {
           "value": "$5.5B+ across 6 films (Minions & Monsters makes 7th)",
