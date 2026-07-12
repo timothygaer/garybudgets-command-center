@@ -1509,7 +1509,7 @@
         {
           "slide": 1,
           "heading": "Hook",
-          "prompt_summary": "The Minions franchise has been wildly successful: $5.6B box office, no Oscars \u2014 why?"
+          "prompt_summary": "$5.6B. No Oscars. The Minions franchise has been wildly successful \u2014 why did the Academy not reward it?"
         },
         {
           "slide": 2,
@@ -1519,7 +1519,7 @@
         {
           "slide": 3,
           "heading": "Oscar record",
-          "prompt_summary": "Despicable Me 2 got the franchise nominations: Best Animated Feature and Best Original Song \u201cHappy\u201d; zero wins"
+          "prompt_summary": "Oscar record: Despicable Me 2 was the only nominated franchise film; Best Animated Feature and Best Original Song \u201cHappy\u201d; wins 0."
         },
         {
           "slide": 4,
@@ -1562,7 +1562,7 @@
         "5.png",
         "6.png"
       ],
-      "drive_order_source": "Redo from scratch Jul 12 v4: fixed hook wording/why, text padding, no text-image overlap, no repeated image panels, CTA comments/follow.",
+      "drive_order_source": "Redo Jul 12 v5: remade slides 1 and 3 from scratch; removed process term \u201cThe Hook\u201d; all slide 3 text contained inside padded boxes.",
       "verified_sources": {
         "$5.6B franchise total": {
           "value": "$5.5B+ across 6 films (Minions & Monsters makes 7th)",
