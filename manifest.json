@@ -1503,38 +1503,38 @@
       "slide_count": 6,
       "original_schedule": "Fri, Jul 10 \u00b7 9:00 AM PT",
       "proposed_schedule": "Fri, Jul 10 \u00b7 9:00 AM PT",
-      "caption": "Minions & Monsters is the seventh Despicable Me / Minions franchise film \u2014 and the awards story around it is specific, not vague.\n\nThe franchise had earned more than $5.5B worldwide before this new movie, with Deadline citing $5.6B combined across Despicable Me and Minions titles. Yet its Oscar record is tiny: two nominations, both for Despicable Me 2 \u2014 Best Animated Feature and Best Original Song for Pharrell Williams\u2019 \u201cHappy.\u201d Zero wins.\n\nThat means the nominated film in the franchise was Despicable Me 2. The rest of the pre-2026 franchise \u2014 Despicable Me, Minions, Despicable Me 3, Minions: The Rise of Gru, and Despicable Me 4 \u2014 built massive audience demand without Oscar recognition.\n\nNow Minions & Monsters arrives with a reported $85M budget, an $80M domestic five-day projection, a $170M global opening-weekend projection, and the best early review score Deadline cited for the series.\n\nFor filmmakers, that is the budget lesson: awards can help, but audience demand and cost discipline are the business. Build the plan that lets the next film happen.\n\nWould you rather have the prestige signal \u2014 or the movie that pays for the next one?",
+      "caption": "Minions & Monsters is the seventh Despicable Me / Minions franchise film \u2014 and it brings up a strange awards question.\n\nMinions has been a wildly successful series. The franchise has earned more than $5.5B worldwide, with Deadline citing $5.6B combined across Despicable Me and Minions titles. But its Oscar record is still small: two nominations, both for Despicable Me 2 \u2014 Best Animated Feature and Best Original Song for Pharrell Williams\u2019 \u201cHappy.\u201d Zero wins.\n\nSo the question is not whether audiences showed up. They did. The question is why a franchise this successful never converted that audience power into Oscar wins.\n\nFor filmmakers, that is the budget lesson: commercial demand, awards prestige, and production discipline are different signals. Know which one you are building for.\n\nWhich Minions movie should have won an Oscar? Drop your comments below and follow us.",
       "hashtags": "#MinionsAndMonsters #DespicableMe #filmbudget #boxoffice #GaryBudgets",
       "slides": [
         {
           "slide": 1,
           "heading": "Hook",
-          "prompt_summary": "MINIONS & MONSTERS \u2014 16 YEARS, $5.6B BOX OFFICE, ZERO OSCARS"
+          "prompt_summary": "The Minions franchise has been wildly successful: $5.6B box office, no Oscars \u2014 why?"
         },
         {
           "slide": 2,
           "heading": "The movie",
-          "prompt_summary": "Exact facts about Minions & Monsters: July 1, 2026 release, 7th franchise film, Pierre Coffin solo directing effort, 1920s Hollywood premise"
+          "prompt_summary": "Minions & Monsters facts: title, release, franchise entry, director"
         },
         {
           "slide": 3,
           "heading": "Oscar record",
-          "prompt_summary": "Only Despicable Me 2 got the franchise Oscar nominations: Best Animated Feature and Best Original Song \u201cHappy\u201d; zero wins"
+          "prompt_summary": "Despicable Me 2 got the franchise nominations: Best Animated Feature and Best Original Song \u201cHappy\u201d; zero wins"
         },
         {
           "slide": 4,
           "heading": "Business case",
-          "prompt_summary": "$5.5B+ franchise gross, $170M projected global opening, $85M reported budget, 92% early RT score cited by Deadline"
+          "prompt_summary": "$5.5B+, $170M projected opening, $85M budget, 92% early score"
         },
         {
           "slide": 5,
-          "heading": "The lesson",
-          "prompt_summary": "Awards vs audience demand: 2 nominations versus $5.6B global box office"
+          "heading": "Awards vs audience",
+          "prompt_summary": "2 nominations / 0 wins versus $5.6B audience demand"
         },
         {
           "slide": 6,
           "heading": "CTA",
-          "prompt_summary": "MAKE THE MATH FIRST, NOT LAST \u2014 JOIN THE BETA AT GARYBUDGETS.COM"
+          "prompt_summary": "Which Minions movie should have won an Oscar? Drop your comments below and follow us."
         }
       ],
       "status": "draft",
@@ -1562,7 +1562,7 @@
         "5.png",
         "6.png"
       ],
-      "drive_order_source": "Redo from scratch Jul 12 v2: public official/Fandango Minions & Monsters imagery composited with AI-generated cinematic backgrounds; Google Drive OAuth unavailable.",
+      "drive_order_source": "Redo from scratch Jul 12 v4: fixed hook wording/why, text padding, no text-image overlap, no repeated image panels, CTA comments/follow.",
       "verified_sources": {
         "$5.6B franchise total": {
           "value": "$5.5B+ across 6 films (Minions & Monsters makes 7th)",
@@ -1627,13 +1627,19 @@
       },
       "visual_sources": {
         "public_images": [
-          "Universal official gallery: https://www.minionsmovie.com/gallery",
-          "Fandango movie page/poster/trailer stills: https://www.fandango.com/minions-and-monsters-2026-244409/movie-overview"
+          "Fandango poster",
+          "Fandango trailer still: Goomi Hears James Movie Idea",
+          "Fandango featurette thumbnail: Scoring",
+          "Fandango interview thumbnail",
+          "Fandango final trailer thumbnail",
+          "Fandango promotional tile"
         ],
         "ai_backgrounds": [
+          "/tmp/gb16_ai/boxoffice_stage.png",
           "/tmp/gb16_ai/hollywood.png",
           "/tmp/gb16_ai/awards.png",
-          "/tmp/gb16_ai/business.png"
+          "/tmp/gb16_ai/business.png",
+          "/tmp/gb16_ai/comment_cinema.png"
         ]
       }
     }
