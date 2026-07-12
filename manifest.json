@@ -1562,7 +1562,7 @@
         "5.png",
         "6.png"
       ],
-      "drive_order_source": "Redo from scratch Jul 12: replaced local/Vercel slide images with exact Minions & Monsters / Despicable Me 2 nomination copy; Google Drive OAuth unavailable.",
+      "drive_order_source": "Redo from scratch Jul 12 v2: public official/Fandango Minions & Monsters imagery composited with AI-generated cinematic backgrounds; Google Drive OAuth unavailable.",
       "verified_sources": {
         "$5.6B franchise total": {
           "value": "$5.5B+ across 6 films (Minions & Monsters makes 7th)",
@@ -1624,6 +1624,17 @@
             }
           ]
         }
+      },
+      "visual_sources": {
+        "public_images": [
+          "Universal official gallery: https://www.minionsmovie.com/gallery",
+          "Fandango movie page/poster/trailer stills: https://www.fandango.com/minions-and-monsters-2026-244409/movie-overview"
+        ],
+        "ai_backgrounds": [
+          "/tmp/gb16_ai/hollywood.png",
+          "/tmp/gb16_ai/awards.png",
+          "/tmp/gb16_ai/business.png"
+        ]
       }
     }
   ]
