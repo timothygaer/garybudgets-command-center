@@ -908,147 +908,6 @@ function PostCalendar() {
   )
 }
 
-// ---------- Launch Post — 6 Images Carousel ----------
-const LAUNCH_POST = {
-  title: "Why Your Indie Film Needs a Budget",
-  caption: `You don't need a Hollywood budget to make a great film. You need a plan.
-
-🎬 The director's chair looks good. But the real story? It starts with the numbers.
-
-Here's what most indie filmmakers don't think about:
-
-1️⃣ GEAR is obvious. Everyone budgets for the camera.
-But gear isn't what eats your budget.
-
-2️⃣ FOOD. Feeding a crew of 20 for 12 days? That's not craft services — that's a line item.
-
-3️⃣ PETTY CASH. Coffee runs, parking, tape, batteries, last-minute props.
-It adds up faster than you think.
-
-4️⃣ THE SCHEDULE. A good shoot plan = a good budget plan.
-Every hour of overtime costs money.
-
-The truth? Most indie films blow 30% of their budget on things nobody planned for.
-
-Gary Budgets makes it simple.
-One price. One tool. No surprises.
-
-Sign up for the waitlist → garybudgets.com`,
-  images: [
-    { src: "/images/launch-01/01-hook-directors-chair.png", label: "The Hook" },
-    { src: "/images/launch-01/02-camera-gear.png", label: "Gear isn't the problem" },
-    { src: "/images/launch-01/03-food-costs.png", label: "Feeding the crew" },
-    { src: "/images/launch-01/04-small-expenses.png", label: "Small costs add up" },
-    { src: "/images/launch-01/05-planning-clipboard.png", label: "Plan your budget" },
-    { src: "/images/launch-01/06-waitlist-cta.png", label: "Join the waitlist" },
-  ],
-  hashtags: "#indiefilm #filmbudget #garybudgets #filmfinance #indiefilmmaking #filmmakingtips #lowbudgetfilm #filmproducer #indiefilmcommunity #budgeting",
-  scheduledFor: "Mon, Jun 22 · 10:00 AM",
-  pillar: "Launch Campaign",
-}
-
-function ComposeTab({ onPublish }: { onPublish: (caption: string, file: File | null) => void }) {
-  const [selectedImage, setSelectedImage] = useState(0)
-  const [approvalStatus, setApprovalStatus] = useState<"pending" | "approved" | "rejected">("pending")
-
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
-      {/* Left: Image carousel preview */}
-      <div className="lg:col-span-3 neon-panel">
-        <div className="panel-title">Post Preview — {LAUNCH_POST.title}</div>
-
-        {/* Main image */}
-        <div className="relative mb-3 rounded-lg overflow-hidden border border-border" style={{ background: "#000", aspectRatio: "9/16", maxHeight: 500 }}>
-          <img
-            src={LAUNCH_POST.images[selectedImage].src}
-            alt=""
-            className="w-full h-full object-contain"
-            style={{ background: "#0a0a0a" }}
-          />
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-            <div className="text-xs font-medium text-white">{selectedImage + 1} / {LAUNCH_POST.images.length}</div>
-            <div className="text-[10px] text-gray-300">{LAUNCH_POST.images[selectedImage].label}</div>
-          </div>
-        </div>
-
-        {/* Thumbnail strip */}
-        <div className="flex gap-2 overflow-x-auto pb-1">
-          {LAUNCH_POST.images.map((img, i) => (
-            <button
-              key={i}
-              onClick={() => setSelectedImage(i)}
-              className={`flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all ${
-                selectedImage === i ? "border-red-500" : "border-border hover:border-border-light"
-              }`}
-            >
-              <img src={img.src} alt="" className="w-full h-full object-cover" />
-            </button>
-          ))}
-        </div>
-
-        {/* Caption preview */}
-        <div className="mt-4" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--color-border)", borderRadius: 8, padding: 12 }}>
-          <div className="text-[10px] font-semibold text-text-muted uppercase tracking-wider mb-2">Caption</div>
-          <div className="text-xs text-gray-300 whitespace-pre-line leading-relaxed max-h-48 overflow-y-auto">{LAUNCH_POST.caption}</div>
-        </div>
-      </div>
-
-      {/* Right: Details & Approval */}
-      <div className="lg:col-span-2 space-y-3">
-        <div className="neon-panel">
-          <div className="panel-title">Post Details</div>
-          <div className="space-y-3">
-            <div>
-              <div className="text-[10px] text-text-muted mb-0.5">Campaign</div>
-              <div className="text-xs font-medium text-gray-200">{LAUNCH_POST.pillar}</div>
-            </div>
-            <div>
-              <div className="text-[10px] text-text-muted mb-0.5">Scheduled</div>
-              <div className="text-xs font-medium text-gray-200">{LAUNCH_POST.scheduledFor}</div>
-            </div>
-            <div>
-              <div className="text-[10px] text-text-muted mb-0.5">Format</div>
-              <div className="text-xs font-medium text-gray-200">Carousel — 6 slides</div>
-            </div>
-            <div>
-              <div className="text-[10px] text-text-muted mb-0.5">Hashtags</div>
-              <div className="flex flex-wrap gap-1 mt-1">
-                {LAUNCH_POST.hashtags.split(" ").map((tag, i) => (
-                  <span key={i} className="text-[9px] px-1.5 py-0.5 rounded" style={{ background: "rgba(74,158,255,0.08)", color: "#4a9eff" }}>{tag}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="neon-panel">
-          <div className="panel-title">Approval</div>
-          <div className="space-y-3">
-            <div className={`flex items-center gap-2 p-3 rounded-lg text-xs ${
-              approvalStatus === "approved" ? "bg-green-900/20 text-green-400" :
-              approvalStatus === "rejected" ? "bg-red-900/20 text-red-400" :
-              "bg-amber-900/20 text-amber-400"
-            }`}>
-              {approvalStatus === "approved" ? "✅ Approved" :
-               approvalStatus === "rejected" ? "❌ Changes Requested" :
-               "⏳ Awaiting Approval"}
-            </div>
-
-            <button className="btn-primary w-full text-xs py-2"
-              onClick={() => setApprovalStatus("approved")}>
-              Approve & Publish
-            </button>
-            <button className="btn-secondary w-full text-xs py-2"
-              onClick={() => setApprovalStatus("rejected")}>
-              Request Changes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 // ---------- Slide Preview (all 6 images, always visible, larger) ----------
 function SlidePreview({ slides }: { slides: any[] }) {
   if (!slides || slides.length === 0) return null
@@ -1108,7 +967,7 @@ function SlidePreview({ slides }: { slides: any[] }) {
 }
 
 // ---------- Queue Tab ----------
-function QueueTab({ onPublish }: { onPublish: (caption: string, file: File | null) => void }) {
+function QueueTab() {
   const [queue, setQueue] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [approving, setApproving] = useState<string | null>(null)
@@ -1436,7 +1295,7 @@ export default function Dashboard() {
   const [data, setData] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [activeTab, setActiveTab] = useState("calendar")
+  const [activeTab, setActiveTab] = useState("overview")
 
   const fetchData = async () => {
     setLoading(true)
@@ -1509,9 +1368,9 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto px-6 py-5">
         {/* Tab Navigation */}
         <div className="tab-list mb-5 inline-flex">
-          {["overview", "calendar", "posts", "compose", "queue", "inspire", "maintenance"].map((tab) => {
+          {["overview", "calendar", "posts", "queue", "inspire", "maintenance"].map((tab) => {
             const labels: Record<string, string> = {
-              overview: "Overview", calendar: "Calendar", posts: "Post History", compose: "Compose",
+              overview: "Overview", calendar: "Calendar", posts: "Post History",
               queue: "Queue", inspire: "Inspiration", maintenance: "Maintenance",
             }
             return (
@@ -1629,14 +1488,9 @@ export default function Dashboard() {
           </div>
         )}
 
-        {/* ====== COMPOSE TAB ====== */}
-        {activeTab === "compose" && (
-          <ComposeTab onPublish={handlePublish} />
-        )}
-
         {/* ====== QUEUE TAB ====== */}
         {activeTab === "queue" && (
-          <QueueTab onPublish={handlePublish} />
+          <QueueTab />
         )}
 
         {/* ====== INSPIRATION TAB ====== */}
@@ -1647,7 +1501,7 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {EXAMPLE_POSTS.map((ex, i) => (
                 <div key={i} className="border border-border rounded-lg p-4 hover:border-border-light transition-colors cursor-pointer" style={{ background: "rgba(255,255,255,0.02)" }}
-                  onClick={() => setActiveTab("compose")}>
+                  onClick={() => setActiveTab("posts")}>
                   <div className="flex items-center justify-between mb-2">
                     <span className={`text-[10px] px-2 py-0.5 rounded ${
                       ex.pillar === "Budget School" ? "bg-blue-900/30 text-blue-400" :

@@ -53,7 +53,7 @@ export async function GET() {
     })
 
     return Response.json({
-      queue: postsWithPreviews,
+      queue: postsWithPreviews.filter((post: any) => post.status !== "posted"),
       week: manifest.week_start,
       week_folder_id: manifest.week_folder_id,
     })
