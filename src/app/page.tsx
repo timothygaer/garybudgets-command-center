@@ -1015,9 +1015,10 @@ function QueueTab() {
   const getDisplayStatus = (item: any) => {
     if (item.status === "posted") return "posted"
     if (item.status === "approved") return "approved"
-    // For draft/ready/awaiting_images, check if images exist via has_images or slidePreviews file_id
+    // For draft/ready/awaiting_images, check if publishable images exist via has_images,
+    // Drive file IDs, or public Vercel image URLs.
     const hasImages = item.has_images === true || 
-      (Array.isArray(item.slidePreviews) && item.slidePreviews.some((s: any) => s.file_id))
+      (Array.isArray(item.slidePreviews) && item.slidePreviews.some((s: any) => s.file_id || s.image_url))
     if (hasImages && (item.status === "draft" || item.status === "ready")) return "ready"
     if (!hasImages && (item.status === "draft" || item.status === "awaiting_images")) return "awaiting_images"
     return item.status || "draft"

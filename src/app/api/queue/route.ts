@@ -40,6 +40,9 @@ export async function GET() {
         file_id: post.image_file_ids?.[i] || "",
       }))
 
+      const hasPublicImages = urls.some((url: any) => typeof url === "string" && url.length > 0)
+      const hasDriveImages = Array.isArray(post.image_file_ids) && post.image_file_ids.some((id: any) => typeof id === "string" && id.length > 0)
+
       return {
         ...post,
         status: normalizedStatus,
@@ -48,7 +51,7 @@ export async function GET() {
         image_file_names: undefined,
         drive_assets_folder_id: undefined,
         drive_post_folder_id: undefined,
-        has_images: urls.length > 0 && (post.image_file_ids?.length > 0 || false),
+        has_images: hasPublicImages || hasDriveImages,
       }
     })
 

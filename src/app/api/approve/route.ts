@@ -27,6 +27,20 @@ async function saveManifest(manifest: any, path: string) {
   await writeFile(path, JSON.stringify(manifest, null, 2))
 }
 
+function hasUsableImages(post: any): boolean {
+  const imageUrls = Array.isArray(post.image_urls)
+    ? post.image_urls.filter((url: any) => typeof url === "string" && /^https?:\/\/.+\.(png|jpe?g|webp)(\?.*)?$/i.test(url))
+    : []
+  const imageFileIds = Array.isArray(post.image_file_ids)
+    ? post.image_file_ids.filter((id: any) => typeof id === "string" && id.trim().length > 0)
+    : []
+
+  // Drive file IDs are useful metadata, but Vercel-hosted image URLs are the
+  // actual publish path. Do not block approval when the post has valid public
+  // image URLs but no Drive IDs.
+  return imageUrls.length > 0 || imageFileIds.length > 0
+}
+
 /**
  * Write approved_at back to the GitHub repo manifest via REST API.
  * This is the key piece: approval state goes into the source of truth,
@@ -47,38 +61,30 @@ async function writeApprovalToGitHub(postId: string, approvedAt: string): Promis
   }
 
   try {
-    // 1. Get current file and its SHA
-    const getResp = await fetch(url, { headers })
-    if (!getResp.ok) {
-      console.log(`GitHub GET failed: ${getResp.status}`)
-      return false
-    }
-    const fileData = await getResp.json()
-    const sha = fileData.sha
-    const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8")
-    const manifest = JSON.parse(currentContent)
-
-    // 2. Update the post — with SHA conflict retry
     let attempts = 0
     const maxAttempts = 5
-    let currentSha = sha
-    
+
     while (attempts < maxAttempts) {
-      // Re-read from GitHub on retry to get the fresh SHA
-      if (attempts > 0) {
-        const refreshResp = await fetch(url, { headers })
-        if (!refreshResp.ok) break
-        const freshData = await refreshResp.json()
-        currentSha = freshData.sha
-        const freshContent = Buffer.from(freshData.content, "base64").toString("utf-8")
-        const freshManifest = JSON.parse(freshContent)
-        const idx = freshManifest.posts.findIndex((p: any) => p.id === postId)
-        if (idx === -1) break
-        freshManifest.posts[idx].status = "approved"
-        freshManifest.posts[idx].approved_at = approvedAt
-        manifest.posts = freshManifest.posts
+      // Always read the latest GitHub manifest before writing. Vercel /tmp may
+      // be stale, and concurrent jobs can update manifest.json between retries.
+      const getResp = await fetch(url, { headers })
+      if (!getResp.ok) {
+        console.log(`GitHub GET failed: ${getResp.status}`)
+        return false
       }
-      
+      const fileData = await getResp.json()
+      const currentSha = fileData.sha
+      const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8")
+      const manifest = JSON.parse(currentContent)
+      const idx = manifest.posts.findIndex((p: any) => p.id === postId)
+      if (idx === -1) {
+        console.log(`GitHub persist: ${postId} not found`)
+        return false
+      }
+
+      manifest.posts[idx].status = "approved"
+      manifest.posts[idx].approved_at = approvedAt
+
       const newContent = JSON.stringify(manifest, null, 2) + "\n"
       const putResp = await fetch(url, {
         method: "PUT",
@@ -89,14 +95,13 @@ async function writeApprovalToGitHub(postId: string, approvedAt: string): Promis
           sha: currentSha,
         }),
       })
-      
+
       if (putResp.ok) {
         console.log(`GitHub persist: ${postId} written (attempt ${attempts + 1})`)
         return true
       }
-      
+
       const errText = await putResp.text()
-      // Retry on stale SHA (422)
       if (putResp.status === 422 && errText.includes("sha")) {
         attempts++
         continue
@@ -131,8 +136,20 @@ export async function POST(request: Request) {
     // Idempotency check via shared normalizer
     const effectiveStatus = normalizeStatus(post)
     if (effectiveStatus === "approved") {
+      const approvedAt = post.approved_at || new Date().toISOString()
       manifest.posts[postIndex].status = "approved"
+      manifest.posts[postIndex].approved_at = approvedAt
       await saveManifest(manifest, path)
+      const githubOk = await writeApprovalToGitHub(post_id, approvedAt)
+      if (!githubOk) {
+        return Response.json({
+          success: false,
+          error: "Approval exists locally but could not be persisted to GitHub. Try again before relying on this post to publish.",
+          post_id,
+          scheduled_for: schedule,
+          github_persisted: false,
+        }, { status: 502 })
+      }
       return Response.json({
         success: true,
         message: `"${post.title}" was already approved and scheduled for ${schedule}`,
@@ -140,15 +157,16 @@ export async function POST(request: Request) {
         scheduled_for: schedule,
         already_approved: true,
         posted: false,
+        github_persisted: true,
       })
     }
 
     // Gate: no images = can't approve
-    const hasImages = Array.isArray(post.image_file_ids) && post.image_file_ids.length > 0
+    const hasImages = hasUsableImages(post)
     if (!hasImages) {
       return Response.json({
         success: false,
-        error: "Cannot approve — no images uploaded yet.",
+        error: "Cannot approve — no publishable images found.",
         post_id,
         image_status: "awaiting_images",
       }, { status: 400 })
@@ -162,6 +180,16 @@ export async function POST(request: Request) {
 
     // Persist to GitHub repo — this is what survives deploys
     const githubOk = await writeApprovalToGitHub(post_id, approvedAt)
+    if (!githubOk) {
+      return Response.json({
+        success: false,
+        error: "Approved locally, but GitHub persistence failed. The approval is not durable yet; try again before relying on this post to publish.",
+        post_id,
+        scheduled_for: schedule,
+        posted: false,
+        github_persisted: false,
+      }, { status: 502 })
+    }
 
     // Check for immediate publish
     const isImmediate = post.proposed_schedule === "Immediate on approval" ||
@@ -217,7 +245,7 @@ export async function POST(request: Request) {
       post_id,
       scheduled_for: schedule,
       posted: false,
-      github_persisted: githubOk,
+      github_persisted: true,
     })
 
   } catch (err: any) {
