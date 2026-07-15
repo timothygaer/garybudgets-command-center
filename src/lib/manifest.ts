@@ -1,10 +1,18 @@
-// Shared status normalization for manifests.
-// A post with an approved_at timestamp should always be treated as approved,
-// even if the repo manifest has stale status: "draft" from a git push.
-// This protects against Vercel deploy → /tmp copy loss of approval state.
+// Shared manifest helpers.
+// Status must be derived from durable fields, not just the raw `status` string:
+// - Published metadata means the post is posted even if a stale status remains.
+// - `approved_at` means approved even if Vercel copied an older draft status into /tmp.
 
-export function normalizeStatus(post: { status: string; approved_at?: string | null }): string {
-  if (post.status === "posted") return "posted"
+export type ManifestLikePost = {
+  status?: string | null
+  approved_at?: string | null
+  posted_at?: string | null
+  instagram_url?: string | null
+  instagram_media_id?: string | null
+}
+
+export function normalizeStatus(post: ManifestLikePost): string {
+  if (post.status === "posted" || post.posted_at || post.instagram_url || post.instagram_media_id) return "posted"
   if (post.approved_at) return "approved"
-  return post.status
+  return post.status || "draft"
 }
