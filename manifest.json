@@ -1652,7 +1652,7 @@
       "slug": "Post17_2026-07-15_Release_Delay_Budget_Line",
       "slide_count": 6,
       "original_schedule": "Wed, Jul 15 \u00b7 4:00 PM PT",
-      "proposed_schedule": "Wed, Jul 15 \u00b7 4:00 PM PT",
+      "proposed_schedule": "Thu, Jul 16 \u00b7 9:00 AM PT",
       "caption": "A release delay is not just a calendar change. It is a budget event.\n\nWhen a film moves dates, the cost does not pause. Marketing assets may need to be refreshed. Post teams may stay active longer. Talent and vendors may need to be rebooked. Financing, insurance, legal, and overhead can keep running while revenue moves farther away.\n\nFor big studio films, those costs can be absorbed across a larger machine. For indie producers, they can quietly break the plan.\n\nThat is why schedule contingency belongs in the budget from the beginning. If your release, delivery, post, or festival timeline changes, your numbers need to change with it.\n\nSave this before your next production calendar meeting.\n\nYour schedule is part of your budget. Build smarter at garybudgets.com.",
       "hashtags": "#filmbudget #filmproduction #indiefilm #producerlife #garybudgets",
       "slides": [
@@ -1746,9 +1746,11 @@
         }
       },
       "approved_at": "2026-07-15T22:59:17.656326Z",
-      "posted_at": "2026-07-15T23:00:49+0000",
-      "instagram_url": "https://www.instagram.com/p/Da1MlH4gTLT/",
-      "instagram_media_id": "18101912111161924"
+      "rescheduled_at": "2026-07-15T16:00:29.678005-07:00",
+      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
+      "posted_at": "2026-07-15T23:01:32+0000",
+      "instagram_url": "https://www.instagram.com/p/Da1MqQyAVBt/",
+      "instagram_media_id": "18112905482312581"
     }
   ]
 }
