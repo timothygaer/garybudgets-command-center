@@ -1642,6 +1642,107 @@
           "/tmp/gb16_ai/comment_cinema.png"
         ]
       }
+    },
+    {
+      "id": "GB-2026-07-15-17",
+      "title": "A Release Delay Is a Budget Line Item",
+      "pillar": "Budget School",
+      "slug": "Post17_2026-07-15_Release_Delay_Budget_Line",
+      "slide_count": 6,
+      "original_schedule": "Wed, Jul 15 · 4:00 PM PT",
+      "proposed_schedule": "Wed, Jul 15 · 4:00 PM PT",
+      "caption": "A release delay is not just a calendar change. It is a budget event.\n\nWhen a film moves dates, the cost does not pause. Marketing assets may need to be refreshed. Post teams may stay active longer. Talent and vendors may need to be rebooked. Financing, insurance, legal, and overhead can keep running while revenue moves farther away.\n\nFor big studio films, those costs can be absorbed across a larger machine. For indie producers, they can quietly break the plan.\n\nThat is why schedule contingency belongs in the budget from the beginning. If your release, delivery, post, or festival timeline changes, your numbers need to change with it.\n\nSave this before your next production calendar meeting.\n\nYour schedule is part of your budget. Build smarter at garybudgets.com.",
+      "hashtags": "#filmbudget #filmproduction #indiefilm #producerlife #garybudgets",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "A RELEASE DELAY IS A BUDGET LINE ITEM",
+          "prompt_summary": "The calendar changes. The cost does not pause. Contracts, vendors, marketing, financing, and audience expectations keep moving. 'We'll push it back' is not free. If it is not planned for, delay becomes a hidden budget category."
+        },
+        {
+          "slide": 2,
+          "heading": "THE CAMPAIGN DOESN’T JUST WAIT",
+          "prompt_summary": "Trailers, posters, media buys, and press plans are built around a date. When the date moves, assets may need to be paused, re-cut, re-cleared, or relaunched. Awareness already purchased can decay. Later, the studio may pay again to rebuild attention."
+        },
+        {
+          "slide": 3,
+          "heading": "POST CAN BECOME A LONGER BURN",
+          "prompt_summary": "Editorial, VFX, sound, color, scoring, localization, legal, and deliverables may stay active longer. More time can mean more notes, more versions, and more QC. Storage, supervision, and vendor management still cost money. Extra time does not always equal better control."
+        },
+        {
+          "slide": 4,
+          "heading": "PEOPLE DO NOT STAY ON HOLD FOR FREE",
+          "prompt_summary": "Actors, editors, VFX houses, composers, publicists, and vendors book other jobs. Pickups, ADR, promo, or finishing work later can trigger conflicts. Holds, rush fees, and renegotiations add cost. Sometimes you pay twice: once to start, again to restart."
+        },
+        {
+          "slide": 5,
+          "heading": "TIME HAS CARRYING COSTS",
+          "prompt_summary": "Delays can affect interest, completion bonds, insurance periods, legal, overhead, and reporting. Revenue arrives later, while expenses keep landing now. Indie productions feel it harder because cash flow is tighter. The cost is not just spend — it is how long money is tied up."
+        },
+        {
+          "slide": 6,
+          "heading": "YOUR SCHEDULE IS PART OF YOUR BUDGET",
+          "prompt_summary": "Build contingency for calendar movement. Plan for post extensions, marketing shifts, vendor changes, insurance, and financing delays. When the schedule changes, the budget should change with it. Build smarter at garybudgets.com."
+        }
+      ],
+      "status": "draft",
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/6.png"
+      ],
+      "image_file_ids": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "drive_order_source": "AI generated via chatgpt-imagegen codex backend on Jul 15; images stored in repo public/images for Vercel CDN.",
+      "verified_sources": {
+        "The Batman Part II delayed to 2028": {
+          "value": "Warner Bros. moved The Batman Part II to Feb. 18, 2028.",
+          "sources": [
+            {
+              "publisher": "Variety",
+              "url": "https://variety.com/2026/film/news/the-batman-2-release-date-2028-first-footage-pattinson-1236811623",
+              "verified_claim": "The Batman Part II delayed again to Feb. 18, 2028; first camera test footage released."
+            },
+            {
+              "publisher": "Deadline",
+              "url": "https://deadline.com/2026/07/the-batman-ii-jj-abrams-the-great-beyond-release-date-changes-1236982669",
+              "verified_claim": "The Batman Part II moved to Feb. 18, 2028 as part of Warner Bros. date changes."
+            },
+            {
+              "publisher": "The Hollywood Reporter",
+              "url": "https://www.hollywoodreporter.com/movies/movie-news/the-batman-part-ii-release-delayed-again-2028-1236649280",
+              "verified_claim": "The Batman Part II release delayed again by Warner Bros. Pictures and DC Studios."
+            }
+          ]
+        },
+        "Instagram engagement signal": {
+          "value": "Public Instagram reel about The Batman Part II delay showed high early engagement.",
+          "sources": [
+            {
+              "publisher": "Instagram / filmthusiast",
+              "url": "https://www.instagram.com/reel/Da0XBjtsXhQ",
+              "verified_claim": "Public reel showed 51.8K likes and 395 comments about 2 hours after posting during research."
+            }
+          ]
+        }
+      }
     }
   ]
 }
