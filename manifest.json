@@ -1905,6 +1905,74 @@
       ],
       "drive_order_source": "Corrected cinematic ChatGPT image generation one slide at a time on 2026-07-16; repo/CDN images, no Drive upload yet",
       "approved_at": "2026-07-16T22:13:13.549Z"
+    },
+    {
+      "id": "GB-2026-07-18-20",
+      "title": "Why Hollywood Can't Just Add More IMAX",
+      "pillar": "Industry Watch",
+      "slug": "Post20_2026-07-18",
+      "slide_count": 6,
+      "original_schedule": "Sat, Jul 18 · 12:00 PM PT",
+      "proposed_schedule": "Sat, Jul 18 · 12:00 PM PT",
+      "caption": "The budget lesson hiding inside IMAX 70mm scarcity is simple: demand does not create infrastructure overnight.\n\nChristopher Nolan's The Odyssey turned IMAX 70mm into one of the clearest examples of premium-format scarcity. Reactor, citing IMAX CEO Richard Gelfond's comments to Variety, reported that new IMAX film projectors of this type have not been manufactured in roughly 50 years. IMAX can build new projectors, but the specific film projectors required for this format have to be found, retrofitted, rebuilt, and prepared for use.\n\nThat is why this is not just a movie-ticket story. It is a production-budget story.\n\nWFAA reported that Cinemark is adding three new IMAX 70mm film projection systems ahead of The Odyssey and upgrading other locations to IMAX with Laser. That sounds like expansion, but it also proves the point: premium formats require equipment, installation, maintenance, trained operators, room geometry, scheduling strategy, and long-term ROI. You do not just declare more capacity because the audience wants it.\n\nFor filmmakers, the lesson is not to shoot IMAX. The lesson is to budget the whole system behind the promise.\n\nYour version might be a camera format. Or color workflow. Or sound mix. Or festival deliverables. Or theatrical specs. Or a specialty lens package. Or a drone day. Or a virtual production stage. If the creative choice changes the system, it changes the budget.\n\nSave this before your next format decision. Send it to someone who thinks bigger automatically means better. And if you want a cleaner way to budget the whole production machine, join the beta at garybudgets.com.",
+      "hashtags": "#filmbudgeting #filmproduction #imax #cinematography #indiefilm #producerlife #GaryBudgets",
+      "verified_sources": [
+        "https://nofilmschool.com/imax-70mm-projector",
+        "https://reactormag.com/the-odyssey-70mm-imax-locations-limited-explained",
+        "https://www.wfaa.com/article/news/nation-world/cinemark-70mm-imax-screens-the-odyssey-release/507-ed7d484b-4e90-4a5d-a220-d210ab95dd9e",
+        "https://www.ign.com/articles/as-the-odyssey-fans-seek-out-one-of-the-41-cinemas-in-the-whole-world-capable-of-imax-70mm-the-boss-of-imax-itself-says-building-new-projectors-to-meet-demand-isnt-practical"
+      ],
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "dark premium cinema auditorium with a massive empty screen, visible projector beam through haze, silhouettes of seats, subtle film-production documents in foreground; text: HOLLYWOOD CAN'T JUST ADD MORE IMAX"
+        },
+        {
+          "slide": 2,
+          "heading": "Body",
+          "prompt_summary": "cinematic theater lobby at night, sold-out showtime board as a physical sign not digital UI, long queue silhouettes, premium cinema lighting; text: THE BIGGEST SCREEN BECAME THE SCARCEST SEAT"
+        },
+        {
+          "slide": 3,
+          "heading": "Body",
+          "prompt_summary": "vintage IMAX 70mm projection booth, large film projector machinery, reels, technician tools, warm booth light, no screens or fake UI; text: THE PROJECTORS ARE THE BOTTLENECK"
+        },
+        {
+          "slide": 4,
+          "heading": "Body",
+          "prompt_summary": "projection booth and theater floor cutaway feeling, projector, film reels, maintenance checklist, scheduling board as physical paper, dark cinematic lighting; text: PREMIUM FORMAT MEANS PREMIUM SYSTEM"
+        },
+        {
+          "slide": 5,
+          "heading": "Body",
+          "prompt_summary": "indie producer desk with camera body, hard drives, color notes, sound deliverables paperwork, budget spreadsheet, dark film office lighting; text: YOUR VERSION OF IMAX IS HIDING SOMEWHERE"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "premium cinematic final card, projector beam crossing production budget pages and film reels, dark elegant red accents, clear CTA panel; text: BUDGET THE WHOLE MACHINE"
+        }
+      ],
+      "status": "draft",
+      "image_file_ids": [],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/6.png"
+      ],
+      "drive_order_source": "Corrected cinematic ChatGPT image generation one slide at a time on 2026-07-16; repo/CDN images, no Drive upload yet"
     }
   ]
 }
