@@ -1836,6 +1836,74 @@
         }
       },
       "approved_at": "2026-07-16T01:07:17.984Z"
+    },
+    {
+      "id": "GB-2026-07-18-19",
+      "title": "Your Indie Film Budget Has a People Problem",
+      "pillar": "Industry Watch",
+      "slug": "Post19_2026-07-18",
+      "slide_count": 6,
+      "original_schedule": "Sat, Jul 18 · 9:00 AM PT",
+      "proposed_schedule": "Sat, Jul 18 · 9:00 AM PT",
+      "caption": "The hidden cost in an indie film budget is not always the camera package. Sometimes it is the pressure placed on people.\n\nScreen Daily reported that UK actors' union Equity created a new role focused on supporting artists and independent film. Mostafa Rajaai's remit includes Equity members working on films budgeted under £3m, with pay, working conditions, oversight, and contract enforcement at the center of the job.\n\nThat matters because low-budget film math often looks clean only because people absorb the mess. Late cancellations. Heavy pencils. Travel and accommodation problems. Contract gaps. Unpaid time. Digital scans. Likeness rights. AI consent. Dignity-at-work issues. All of that may sit outside the spreadsheet until it becomes a production problem.\n\nEquity's AI Toolkit also makes the digital-rights issue explicit: performers need informed consent, control, fair compensation, and transparency when their voice, image, likeness, or performance can be recorded or reproduced. That is not just legal language. It is a budget line waiting to happen.\n\nPact's Red Book gives the crew side another signal. Its recommended terms for UK low-budget feature films cover productions between £1m and £10m, and Pact says there has never been an agreement for crew engagement on UK films under £30m. The point is not that every indie has a perfect answer. The point is that the old vacuum is expensive.\n\nProducer takeaway: if your people line only works because actors, supporting artists, and crew carry the pain, the budget is not finished. You have moved cost out of the spreadsheet and onto the set.\n\nSave this before your next budget pass. Send it to the producer who calls labor a soft cost. And if you want a cleaner way to build film budgets before the pressure hits the set, join the beta at garybudgets.com.",
+      "hashtags": "#indiefilm #filmbudgeting #filmproduction #producerlife #actorslife #filmcrew #GaryBudgets",
+      "verified_sources": [
+        "https://www.screendaily.com/news/equity-bolsters-support-for-indie-film-actors/5218644.article",
+        "https://www.equity.org.uk/advice-and-support/know-your-rights/ai-toolkit/understanding-ai",
+        "https://www.pact.co.uk/resource/pact-red-book-recommended-terms-for-uk-low-budget-films.html",
+        "https://www.pact.co.uk/resource/pact-issues-recommended-terms-for-low-budget-films.html"
+      ],
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "cinematic low-budget film set at night, tired actor seated near a call sheet and contract pages, crew silhouettes, practical film lights, producer desk foreground; text: YOUR INDIE FILM BUDGET HAS A PEOPLE PROBLEM"
+        },
+        {
+          "slide": 2,
+          "heading": "Body",
+          "prompt_summary": "serious union office meets production office, performer contracts, call sheets, UK indie film paperwork, red desk lamp, no logos; text: EQUITY CREATED A ROLE FOR THIS PRESSURE"
+        },
+        {
+          "slide": 3,
+          "heading": "Body",
+          "prompt_summary": "film crew waiting in a dim hallway beside equipment cases, producer reviewing a marked-up budget, tense but realistic production atmosphere; text: WHEN THE BUDGET GETS CUT, PEOPLE FEEL IT FIRST"
+        },
+        {
+          "slide": 4,
+          "heading": "Body",
+          "prompt_summary": "close-up of real production paperwork only: marked call sheet, talent hold notes, cancellation stamp, contract pages, red pencil, no phone, no screen, no app interface, no fake UI; text: THE HIDDEN COSTS ARE NOT SMALL"
+        },
+        {
+          "slide": 5,
+          "heading": "Body",
+          "prompt_summary": "producer at night marking a film budget spreadsheet with red pen, call sheets, payroll forms, coffee, film equipment in background; text: IF THE PEOPLE LINE IS FAKE, THE BUDGET IS FAKE"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "premium cinematic final card, production budget board and film lights, actor chair and crew paperwork, dark elegant red accents, clear CTA panel; text: BUILD A BUDGET THAT DOESN'T HIDE THE PAIN"
+        }
+      ],
+      "status": "draft",
+      "image_file_ids": [],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/6.png"
+      ],
+      "drive_order_source": "Corrected cinematic ChatGPT image generation one slide at a time on 2026-07-16; repo/CDN images, no Drive upload yet"
     }
   ]
 }
