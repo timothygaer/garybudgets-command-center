@@ -1794,7 +1794,7 @@
           "prompt_summary": "Budget for the blockers before they happen. Add contingency for resets, delays, approvals, and handoffs. Track lost time like you track spend. Sign up for the beta at garybudgets.com."
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-16-18/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-16-18/2.png",
@@ -1825,7 +1825,8 @@
           "value": "Evergreen educational budgeting/production management advice; no external numeric claims used.",
           "sources": []
         }
-      }
+      },
+      "approved_at": "2026-07-16T01:07:17.984Z"
     }
   ]
 }
