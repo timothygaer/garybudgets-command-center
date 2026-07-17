@@ -9,18 +9,23 @@ const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
 
 async function getManifestData() {
-  let manifestPath = WRITABLE_PATH
+  const writablePath = WRITABLE_PATH
+  const srcPath = SRC_PATH
 
-  if (!existsSync(manifestPath)) {
-    // Fall back to repo copy
-    if (existsSync(SRC_PATH)) {
-      await copyFile(SRC_PATH, manifestPath)
-    } else {
-      throw new Error("No manifest found")
+  // Always refresh writable copy from repo if repo is newer
+  if (existsSync(srcPath)) {
+    const srcTime = (await import("fs/promises")).stat(srcPath).then(s => s.mtimeMs).catch(() => 0)
+    const wTime = existsSync(writablePath)
+      ? (await import("fs/promises")).stat(writablePath).then(s => s.mtimeMs).catch(() => 0)
+      : 0
+    if ((await srcTime) > (await wTime)) {
+      await copyFile(srcPath, writablePath)
     }
+  } else if (!existsSync(writablePath)) {
+    throw new Error("No manifest found")
   }
 
-  const content = await readFile(manifestPath, "utf-8")
+  const content = await readFile(writablePath, "utf-8")
   return JSON.parse(content)
 }
 
