@@ -2094,7 +2094,7 @@
           "prompt_summary": "CTA: Build full budget at garybudgets.com"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "image_file_ids": [
         "scout-1784259331-1/1.png",
         "scout-1784259331-1/2.png",
@@ -2121,7 +2121,8 @@
       ],
       "has_images": true,
       "created_at": "2026-07-17T03:35:31.814894+00:00",
-      "source": "Topic Scout"
+      "source": "Topic Scout",
+      "approved_at": "2026-07-17T03:53:45.857Z"
     }
   ]
 }
