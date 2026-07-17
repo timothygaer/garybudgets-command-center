@@ -2060,15 +2060,46 @@
       "caption": "Production insurance premiums have jumped 15-30% across the board in 2026, hitting indie productions harder than studio films. The reason is straightforward: post-pandemic production volume is up, claims frequency has risen, and reinsurance markets have hardened. For indie producers, the practical impact is that insurance is no longer a small line item you can treat as an afterthought.\n\nGeneral liability runs $1,500-$5,000 per year for indie productions. Workers comp adds 2-5% to your total payroll, varying by state. Equipment floaters cost 1-3% of the insured value annually. Hired auto adds $300-$1,000 per production. And Errors & Omissions — the one every distributor requires — runs $2,500-$10,000 for a three-year term.\n\nThe real cost of skipping insurance goes beyond the premium: no equipment house will rent to an uninsured production. No location permit is issued without liability coverage. No reputable distributor or festival will accept an uninsured film. And one on-set injury can cost more than a decade of premiums.\n\nThe smart move: budget 2-3% of your total production cost for insurance. Get quotes from three brokers who specialize in entertainment. Ask about indie film packages that bundle liability, workers comp, and equipment. Check if your rental house offers day-rate coverage as a backup. Negotiate E&O early — it has the widest price range of any film insurance line.\n\nSave this for your next budget pass. Build smarter at garybudgets.com.",
       "hashtags": "#filmbudget #filminsurance #indiefilm #productioncosts #GaryBudgets",
       "slides": [
-        {"slide": 1, "heading": "Insurance Costs Are Eating Indie Budgets", "prompt_summary": "Insurance documents and premium notice on producer desk"},
-        {"slide": 2, "heading": "What Insurance Actually Covers", "prompt_summary": "Broken camera on rental counter, insurance claim form"},
-        {"slide": 3, "heading": "What It Costs", "prompt_summary": "Budget spreadsheet with insurance lines highlighted"},
-        {"slide": 4, "heading": "The Cost of Skipping Insurance", "prompt_summary": "Producer on phone, legal documents, empty film set"},
-        {"slide": 5, "heading": "How to Budget for Insurance", "prompt_summary": "Producer shopping insurance online with comparison quotes"},
-        {"slide": 6, "heading": "CTA", "prompt_summary": "Gary Budgets app on phone, insurance binder on desk"}
+        {
+          "slide": 1,
+          "heading": "Insurance Costs Are Eating Indie Budgets",
+          "prompt_summary": "Insurance documents and premium notice on producer desk"
+        },
+        {
+          "slide": 2,
+          "heading": "What Insurance Actually Covers",
+          "prompt_summary": "Broken camera on rental counter, insurance claim form"
+        },
+        {
+          "slide": 3,
+          "heading": "What It Costs",
+          "prompt_summary": "Budget spreadsheet with insurance lines highlighted"
+        },
+        {
+          "slide": 4,
+          "heading": "The Cost of Skipping Insurance",
+          "prompt_summary": "Producer on phone, legal documents, empty film set"
+        },
+        {
+          "slide": 5,
+          "heading": "How to Budget for Insurance",
+          "prompt_summary": "Producer shopping insurance online with comparison quotes"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets app on phone, insurance binder on desk"
+        }
       ],
       "status": "ready",
-      "image_file_names": ["1.png","2.png","3.png","4.png","5.png","6.png"],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
       "image_urls": [
         "/images/scout-insurance/1.png",
         "/images/scout-insurance/2.png",
@@ -2080,6 +2111,201 @@
       "has_images": true,
       "created_at": "2026-07-17T06:54:00Z",
       "source": "Topic Scout"
+    },
+    {
+      "id": "scout-1784273931186",
+      "title": "Independent Film Budget Trends H1 2026",
+      "pillar": "Budget School",
+      "slug": "Post_independent-film-budget-trends-h1-2026",
+      "slide_count": 6,
+      "original_schedule": "Tue, Jul 21 · 12:00 AM PT",
+      "proposed_schedule": "Tue, Jul 21 · 12:00 AM PT",
+      "caption": "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance.",
+      "hashtags": "#filmbudget #indiefilm #filmproduction #GaryBudgets",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Independent Film Budget Trends H1 2026"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1784273931186/1.png",
+        "/images/scout-1784273931186/2.png",
+        "/images/scout-1784273931186/3.png",
+        "/images/scout-1784273931186/4.png",
+        "/images/scout-1784273931186/5.png",
+        "/images/scout-1784273931186/6.png"
+      ],
+      "created_at": "2026-07-17T07:38:51.186Z",
+      "source": "Topic Scout",
+      "suggestion": "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance.",
+      "source_name": "Variety / IndieWire"
+    },
+    {
+      "id": "scout-1784273931186",
+      "title": "Film Festival Circuit Changes for 2026",
+      "pillar": "Industry Watch",
+      "slug": "Post_film-festival-circuit-changes-for-2026",
+      "slide_count": 6,
+      "original_schedule": "Wed, Jul 22 · 12:00 AM PT",
+      "proposed_schedule": "Wed, Jul 22 · 12:00 AM PT",
+      "caption": "New submission fee structures, grant programs for low-budget features, and virtual screening options announced at spring festivals.",
+      "hashtags": "#filmbudget #indiefilm #filmproduction #GaryBudgets",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Film Festival Circuit Changes for 2026"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1784273931186/1.png",
+        "/images/scout-1784273931186/2.png",
+        "/images/scout-1784273931186/3.png",
+        "/images/scout-1784273931186/4.png",
+        "/images/scout-1784273931186/5.png",
+        "/images/scout-1784273931186/6.png"
+      ],
+      "created_at": "2026-07-17T07:38:51.186Z",
+      "source": "Topic Scout",
+      "suggestion": "New submission fee structures, grant programs for low-budget features, and virtual screening options announced at spring festivals.",
+      "source_name": "Sundance / TIFF announcements"
+    },
+    {
+      "id": "scout-1784273931186",
+      "title": "Tax Incentives Map: Where to Shoot in 2026",
+      "pillar": "Industry Watch",
+      "slug": "Post_tax-incentives-map-where-to-shoot-in-2026",
+      "slide_count": 6,
+      "original_schedule": "Thu, Jul 23 · 12:00 AM PT",
+      "proposed_schedule": "Thu, Jul 23 · 12:00 AM PT",
+      "caption": "Updated state-by-state incentives for indie productions — which states offer the best rebates for budgets under $3M.",
+      "hashtags": "#filmbudget #indiefilm #filmproduction #GaryBudgets",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Tax Incentives Map: Where to Shoot in 2026"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1784273931186/1.png",
+        "/images/scout-1784273931186/2.png",
+        "/images/scout-1784273931186/3.png",
+        "/images/scout-1784273931186/4.png",
+        "/images/scout-1784273931186/5.png",
+        "/images/scout-1784273931186/6.png"
+      ],
+      "created_at": "2026-07-17T07:38:51.186Z",
+      "source": "Topic Scout",
+      "suggestion": "Updated state-by-state incentives for indie productions — which states offer the best rebates for budgets under $3M.",
+      "source_name": "FilmLA / state film offices"
     }
   ]
 }
