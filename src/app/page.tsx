@@ -519,6 +519,7 @@ export default function Dashboard() {
   const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set())
   const [pendingPosts, setPendingPosts] = useState<any[]>([])
   const [showPending, setShowPending] = useState(false)
+  const [buildQueueItems, setBuildQueueItems] = useState<any[]>([])
   const [page, setPage] = useState<NavPage>("overview")
 
   const fetchData = useCallback(async () => {
@@ -533,6 +534,40 @@ export default function Dashboard() {
   }, [])
 
   useEffect(() => { fetchData() }, [fetchData])
+
+  // Load build queue
+  const loadBuildQueue = useCallback(async () => {
+    try {
+      const r = await fetch("/api/build-queue")
+      const d = await r.json()
+      if (d.ok) setBuildQueueItems(d.items.filter((i: any) => i.status === "pending"))
+    } catch {}
+  }, [])
+  useEffect(() => { loadBuildQueue() }, [loadBuildQueue])
+
+  const handleBuildNow = async (id: string) => {
+    // Mark item as building, user will come back to chat
+    try {
+      await fetch("/api/build-queue", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id })
+      })
+      setBuildQueueItems(prev => prev.filter(i => i.id !== id))
+      // The user will come to chat and say "build" — we read from /tmp/gb-scout-selections/
+    } catch {}
+  }
+
+  const handleRemoveBuild = async (id: string) => {
+    try {
+      await fetch("/api/build-queue", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id })
+      })
+      setBuildQueueItems(prev => prev.filter(i => i.id !== id))
+    } catch {}
+  }
 
   const recentPosts = data?.posts?.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 5) || []
 
@@ -1101,10 +1136,10 @@ export default function Dashboard() {
           )}
         </div>
 
-        {/* ─── RIGHT PANEL: QUEUE + MAINTENANCE ─── */}
+        {/* ─── RIGHT PANEL: QUEUE + BUILD QUEUE + MAINTENANCE ─── */}
         <div style={{ ...s.w600, ...s.bdL, ...s.bgRp, ...s.flexCol, height: "100%", ...s.ovh, ...s.fsn }}>
           {/* ACCOUNT SNAPSHOT */}
-          {data && (<div style={{ flexShrink: 0, border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, overflow: "hidden", margin: "10px 12px 8px", background: "#080810" }}>
+          {data && (<div style={{ flexShrink: 0, border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, overflow: "hidden", margin: "10px 12px 4px", background: "#080810" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1px", background: "#080810" }}>
               {[
                 { label: "Posts", value: data.account?.media_count || 0, col: "#ff6699" },
@@ -1112,20 +1147,18 @@ export default function Dashboard() {
                 { label: "Comments", value: data.posts.reduce((s: number, p: any) => s + ((p.insights?.comments || p.comments_count) || 0), 0), col: "#ffb347" },
                 { label: "Saves", value: data.posts.reduce((s: number, p: any) => s + (p.insights?.saved || 0), 0), col: "#00ff88" },
               ].map((stat, i) => (
-                <div key={stat.label} style={{ textAlign: "center", padding: "8px 2px", background: "linear-gradient(180deg,#090914,#0c0c18)", position: "relative" }}>
-                  <div style={{ fontSize: 18, fontWeight: 700, color: stat.col, letterSpacing: "-0.02em", lineHeight: 1 }}>{stat.value}</div>
-                  <div style={{ fontSize: 10, color: "#7a7a8a", textTransform: "uppercase", letterSpacing: "0.04em", marginTop: 2, lineHeight: 1 }}>{stat.label}</div>
+                <div key={stat.label} style={{ textAlign: "center", padding: "6px 2px", background: "linear-gradient(180deg,#090914,#0c0c18)", position: "relative" }}>
+                  <div style={{ fontSize: 16, fontWeight: 700, color: stat.col, letterSpacing: "-0.02em", lineHeight: 1 }}>{stat.value}</div>
+                  <div style={{ fontSize: 9, color: "#7a7a8a", textTransform: "uppercase", letterSpacing: "0.04em", marginTop: 1, lineHeight: 1 }}>{stat.label}</div>
                   {i < 3 && <div style={{ position: "absolute", right: 0, top: "20%", height: "60%", width: 1, background: "#181830" }} />}
                 </div>
               ))}
             </div>
             </div>)}
 
-          {/* QUEUE */}
-
-          {/* QUEUE */}
-          <div style={{ flex: "1.4", minHeight: 0, ...s.flexCol, borderBottom: "1px solid rgba(220,38,38,0.15)", ...s.pRp, position: "relative" }}>
-            <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 8, ...s.fsn }}>
+          {/* QUEUE (shorter — scrollable) */}
+          <div style={{ flex: "1", minHeight: 0, ...s.flexCol, borderBottom: "1px solid rgba(220,38,38,0.12)", ...s.pRp, position: "relative" }}>
+            <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 6, ...s.fsn }}>
               <span>Queue</span>
               <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 3, background: "rgba(220,38,38,0.08)", ...s.txRed }}>6</span>
             </div>
@@ -1136,7 +1169,6 @@ export default function Dashboard() {
               setResearchResults([])
               setSelectedTopics(new Set())
               fetch("/api/queue").then(r => r.json()).then((queue: any[]) => {
-                // Generate 10 real research topics
                 const allTopics = [
                   { topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance." },
                   { topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch / ProductionHUB", confidence: 85, suggestion: "How AI-assisted script breakdown tools are changing how indie producers estimate below-the-line costs across departments." },
@@ -1149,10 +1181,7 @@ export default function Dashboard() {
                   { topic: "Crew Shortage: How Indie Producers Adapt", source: "Screen Daily / The Wrap", confidence: 84, suggestion: "Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget." },
                   { topic: "Distribution Strategies for 2026 Indies", source: "IFTA / industry panels", confidence: 76, suggestion: "Direct-to-consumer, AVOD, and hybrid theatrical releases are reshaping indie distribution. What's working for films like yours." },
                 ]
-                const results = allTopics.map((t, i) => ({
-                  id: `research-${Date.now()}-${i}`,
-                  ...t
-                }))
+                const results = allTopics.map((t, i) => ({ id: `research-${Date.now()}-${i}`, ...t }))
                 setResearchResults(results)
                 setResearchState("done")
               }).catch(() => {
@@ -1163,7 +1192,7 @@ export default function Dashboard() {
                 ].map((t: any, i: number) => ({ id: `research-${Date.now()}-${i}`, ...t })))
                 setResearchState("done")
               })
-            }} style={{ display: "flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg,rgba(220,38,38,0.08),rgba(220,38,38,0.02))", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, ...s.pRb, cursor: "pointer", marginBottom: 6, ...s.fsn }}>
+            }} style={{ display: "flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg,rgba(220,38,38,0.08),rgba(220,38,38,0.02))", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, ...s.pRb, cursor: "pointer", marginBottom: 4, ...s.fsn }}>
               <div style={{ width: 26, height: 26, borderRadius: 6, background: "linear-gradient(135deg,#dc2626,#881515)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, flexShrink: 0 }}>⌘</div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 12, ...s.fw6, ...s.txRed }}>Start Research This Week</div>
@@ -1175,13 +1204,38 @@ export default function Dashboard() {
               <QueueTab />
             </div>
           </div>
-          {/* MAINTENANCE - attached to bottom */}
-          <div style={{ flexShrink: 0, marginTop: "auto", ...s.flexCol, ...s.pRp }}>
-            <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 8, ...s.fsn }}>
-              <span>Maintenance</span>
-              <span style={{ fontSize: 11, ...s.txGreen, ...s.fw5 }}>● All nominal</span>
+
+          {/* BUILD QUEUE + MAINTENANCE (bottom section) */}
+          <div style={{ flex: "0 0 auto", ...s.flexCol, ...s.pRp }}>
+            {/* Build Queue */}
+            <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 4, ...s.fsn }}>
+              <span>Build Queue</span>
+              <span style={{ fontSize: 10, color: buildQueueItems.length > 0 ? "#ef4444" : "#555566" }}>{buildQueueItems.length > 0 ? `📦 ${buildQueueItems.length}` : "—"}</span>
             </div>
-            <div style={{ flex: 1, overflow: "auto" }}>
+            <div style={{ maxHeight: buildQueueItems.length > 0 ? 180 : 24, overflow: "auto", marginBottom: 4 }}>
+              {buildQueueItems.length === 0 ? (
+                <div style={{ fontSize: 10, color: "#3a3a4a", textAlign: "center", padding: "4px 0" }}>No pending builds</div>
+              ) : (
+                buildQueueItems.map((item: any) => (
+                  <div key={item.id} style={{ display: "flex", gap: 4, padding: "5px 6px", marginBottom: 3, ...s.bd1, ...s.bd4, background: "rgba(255,255,255,0.01)", alignItems: "flex-start" }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: 10, ...s.fw6, color: "#d0d0e0", marginBottom: 1, lineHeight: 1.3 }}>{item.topic}</div>
+                      <div style={{ fontSize: 8, color: "#7a7a8a" }}>{Math.round((Date.now() - new Date(item.created_at).getTime()) / 60000)}m ago</div>
+                    </div>
+                    <div style={{ display: "flex", gap: 2, flexShrink: 0 }}>
+                      <button onClick={() => handleBuildNow(item.id)} style={{ fontSize: 9, background: "rgba(220,38,38,0.12)", border: "1px solid rgba(220,38,38,0.25)", borderRadius: 3, color: "#ef4444", cursor: "pointer", padding: "2px 6px", whiteSpace: "nowrap" }}>Build</button>
+                      <button onClick={() => handleRemoveBuild(item.id)} style={{ fontSize: 9, background: "transparent", border: "1px solid #2a2a3a", borderRadius: 3, color: "#555566", cursor: "pointer", padding: "2px 5px" }}>✕</button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+            {/* Maintenance */}
+            <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 4, ...s.fsn }}>
+              <span>Maintenance</span>
+              <span style={{ fontSize: 10, ...s.txGreen, ...s.fw5 }}>● All nominal</span>
+            </div>
+            <div>
               <MaintenanceTab />
             </div>
           </div>
