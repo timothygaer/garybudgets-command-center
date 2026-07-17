@@ -2306,6 +2306,71 @@
       "source": "Topic Scout",
       "suggestion": "Updated state-by-state incentives for indie productions — which states offer the best rebates for budgets under $3M.",
       "source_name": "FilmLA / state film offices"
+    },
+    {
+      "id": "scout-1784274212264",
+      "title": "Streaming Residuals for Indies in 2026",
+      "pillar": "Industry Watch",
+      "slug": "Post_streaming-residuals-for-indies-in-2026",
+      "slide_count": 6,
+      "original_schedule": "Fri, Jul 24 · 9:00 AM PT",
+      "proposed_schedule": "Fri, Jul 24 · 9:00 AM PT",
+      "caption": "How the new streaming residual formulas affect indie producers who sell to streaming — what to negotiate and what to expect.",
+      "hashtags": "#filmbudget #indiefilm #filmproduction #GaryBudgets",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Streaming Residuals for Indies in 2026"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1784274212264/1.png",
+        "/images/scout-1784274212264/2.png",
+        "/images/scout-1784274212264/3.png",
+        "/images/scout-1784274212264/4.png",
+        "/images/scout-1784274212264/5.png",
+        "/images/scout-1784274212264/6.png"
+      ],
+      "created_at": "2026-07-17T07:43:32.264Z",
+      "source": "Topic Scout",
+      "suggestion": "How the new streaming residual formulas affect indie producers who sell to streaming — what to negotiate and what to expect.",
+      "source_name": "WGA / DGA reports"
     }
   ]
 }
