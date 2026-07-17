@@ -8,8 +8,11 @@ import { join } from "path"
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const SCOUT_DRAFTS_PATH = "/tmp/gb-scout-drafts-v2.json"
 
+let postCounter = 0
+
 function createPostId(): string {
-  return `scout-${Date.now()}`
+  postCounter++
+  return `scout-${Date.now()}-${postCounter}`
 }
 
 function slugify(title: string): string {
