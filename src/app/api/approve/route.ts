@@ -131,7 +131,53 @@ export async function POST(request: Request) {
     }
 
     const post = manifest.posts[postIndex]
-    const schedule = post.proposed_schedule || post.original_schedule
+    let schedule = post.proposed_schedule || post.original_schedule
+
+    // If no schedule set, auto-assign the next available slot
+    if (!schedule) {
+      const now = new Date()
+      // Find the next available Mon-Sat slot at 9:00 AM PT
+      // Start looking from tomorrow
+      const tomorrow = new Date(now)
+      tomorrow.setDate(tomorrow.getDate() + 1)
+      tomorrow.setHours(9, 0, 0, 0)
+      
+      // Find a Mon-Sat day that doesn't already have 2 posts scheduled
+      const allSchedules = manifest.posts
+        .filter((p: any) => p.proposed_schedule || p.original_schedule)
+        .map((p: any) => p.proposed_schedule || p.original_schedule)
+      
+      const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+      
+      let slotFound = false
+      for (let days = 1; days <= 14; days++) {
+        const check = new Date(tomorrow)
+        check.setDate(check.getDate() + days - 1)
+        const dayOfWeek = check.getDay()
+        // Skip Sunday (day 0)
+        if (dayOfWeek === 0) continue
+        
+        // Count posts already on this day
+        const dateStr = `${dayNames[dayOfWeek]}, ${monthNames[check.getMonth()]} ${check.getDate()}`
+        const dayPostCount = allSchedules.filter((s: string) => s && s.startsWith(dateStr)).length
+        
+        // Max 2 posts per day
+        if (dayPostCount < 2) {
+          const hour = dayPostCount === 0 ? "9:00" : "12:00"
+          schedule = `${dateStr} · ${hour} AM PT`
+          slotFound = true
+          break
+        }
+      }
+      
+      if (!slotFound) {
+        schedule = `${dayNames[now.getDay()]}, ${monthNames[now.getMonth()]} ${now.getDate()} · 9:00 AM PT`
+      }
+      
+      // Write the schedule back
+      manifest.posts[postIndex].proposed_schedule = schedule
+    }
 
     // Idempotency check via shared normalizer
     const effectiveStatus = normalizeStatus(post)
