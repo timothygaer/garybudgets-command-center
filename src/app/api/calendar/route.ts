@@ -4,8 +4,7 @@ import { existsSync } from "fs"
 import { join } from "path"
 import { normalizeStatus } from "@/lib/manifest"
 
-const SRC_PATH = "/tmp/gb-manifest.json"
-const FALLBACK_PATH = join(process.cwd(), "manifest.json")
+const SRC_PATH = join(process.cwd(), "manifest.json")
 
 type ManifestSlide = {
   slide: number
@@ -54,15 +53,11 @@ function parseScheduleStr(schedStr: string): { date: string | null; time: string
 
 export async function GET() {
   try {
-    let manifestPath = SRC_PATH
-    if (!existsSync(manifestPath)) {
-      manifestPath = FALLBACK_PATH
-    }
-    if (!existsSync(manifestPath)) {
+    if (!existsSync(SRC_PATH)) {
       return Response.json({ events: [] })
     }
 
-    const content = await readFile(manifestPath, "utf-8")
+    const content = await readFile(SRC_PATH, "utf-8")
     const manifest = JSON.parse(content) as Manifest
 
     const events = (manifest.posts || [])
