@@ -519,7 +519,8 @@ export default function Dashboard() {
   const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set())
   const [pendingPosts, setPendingPosts] = useState<any[]>([])
   const [showPending, setShowPending] = useState(false)
-  const [buildQueueItems, setBuildQueueItems] = useState<any[]>([])
+  const [scoutDrafts, setScoutDrafts] = useState<any[]>([])
+  const [scoutBuilt, setScoutBuilt] = useState<any[]>([])
   const [calendarEvents, setCalendarEvents] = useState<any[]>([])
   const [modalPost, setModalPost] = useState<any | null>(null)
   const [page, setPage] = useState<NavPage>("overview")
@@ -537,15 +538,25 @@ export default function Dashboard() {
 
   useEffect(() => { fetchData() }, [fetchData])
 
-  // Load build queue
-  const loadBuildQueue = useCallback(async () => {
+  // Load scout drafts from queue (Topic Scout posts that need images built)
+  const loadScoutDrafts = useCallback(async () => {
     try {
-      const r = await fetch("/api/build-queue")
+      const r = await fetch("/api/queue")
       const d = await r.json()
-      if (d.ok) setBuildQueueItems(d.items.filter((i: any) => i.status === "pending"))
+      const q = d.queue || d.posts || []
+      // Find scout posts that are ready but have no images (new drafts from Build button)
+      const drafts = q.filter((item: any) =>
+        item.source === "Topic Scout" && !item.has_images
+      )
+      setScoutDrafts(drafts)
+      // Also track which scout posts need building (ready + has images = already built)
+      const built = q.filter((item: any) =>
+        item.source === "Topic Scout" && item.has_images
+      )
+      setScoutBuilt(built)
     } catch {}
   }, [])
-  useEffect(() => { loadBuildQueue() }, [loadBuildQueue])
+  useEffect(() => { loadScoutDrafts() }, [loadScoutDrafts])
 
   // Load calendar events for Coming Up — same source as Calendar tab
   const loadCalendarEvents = useCallback(async () => {
@@ -928,24 +939,40 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                {/* Build Queue */}
+                {/* Build Queue — shows scout posts from manifest */}
                 <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
                   <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
                     <span>Build Queue</span>
-                    <span style={{ fontSize: 10, color: buildQueueItems.length > 0 ? "#ef4444" : "#555566" }}>{buildQueueItems.length > 0 ? `📦 ${buildQueueItems.length}` : "—"}</span>
+                    <span style={{ fontSize: 10, color: scoutDrafts.length > 0 ? "#ef4444" : scoutBuilt.length > 0 ? "#00ff88" : "#555566" }}>{scoutDrafts.length > 0 ? `📦 ${scoutDrafts.length}` : scoutBuilt.length > 0 ? `✅ ${scoutBuilt.length}` : "—"}</span>
                   </div>
-                  <div style={{ maxHeight: buildQueueItems.length > 0 ? 200 : 24, overflow: "auto" }}>
-                    {buildQueueItems.length === 0 ? (
+                  <div style={{ maxHeight: (scoutDrafts.length + scoutBuilt.length) > 0 ? 200 : 24, overflow: "auto" }}>
+                    {scoutDrafts.length === 0 && scoutBuilt.length === 0 ? (
                       <div style={{ fontSize: 10, color: "#3a3a4a", textAlign: "center", padding: "8px 0" }}>No pending builds — use Topic Scout above to find topics</div>
                     ) : (
-                      buildQueueItems.map((item: any) => (
-                        <div key={item.id} style={{ display: "flex", gap: 4, padding: "4px 6px", marginBottom: 2, ...s.bd1, ...s.bd4, background: "rgba(255,255,255,0.01)" }}>
-                          <div style={{ flex: 1, minWidth: 0 }}>
-                            <div style={{ fontSize: 10, ...s.fw6, color: "#d0d0e0", lineHeight: 1.3 }}>{item.topic}</div>
-                            <div style={{ fontSize: 8, color: "#7a7a8a" }}>{Math.round((Date.now() - new Date(item.created_at).getTime()) / 60000)}m ago</div>
+                      <>
+                        {scoutDrafts.length > 0 && (
+                          <div style={{ fontSize: 8, color: "#ffb347", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4, padding: "0 2px" }}>Need images</div>
+                        )}
+                        {scoutDrafts.map((item: any) => (
+                          <div key={item.id} style={{ display: "flex", gap: 4, padding: "4px 6px", marginBottom: 2, ...s.bd1, ...s.bd4, background: "rgba(255,179,71,0.04)" }}>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <div style={{ fontSize: 10, ...s.fw6, color: "#ffb347", lineHeight: 1.3 }}>{item.title}</div>
+                              <div style={{ fontSize: 8, color: "#7a7a8a" }}>Awaiting carousel build</div>
+                            </div>
                           </div>
-                        </div>
-                      ))
+                        ))}
+                        {scoutBuilt.length > 0 && (
+                          <div style={{ fontSize: 8, color: "#00ff88", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: scoutDrafts.length > 0 ? 6 : 0, marginBottom: 4, padding: "0 2px" }}>Built and ready</div>
+                        )}
+                        {scoutBuilt.map((item: any) => (
+                          <div key={item.id} style={{ display: "flex", gap: 4, padding: "4px 6px", marginBottom: 2, ...s.bd1, ...s.bd4, background: "rgba(0,255,136,0.03)" }}>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <div style={{ fontSize: 10, ...s.fw6, color: "#00ff88", lineHeight: 1.3 }}>{item.title}</div>
+                              <div style={{ fontSize: 8, color: "#7a7a8a" }}>{item.slide_count} slides • ready for approval</div>
+                            </div>
+                          </div>
+                        ))}
+                      </>
                     )}
                   </div>
                 </div>
@@ -1325,17 +1352,19 @@ export default function Dashboard() {
                         slide_count: 6,
                         created_at: new Date().toISOString(),
                       }))
-                      // Save selected topics for the assistant to build
+                      // Save selected topics to manifest (GitHub-persisted) so assistant sees them
                       fetch("/api/write-selection", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion })) })
-                      }).catch(() => {})
-                      // Also save to build queue API (visible in app UI)
-                      fetch("/api/build-queue", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion })) })
+                      }).then(resp => resp.json()).then(result => {
+                        if (result.success) {
+                          if (result.drafts?.length > 0) {
+                            setPendingPosts(prev => [...prev, ...result.drafts])
+                          }
+                          setShowPending(true)
+                          setTimeout(() => window.location.reload(), 1000)
+                        }
                       }).catch(() => {})
                       // Show notification and reload
                       setPendingPosts(newPosts)
