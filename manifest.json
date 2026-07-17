@@ -1417,7 +1417,7 @@
           "prompt_summary": "Dark end card, text: SIGN UP FOR THE BETA AT GARYBUDGETS.COM"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/2.png",
@@ -1506,157 +1506,8 @@
         }
       },
       "rescheduled_at": "2026-07-16T11:57:17.855998-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot."
-    },
-    {
-      "id": "GB-2026-07-10-16",
-      "title": "Minions & Monsters — The Exact Oscar Record Behind a $5.6B Franchise",
-      "pillar": "Industry Watch",
-      "slug": "Post16_2026-07-10",
-      "slide_count": 6,
-      "original_schedule": "Fri, Jul 10 · 9:00 AM PT",
-      "proposed_schedule": "Fri, Jul 17 · 12:00 PM PT",
-      "caption": "Minions & Monsters is the seventh Despicable Me / Minions franchise film — and it brings up a strange awards question.\n\nMinions has been a wildly successful series. The franchise has earned more than $5.5B worldwide, with Deadline citing $5.6B combined across Despicable Me and Minions titles. But its Oscar record is still small: two nominations, both for Despicable Me 2 — Best Animated Feature and Best Original Song for Pharrell Williams’ “Happy.” Zero wins.\n\nSo the question is not whether audiences showed up. They did. The question is why a franchise this successful never converted that audience power into Oscar wins.\n\nFor filmmakers, that is the budget lesson: commercial demand, awards prestige, and production discipline are different signals. Know which one you are building for.\n\nWhich Minions movie should have won an Oscar? Drop your comments below and follow us.",
-      "hashtags": "#MinionsAndMonsters #DespicableMe #filmbudget #boxoffice #GaryBudgets",
-      "slides": [
-        {
-          "slide": 1,
-          "heading": "Hook",
-          "prompt_summary": "Rebuilt slide: $5.6B/no Oscars; full bottom explanation visible; Academy recognition question."
-        },
-        {
-          "slide": 2,
-          "heading": "The movie",
-          "prompt_summary": "Minions & Monsters facts: title, release, franchise entry, director"
-        },
-        {
-          "slide": 3,
-          "heading": "Oscar record",
-          "prompt_summary": "Rebuilt slide with image: Oscar record, Despicable Me 2, 2013 nominations, categories, wins 0; all text boxed."
-        },
-        {
-          "slide": 4,
-          "heading": "Business case",
-          "prompt_summary": "$5.5B+, $170M projected opening, $85M budget, 92% early score"
-        },
-        {
-          "slide": 5,
-          "heading": "Awards vs audience",
-          "prompt_summary": "2 nominations / 0 wins versus $5.6B audience demand"
-        },
-        {
-          "slide": 6,
-          "heading": "CTA",
-          "prompt_summary": "Which Minions movie should have won an Oscar? Drop your comments below and follow us."
-        }
-      ],
-      "status": "draft",
-      "image_urls": [
-        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-10-16/1.png",
-        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-10-16/2.png",
-        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-10-16/3.png",
-        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-10-16/4.png",
-        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-10-16/5.png",
-        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-10-16/6.png"
-      ],
-      "image_file_ids": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
-      ],
-      "drive_order_source": "Redo Jul 12 v6: fully rebuilt slides 1 and 3 from scratch; fixed slide 1 clipped bottom text; slide 3 includes image and all text boxed.",
-      "verified_sources": {
-        "$5.6B franchise total": {
-          "value": "$5.5B+ across 6 films (Minions & Monsters makes 7th)",
-          "sources": [
-            {
-              "publisher": "Hollywood Reporter",
-              "url": "https://www.hollywoodreporter.com/movies/movie-features/hollywood-minions-monsters-due-recognition-1236631494",
-              "verified_claim": "$5.5 billion worldwide across 6 films, highest-grossing animated franchise of all time"
-            },
-            {
-              "publisher": "Deadline",
-              "url": "https://deadline.com/2026/06/box-office-minions-and-monsters-1236971514",
-              "verified_claim": "Combined global box office $5.6B"
-            }
-          ]
-        },
-        "Two Oscar noms, zero wins": {
-          "value": "Only 2 Oscar nominations (both for Despicable Me 2 in 2013), zero wins",
-          "sources": [
-            {
-              "publisher": "Hollywood Reporter",
-              "url": "https://www.hollywoodreporter.com/movies/movie-features/hollywood-minions-monsters-due-recognition-1236631494",
-              "verified_claim": "Only 2 Oscar nominations (Best Animated Feature, Best Original Song for 'Happy'), zero wins"
-            },
-            {
-              "publisher": "Variety",
-              "url": "https://variety.com/2026/film/box-office/minions-monsters-box-office-opening-weekend-estimate-supergirl-second-weekend-drop-1236799338",
-              "verified_claim": "Clear peak for the series, smarter/wilder/funnier than 7th entry has a right to be — but awards gap persists"
-            }
-          ]
-        },
-        "92% RT score": {
-          "value": "92% fresh from 49 reviews — best reviewed in franchise history",
-          "sources": [
-            {
-              "publisher": "Deadline",
-              "url": "https://deadline.com/2026/06/box-office-minions-and-monsters-1236971514",
-              "verified_claim": "92% fresh from 49 reviews, best reviewed in franchise"
-            },
-            {
-              "publisher": "Variety",
-              "url": "https://variety.com/2026/film/box-office/minions-monsters-box-office-opening-weekend-estimate-supergirl-second-weekend-drop-1236799338",
-              "verified_claim": "Clear peak for the series — smarter, wilder, funnier"
-            }
-          ]
-        },
-        "Coffin first solo direct": {
-          "value": "Pierre Coffin's first solo directing effort after co-helming 3 DM films and first Minions",
-          "sources": [
-            {
-              "publisher": "Hollywood Reporter",
-              "url": "https://www.hollywoodreporter.com/movies/movie-features/hollywood-minions-monsters-due-recognition-1236631494",
-              "verified_claim": "First solo directing effort; previously co-helmed all 3 DM films and first Minions"
-            },
-            {
-              "publisher": "Deadline",
-              "url": "https://deadline.com/2026/06/box-office-minions-and-monsters-1236971514",
-              "verified_claim": "Directed by Pierre Coffin (voice of Minions, directed first three DM movies and first Minions movie)"
-            }
-          ]
-        }
-      },
-      "visual_sources": {
-        "public_images": [
-          "Fandango poster",
-          "Fandango trailer still: Goomi Hears James Movie Idea",
-          "Fandango featurette thumbnail: Scoring",
-          "Fandango interview thumbnail",
-          "Fandango final trailer thumbnail",
-          "Fandango promotional tile"
-        ],
-        "ai_backgrounds": [
-          "/tmp/gb16_ai/boxoffice_stage.png",
-          "/tmp/gb16_ai/hollywood.png",
-          "/tmp/gb16_ai/awards.png",
-          "/tmp/gb16_ai/business.png",
-          "/tmp/gb16_ai/comment_cinema.png"
-        ]
-      },
-      "rescheduled_at": "2026-07-16T11:57:17.855998-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot."
+      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
+      "approved_at": "2026-07-17T05:47:58.142Z"
     },
     {
       "id": "GB-2026-07-15-17",
