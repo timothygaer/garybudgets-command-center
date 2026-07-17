@@ -48,6 +48,29 @@ export async function GET() {
         : null,
     }))
 
+    // Fire-and-forget: save today's snapshot to trend history
+    try {
+      const today = new Date()
+      const monday = new Date(today)
+      monday.setDate(today.getDate() - today.getDay() + 1)
+      const snapshot = {
+        date: today.toISOString().split("T")[0],
+        week: monday.toISOString().split("T")[0],
+        reach: parsed.reach || 0,
+        followers: accountInfo.followers_count || 0,
+        saves: 0,
+        likes: 0,
+        comments: 0,
+        profile_views: parsed.profile_views || 0,
+        interactions: parsed.total_interactions || 0,
+      }
+      fetch(`http://localhost:${process.env.PORT || 3000}/api/insights-history`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(snapshot),
+      }).catch(() => {})
+    } catch {}
+
     return Response.json({
       account: {
         id: accountInfo.id,

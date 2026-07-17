@@ -520,7 +520,6 @@ export default function Dashboard() {
   const [pendingPosts, setPendingPosts] = useState<any[]>([])
   const [showPending, setShowPending] = useState(false)
   const [scoutDrafts, setScoutDrafts] = useState<any[]>([])
-  const [scoutBuilt, setScoutBuilt] = useState<any[]>([])
   const [calendarEvents, setCalendarEvents] = useState<any[]>([])
   const [modalPost, setModalPost] = useState<any | null>(null)
   const [page, setPage] = useState<NavPage>("overview")
@@ -549,11 +548,6 @@ export default function Dashboard() {
         item.source === "Topic Scout" && !item.has_images
       )
       setScoutDrafts(drafts)
-      // Also track which scout posts need building (ready + has images = already built)
-      const built = q.filter((item: any) =>
-        item.source === "Topic Scout" && item.has_images
-      )
-      setScoutBuilt(built)
     } catch {}
   }, [])
   useEffect(() => { loadScoutDrafts() }, [loadScoutDrafts])
@@ -939,36 +933,22 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                {/* Build Queue — shows scout posts from manifest */}
+                {/* Build Queue — only shows unbuilt Topic Scout posts */}
                 <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
                   <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
                     <span>Build Queue</span>
-                    <span style={{ fontSize: 10, color: scoutDrafts.length > 0 ? "#ef4444" : scoutBuilt.length > 0 ? "#00ff88" : "#555566" }}>{scoutDrafts.length > 0 ? `📦 ${scoutDrafts.length}` : scoutBuilt.length > 0 ? `✅ ${scoutBuilt.length}` : "—"}</span>
+                    <span style={{ fontSize: 10, color: scoutDrafts.length > 0 ? "#ef4444" : "#555566" }}>{scoutDrafts.length > 0 ? `📦 ${scoutDrafts.length}` : "—"}</span>
                   </div>
-                  <div style={{ maxHeight: (scoutDrafts.length + scoutBuilt.length) > 0 ? 200 : 24, overflow: "auto" }}>
-                    {scoutDrafts.length === 0 && scoutBuilt.length === 0 ? (
+                  <div style={{ maxHeight: scoutDrafts.length > 0 ? 200 : 24, overflow: "auto" }}>
+                    {scoutDrafts.length === 0 ? (
                       <div style={{ fontSize: 10, color: "#3a3a4a", textAlign: "center", padding: "8px 0" }}>No pending builds — use Topic Scout above to find topics</div>
                     ) : (
                       <>
-                        {scoutDrafts.length > 0 && (
-                          <div style={{ fontSize: 8, color: "#ffb347", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4, padding: "0 2px" }}>Need images</div>
-                        )}
                         {scoutDrafts.map((item: any) => (
                           <div key={item.id} style={{ display: "flex", gap: 4, padding: "4px 6px", marginBottom: 2, ...s.bd1, ...s.bd4, background: "rgba(255,179,71,0.04)" }}>
                             <div style={{ flex: 1, minWidth: 0 }}>
                               <div style={{ fontSize: 10, ...s.fw6, color: "#ffb347", lineHeight: 1.3 }}>{item.title}</div>
                               <div style={{ fontSize: 8, color: "#7a7a8a" }}>Awaiting carousel build</div>
-                            </div>
-                          </div>
-                        ))}
-                        {scoutBuilt.length > 0 && (
-                          <div style={{ fontSize: 8, color: "#00ff88", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: scoutDrafts.length > 0 ? 6 : 0, marginBottom: 4, padding: "0 2px" }}>Built and ready</div>
-                        )}
-                        {scoutBuilt.map((item: any) => (
-                          <div key={item.id} style={{ display: "flex", gap: 4, padding: "4px 6px", marginBottom: 2, ...s.bd1, ...s.bd4, background: "rgba(0,255,136,0.03)" }}>
-                            <div style={{ flex: 1, minWidth: 0 }}>
-                              <div style={{ fontSize: 10, ...s.fw6, color: "#00ff88", lineHeight: 1.3 }}>{item.title}</div>
-                              <div style={{ fontSize: 8, color: "#7a7a8a" }}>{item.slide_count} slides • ready for approval</div>
                             </div>
                           </div>
                         ))}
