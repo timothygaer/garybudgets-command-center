@@ -6,6 +6,7 @@ import { existsSync } from "fs"
 import { join } from "path"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
+const SCOUT_DRAFTS_PATH = "/tmp/gb-scout-drafts-v2.json"
 
 function createPostId(): string {
   return `scout-${Date.now()}`
@@ -39,6 +40,36 @@ function findNextSlot(existingSchedules: string[]): string {
     }
   }
   return `${dayNames[tomorrow.getDay()]}, ${monthNames[tomorrow.getMonth()]} ${tomorrow.getDate()} · 9:00 AM PT`
+}
+
+/** Fetch the latest manifest from GitHub and extract scout drafts */
+async function getScoutDraftsFromGitHub(): Promise<{ drafts: any[]; error?: string }> {
+  const token = process.env.GITHUB_TOKEN
+  if (!token) return { drafts: [], error: "no token" }
+  try {
+    const resp = await fetch("https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "User-Agent": "garybudgets command-center",
+      },
+    })
+    if (!resp.ok) return { drafts: [], error: `GitHub API: ${resp.status}` }
+    const fileData = await resp.json()
+    const content = Buffer.from(fileData.content, "base64").toString()
+    const manifest = JSON.parse(content)
+    const drafts = (manifest.posts || []).filter(
+      (p: any) => p.source === "Topic Scout" && !p.has_images
+    )
+    return { drafts }
+  } catch (err: any) {
+    return { drafts: [], error: err.message }
+  }
+}
+
+export async function GET() {
+  const result = await getScoutDraftsFromGitHub()
+  return Response.json(result)
 }
 
 export async function POST(request: Request) {

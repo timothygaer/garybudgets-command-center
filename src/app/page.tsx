@@ -537,13 +537,22 @@ export default function Dashboard() {
 
   useEffect(() => { fetchData() }, [fetchData])
 
-  // Load scout drafts from queue (Topic Scout posts that need images built)
+  // Load scout drafts from write-selection API (reads live GitHub manifest)
   const loadScoutDrafts = useCallback(async () => {
     try {
-      const r = await fetch("/api/queue")
-      const d = await r.json()
-      const q = d.queue || d.posts || []
-      // Find scout posts that are ready but have no images (new drafts from Build button)
+      // First try live GitHub data via write-selection (has the latest manifest)
+      const r = await fetch("/api/write-selection")
+      if (r.ok) {
+        const d = await r.json()
+        if (d.drafts && Array.isArray(d.drafts)) {
+          setScoutDrafts(d.drafts)
+          return
+        }
+      }
+      // Fallback: read from queue API
+      const r2 = await fetch("/api/queue")
+      const d2 = await r2.json()
+      const q = d2.queue || d2.posts || []
       const drafts = q.filter((item: any) =>
         item.source === "Topic Scout" && !item.has_images
       )
