@@ -2120,42 +2120,42 @@
       "slide_count": 6,
       "original_schedule": "Tue, Jul 21 · 9:00 AM PT",
       "proposed_schedule": "Tue, Jul 21 · 9:00 AM PT",
-      "caption": "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance.",
-      "hashtags": "#filmbudget #indiefilm #filmproduction #GaryBudgets",
+      "caption": "The first half of 2026 has brought meaningful shifts in how indie producers need to budget. Tax incentives expanded in 18 states, with Oklahoma and Kentucky now offering 30-35% rebates and minimum budget thresholds dropping across the board creating more options for micro-budget productions. Streaming residuals changed dramatically — the new WGA/SAG-AFTRA formulas tie payments to viewership tiers rather than flat fees, meaning indie films under 1M views earn 60-70% less per stream than before. Producers need to negotiate streaming data access in their distribution deals or risk leaving money on the table.\n\nVirtual production costs dropped 40% year-over-year as LED wall rentals became more competitive and camera tracking systems fell under $5K. Complete indie VP setups are now viable for under $50K total — a price point that was unheard of two years ago. Crew rates continue to rise across the board, with camera departments seeing 10-12% increases in top markets and grip/electric up 8%. The smart approach is to budget a 10% crew rate buffer in your 2026 forecasts.\n\nThe producers winning right now are the ones who adjusted their budgets for these trends before they hit. Tax incentives, streaming residuals, VP costs, and crew rates are all moving in directions that reward proactive planning.\n\nSave this for your next budget review. Build smarter at garybudgets.com.",
+      "hashtags": "#filmbudget #indiefilm #filmproduction #taxincentives #GaryBudgets",
       "slides": [
         {
           "slide": 1,
-          "heading": "Hook",
-          "prompt_summary": "Attention-grabbing hook related to: Independent Film Budget Trends H1 2026"
+          "heading": "Independent Film Budget Trends H1 2026",
+          "prompt_summary": "Producer reviewing H1 budget trend chart, tax incentive docs and streaming contracts"
         },
         {
           "slide": 2,
-          "heading": "Educational 1",
-          "prompt_summary": "Deepen the topic"
+          "heading": "Tax Incentives Expanding",
+          "prompt_summary": "US map with states highlighted for film incentives"
         },
         {
           "slide": 3,
-          "heading": "Educational 2",
-          "prompt_summary": "More specifics"
+          "heading": "Streaming Residuals Changing",
+          "prompt_summary": "Producer reviewing streaming contract on laptop, viewership data"
         },
         {
           "slide": 4,
-          "heading": "Educational 3",
-          "prompt_summary": "Pitfalls and watch-outs"
+          "heading": "Virtual Production Costs Dropping",
+          "prompt_summary": "Charts showing VP costs dropping, LED wall in background"
         },
         {
           "slide": 5,
-          "heading": "Educational 4",
-          "prompt_summary": "Actionable advice"
+          "heading": "Crew Rates Rising",
+          "prompt_summary": "Producer and AD reviewing crew rate sheets"
         },
         {
           "slide": 6,
           "heading": "CTA",
-          "prompt_summary": "Gary Budgets call to action"
+          "prompt_summary": "Gary Budgets app on phone showing trend reports"
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -2185,42 +2185,42 @@
       "slide_count": 6,
       "original_schedule": "Tue, Jul 28 · 9:00 AM PT",
       "proposed_schedule": "Tue, Jul 28 · 9:00 AM PT",
-      "caption": "New submission fee structures, grant programs for low-budget features, and virtual screening options announced at spring festivals.",
-      "hashtags": "#filmbudget #indiefilm #filmproduction #GaryBudgets",
+      "caption": "The film festival circuit is undergoing its biggest shift since the pandemic. Submission fees are rising across top-tier festivals, but a wave of new grant programs is offsetting the cost for indie filmmakers. Film Independent launched a submission fee grant for low-budget features, Sundance Institute is offering fee waivers for first-time directors, and the Academy Nicholl Fellowships expanded eligibility to micro-budget (under $250K) productions.\n\nVirtual screening options are expanding rapidly — 40% of festivals now offer hybrid or fully virtual industry screening tracks. Sundance, SXSW, and TIFF all offer virtual screening options, while Berlin and Cannes remain in-person-first. The advantage is significant: virtual screenings reach 3x more industry buyers, eliminate $2K-$5K in travel costs per festival, and allow producers to attend multiple festivals in the same week. But in-person networking still drives 80% of distribution deals, so a balanced strategy matters.\n\nThe winning approach: apply to 8-12 targeted festivals rather than spraying submissions everywhere. Budget $500-$1,500 per feature for submission fees. Prioritize programmer-recommended festivals for the best odds. And negotiate virtual screening rights as part of your distribution agreements.\n\nSave this for your festival season planning. Build smarter at garybudgets.com.",
+      "hashtags": "#filmbudget #filmfestival #indiefilm #festivalstrategy #GaryBudgets",
       "slides": [
         {
           "slide": 1,
-          "heading": "Hook",
-          "prompt_summary": "Attention-grabbing hook related to: Film Festival Circuit Changes for 2026"
+          "heading": "Film Festival Circuit Changes 2026",
+          "prompt_summary": "Filmmaker at festival registration desk with acceptance letter"
         },
         {
           "slide": 2,
-          "heading": "Educational 1",
-          "prompt_summary": "Deepen the topic"
+          "heading": "Festival Landscape Shifting",
+          "prompt_summary": "Festival calendar with overlapping dates highlighted"
         },
         {
           "slide": 3,
-          "heading": "Educational 2",
-          "prompt_summary": "More specifics"
+          "heading": "New Grant Programs",
+          "prompt_summary": "Indie filmmaker filling out financial aid application"
         },
         {
           "slide": 4,
-          "heading": "Educational 3",
-          "prompt_summary": "Pitfalls and watch-outs"
+          "heading": "Submission Strategy",
+          "prompt_summary": "Late night editing session, festival strategy on screen"
         },
         {
           "slide": 5,
-          "heading": "Educational 4",
-          "prompt_summary": "Actionable advice"
+          "heading": "Virtual Screening Advantages",
+          "prompt_summary": "Virtual screening setup, camera and streaming gear"
         },
         {
           "slide": 6,
           "heading": "CTA",
-          "prompt_summary": "Gary Budgets call to action"
+          "prompt_summary": "Filmmaker smiling at phone showing Gary Budgets app"
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
