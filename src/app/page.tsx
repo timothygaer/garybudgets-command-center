@@ -1025,11 +1025,15 @@ export default function Dashboard() {
                     for (let i = 0; i < 7; i++) {
                       const d = new Date(now);
                       d.setDate(d.getDate() + i);
-                      const dayStr = d.toISOString().split('T')[0];
+                      // Build local date string like "2026-07-16" to match Calendar API dates
+                      const y = d.getFullYear();
+                      const m = String(d.getMonth() + 1).padStart(2, '0');
+                      const day = String(d.getDate()).padStart(2, '0');
+                      const localDayStr = `${y}-${m}-${day}`;
                       // Match events where the Calendar API date IS this day
                       const dayPosts = items.filter((p: any) => {
-                        // Calendar API always returns ISO date string like "2026-07-17"
-                        return p.date === dayStr;
+                        // Calendar API always returns ISO date string like "2026-07-16"
+                        return p.date === localDayStr;
                       });
                       upcoming.push({ date: d, posts: dayPosts });
                     }
