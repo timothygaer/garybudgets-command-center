@@ -1417,7 +1417,7 @@
           "prompt_summary": "Dark end card, text: SIGN UP FOR THE BETA AT GARYBUDGETS.COM"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/2.png",
@@ -1506,7 +1506,8 @@
         }
       },
       "rescheduled_at": "2026-07-16T11:57:17.855998-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot."
+      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
+      "approved_at": "2026-07-17T05:47:58.142Z"
     },
     {
       "id": "GB-2026-07-10-16",
