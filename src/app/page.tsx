@@ -1261,7 +1261,7 @@ export default function Dashboard() {
       <div style={{ ...s.bdT, ...s.flex, ...s.aic, ...s.jcsb, padding: "0 16px", ...s.textXs, ...s.txDim, ...s.bgBot, ...s.h24, ...s.fsn }}>
         <div style={{ ...s.flex, ...s.aic, ...s.gap3 }}>
           <span style={{ width: 3, height: 3, borderRadius: "50%", background: "#00ff88", display: "inline-block", boxShadow: "0 0 4px #00ff88" }} />
-          All nominal · 6 queue · 24 total posts
+          All nominal — {scheduledItems.length} upcoming · {(data?.posts?.length || 0)} tracked
         </div>
         <div>Last sync: 2m ago · PT</div>
       </div>
