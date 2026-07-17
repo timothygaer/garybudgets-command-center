@@ -1280,7 +1280,7 @@
           "prompt_summary": "Dark end card, text: A VOLUME WITHOUT A CREW IS AN EXPENSIVE GREEN SCREEN"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/1.png",
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/2.png",
@@ -1370,7 +1370,10 @@
       },
       "rescheduled_at": "2026-07-16T11:57:17.855998-07:00",
       "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
-      "approved_at": "2026-07-17T00:40:38.883Z"
+      "approved_at": "2026-07-17T00:40:38.883Z",
+      "posted_at": "2026-07-17T03:00:50+0000",
+      "instagram_url": "https://www.instagram.com/p/Da4M15klPm9/",
+      "instagram_media_id": "18346682875174869"
     },
     {
       "id": "GB-2026-07-09-15",
