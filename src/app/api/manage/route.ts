@@ -79,7 +79,18 @@ async function writeToGitHub(manifest: any): Promise<boolean> {
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { action, post_id, message } = body
+    const { action, post_id, message, posts } = body
+
+    // research_add: adds posts directly to manifest (from Topic Scout)
+    if (action === "research_add") {
+      if (!posts || !Array.isArray(posts)) return Response.json({ error: "posts array required" }, { status: 400 })
+      const { manifest, path } = await getManifest()
+      manifest.posts.push(...posts)
+      await saveManifest(manifest, path)
+      await writeToGitHub(manifest)
+      return Response.json({ success: true, message: `${posts.length} posts added from Topic Scout`, count: posts.length })
+    }
+
     if (!action || !post_id) return Response.json({ error: "action and post_id required" }, { status: 400 })
 
     const { manifest, path } = await getManifest()
