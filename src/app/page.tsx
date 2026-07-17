@@ -520,7 +520,7 @@ export default function Dashboard() {
   const [pendingPosts, setPendingPosts] = useState<any[]>([])
   const [showPending, setShowPending] = useState(false)
   const [buildQueueItems, setBuildQueueItems] = useState<any[]>([])
-  const [scheduledItems, setScheduledItems] = useState<any[]>([])
+  const [calendarEvents, setCalendarEvents] = useState<any[]>([])
   const [modalPost, setModalPost] = useState<any | null>(null)
   const [page, setPage] = useState<NavPage>("overview")
 
@@ -547,19 +547,15 @@ export default function Dashboard() {
   }, [])
   useEffect(() => { loadBuildQueue() }, [loadBuildQueue])
 
-  // Load scheduled items for Coming Up — only approved/scheduled posts
-  const loadScheduled = useCallback(async () => {
+  // Load calendar events for Coming Up — same source as Calendar tab
+  const loadCalendarEvents = useCallback(async () => {
     try {
-      const r = await fetch("/api/queue")
+      const r = await fetch("/api/calendar")
       const d = await r.json()
-      const q = d.queue || d.posts || []
-      setScheduledItems(q.filter((item: any) =>
-        (item.status === "approved" || item.status === "scheduled") &&
-        (item.proposed_schedule || item.original_schedule || item.scheduled)
-      ))
+      setCalendarEvents(d.events || [])
     } catch {}
   }, [])
-  useEffect(() => { loadScheduled() }, [loadScheduled])
+  useEffect(() => { loadCalendarEvents() }, [loadCalendarEvents])
 
   const handleSelectedPostInModal = useCallback((post: any) => {
     setModalPost(post)
@@ -1023,22 +1019,17 @@ export default function Dashboard() {
                   {(() => {
                     const dayShort = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
                     const now = new Date();
-                    // Use scheduledItems (approved/scheduled from queue) instead of Instagram posts
-                    const calendarItems = scheduledItems;
+                    // Use calendarEvents — same source as Calendar tab, includes posted, approved, scheduled
+                    const items = calendarEvents;
                     const upcoming = [];
                     for (let i = 0; i < 7; i++) {
                       const d = new Date(now);
                       d.setDate(d.getDate() + i);
                       const dayStr = d.toISOString().split('T')[0];
-                      const dayNum = String(d.getDate()).padStart(2, '0');
-                      const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-                      const monthStr = monthNames[d.getMonth()];
-                      const dayPosts = calendarItems.filter((p: any) => {
-                        const scheduled = p.proposed_schedule || p.original_schedule || p.scheduled || "";
-                        // Match ISO date or "Day, Mon DD · HH:MM AM/PM TZ" format
-                        return scheduled.startsWith(dayStr) ||
-                          scheduled.includes(`${monthStr} ${d.getDate()},`) ||
-                          scheduled.includes(`${monthStr} ${d.getDate()} ·`);
+                      // Match events where the Calendar API date IS this day
+                      const dayPosts = items.filter((p: any) => {
+                        // Calendar API always returns ISO date string like "2026-07-17"
+                        return p.date === dayStr;
                       });
                       upcoming.push({ date: d, posts: dayPosts });
                     }
@@ -1051,7 +1042,7 @@ export default function Dashboard() {
                           {hasPosts && <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                             {day.posts.slice(0, 3).map((p: any, j: number) => (
                               <div key={j} style={{ fontSize: 10, color: "#ef4444", cursor: "pointer", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={() => {
-                                const post = scheduledItems.find((si: any) => si.id === p.id);
+                                const post = calendarEvents.find((ev: any) => ev.id === p.id);
                                 if (post) handleSelectedPostInModal(post);
                               }}>
                                 {p.title || ""}
@@ -1261,9 +1252,9 @@ export default function Dashboard() {
       <div style={{ ...s.bdT, ...s.flex, ...s.aic, ...s.jcsb, padding: "0 16px", ...s.textXs, ...s.txDim, ...s.bgBot, ...s.h24, ...s.fsn }}>
         <div style={{ ...s.flex, ...s.aic, ...s.gap3 }}>
           <span style={{ width: 3, height: 3, borderRadius: "50%", background: "#00ff88", display: "inline-block", boxShadow: "0 0 4px #00ff88" }} />
-          All nominal — {scheduledItems.length} upcoming · {(data?.posts?.length || 0)} tracked
+          All nominal — {calendarEvents.length} upcoming · {(data?.posts?.length || 0)} tracked
         </div>
-        <div>Last sync: 2m ago · PT</div>
+        <div>Live</div>
       </div>
 
       {/* ═══ RESEARCH MODAL ═══ */}
