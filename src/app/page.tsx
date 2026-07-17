@@ -185,7 +185,7 @@ function QueueTab() {
     setLoading(true)
     fetch("/api/queue").then(r => r.json()).then(d => {
       const q = d.queue || d.posts || []
-      setQueue(q.filter((item: any) => item.status !== "posted"))
+      setQueue(q.filter((item: any) => item.status !== "posted" && item.status !== "approved" && item.status !== "scheduled"))
     }).catch(() => {}).finally(() => setLoading(false))
   }
   useEffect(() => { loadQueue() }, [])
@@ -227,7 +227,7 @@ function QueueTab() {
   return <div className="space-y-4">{queue.filter((item: any) => item.status !== "posted").map((item: any, i: number) => {
     const ds = getDisplayStatus(item); const st = statusConfig[ds] || statusConfig.draft
     const sl = item.proposed_schedule || item.original_schedule || item.scheduled
-    return <div key={item.id || i} className="neon-panel p-4">
+    return <div key={item.id || i} data-post-id={item.id} className="neon-panel p-4">
       <div className="flex items-start justify-between gap-4 mb-3">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
@@ -520,6 +520,8 @@ export default function Dashboard() {
   const [pendingPosts, setPendingPosts] = useState<any[]>([])
   const [showPending, setShowPending] = useState(false)
   const [buildQueueItems, setBuildQueueItems] = useState<any[]>([])
+  const [scheduledItems, setScheduledItems] = useState<any[]>([])
+  const [modalPost, setModalPost] = useState<any | null>(null)
   const [page, setPage] = useState<NavPage>("overview")
 
   const fetchData = useCallback(async () => {
@@ -545,29 +547,23 @@ export default function Dashboard() {
   }, [])
   useEffect(() => { loadBuildQueue() }, [loadBuildQueue])
 
-  const handleBuildNow = async (id: string) => {
-    // Mark item as building, user will come back to chat
+  // Load scheduled items for Coming Up — only approved/scheduled posts
+  const loadScheduled = useCallback(async () => {
     try {
-      await fetch("/api/build-queue", {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id })
-      })
-      setBuildQueueItems(prev => prev.filter(i => i.id !== id))
-      // The user will come to chat and say "build" — we read from /tmp/gb-scout-selections/
+      const r = await fetch("/api/queue")
+      const d = await r.json()
+      const q = d.queue || d.posts || []
+      setScheduledItems(q.filter((item: any) =>
+        (item.status === "approved" || item.status === "scheduled") &&
+        (item.proposed_schedule || item.original_schedule || item.scheduled)
+      ))
     } catch {}
-  }
+  }, [])
+  useEffect(() => { loadScheduled() }, [loadScheduled])
 
-  const handleRemoveBuild = async (id: string) => {
-    try {
-      await fetch("/api/build-queue", {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id })
-      })
-      setBuildQueueItems(prev => prev.filter(i => i.id !== id))
-    } catch {}
-  }
+  const handleSelectedPostInModal = useCallback((post: any) => {
+    setModalPost(post)
+  }, [])
 
   const recentPosts = data?.posts?.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 5) || []
 
@@ -911,25 +907,50 @@ export default function Dashboard() {
               </div>
 
               {/* ── Social Accounts ── */}
-              <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden", marginBottom: 8 }}>
-                <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8 }}>Connected Accounts</div>
-                <div style={{ display: "flex", gap: 6 }}>
-                  <div style={{ flex: 1, display: "flex", gap: 4, padding: "6px 8px", ...s.bd1, ...s.bd6, background: "rgba(220,38,38,0.04)", border: "1px solid rgba(220,38,38,0.12)" }}>
-                    <div style={{ width: 32, height: 32, borderRadius: 6, background: "linear-gradient(135deg,#dc2626,#881515)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, flexShrink: 0, fontWeight: 700, color: "#fff" }}>IG</div>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: 11, fontWeight: 600, color: "#d0d0e0" }}>Instagram</div>
-                      <div style={{ fontSize: 9, color: "#7a7a8a" }}>@garyfilmbudgets</div>
-                      <div style={{ display: "flex", gap: 3, marginTop: 3 }}>
-                        <span style={{ fontSize: 9, color: "#ef4444", fontWeight: 600 }}>{data.account?.followers || 0}</span>
-                        <span style={{ fontSize: 9, color: "#555566" }}>followers</span>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 8 }}>
+                {/* Connected Accounts */}
+                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
+                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8 }}>Connected Accounts</div>
+                  <div style={{ display: "flex", gap: 6 }}>
+                    <div style={{ flex: 1, display: "flex", gap: 4, padding: "6px 8px", ...s.bd1, ...s.bd6, background: "rgba(220,38,38,0.04)", border: "1px solid rgba(220,38,38,0.12)" }}>
+                      <div style={{ width: 32, height: 32, borderRadius: 6, background: "linear-gradient(135deg,#dc2626,#881515)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, flexShrink: 0, fontWeight: 700, color: "#fff" }}>IG</div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontSize: 11, fontWeight: 600, color: "#d0d0e0" }}>Instagram</div>
+                        <div style={{ fontSize: 9, color: "#7a7a8a" }}>@garyfilmbudgets</div>
+                        <div style={{ display: "flex", gap: 3, marginTop: 3 }}>
+                          <span style={{ fontSize: 9, color: "#ef4444", fontWeight: 600 }}>{data.account?.followers || 0}</span>
+                          <span style={{ fontSize: 9, color: "#555566" }}>followers</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", ...s.bd1, ...s.bd6, padding: "6px 8px", opacity: 0.4 }}>
+                      <div style={{ textAlign: "center" }}>
+                        <div style={{ fontSize: 14, color: "#3a3a4a" }}>+</div>
+                        <div style={{ fontSize: 9, color: "#3a3a4a" }}>Add Account</div>
                       </div>
                     </div>
                   </div>
-                  <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", ...s.bd1, ...s.bd6, padding: "6px 8px", opacity: 0.4 }}>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: 14, color: "#3a3a4a" }}>+</div>
-                      <div style={{ fontSize: 9, color: "#3a3a4a" }}>Add Account</div>
-                    </div>
+                </div>
+
+                {/* Build Queue */}
+                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
+                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
+                    <span>Build Queue</span>
+                    <span style={{ fontSize: 10, color: buildQueueItems.length > 0 ? "#ef4444" : "#555566" }}>{buildQueueItems.length > 0 ? `📦 ${buildQueueItems.length}` : "—"}</span>
+                  </div>
+                  <div style={{ maxHeight: buildQueueItems.length > 0 ? 200 : 24, overflow: "auto" }}>
+                    {buildQueueItems.length === 0 ? (
+                      <div style={{ fontSize: 10, color: "#3a3a4a", textAlign: "center", padding: "8px 0" }}>No pending builds — use Topic Scout above to find topics</div>
+                    ) : (
+                      buildQueueItems.map((item: any) => (
+                        <div key={item.id} style={{ display: "flex", gap: 4, padding: "4px 6px", marginBottom: 2, ...s.bd1, ...s.bd4, background: "rgba(255,255,255,0.01)" }}>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ fontSize: 10, ...s.fw6, color: "#d0d0e0", lineHeight: 1.3 }}>{item.topic}</div>
+                            <div style={{ fontSize: 8, color: "#7a7a8a" }}>{Math.round((Date.now() - new Date(item.created_at).getTime()) / 60000)}m ago</div>
+                          </div>
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>
@@ -996,40 +1017,47 @@ export default function Dashboard() {
                   })()}
                 </div>
 
-                {/* Calendar Quick Peek (spans 2x) */}
+                {/* Coming Up */}
                 <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
                   <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8 }}>Coming Up</div>
                   {(() => {
                     const dayShort = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
                     const now = new Date();
-                    const tomorrow = new Date(now);
-                    tomorrow.setDate(tomorrow.getDate() + 1);
+                    // Use scheduledItems (approved/scheduled from queue) instead of Instagram posts
+                    const calendarItems = scheduledItems;
                     const upcoming = [];
-                    for (let i = 1; i < 7; i++) {
+                    for (let i = 0; i < 7; i++) {
                       const d = new Date(now);
                       d.setDate(d.getDate() + i);
-                      const dayPosts = data.posts.filter((p: any) => {
-                        const pt = new Date(p.timestamp);
-                        // Only show posts from tomorrow onward
-                        return pt >= new Date(tomorrow.getFullYear(), tomorrow.getMonth(), tomorrow.getDate()) &&
-                          pt.getFullYear() === d.getFullYear() && pt.getMonth() === d.getMonth() && pt.getDate() === d.getDate();
+                      const dayStr = d.toISOString().split('T')[0];
+                      const dayNum = String(d.getDate()).padStart(2, '0');
+                      const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                      const monthStr = monthNames[d.getMonth()];
+                      const dayPosts = calendarItems.filter((p: any) => {
+                        const scheduled = p.proposed_schedule || p.original_schedule || p.scheduled || "";
+                        // Match ISO date or "Day, Mon DD · HH:MM AM/PM TZ" format
+                        return scheduled.startsWith(dayStr) ||
+                          scheduled.includes(`${monthStr} ${d.getDate()},`) ||
+                          scheduled.includes(`${monthStr} ${d.getDate()} ·`);
                       });
                       upcoming.push({ date: d, posts: dayPosts });
                     }
                     return <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
-                      {upcoming.map((day, i) => {
-                        const isToday = false;
+                      {upcoming.slice(0, 6).map((day, i) => {
                         const hasPosts = day.posts.length > 0;
-                        return <div key={i} style={{ flex: 1, textAlign: "center", padding: "6px 6px", ...s.bd1, ...s.bd6, background: isToday ? "rgba(220,38,38,0.06)" : "transparent", border: isToday ? "1px solid rgba(220,38,38,0.15)" : "1px solid transparent" }}>
-                          <div style={{ fontSize: 10, color: isToday ? "#ef4444" : "#555566", textTransform: "uppercase", fontWeight: isToday ? 600 : 400, marginBottom: 2 }}>{dayShort[day.date.getDay()]}</div>
-                          <div style={{ fontSize: 18, color: isToday ? "#ef4444" : "#9a9aaa", fontWeight: 600, lineHeight: 1.2, marginBottom: hasPosts ? 6 : 0 }}>{day.date.getDate()}</div>
-                          {hasPosts && <div style={{ display: "flex", flexDirection: "row", gap: 4, justifyContent: "center", flexWrap: "wrap" }}>
-                            {day.posts.map((p: any, j: number) => (
-                              <div key={j} style={{ width: 48, height: 48, borderRadius: 6, overflow: "hidden", border: "1px solid #181830", background: "#10101e", flexShrink: 0 }}>
-                                {p.media_type === "VIDEO" ? <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg,#1a1a2e,#10101e)", fontSize: 18 }}>▶</div> : p.media_url ? <img src={p.media_url} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: "#555566" }}>📷</div>}
+                        return <div key={i} style={{ flex: 1, textAlign: "center", padding: "6px 6px", ...s.bd1, ...s.bd6, background: i === 0 ? "rgba(220,38,38,0.06)" : "transparent", border: i === 0 ? "1px solid rgba(220,38,38,0.15)" : "1px solid transparent" }}>
+                          <div style={{ fontSize: 10, color: i === 0 ? "#ef4444" : "#555566", textTransform: "uppercase", fontWeight: i === 0 ? 600 : 400, marginBottom: 2 }}>{dayShort[day.date.getDay()]}</div>
+                          <div style={{ fontSize: 18, color: i === 0 ? "#ef4444" : "#9a9aaa", fontWeight: 600, lineHeight: 1.2, marginBottom: hasPosts ? 6 : 0 }}>{day.date.getDate()}</div>
+                          {hasPosts && <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                            {day.posts.slice(0, 3).map((p: any, j: number) => (
+                              <div key={j} style={{ fontSize: 10, color: "#ef4444", cursor: "pointer", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={() => {
+                                const post = scheduledItems.find((si: any) => si.id === p.id);
+                                if (post) handleSelectedPostInModal(post);
+                              }}>
+                                {p.title || ""}
                               </div>
                             ))}
-                            {day.posts.length > 2 && <span style={{ fontSize: 8, color: "#555566" }}>+{day.posts.length - 2}</span>}
+                            {day.posts.length > 3 && <span style={{ fontSize: 8, color: "#555566", cursor: "pointer" }}>+{day.posts.length - 3} more</span>}
                           </div>}
                           {!hasPosts && <div style={{ fontSize: 8, color: "#3a3a4a", marginTop: 4 }}>—</div>}
                         </div>;
@@ -1156,8 +1184,8 @@ export default function Dashboard() {
             </div>
             </div>)}
 
-          {/* QUEUE (shorter — scrollable) */}
-          <div style={{ flex: "1", minHeight: 0, ...s.flexCol, borderBottom: "1px solid rgba(220,38,38,0.12)", ...s.pRp, position: "relative" }}>
+          {/* QUEUE + MAINTENANCE (attached to bottom) */}
+          <div style={{ flex: "1", minHeight: 0, ...s.flexCol, ...s.pRp, position: "relative" }}>
             <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 6, ...s.fsn }}>
               <span>Queue</span>
               <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 3, background: "rgba(220,38,38,0.08)", ...s.txRed }}>6</span>
@@ -1169,6 +1197,8 @@ export default function Dashboard() {
               setResearchResults([])
               setSelectedTopics(new Set())
               fetch("/api/queue").then(r => r.json()).then((queue: any[]) => {
+                // Read used topics list from localStorage (topics already built or in build queue)
+                const usedTopics: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
                 const allTopics = [
                   { topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance." },
                   { topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch / ProductionHUB", confidence: 85, suggestion: "How AI-assisted script breakdown tools are changing how indie producers estimate below-the-line costs across departments." },
@@ -1181,15 +1211,26 @@ export default function Dashboard() {
                   { topic: "Crew Shortage: How Indie Producers Adapt", source: "Screen Daily / The Wrap", confidence: 84, suggestion: "Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget." },
                   { topic: "Distribution Strategies for 2026 Indies", source: "IFTA / industry panels", confidence: 76, suggestion: "Direct-to-consumer, AVOD, and hybrid theatrical releases are reshaping indie distribution. What's working for films like yours." },
                 ]
-                const results = allTopics.map((t, i) => ({ id: `research-${Date.now()}-${i}`, ...t }))
+                // Filter out topics already built or in build queue
+                const freshTopics = allTopics.filter(t => !usedTopics.includes(t.topic))
+                // If all topics are used, add a note
+                if (freshTopics.length === 0) {
+                  // Show all topics anyway but with a note
+                }
+                const results = (freshTopics.length > 0 ? freshTopics : allTopics).map((t, i) => ({ id: `research-${Date.now()}-${i}`, ...t }))
                 setResearchResults(results)
                 setResearchState("done")
               }).catch(() => {
-                setResearchResults([
-                  { id: `research-${Date.now()}-0`, topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year." },
-                  { id: `research-${Date.now()}-1`, topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch", confidence: 85, suggestion: "How AI tools are changing indie producer budget estimates." },
-                  { id: `research-${Date.now()}-2`, topic: "Virtual Production on a Micro-Budget", source: "No Film School", confidence: 90, suggestion: "Indie films using Unreal Engine for under $50K production value." },
-                ].map((t: any, i: number) => ({ id: `research-${Date.now()}-${i}`, ...t })))
+                const usedTopics: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
+                const fallbackTopics = [
+                  { topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year." },
+                  { topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch", confidence: 85, suggestion: "How AI tools are changing indie producer budget estimates." },
+                  { topic: "Virtual Production on a Micro-Budget", source: "No Film School", confidence: 90, suggestion: "Indie films using Unreal Engine for under $50K production value." },
+                ].filter(t => !usedTopics.includes(t.topic))
+                const safeTopics = fallbackTopics.length > 0 ? fallbackTopics : [{ topic: "Check back next week", source: "Auto-generate", confidence: 50, suggestion: "All recent topics have been built. Run the research cron again for fresh topics." }]
+                setResearchResults(
+                  safeTopics.map((t: any, i: number) => ({ id: `research-${Date.now()}-${i}`, ...t }))
+                )
                 setResearchState("done")
               })
             }} style={{ display: "flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg,rgba(220,38,38,0.08),rgba(220,38,38,0.02))", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, ...s.pRb, cursor: "pointer", marginBottom: 4, ...s.fsn }}>
@@ -1203,39 +1244,12 @@ export default function Dashboard() {
             <div style={{ flex: 1, overflow: "auto" }}>
               <QueueTab />
             </div>
-          </div>
-
-          {/* BUILD QUEUE + MAINTENANCE (bottom section) */}
-          <div style={{ flex: "0 0 auto", ...s.flexCol, ...s.pRp }}>
-            {/* Build Queue */}
-            <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 4, ...s.fsn }}>
-              <span>Build Queue</span>
-              <span style={{ fontSize: 10, color: buildQueueItems.length > 0 ? "#ef4444" : "#555566" }}>{buildQueueItems.length > 0 ? `📦 ${buildQueueItems.length}` : "—"}</span>
-            </div>
-            <div style={{ maxHeight: buildQueueItems.length > 0 ? 180 : 24, overflow: "auto", marginBottom: 4 }}>
-              {buildQueueItems.length === 0 ? (
-                <div style={{ fontSize: 10, color: "#3a3a4a", textAlign: "center", padding: "4px 0" }}>No pending builds</div>
-              ) : (
-                buildQueueItems.map((item: any) => (
-                  <div key={item.id} style={{ display: "flex", gap: 4, padding: "5px 6px", marginBottom: 3, ...s.bd1, ...s.bd4, background: "rgba(255,255,255,0.01)", alignItems: "flex-start" }}>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: 10, ...s.fw6, color: "#d0d0e0", marginBottom: 1, lineHeight: 1.3 }}>{item.topic}</div>
-                      <div style={{ fontSize: 8, color: "#7a7a8a" }}>{Math.round((Date.now() - new Date(item.created_at).getTime()) / 60000)}m ago</div>
-                    </div>
-                    <div style={{ display: "flex", gap: 2, flexShrink: 0 }}>
-                      <button onClick={() => handleBuildNow(item.id)} style={{ fontSize: 9, background: "rgba(220,38,38,0.12)", border: "1px solid rgba(220,38,38,0.25)", borderRadius: 3, color: "#ef4444", cursor: "pointer", padding: "2px 6px", whiteSpace: "nowrap" }}>Build</button>
-                      <button onClick={() => handleRemoveBuild(item.id)} style={{ fontSize: 9, background: "transparent", border: "1px solid #2a2a3a", borderRadius: 3, color: "#555566", cursor: "pointer", padding: "2px 5px" }}>✕</button>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-            {/* Maintenance */}
-            <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 4, ...s.fsn }}>
-              <span>Maintenance</span>
-              <span style={{ fontSize: 10, ...s.txGreen, ...s.fw5 }}>● All nominal</span>
-            </div>
-            <div>
+            {/* MAINTENANCE - attached to bottom */}
+            <div style={{ flexShrink: 0, marginTop: "auto", paddingTop: 6 }}>
+              <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls09, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb, marginBottom: 8, ...s.fsn }}>
+                <span>Maintenance</span>
+                <span style={{ fontSize: 11, ...s.txGreen, ...s.fw5 }}>● All nominal</span>
+              </div>
               <MaintenanceTab />
             </div>
           </div>
@@ -1322,9 +1336,19 @@ export default function Dashboard() {
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion })) })
                       }).catch(() => {})
+                      // Also save to build queue API (visible in app UI)
+                      fetch("/api/build-queue", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion })) })
+                      }).catch(() => {})
                       // Show notification and reload
                       setPendingPosts(newPosts)
                       setShowPending(true)
+                      // Mark selected topics as used so they don't reappear in future research
+                      const used: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
+                      selected.forEach(r => { if (!used.includes(r.topic)) used.push(r.topic) })
+                      localStorage.setItem("gb_used_topics", JSON.stringify(used))
                       setTimeout(() => window.location.reload(), 600)
                     }
                   }} style={{ display: "inline-block", padding: "8px 24px", background: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, fontSize: 12, color: selectedTopics.size > 0 ? "#ef4444" : "#3a3a4a", cursor: selectedTopics.size > 0 ? "pointer" : "default" }}>Build {selectedTopics.size > 0 ? `${selectedTopics.size} Selected Post` : ""}{selectedTopics.size === 1 ? "" : "s"}</div>
@@ -1345,6 +1369,61 @@ export default function Dashboard() {
           </div>
         </div>
       )}
+
+      {/* Post Preview Modal (from Coming Up / Calendar click) */}
+      {modalPost && (
+        <div onClick={() => setModalPost(null)} style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,0.85)", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
+          <div onClick={e => e.stopPropagation()} style={{ background: "#0e0e1a", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 12, maxWidth: 520, width: "100%", maxHeight: "90vh", overflow: "auto", padding: 20 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
+              <div>
+                <div style={{ fontSize: 10, color: modalPost.status === "approved" ? "#3b82f6" : "#22c55e", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>{modalPost.status === "approved" ? "Scheduled" : "Ready"}</div>
+                <h2 style={{ fontSize: 16, fontWeight: 600, color: "#e0e0e0", margin: 0 }}>{modalPost.title}</h2>
+              </div>
+              <div onClick={() => setModalPost(null)} style={{ cursor: "pointer", fontSize: 20, color: "#555566", lineHeight: 1 }}>✕</div>
+            </div>
+            {(modalPost.proposed_schedule || modalPost.original_schedule) && (
+              <div style={{ fontSize: 11, color: "#7a7a8a", marginBottom: 12 }}>📅 {modalPost.proposed_schedule || modalPost.original_schedule}</div>
+            )}
+            {modalPost.caption && (
+              <div style={{ marginBottom: 12 }}>
+                <div style={{ fontSize: 10, color: "#555566", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Caption</div>
+                <p style={{ fontSize: 12, color: "#9a9aaa", lineHeight: 1.5, margin: 0, whiteSpace: "pre-wrap" }}>{modalPost.caption}</p>
+              </div>
+            )}
+            {modalPost.slides?.length > 0 && (
+              <div>
+                <div style={{ fontSize: 10, color: "#555566", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>Slides ({modalPost.slides.length})</div>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 6 }}>
+                  {modalPost.slides.map((s: any, i: number) => (
+                    <div key={i} style={{ aspectRatio: "4/5", borderRadius: 6, overflow: "hidden", border: "1px solid #181830", background: "#10101e", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, color: "#555566", position: "relative" }}>
+                      {modalPost.image_urls?.[i] ? (
+                        <img src={modalPost.image_urls[i]} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      ) : (
+                        <span>{s.heading || `Slide ${i + 1}`}</span>
+                      )}
+                      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(0,0,0,0.7)", padding: "2px 4px", fontSize: 8, color: "#ddd", textAlign: "center" }}>{s.heading}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {modalPost.hashtags && (
+              <div style={{ marginTop: 12, fontSize: 10, color: "#dc2626" }}>{modalPost.hashtags}</div>
+            )}
+            <div style={{ marginTop: 16, display: "flex", gap: 8, justifyContent: "center" }}>
+              <div onClick={async () => {
+                try {
+                  const r = await fetch("/api/manage", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "unapprove", post_id: modalPost.id }) })
+                  const d = await r.json()
+                  if (d.success) { setModalPost(null); window.location.reload() }
+                } catch {}
+              }} style={{ padding: "8px 20px", background: "rgba(220,38,38,0.15)", border: "1px solid rgba(220,38,38,0.3)", borderRadius: 6, fontSize: 11, color: "#ef4444", cursor: "pointer" }}>Remove from Schedule</div>
+              <div onClick={() => setModalPost(null)} style={{ padding: "8px 20px", background: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, fontSize: 12, color: "#ef4444", cursor: "pointer" }}>Close</div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }
