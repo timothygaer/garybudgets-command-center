@@ -1981,6 +1981,146 @@
       ],
       "drive_order_source": "Corrected cinematic ChatGPT image generation one slide at a time on 2026-07-16; repo/CDN images, no Drive upload yet",
       "approved_at": "2026-07-16T22:59:30.252Z"
+    },
+    {
+      "id": "scout-1784259331-0",
+      "title": "AI in Pre-Production: Script Breakdown Tools",
+      "pillar": "Industry Watch",
+      "slug": "Post_scout-1784259331-0",
+      "slide_count": 6,
+      "original_schedule": "",
+      "caption": "AI-assisted script breakdown tools are transforming how indie producers estimate below-the-line costs. Tools like these use natural language processing to read your script and automatically identify every scene, character, prop, effect, and stunt \u2014 then cross-reference union rates, local vendor pricing, and crew day rates to generate a department-by-department estimate in hours instead of days.\n\nThe time savings are real: script breakdowns that used to take a full 3-day week can now be done in a single morning. But here's what every producer needs to know \u2014 AI is excellent at the first pass, catching things you'd miss after sixteen hours of staring at the same scene breakdown. It is terrible at assessing creative nuance, director-specific shooting styles, or special prep requirements for stunts and VFX-heavy sequences.\n\nThe producers getting the most out of AI tools use them as a collaborative first pass, then overlay their own rate sheets, vendor discounts, and human judgment. The AI catches the obvious stuff. You catch the stuff that matters.\n\nSave this for your next pre-production cycle. Follow @garyfilmbudgets for more indie film budgeting insights.\n\nJoin the beta at garybudgets.com",
+      "hashtags": "#filmbudget #preproduction #AIFilmmaking #indiefilm #GaryBudgets",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "AI Is Changing Pre-Production",
+          "prompt_summary": "AI-assisted script breakdown tools saving time in prep"
+        },
+        {
+          "slide": 2,
+          "heading": "How AI Breaks Down Your Script",
+          "prompt_summary": "AI identifies scenes, characters, props, effects, estimates days"
+        },
+        {
+          "slide": 3,
+          "heading": "What AI Saves You",
+          "prompt_summary": "3 days to 4 hours, catches overlap, flags union conflicts"
+        },
+        {
+          "slide": 4,
+          "heading": "Where AI Still Gets It Wrong",
+          "prompt_summary": "AI misses creative nuance, stunts, local tax incentives"
+        },
+        {
+          "slide": 5,
+          "heading": "How to Use AI Tools Right",
+          "prompt_summary": "First pass then human judgment, teach your rates"
+        },
+        {
+          "slide": 6,
+          "heading": "Build Smarter Budgets",
+          "prompt_summary": "CTA: Join beta at garybudgets.com"
+        }
+      ],
+      "status": "ready",
+      "image_file_ids": [
+        "scout-1784259331-0/1.png",
+        "scout-1784259331-0/2.png",
+        "scout-1784259331-0/3.png",
+        "scout-1784259331-0/4.png",
+        "scout-1784259331-0/5.png",
+        "scout-1784259331-0/6.png"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1784259331-0/1.png",
+        "/images/scout-1784259331-0/2.png",
+        "/images/scout-1784259331-0/3.png",
+        "/images/scout-1784259331-0/4.png",
+        "/images/scout-1784259331-0/5.png",
+        "/images/scout-1784259331-0/6.png"
+      ],
+      "has_images": true,
+      "created_at": "2026-07-17T03:35:31.814894+00:00",
+      "source": "Topic Scout"
+    },
+    {
+      "id": "scout-1784259331-1",
+      "title": "Virtual Production on a Micro-Budget",
+      "pillar": "Budget School",
+      "slug": "Post_scout-1784259331-1",
+      "slide_count": 6,
+      "original_schedule": "",
+      "caption": "LED walls and Unreal Engine aren't just for big-budget productions anymore. Indie filmmakers are using compact virtual production setups to create visuals that look like $500K productions for under $50K total. The technology has shrunk: compact LED panels (10x12 ft) rent for $3K-$5K per week, Unreal Engine is free for indie productions under $1M, and most modern mirrorless cameras support the tracking systems needed for real-time camera mapping.\n\nThe catch? The crew matters more than the gear. A VP setup without an experienced operator is an expensive green screen. Budget for a VP supervisor and media server tech who have done indie VP before \u2014 they'll save you more in wasted days than their weekly rate costs.\n\nWhat VP gives you that location shooting can't: instant weather and time-of-day changes, no location scouting or permitting for backgrounds, no cast and crew travel costs, and the ability to shoot scenes from multiple scripts in the same volume on the same day.\n\nThe technology is real. The cost barriers are falling. The question is whether indie producers will budget for the people who know how to run it.\n\nSave this for your next budget. Follow @garyfilmbudgets for more indie film budgeting insights.\n\nJoin the beta at garybudgets.com",
+      "hashtags": "#filmbudget #virtualproduction #indiefilm #LEDvolume #GaryBudgets",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "VP Isn't Just for Studios",
+          "prompt_summary": "Indie filmmakers using compact LED volumes under $50K"
+        },
+        {
+          "slide": 2,
+          "heading": "What You Actually Need",
+          "prompt_summary": "Compact LED volume, Unreal, indie-experienced VP operator"
+        },
+        {
+          "slide": 3,
+          "heading": "The Crew Makes It Work",
+          "prompt_summary": "VP needs skilled operator, budget for people first"
+        },
+        {
+          "slide": 4,
+          "heading": "Where the Money Goes",
+          "prompt_summary": "LED rental $3K-$8K/week, crew $3K-$5K/week, prep time"
+        },
+        {
+          "slide": 5,
+          "heading": "What VP Lets You Control",
+          "prompt_summary": "Weather, season, no location scouting, no travel costs"
+        },
+        {
+          "slide": 6,
+          "heading": "Start Producing Smarter",
+          "prompt_summary": "CTA: Build full budget at garybudgets.com"
+        }
+      ],
+      "status": "ready",
+      "image_file_ids": [
+        "scout-1784259331-1/1.png",
+        "scout-1784259331-1/2.png",
+        "scout-1784259331-1/3.png",
+        "scout-1784259331-1/4.png",
+        "scout-1784259331-1/5.png",
+        "scout-1784259331-1/6.png"
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1784259331-1/1.png",
+        "/images/scout-1784259331-1/2.png",
+        "/images/scout-1784259331-1/3.png",
+        "/images/scout-1784259331-1/4.png",
+        "/images/scout-1784259331-1/5.png",
+        "/images/scout-1784259331-1/6.png"
+      ],
+      "has_images": true,
+      "created_at": "2026-07-17T03:35:31.814894+00:00",
+      "source": "Topic Scout"
     }
   ]
 }
