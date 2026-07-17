@@ -1259,7 +1259,7 @@ export default function Dashboard() {
                         pillar: buildPost(r).pillar,
                         caption: buildPost(r).caption,
                         status: "ready",
-                        slide_count: 3,
+                        slide_count: 6,
                         created_at: new Date().toISOString(),
                       }))
                       // Save selected topics for the assistant to build
