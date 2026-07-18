@@ -1746,7 +1746,7 @@
           "prompt_summary": "premium cinematic final card, production budget board and film lights, actor chair and crew paperwork, dark elegant red accents, clear CTA panel; text: BUILD A BUDGET THAT DOESN'T HIDE THE PAIN"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [],
       "image_file_names": [
         "1.png",
@@ -1765,7 +1765,10 @@
         "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/6.png"
       ],
       "drive_order_source": "Corrected cinematic ChatGPT image generation one slide at a time on 2026-07-16; repo/CDN images, no Drive upload yet",
-      "approved_at": "2026-07-16T22:13:13.549Z"
+      "approved_at": "2026-07-16T22:13:13.549Z",
+      "posted_at": "2026-07-18T16:01:03+0000",
+      "instagram_url": "https://www.instagram.com/p/Da8K7HCm7Un/",
+      "instagram_media_id": "17940840156267348"
     },
     {
       "id": "GB-2026-07-18-20",
