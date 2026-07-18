@@ -1081,12 +1081,12 @@ export default function Dashboard() {
                           <div style={{ fontSize: 18, color: i === 0 ? "#ef4444" : "#9a9aaa", fontWeight: 600, lineHeight: 1.2, marginBottom: hasPosts ? 6 : 0 }}>{day.date.getDate()}</div>
                           {hasPosts && <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                             {day.posts.map((p: any, j: number) => (
-                              <div key={j} style={{ fontSize: 10, color: "#ef4444", cursor: "pointer", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={() => {
+                              <button key={j} type="button" style={{ all: "unset", display: "block", width: "100%", fontSize: 10, color: "#ef4444", cursor: "pointer", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={() => {
                                 const post = calendarEvents.find((ev: any) => ev.id === p.id);
                                 if (post) handleSelectedPostInModal(post);
                               }}>
                                 {p.title || ""}
-                              </div>
+                              </button>
                             ))}
                           </div>}
                           {!hasPosts && <div style={{ fontSize: 8, color: "#3a3a4a", marginTop: 4 }}>—</div>}
