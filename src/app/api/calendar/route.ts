@@ -5,6 +5,30 @@ import { join } from "path"
 import { normalizeStatus } from "@/lib/manifest"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
+const GITHUB_MANIFEST_URL = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json"
+
+async function getManifest(): Promise<Manifest | null> {
+  const token = process.env.GITHUB_TOKEN
+  if (token) {
+    const resp = await fetch(GITHUB_MANIFEST_URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "User-Agent": "garybudgets command-center",
+      },
+      cache: "no-store",
+    })
+    if (resp.ok) {
+      const fileData = await resp.json()
+      const content = Buffer.from(fileData.content, "base64").toString("utf-8")
+      return JSON.parse(content) as Manifest
+    }
+  }
+
+  if (!existsSync(SRC_PATH)) return null
+  const content = await readFile(SRC_PATH, "utf-8")
+  return JSON.parse(content) as Manifest
+}
 
 type ManifestSlide = {
   slide: number
@@ -53,12 +77,8 @@ function parseScheduleStr(schedStr: string): { date: string | null; time: string
 
 export async function GET() {
   try {
-    if (!existsSync(SRC_PATH)) {
-      return Response.json({ events: [] })
-    }
-
-    const content = await readFile(SRC_PATH, "utf-8")
-    const manifest = JSON.parse(content) as Manifest
+    const manifest = await getManifest()
+    if (!manifest) return Response.json({ events: [] })
 
     const events = (manifest.posts || [])
       .map((post: ManifestPost) => {

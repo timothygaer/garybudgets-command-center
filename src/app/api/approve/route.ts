@@ -9,8 +9,53 @@ import { normalizeStatus } from "@/lib/manifest"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
+const GITHUB_MANIFEST_URL = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json"
+
+function githubHeaders(token: string) {
+  return {
+    "Authorization": `Bearer ${token}`,
+    "Accept": "application/vnd.github+json",
+    "User-Agent": "garybudgets command-center",
+  }
+}
+
+function requestOrigin(request: Request): string {
+  const host = request.headers.get("host") || "garybudgets-command-center.vercel.app"
+  const proto = request.headers.get("x-forwarded-proto") || (host.includes("localhost") ? "http" : "https")
+  return `${proto}://${host}`
+}
+
+function isImageUrl(url: string): boolean {
+  return /\.(png|jpe?g|webp)(\?.*)?$/i.test(url)
+}
+
+function normalizeImageUrls(post: any, origin: string): string[] {
+  if (!Array.isArray(post.image_urls)) return []
+
+  return post.image_urls
+    .filter((url: any) => typeof url === "string" && url.trim().length > 0)
+    .map((url: string) => {
+      try {
+        return new URL(url, origin).toString()
+      } catch {
+        return ""
+      }
+    })
+    .filter((url: string) => url.length > 0 && isImageUrl(url))
+}
 
 async function ensureWritableManifest(): Promise<{ manifest: any; path: string }> {
+  const token = process.env.GITHUB_TOKEN
+  if (token) {
+    const resp = await fetch(GITHUB_MANIFEST_URL, { headers: githubHeaders(token), cache: "no-store" })
+    if (resp.ok) {
+      const fileData = await resp.json()
+      const content = Buffer.from(fileData.content, "base64").toString("utf-8")
+      return { manifest: JSON.parse(content), path: WRITABLE_PATH }
+    }
+    console.log(`GitHub manifest read failed: ${resp.status}; falling back to local manifest`)
+  }
+
   if (existsSync(WRITABLE_PATH)) {
     const content = await readFile(WRITABLE_PATH, "utf-8")
     return { manifest: JSON.parse(content), path: WRITABLE_PATH }
@@ -27,17 +72,16 @@ async function saveManifest(manifest: any, path: string) {
   await writeFile(path, JSON.stringify(manifest, null, 2))
 }
 
-function hasUsableImages(post: any): boolean {
-  const imageUrls = Array.isArray(post.image_urls)
-    ? post.image_urls.filter((url: any) => typeof url === "string" && /^https?:\/\/.+\.(png|jpe?g|webp)(\?.*)?$/i.test(url))
-    : []
+function hasUsableImages(post: any, origin: string): boolean {
+  const imageUrls = normalizeImageUrls(post, origin)
   const imageFileIds = Array.isArray(post.image_file_ids)
     ? post.image_file_ids.filter((id: any) => typeof id === "string" && id.trim().length > 0)
     : []
 
   // Drive file IDs are useful metadata, but Vercel-hosted image URLs are the
-  // actual publish path. Do not block approval when the post has valid public
-  // image URLs but no Drive IDs.
+  // actual publish path. Accept both absolute URLs and site-relative manifest
+  // paths such as /images/<post-id>/1.png, normalized to absolute URLs before
+  // any immediate publish call.
   return imageUrls.length > 0 || imageFileIds.length > 0
 }
 
@@ -46,19 +90,15 @@ function hasUsableImages(post: any): boolean {
  * This is the key piece: approval state goes into the source of truth,
  * so every future Vercel deploy includes it.
  */
-async function writeApprovalToGitHub(postId: string, approvedAt: string): Promise<boolean> {
+async function writeApprovalToGitHub(postId: string, approvedAt: string, schedule: string | undefined, imageUrls: string[]): Promise<boolean> {
   const token = process.env.GITHUB_TOKEN
   if (!token) {
     console.log("GitHub persist: no GITHUB_TOKEN set in Vercel env")
     return false
   }
 
-  const url = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json"
-  const headers = {
-    "Authorization": `Bearer ${token}`,
-    "Accept": "application/vnd.github+json",
-    "User-Agent": "garybudgets command-center",
-  }
+  const url = GITHUB_MANIFEST_URL
+  const headers = githubHeaders(token)
 
   try {
     let attempts = 0
@@ -67,7 +107,7 @@ async function writeApprovalToGitHub(postId: string, approvedAt: string): Promis
     while (attempts < maxAttempts) {
       // Always read the latest GitHub manifest before writing. Vercel /tmp may
       // be stale, and concurrent jobs can update manifest.json between retries.
-      const getResp = await fetch(url, { headers })
+      const getResp = await fetch(url, { headers, cache: "no-store" })
       if (!getResp.ok) {
         console.log(`GitHub GET failed: ${getResp.status}`)
         return false
@@ -84,6 +124,11 @@ async function writeApprovalToGitHub(postId: string, approvedAt: string): Promis
 
       manifest.posts[idx].status = "approved"
       manifest.posts[idx].approved_at = approvedAt
+      if (schedule) manifest.posts[idx].proposed_schedule = schedule
+      if (imageUrls.length > 0) {
+        manifest.posts[idx].image_urls = imageUrls
+        manifest.posts[idx].has_images = true
+      }
 
       const newContent = JSON.stringify(manifest, null, 2) + "\n"
       const putResp = await fetch(url, {
@@ -131,6 +176,8 @@ export async function POST(request: Request) {
     }
 
     const post = manifest.posts[postIndex]
+    const origin = requestOrigin(request)
+    const normalizedImageUrls = normalizeImageUrls(post, origin)
     let schedule = post.proposed_schedule || post.original_schedule
 
     // If no schedule set, auto-assign the next available slot
@@ -185,8 +232,12 @@ export async function POST(request: Request) {
       const approvedAt = post.approved_at || new Date().toISOString()
       manifest.posts[postIndex].status = "approved"
       manifest.posts[postIndex].approved_at = approvedAt
+      if (normalizedImageUrls.length > 0) {
+        manifest.posts[postIndex].image_urls = normalizedImageUrls
+        manifest.posts[postIndex].has_images = true
+      }
       await saveManifest(manifest, path)
-      const githubOk = await writeApprovalToGitHub(post_id, approvedAt)
+      const githubOk = await writeApprovalToGitHub(post_id, approvedAt, schedule, normalizedImageUrls)
       if (!githubOk) {
         return Response.json({
           success: false,
@@ -208,7 +259,7 @@ export async function POST(request: Request) {
     }
 
     // Gate: no images = can't approve
-    const hasImages = hasUsableImages(post)
+    const hasImages = hasUsableImages(post, origin)
     if (!hasImages) {
       return Response.json({
         success: false,
@@ -222,10 +273,14 @@ export async function POST(request: Request) {
     const approvedAt = new Date().toISOString()
     manifest.posts[postIndex].status = "approved"
     manifest.posts[postIndex].approved_at = approvedAt
+    if (normalizedImageUrls.length > 0) {
+      manifest.posts[postIndex].image_urls = normalizedImageUrls
+      manifest.posts[postIndex].has_images = true
+    }
     await saveManifest(manifest, path)
 
     // Persist to GitHub repo — this is what survives deploys
-    const githubOk = await writeApprovalToGitHub(post_id, approvedAt)
+    const githubOk = await writeApprovalToGitHub(post_id, approvedAt, schedule, normalizedImageUrls)
     if (!githubOk) {
       return Response.json({
         success: false,
@@ -243,13 +298,13 @@ export async function POST(request: Request) {
 
     if (isImmediate) {
       try {
-        const publishUrl = `https://${request.headers.get("host") || "garybudgets-command-center.vercel.app"}/api/publish`
+        const publishUrl = `${origin}/api/publish`
         const publishResp = await fetch(publishUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             caption: post.caption + "\n\n" + post.hashtags,
-            image_urls: post.image_urls,
+            image_urls: normalizedImageUrls,
             post_id: post.id,
           }),
         })

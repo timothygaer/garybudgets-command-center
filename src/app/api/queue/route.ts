@@ -7,8 +7,31 @@ import { normalizeStatus } from "@/lib/manifest"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
 const WRITABLE_PATH = "/tmp/gb-manifest.json"
+const GITHUB_MANIFEST_URL = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json"
+
+async function getGitHubManifest() {
+  const token = process.env.GITHUB_TOKEN
+  if (!token) return null
+
+  const resp = await fetch(GITHUB_MANIFEST_URL, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "User-Agent": "garybudgets command-center",
+    },
+    cache: "no-store",
+  })
+  if (!resp.ok) return null
+
+  const fileData = await resp.json()
+  const content = Buffer.from(fileData.content, "base64").toString("utf-8")
+  return JSON.parse(content)
+}
 
 async function getManifestData() {
+  const githubManifest = await getGitHubManifest()
+  if (githubManifest) return githubManifest
+
   const writablePath = WRITABLE_PATH
   const srcPath = SRC_PATH
 
