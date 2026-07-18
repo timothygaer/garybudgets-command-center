@@ -1053,8 +1053,8 @@ export default function Dashboard() {
                       });
                       upcoming.push({ date: d, posts: dayPosts });
                     }
-                    return <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
-                      {upcoming.slice(0, 6).map((day, i) => {
+                    return <div style={{ display: "grid", gridTemplateColumns: "repeat(7, minmax(0, 1fr))", gap: 4 }}>
+                      {upcoming.slice(0, 7).map((day, i) => {
                         const hasPosts = day.posts.length > 0;
                         return <div key={i} style={{ flex: 1, textAlign: "center", padding: "6px 6px", ...s.bd1, ...s.bd6, background: i === 0 ? "rgba(220,38,38,0.06)" : "transparent", border: i === 0 ? "1px solid rgba(220,38,38,0.15)" : "1px solid transparent" }}>
                           <div style={{ fontSize: 10, color: i === 0 ? "#ef4444" : "#555566", textTransform: "uppercase", fontWeight: i === 0 ? 600 : 400, marginBottom: 2 }}>{dayShort[day.date.getDay()]}</div>
