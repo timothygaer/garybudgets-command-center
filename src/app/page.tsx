@@ -65,6 +65,26 @@ function engineRate(post: Post): number { return post.insights?.reach ? engageme
 function engRateStr(post: Post): string { const r = engineRate(post); return isNaN(r) ? "—" : r.toFixed(1) + "%" }
 function recentWI(posts: Post[], lim = 7): Post[] { return [...posts].filter(p => p.insights).sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, lim) }
 function extractHashtags(c: string): string[] { return c.match(/#[\w]+/g) || [] }
+function normalizeTopicTitle(value: string): string { return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim() }
+function isTopicAlreadyMade(topic: string, usedTitles: string[]): boolean {
+  const normalizedTopic = normalizeTopicTitle(topic)
+  const normalizedUsed = usedTitles.map(normalizeTopicTitle)
+  if (normalizedUsed.some(title => title === normalizedTopic || title.includes(normalizedTopic) || normalizedTopic.includes(title))) return true
+  const duplicateSignals: Record<string, string[]> = {
+    "independent film budget trends h1 2026": ["independent film budget trends"],
+    "ai in pre production script breakdown tools": ["ai in pre production", "script breakdown"],
+    "film festival circuit changes for 2026": ["film festival circuit"],
+    "virtual production on a micro budget": ["virtual production"],
+    "streaming residuals for indies in 2026": ["streaming residuals"],
+    "insurance costs are eating indie budgets": ["insurance costs"],
+    "tax incentives map where to shoot in 2026": ["tax incentives", "where to shoot"],
+    "the rise of micro dramas vertical films": ["vertical film", "microdrama", "micro drama"],
+    "crew shortage how indie producers adapt": ["crew shortage"],
+    "distribution strategies for 2026 indies": ["distribution strategies"]
+  }
+  const signals = duplicateSignals[normalizedTopic] || []
+  return signals.some(signal => normalizedUsed.some(title => title.includes(signal)))
+}
 
 // ═══ COMPONENTS ═══
 
@@ -1038,7 +1058,7 @@ export default function Dashboard() {
                     // Use calendarEvents — same source as Calendar tab, includes posted, approved, scheduled
                     const items = calendarEvents;
                     const upcoming = [];
-                    for (let i = 0; i < 7; i++) {
+                    for (let i = 0; i < 6; i++) {
                       const d = new Date(now);
                       d.setDate(d.getDate() + i);
                       // Build local date string like "2026-07-16" to match Calendar API dates
@@ -1053,14 +1073,14 @@ export default function Dashboard() {
                       });
                       upcoming.push({ date: d, posts: dayPosts });
                     }
-                    return <div style={{ display: "grid", gridTemplateColumns: "repeat(7, minmax(0, 1fr))", gap: 4 }}>
-                      {upcoming.slice(0, 7).map((day, i) => {
+                    return <div style={{ display: "grid", gridTemplateColumns: "repeat(6, minmax(0, 1fr))", gap: 4 }} data-testid="coming-up-grid" data-day-count={upcoming.length}>
+                      {upcoming.slice(0, 6).map((day, i) => {
                         const hasPosts = day.posts.length > 0;
                         return <div key={i} style={{ flex: 1, textAlign: "center", padding: "6px 6px", ...s.bd1, ...s.bd6, background: i === 0 ? "rgba(220,38,38,0.06)" : "transparent", border: i === 0 ? "1px solid rgba(220,38,38,0.15)" : "1px solid transparent" }}>
                           <div style={{ fontSize: 10, color: i === 0 ? "#ef4444" : "#555566", textTransform: "uppercase", fontWeight: i === 0 ? 600 : 400, marginBottom: 2 }}>{dayShort[day.date.getDay()]}</div>
                           <div style={{ fontSize: 18, color: i === 0 ? "#ef4444" : "#9a9aaa", fontWeight: 600, lineHeight: 1.2, marginBottom: hasPosts ? 6 : 0 }}>{day.date.getDate()}</div>
                           {hasPosts && <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                            {day.posts.slice(0, 3).map((p: any, j: number) => (
+                            {day.posts.map((p: any, j: number) => (
                               <div key={j} style={{ fontSize: 10, color: "#ef4444", cursor: "pointer", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={() => {
                                 const post = calendarEvents.find((ev: any) => ev.id === p.id);
                                 if (post) handleSelectedPostInModal(post);
@@ -1068,7 +1088,6 @@ export default function Dashboard() {
                                 {p.title || ""}
                               </div>
                             ))}
-                            {day.posts.length > 3 && <span style={{ fontSize: 8, color: "#555566", cursor: "pointer" }}>+{day.posts.length - 3} more</span>}
                           </div>}
                           {!hasPosts && <div style={{ fontSize: 8, color: "#3a3a4a", marginTop: 4 }}>—</div>}
                         </div>;
@@ -1207,9 +1226,11 @@ export default function Dashboard() {
               setResearchState("running")
               setResearchResults([])
               setSelectedTopics(new Set())
-              fetch("/api/queue").then(r => r.json()).then((queue: any[]) => {
-                // Read used topics list from localStorage (topics already built or in build queue)
-                const usedTopics: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
+              fetch("/api/write-selection").then(r => r.json()).then((writeSelection: any) => {
+                // Read used topics from the live GitHub-backed manifest, plus localStorage for this browser.
+                const localUsedTopics: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
+                const manifestUsedTopics: string[] = Array.isArray(writeSelection.used_topics) ? writeSelection.used_topics : []
+                const usedTopics = [...manifestUsedTopics, ...localUsedTopics]
                 const allTopics = [
                   { topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance." },
                   { topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch / ProductionHUB", confidence: 85, suggestion: "How AI-assisted script breakdown tools are changing how indie producers estimate below-the-line costs across departments." },
@@ -1222,13 +1243,11 @@ export default function Dashboard() {
                   { topic: "Crew Shortage: How Indie Producers Adapt", source: "Screen Daily / The Wrap", confidence: 84, suggestion: "Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget." },
                   { topic: "Distribution Strategies for 2026 Indies", source: "IFTA / industry panels", confidence: 76, suggestion: "Direct-to-consumer, AVOD, and hybrid theatrical releases are reshaping indie distribution. What's working for films like yours." },
                 ]
-                // Filter out topics already built or in build queue
-                const freshTopics = allTopics.filter(t => !usedTopics.includes(t.topic))
-                // If all topics are used, add a note
-                if (freshTopics.length === 0) {
-                  // Show all topics anyway but with a note
-                }
-                const results = (freshTopics.length > 0 ? freshTopics : allTopics).map((t, i) => ({ id: `research-${Date.now()}-${i}`, ...t }))
+                // Filter out topics already built, posted, approved, scheduled, or sitting in the build queue.
+                const freshTopics = allTopics.filter(t => !isTopicAlreadyMade(t.topic, usedTopics))
+                const results = freshTopics.length > 0
+                  ? freshTopics.map((t, i) => ({ id: `research-${Date.now()}-${i}`, ...t }))
+                  : [{ id: `research-${Date.now()}-empty`, topic: "No new Topic Scout ideas available", source: "Manifest check", confidence: 100, suggestion: "All current Topic Scout ideas have already been made or are already scheduled. Run a fresh research cycle before building more.", unavailable: true }]
                 setResearchResults(results)
                 setResearchState("done")
               }).catch(() => {
@@ -1300,10 +1319,11 @@ export default function Dashboard() {
                 {researchResults.map((r, i) => {
                   const isSelected = selectedTopics.has(r.id)
                   return <div key={r.id} onClick={() => {
+                    if (r.unavailable) return
                     const next = new Set(selectedTopics)
                     if (next.has(r.id)) next.delete(r.id); else next.add(r.id)
                     setSelectedTopics(next)
-                  }} style={{ padding: "10px 12px", marginBottom: 8, ...s.bd1, ...s.bd6, background: isSelected ? "rgba(220,38,38,0.06)" : "rgba(255,255,255,0.01)", border: isSelected ? "1px solid rgba(220,38,38,0.3)" : "1px solid transparent", cursor: "pointer", display: "flex", gap: 8, alignItems: "flex-start" }}>
+                  }} style={{ padding: "10px 12px", marginBottom: 8, ...s.bd1, ...s.bd6, background: isSelected ? "rgba(220,38,38,0.06)" : "rgba(255,255,255,0.01)", border: isSelected ? "1px solid rgba(220,38,38,0.3)" : "1px solid transparent", cursor: r.unavailable ? "default" : "pointer", opacity: r.unavailable ? 0.75 : 1, display: "flex", gap: 8, alignItems: "flex-start" }}>
                     <div style={{ width: 16, height: 16, borderRadius: 3, border: isSelected ? "2px solid #ef4444" : "2px solid #3a3a4a", background: isSelected ? "#ef4444" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1, fontSize: 10, color: "#fff", fontWeight: 700 }}>{isSelected ? "✓" : ""}</div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 }}>

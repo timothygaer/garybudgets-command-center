@@ -84,7 +84,7 @@ function findNextSlot(existingSchedules: string[]): string {
 }
 
 /** Fetch the latest manifest from GitHub and extract scout drafts */
-async function getScoutDraftsFromGitHub(): Promise<{ drafts: any[]; error?: string }> {
+async function getScoutDraftsFromGitHub(): Promise<{ drafts: any[]; used_topics?: string[]; error?: string }> {
   const token = process.env.GITHUB_TOKEN
   if (!token) return { drafts: [], error: "no token" }
   try {
@@ -102,7 +102,10 @@ async function getScoutDraftsFromGitHub(): Promise<{ drafts: any[]; error?: stri
     const drafts = (manifest.posts || []).filter(
       (p: any) => p.source === "Topic Scout" && !p.has_images
     )
-    return { drafts }
+    const used_topics = (manifest.posts || [])
+      .map((p: any) => p.title)
+      .filter((title: any) => typeof title === "string" && title.trim().length > 0)
+    return { drafts, used_topics }
   } catch (err: any) {
     return { drafts: [], error: err.message }
   }
