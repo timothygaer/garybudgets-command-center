@@ -49,6 +49,34 @@ const EXAMPLE_POSTS = [
   { title: "5 Hidden Costs That Kill Indie Films", caption: "Most indie films blow 30% of their budget on things nobody planned for.", pillar: "Budget School", engagement: "High" },
 ]
 
+const TOPIC_SCOUT_MIN_RESULTS = 10
+const TOPIC_SCOUT_BASE_TOPICS = [
+  { topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance." },
+  { topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch / ProductionHUB", confidence: 85, suggestion: "How AI-assisted script breakdown tools are changing how indie producers estimate below-the-line costs across departments." },
+  { topic: "Film Festival Circuit Changes for 2026", source: "Sundance / TIFF announcements", confidence: 78, suggestion: "New submission fee structures, grant programs for low-budget features, and virtual screening options announced at spring festivals." },
+  { topic: "Virtual Production on a Micro-Budget", source: "No Film School / YT", confidence: 90, suggestion: "Case studies of indie films using Unreal Engine and LED walls for under $50K in production value that looks like $500K." },
+  { topic: "Streaming Residuals for Indies in 2026", source: "WGA / DGA reports", confidence: 82, suggestion: "How the new streaming residual formulas affect indie producers who sell to streaming — what to negotiate and what to expect." },
+  { topic: "Insurance Costs Are Eating Indie Budgets", source: "IndieWire / Production Weekly", confidence: 88, suggestion: "Production insurance premiums jumped 15-30% for indie films. How to shop coverage without blowing your below-the-line budget." },
+  { topic: "Tax Incentives Map: Where to Shoot in 2026", source: "FilmLA / state film offices", confidence: 75, suggestion: "Updated state-by-state incentives for indie productions — which states offer the best rebates for budgets under $3M." },
+  { topic: "The Rise of Micro-Dramas: Vertical Films", source: "TikTok / Instagram trends", confidence: 70, suggestion: "Vertical-format micro-dramas are driving millions of views. Is there a sustainable production model for indie filmmakers to follow?" },
+  { topic: "Crew Shortage: How Indie Producers Adapt", source: "Screen Daily / The Wrap", confidence: 84, suggestion: "Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget." },
+  { topic: "Distribution Strategies for 2026 Indies", source: "IFTA / industry panels", confidence: 76, suggestion: "Direct-to-consumer, AVOD, and hybrid theatrical releases are reshaping indie distribution. What's working for films like yours." },
+]
+const TOPIC_SCOUT_AUTO_TOP_UP_TOPICS = [
+  { topic: "Completion Bond Basics for Low-Budget Films", source: "Auto Scout · Producers Guild / bond companies", confidence: 86, suggestion: "Explain when a completion bond becomes mandatory, what it costs, and how indie producers can budget for bond company oversight before financing closes." },
+  { topic: "Actor Travel Costs That Sneak Into the Budget", source: "Auto Scout · SAG-AFTRA / production travel guidance", confidence: 83, suggestion: "Break down airfare, lodging, per diem, pickups, and turnaround risks that quietly inflate talent budgets on small features." },
+  { topic: "Post-Production Budget Lines Producers Forget", source: "Auto Scout · post supervisor checklists", confidence: 88, suggestion: "A practical list of conform, color, mix, QC, deliverables, captions, DCP, and archival costs that often get missed until delivery." },
+  { topic: "Music Licensing Traps for Indie Films", source: "Auto Scout · music supervisor resources", confidence: 87, suggestion: "Show why festival-only music rights can create expensive recuts later, and how to budget festival, streaming, and worldwide rights from day one." },
+  { topic: "Cash Flow vs Budget: Why Your Film Can Still Run Out", source: "Auto Scout · film finance workflows", confidence: 91, suggestion: "Teach the difference between total budget and weekly cash availability, including deposits, payroll timing, contingency, and reimbursement delays." },
+  { topic: "Contingency Is Not Extra Money", source: "Auto Scout · line producer best practices", confidence: 89, suggestion: "Explain why contingency protects the schedule, how much indie films usually reserve, and what spending it too early does to the final weeks." },
+  { topic: "Location Fees Are Only the First Location Cost", source: "Auto Scout · location manager checklists", confidence: 84, suggestion: "Cover permits, police, fire watch, parking, holding areas, bathrooms, neighbors, restoration, and company moves that make locations cost more than the fee." },
+  { topic: "Payroll Fringes: The Budget Multiplier Nobody Sees", source: "Auto Scout · entertainment payroll guidance", confidence: 90, suggestion: "Explain payroll taxes, workers comp, union fringes, pension, health, and payroll fees as a multiplier on top of crew day rates." },
+  { topic: "Why Night Shoots Cost More Than Producers Expect", source: "Auto Scout · production scheduling guidance", confidence: 82, suggestion: "Translate night premium, meal penalties, turnaround, safety, lighting, and location restrictions into a producer-friendly budgeting lesson." },
+  { topic: "Deliverables Can Eat Your Final Contingency", source: "Auto Scout · distributor delivery schedules", confidence: 85, suggestion: "Show how E&O, chain of title, captions, M&E, QC fixes, artwork, trailers, and file specs hit after production feels finished." },
+  { topic: "Union vs Non-Union Budget Tradeoffs", source: "Auto Scout · SAG-AFTRA / crew agreement resources", confidence: 81, suggestion: "Compare predictability, paperwork, fringes, rate floors, overtime, and talent access so producers can choose the right structure before scheduling." },
+  { topic: "The Real Cost of a Company Move", source: "Auto Scout · assistant director scheduling guidance", confidence: 80, suggestion: "Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee." },
+]
+
 function n(num: number | string | undefined | null): string {
   if (num == null) return "—"
   const nv = typeof num === "string" ? parseInt(num) : num
@@ -1073,7 +1101,7 @@ export default function Dashboard() {
                       });
                       upcoming.push({ date: d, posts: dayPosts });
                     }
-                    return <div style={{ display: "grid", gridTemplateColumns: "repeat(6, minmax(0, 1fr))", gap: 4 }} data-testid="coming-up-grid" data-day-count={upcoming.length}>
+                    return <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gridTemplateRows: "repeat(2, minmax(0, auto))", gap: 4 }} data-testid="coming-up-grid" data-day-count={upcoming.length}>
                       {upcoming.slice(0, 6).map((day, i) => {
                         const hasPosts = day.posts.length > 0;
                         return <div key={i} style={{ flex: 1, textAlign: "center", padding: "6px 6px", ...s.bd1, ...s.bd6, background: i === 0 ? "rgba(220,38,38,0.06)" : "transparent", border: i === 0 ? "1px solid rgba(220,38,38,0.15)" : "1px solid transparent" }}>
@@ -1231,22 +1259,14 @@ export default function Dashboard() {
                 const localUsedTopics: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
                 const manifestUsedTopics: string[] = Array.isArray(writeSelection.used_topics) ? writeSelection.used_topics : []
                 const usedTopics = [...manifestUsedTopics, ...localUsedTopics]
-                const allTopics = [
-                  { topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance." },
-                  { topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch / ProductionHUB", confidence: 85, suggestion: "How AI-assisted script breakdown tools are changing how indie producers estimate below-the-line costs across departments." },
-                  { topic: "Film Festival Circuit Changes for 2026", source: "Sundance / TIFF announcements", confidence: 78, suggestion: "New submission fee structures, grant programs for low-budget features, and virtual screening options announced at spring festivals." },
-                  { topic: "Virtual Production on a Micro-Budget", source: "No Film School / YT", confidence: 90, suggestion: "Case studies of indie films using Unreal Engine and LED walls for under $50K in production value that looks like $500K." },
-                  { topic: "Streaming Residuals for Indies in 2026", source: "WGA / DGA reports", confidence: 82, suggestion: "How the new streaming residual formulas affect indie producers who sell to streaming — what to negotiate and what to expect." },
-                  { topic: "Insurance Costs Are Eating Indie Budgets", source: "IndieWire / Production Weekly", confidence: 88, suggestion: "Production insurance premiums jumped 15-30% for indie films. How to shop coverage without blowing your below-the-line budget." },
-                  { topic: "Tax Incentives Map: Where to Shoot in 2026", source: "FilmLA / state film offices", confidence: 75, suggestion: "Updated state-by-state incentives for indie productions — which states offer the best rebates for budgets under $3M." },
-                  { topic: "The Rise of Micro-Dramas: Vertical Films", source: "TikTok / Instagram trends", confidence: 70, suggestion: "Vertical-format micro-dramas are driving millions of views. Is there a sustainable production model for indie filmmakers to follow?" },
-                  { topic: "Crew Shortage: How Indie Producers Adapt", source: "Screen Daily / The Wrap", confidence: 84, suggestion: "Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget." },
-                  { topic: "Distribution Strategies for 2026 Indies", source: "IFTA / industry panels", confidence: 76, suggestion: "Direct-to-consumer, AVOD, and hybrid theatrical releases are reshaping indie distribution. What's working for films like yours." },
-                ]
                 // Filter out topics already built, posted, approved, scheduled, or sitting in the build queue.
-                const freshTopics = allTopics.filter(t => !isTopicAlreadyMade(t.topic, usedTopics))
+                const baseFreshTopics = TOPIC_SCOUT_BASE_TOPICS.filter(t => !isTopicAlreadyMade(t.topic, usedTopics))
+                const topUpTopics = baseFreshTopics.length < TOPIC_SCOUT_MIN_RESULTS
+                  ? TOPIC_SCOUT_AUTO_TOP_UP_TOPICS.filter(t => !isTopicAlreadyMade(t.topic, usedTopics))
+                  : []
+                const freshTopics = [...baseFreshTopics, ...topUpTopics].slice(0, TOPIC_SCOUT_MIN_RESULTS)
                 const results = freshTopics.length > 0
-                  ? freshTopics.map((t, i) => ({ id: `research-${Date.now()}-${i}`, ...t }))
+                  ? freshTopics.map((t, i) => ({ id: `research-${Date.now()}-${i}`, auto_generated: i >= baseFreshTopics.length, ...t }))
                   : [{ id: `research-${Date.now()}-empty`, topic: "No new Topic Scout ideas available", source: "Manifest check", confidence: 100, suggestion: "All current Topic Scout ideas have already been made or are already scheduled. Run a fresh research cycle before building more.", unavailable: true }]
                 setResearchResults(results)
                 setResearchState("done")
