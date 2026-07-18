@@ -44,6 +44,20 @@ function normalizeImageUrls(post: any, origin: string): string[] {
     .filter((url: string) => url.length > 0 && isImageUrl(url))
 }
 
+async function filterReachableImageUrls(imageUrls: string[]): Promise<string[]> {
+  const checks = await Promise.all(imageUrls.map(async (url) => {
+    try {
+      const resp = await fetch(url, { method: "HEAD", cache: "no-store" })
+      const contentType = resp.headers.get("content-type") || ""
+      const contentLength = Number(resp.headers.get("content-length") || "0")
+      return resp.ok && contentType.startsWith("image/") && contentLength > 500_000 ? url : ""
+    } catch {
+      return ""
+    }
+  }))
+  return checks.filter(Boolean)
+}
+
 async function ensureWritableManifest(): Promise<{ manifest: any; path: string }> {
   const token = process.env.GITHUB_TOKEN
   if (token) {
@@ -72,17 +86,15 @@ async function saveManifest(manifest: any, path: string) {
   await writeFile(path, JSON.stringify(manifest, null, 2))
 }
 
-function hasUsableImages(post: any, origin: string): boolean {
+async function getUsableImageUrls(post: any, origin: string): Promise<string[]> {
   const imageUrls = normalizeImageUrls(post, origin)
-  const imageFileIds = Array.isArray(post.image_file_ids)
-    ? post.image_file_ids.filter((id: any) => typeof id === "string" && id.trim().length > 0)
-    : []
+  if (imageUrls.length === 0) return []
 
-  // Drive file IDs are useful metadata, but Vercel-hosted image URLs are the
-  // actual publish path. Accept both absolute URLs and site-relative manifest
-  // paths such as /images/<post-id>/1.png, normalized to absolute URLs before
-  // any immediate publish call.
-  return imageUrls.length > 0 || imageFileIds.length > 0
+  // Vercel-hosted image URLs are the publish path. Accept both absolute URLs
+  // and site-relative manifest paths such as /images/<post-id>/1.png, but only
+  // after proving those URLs currently return real image bytes. Placeholder
+  // manifest paths are not enough to approve a post.
+  return filterReachableImageUrls(imageUrls)
 }
 
 /**
@@ -177,7 +189,7 @@ export async function POST(request: Request) {
 
     const post = manifest.posts[postIndex]
     const origin = requestOrigin(request)
-    const normalizedImageUrls = normalizeImageUrls(post, origin)
+    const usableImageUrls = await getUsableImageUrls(post, origin)
     let schedule = post.proposed_schedule || post.original_schedule
 
     // If no schedule set, auto-assign the next available slot
@@ -232,12 +244,12 @@ export async function POST(request: Request) {
       const approvedAt = post.approved_at || new Date().toISOString()
       manifest.posts[postIndex].status = "approved"
       manifest.posts[postIndex].approved_at = approvedAt
-      if (normalizedImageUrls.length > 0) {
-        manifest.posts[postIndex].image_urls = normalizedImageUrls
+      if (usableImageUrls.length > 0) {
+        manifest.posts[postIndex].image_urls = usableImageUrls
         manifest.posts[postIndex].has_images = true
       }
       await saveManifest(manifest, path)
-      const githubOk = await writeApprovalToGitHub(post_id, approvedAt, schedule, normalizedImageUrls)
+      const githubOk = await writeApprovalToGitHub(post_id, approvedAt, schedule, usableImageUrls)
       if (!githubOk) {
         return Response.json({
           success: false,
@@ -259,7 +271,7 @@ export async function POST(request: Request) {
     }
 
     // Gate: no images = can't approve
-    const hasImages = hasUsableImages(post, origin)
+    const hasImages = usableImageUrls.length > 0
     if (!hasImages) {
       return Response.json({
         success: false,
@@ -273,14 +285,14 @@ export async function POST(request: Request) {
     const approvedAt = new Date().toISOString()
     manifest.posts[postIndex].status = "approved"
     manifest.posts[postIndex].approved_at = approvedAt
-    if (normalizedImageUrls.length > 0) {
-      manifest.posts[postIndex].image_urls = normalizedImageUrls
+    if (usableImageUrls.length > 0) {
+      manifest.posts[postIndex].image_urls = usableImageUrls
       manifest.posts[postIndex].has_images = true
     }
     await saveManifest(manifest, path)
 
     // Persist to GitHub repo — this is what survives deploys
-    const githubOk = await writeApprovalToGitHub(post_id, approvedAt, schedule, normalizedImageUrls)
+    const githubOk = await writeApprovalToGitHub(post_id, approvedAt, schedule, usableImageUrls)
     if (!githubOk) {
       return Response.json({
         success: false,
@@ -304,7 +316,7 @@ export async function POST(request: Request) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             caption: post.caption + "\n\n" + post.hashtags,
-            image_urls: normalizedImageUrls,
+            image_urls: usableImageUrls,
             post_id: post.id,
           }),
         })
