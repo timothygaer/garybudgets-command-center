@@ -1962,7 +1962,7 @@
           "prompt_summary": "CTA: Build full budget at garybudgets.com"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "scout-1784259331-1/1.png",
         "scout-1784259331-1/2.png",
@@ -1990,7 +1990,10 @@
       "has_images": true,
       "created_at": "2026-07-17T03:35:31.814894+00:00",
       "source": "Topic Scout",
-      "approved_at": "2026-07-17T03:53:45.857Z"
+      "approved_at": "2026-07-17T03:53:45.857Z",
+      "posted_at": "2026-07-21T16:00:51+0000",
+      "instagram_url": "https://www.instagram.com/p/DbD5SRcmmnJ/",
+      "instagram_media_id": "18066947024718685"
     },
     {
       "id": "scout-1784263391-0",
