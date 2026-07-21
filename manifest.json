@@ -2173,7 +2173,7 @@
           "prompt_summary": "Gary Budgets app on phone showing trend reports"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2195,7 +2195,10 @@
       "source": "Topic Scout",
       "suggestion": "Roundup of the biggest budgeting shifts so far this year \u2014 tax incentives, streaming residuals, and virtual production costs reshaping indie finance.",
       "source_name": "Variety / IndieWire",
-      "approved_at": "2026-07-18T18:18:33.635Z"
+      "approved_at": "2026-07-18T18:18:33.635Z",
+      "posted_at": "2026-07-21T16:15:53+0000",
+      "instagram_url": "https://www.instagram.com/p/DbD7Aa_msQC/",
+      "instagram_media_id": "18124249519779304"
     },
     {
       "id": "scout-1784273931186-2",
