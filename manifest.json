@@ -2037,7 +2037,7 @@
           "prompt_summary": "CTA: Build smarter at garybudgets.com"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "scout-1784263391-0/1.png",
         "scout-1784263391-0/2.png",
@@ -2065,7 +2065,10 @@
       "has_images": true,
       "created_at": "2026-07-17T04:43:11Z",
       "source": "Topic Scout",
-      "approved_at": "2026-07-17T05:38:43.366Z"
+      "approved_at": "2026-07-17T05:38:43.366Z",
+      "posted_at": "2026-07-22T16:00:52+0000",
+      "instagram_url": "https://www.instagram.com/p/DbGeFSjml2Z/",
+      "instagram_media_id": "17925143748381119"
     },
     {
       "id": "scout-insurance",
