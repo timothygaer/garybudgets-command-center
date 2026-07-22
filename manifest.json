@@ -2408,43 +2408,49 @@
       "slug": "Post_music-licensing-traps-for-indie-films",
       "slide_count": 6,
       "original_schedule": "Wed, Jul 22 \u00b7 12:00 AM PT",
-      "proposed_schedule": "Wed, Jul 22 \u00b7 12:00 AM PT",
-      "caption": "Music Licensing Traps for Indie Films is not just a headline \u2014 it is a streaming distribution decision that can change how indie producers plan, finance, and protect a production. Show why festival-only music rights can create expensive recuts later, and how to budget festival, streaming, and worldwide rights from day one.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate music licensing traps for indie films: license fees, residual exposure, data transparency, bonus triggers, reporting rights, delivery costs, and the long-term value of the deal. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
-      "hashtags": "#StreamingResiduals #FilmDistribution #FilmFinance #IndieFilmProducers #FilmBudgeting",
+      "proposed_schedule": "Thu, Jul 30 \u00b7 9:00 AM PT",
+      "caption": "That perfect needle drop can become one of the most expensive surprises in an indie film budget. A track that feels affordable for a festival run may not be cleared for streaming, international sales, ads, soundtrack use, or long-term distribution.\n\nThe key is understanding that most songs require two separate permissions: the synchronization license for the composition and the master-use license for the recording. If either side is unclear, missing, territory-limited, or festival-only, the issue usually comes back during delivery \u2014 exactly when producers have the least time and leverage.\n\nFor indie producers, music licensing should not live in a vague post-production bucket. Price the cue, confirm the term and territory, keep cue sheets clean, save clearance emails, and budget a replacement option before picture lock. A cheap song is not cheap if it forces a recut or blocks a distribution deal.\n\nSave this before your next budget pass, and send it to the producer who keeps saying, \u2018We\u2019ll figure out music later.\u2019",
+      "hashtags": "#MusicLicensing #FilmDistribution #IndieFilmProduction #LineProducer #FilmBudgeting",
       "slides": [
         {
           "slide": 1,
-          "heading": "Hook",
-          "prompt_summary": "Attention-grabbing hook related to: Music Licensing Traps for Indie Films"
+          "heading": "Festival Rights Are Not Streaming Rights",
+          "prompt_summary": "Music cue sheet and festival badge beside a laptop delivery checklist",
+          "text": "MUSIC RIGHTS CAN BREAK YOUR RELEASE\n\u2022 Festival-only is not distribution\n\u2022 Streaming needs separate clearance"
         },
         {
           "slide": 2,
-          "heading": "Educational 1",
-          "prompt_summary": "Deepen the topic"
+          "heading": "Two Rights Every Song Needs",
+          "prompt_summary": "Split-screen vinyl master tape and songwriter contract",
+          "text": "CLEAR BOTH SIDES\n\u2022 Sync license: the composition\n\u2022 Master use: the recording"
         },
         {
           "slide": 3,
-          "heading": "Educational 2",
-          "prompt_summary": "More specifics"
+          "heading": "The Cheap Cue Can Get Expensive",
+          "prompt_summary": "Editing bay timeline with a red warning marker on a music track",
+          "text": "THE TRAP IS THE UPGRADE\n\u2022 A festival license may be cheaper\n\u2022 Worldwide rights can cost more later"
         },
         {
           "slide": 4,
-          "heading": "Educational 3",
-          "prompt_summary": "Pitfalls and watch-outs"
+          "heading": "Delivery Paperwork Matters",
+          "prompt_summary": "Producer desk with cue sheets, metadata forms, and clearance emails",
+          "text": "DISTRIBUTORS ASK FOR PROOF\n\u2022 Cue sheets\n\u2022 Territory and term\n\u2022 Written approvals"
         },
         {
           "slide": 5,
-          "heading": "Educational 4",
-          "prompt_summary": "Actionable advice"
+          "heading": "Budget Before You Fall In Love",
+          "prompt_summary": "Line producer marking a music line item on a film budget",
+          "text": "PLAN THE MUSIC LINE EARLY\n\u2022 Price the song before picture lock\n\u2022 Keep a backup cue ready"
         },
         {
           "slide": 6,
-          "heading": "CTA",
-          "prompt_summary": "Gary Budgets call to action"
+          "heading": "Build A Budget That Survives Delivery",
+          "prompt_summary": "Cinematic end card with producer reviewing final budget on a dark soundstage",
+          "text": "DON\u2019T LET MUSIC KILL DELIVERY\n\u2022 Budget rights before you cut\n\u2022 Build smarter at garybudgets.com"
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -2465,6 +2471,72 @@
       "source": "Topic Scout",
       "suggestion": "Show why festival-only music rights can create expensive recuts later, and how to budget festival, streaming, and worldwide rights from day one.",
       "source_name": "Auto Scout \u00b7 music supervisor resources"
+    },
+    {
+      "id": "gb-alpha-prerelease-testers-2026-07-22",
+      "title": "Gary Budgets Is Entering Prerelease Alpha",
+      "pillar": "Behind the Build",
+      "status": "ready",
+      "source": "Manual",
+      "has_images": true,
+      "slide_count": 6,
+      "caption": "Gary Budgets is moving into prerelease alpha testing, and we\u2019re looking for indie filmmakers, producers, line producers, and production-minded creators who are willing to test the app on real budgeting problems.\n\nThis is not a polished public launch yet. It is the stage where the tool needs real projects, real edge cases, and real producer feedback: confusing categories, missing line items, export needs, collaboration habits, prep-stage assumptions, and the places where spreadsheet workflows slow you down.\n\nGary Budgets is being built for filmmakers who want a practical budgeting tool without subscription bloat \u2014 something you can use to plan a short, feature, doc, pilot, or proof-of-concept with more confidence.\n\nIf you want to help test the prerelease alpha, comment ALPHA or DM us with the kind of project you budget most often. We\u2019re especially interested in feedback from indie producers working with real constraints.",
+      "hashtags": "#FilmBudgeting #IndieFilmProduction #LineProducer #FilmmakerTools #GaryBudgets",
+      "proposed_schedule": "Fri, Jul 31 \u00b7 9:00 AM PT",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Prerelease Alpha",
+          "prompt_summary": "Laptop on a film production desk showing budget rows with sticky notes and coffee",
+          "text": "GARY BUDGETS IS ENTERING ALPHA\n\u2022 Prerelease testing starts soon\n\u2022 Indie producers wanted"
+        },
+        {
+          "slide": 2,
+          "heading": "Why We Built It",
+          "prompt_summary": "Producer surrounded by binders, spreadsheets, receipts, and call sheets",
+          "text": "FILM BUDGETS SHOULD NOT FEEL LIKE A TRAP\n\u2022 Own your file\n\u2022 Skip subscription bloat"
+        },
+        {
+          "slide": 3,
+          "heading": "Who Should Test",
+          "prompt_summary": "Small indie production team reviewing a budget before a shoot",
+          "text": "WE NEED REAL PRODUCER FEEDBACK\n\u2022 Shorts, features, docs, pilots\n\u2022 Early prep or active budgets"
+        },
+        {
+          "slide": 4,
+          "heading": "What Testers Will Do",
+          "prompt_summary": "Close-up of checklist: create budget, stress-test lines, send notes",
+          "text": "ALPHA TESTERS WILL PRESSURE-TEST THE APP\n\u2022 Build a real budget\n\u2022 Tell us where it breaks"
+        },
+        {
+          "slide": 5,
+          "heading": "What You Get",
+          "prompt_summary": "Cinematic desk with early access badge and locked-in one-time price note",
+          "text": "HELP SHAPE THE TOOL\n\u2022 Early access\n\u2022 Direct feedback loop\n\u2022 Founder-level support"
+        },
+        {
+          "slide": 6,
+          "heading": "Call For Testers",
+          "prompt_summary": "Dark cinematic end card with Gary Budgets wordmark-style text and signup prompt",
+          "text": "WANT TO TEST GARY BUDGETS?\n\u2022 Comment ALPHA or DM us\n\u2022 More at garybudgets.com"
+        }
+      ],
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/gb-alpha-prerelease-testers-2026-07-22/1.png",
+        "/images/gb-alpha-prerelease-testers-2026-07-22/2.png",
+        "/images/gb-alpha-prerelease-testers-2026-07-22/3.png",
+        "/images/gb-alpha-prerelease-testers-2026-07-22/4.png",
+        "/images/gb-alpha-prerelease-testers-2026-07-22/5.png",
+        "/images/gb-alpha-prerelease-testers-2026-07-22/6.png"
+      ]
     }
   ]
 }
