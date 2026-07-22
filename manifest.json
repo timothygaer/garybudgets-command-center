@@ -2449,7 +2449,7 @@
           "text": "DON’T LET MUSIC KILL DELIVERY\n• Budget rights before you cut\n• Build smarter at garybudgets.com"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2460,17 +2460,18 @@
         "6.png"
       ],
       "image_urls": [
-        "/images/scout-1784404509069-1/1.png",
-        "/images/scout-1784404509069-1/2.png",
-        "/images/scout-1784404509069-1/3.png",
-        "/images/scout-1784404509069-1/4.png",
-        "/images/scout-1784404509069-1/5.png",
-        "/images/scout-1784404509069-1/6.png"
+        "https://garybudgets-command-center.vercel.app/images/scout-1784404509069-1/1.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1784404509069-1/2.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1784404509069-1/3.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1784404509069-1/4.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1784404509069-1/5.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1784404509069-1/6.png"
       ],
       "created_at": "2026-07-18T19:55:09.069Z",
       "source": "Topic Scout",
       "suggestion": "Show why festival-only music rights can create expensive recuts later, and how to budget festival, streaming, and worldwide rights from day one.",
-      "source_name": "Auto Scout · music supervisor resources"
+      "source_name": "Auto Scout · music supervisor resources",
+      "approved_at": "2026-07-22T22:00:38.854Z"
     },
     {
       "id": "gb-alpha-prerelease-testers-2026-07-22",
