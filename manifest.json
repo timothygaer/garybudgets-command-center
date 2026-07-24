@@ -2380,7 +2380,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2402,7 +2402,10 @@
       "source": "Topic Scout",
       "suggestion": "How the new streaming residual formulas affect indie producers who sell to streaming \u2014 what to negotiate and what to expect.",
       "source_name": "WGA / DGA reports",
-      "approved_at": "2026-07-18T18:20:10.187Z"
+      "approved_at": "2026-07-18T18:20:10.187Z",
+      "posted_at": "2026-07-24T16:00:54+0000",
+      "instagram_url": "https://www.instagram.com/p/DbLnrUJm1n6/",
+      "instagram_media_id": "18081446993259755"
     },
     {
       "id": "scout-1784404509069-1",
