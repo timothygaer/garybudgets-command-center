@@ -865,7 +865,7 @@
           "prompt_summary": "We love superhero movies \u2014 even the messy ones. This one looks like new phase energy."
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "image_file_ids": [
         "1nK4Wnmrq7nLbi3AsQ-CPVxPYGeiRhMVc"
       ],
@@ -881,7 +881,10 @@
       "release_date": "Jul 31, 2026",
       "drive_assets_folder_id": "1W90G-_dOOsTfBdVrduNl0b1cW1bLB-DB",
       "drive_post_folder_id": "1mW5OHhDeowjWznbfMuaQTvQZ4xuP5xBL",
-      "approved_at": "2026-06-29T00:45:23.994Z"
+      "approved_at": "2026-06-29T00:45:23.994Z",
+      "posted_at": "2026-07-27T14:00:19+0000",
+      "instagram_url": "https://www.instagram.com/p/DbTIQjXm7gM/",
+      "instagram_media_id": "18109936390968165"
     },
     {
       "id": "GB-2026-07-06-11",
