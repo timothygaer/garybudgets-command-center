@@ -2251,7 +2251,7 @@
           "prompt_summary": "Filmmaker smiling at phone showing Gary Budgets app"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2273,7 +2273,10 @@
       "source": "Topic Scout",
       "suggestion": "New submission fee structures, grant programs for low-budget features, and virtual screening options announced at spring festivals.",
       "source_name": "Sundance / TIFF announcements",
-      "approved_at": "2026-07-18T18:18:41.360Z"
+      "approved_at": "2026-07-18T18:18:41.360Z",
+      "posted_at": "2026-07-28T16:00:53+0000",
+      "instagram_url": "https://www.instagram.com/p/DbV62sZGmOR/",
+      "instagram_media_id": "18000888290986642"
     },
     {
       "id": "scout-1784273931186-3",
