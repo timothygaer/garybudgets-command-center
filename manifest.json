@@ -2320,7 +2320,7 @@
           "prompt_summary": "Cinematic end card with budget folder, map, pencil and Gary Budgets brand. Text: SAVE THIS BEFORE YOUR NEXT LOCATION SCOUT / Highest rebate does not always win / Model cash timing before you commit / Build smarter budgets at garybudgets.com"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2342,7 +2342,10 @@
       "source": "Topic Scout",
       "suggestion": "Updated state-by-state incentives for indie productions \u2014 which states offer the best rebates for budgets under $3M.",
       "source_name": "FilmLA / state film offices",
-      "approved_at": "2026-07-18T19:19:07.833Z"
+      "approved_at": "2026-07-18T19:19:07.833Z",
+      "posted_at": "2026-07-29T16:00:52+0000",
+      "instagram_url": "https://www.instagram.com/p/DbYfpaAGpml/",
+      "instagram_media_id": "18087329861161133"
     },
     {
       "id": "scout-1784274212264",
