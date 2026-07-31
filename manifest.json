@@ -2495,7 +2495,7 @@
       "id": "gb-alpha-prerelease-testers-2026-07-22",
       "title": "Gary Budgets Is Entering Prerelease Alpha",
       "pillar": "Behind the Build",
-      "status": "approved",
+      "status": "posted",
       "source": "Manual",
       "has_images": true,
       "slide_count": 6,
@@ -2556,7 +2556,10 @@
         "https://garybudgets-command-center.vercel.app/images/gb-alpha-prerelease-testers-2026-07-22/5.png",
         "https://garybudgets-command-center.vercel.app/images/gb-alpha-prerelease-testers-2026-07-22/6.png"
       ],
-      "approved_at": "2026-07-22T22:00:34.628Z"
+      "approved_at": "2026-07-22T22:00:34.628Z",
+      "posted_at": "2026-07-31T16:00:53+0000",
+      "instagram_url": "https://www.instagram.com/p/DbdpPSZG1i4/",
+      "instagram_media_id": "18111181465782575"
     }
   ]
 }
