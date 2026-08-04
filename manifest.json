@@ -2867,7 +2867,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2888,7 +2888,8 @@
       "created_at": "2026-08-04T17:54:33.798Z",
       "source": "Topic Scout",
       "suggestion": "Translate night premium, meal penalties, turnaround, safety, lighting, and location restrictions into a producer-friendly budgeting lesson.",
-      "source_name": "Auto Scout · production scheduling guidance"
+      "source_name": "Auto Scout · production scheduling guidance",
+      "approved_at": "2026-08-04T20:36:48.603Z"
     },
     {
       "id": "scout-1785866073798-6",
