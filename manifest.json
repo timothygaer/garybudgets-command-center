@@ -3021,6 +3021,70 @@
       "source": "Topic Scout",
       "suggestion": "Explain when a completion bond becomes mandatory, what it costs, and how indie producers can budget for bond company oversight before financing closes.",
       "source_name": "Auto Scout \u00b7 Producers Guild / bond companies"
+    },
+    {
+      "id": "gb-buy-once-own-forever-2026-08-04",
+      "title": "Stop Renting Your Film Budget \u2014 Buy Once, Own Forever",
+      "pillar": "One-Time Revolution",
+      "slug": "Post_stop-renting-your-film-budget-buy-once-own-forever",
+      "slide_count": 6,
+      "original_schedule": "Fri, Aug 14 \u00b7 9:00 AM PT",
+      "proposed_schedule": "Fri, Aug 14 \u00b7 9:00 AM PT",
+      "caption": "Your film budgeting software shouldn't cost you more than your crew payroll.\n\nEvery production tool is pushing subscriptions now. $20/month becomes $240/year becomes $1,200 over 5 years. Multiply that across your team and your software budget explodes \u2014 for tools that vanish the day you stop paying.\n\nGary Budgets is different. One-time purchase. Own it forever. No monthly fees, no annual renewal, no feature paywalls. Your production budget tool should be an investment, not a subscription trap.\n\nJoin the alpha test at garybudgets.com and take ownership of your budget.\n\nShare this with every producer tired of subscription fatigue.",
+      "hashtags": "#FilmBudgeting #OneTimePurchase #NoSubscription #IndieFilmProduction #FilmSoftware #GaryBudgets #ProductionBudget",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Subscription billing statements piling up, text: STOP RENTING YOUR FILM BUDGET"
+        },
+        {
+          "slide": 2,
+          "heading": "Subscription trap",
+          "prompt_summary": "Monthly subscription costs growing over time, text: THE SUBSCRIPTION TRAP"
+        },
+        {
+          "slide": 3,
+          "heading": "Real cost of subscriptions",
+          "prompt_summary": "Calculator showing subscription costs over years, text: REAL COST OF SUBSCRIPTIONS"
+        },
+        {
+          "slide": 4,
+          "heading": "What happens when you stop paying",
+          "prompt_summary": "Expired subscription, locked data, text: STOP PAYING, LOSE ACCESS"
+        },
+        {
+          "slide": 5,
+          "heading": "Own your tools",
+          "prompt_summary": "Ownership concept, one-time purchase, text: BUY ONCE, OWN FOREVER"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Alpha test call to action, text: JOIN THE ALPHA TEST"
+        }
+      ],
+      "status": "ready",
+      "has_images": true,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/gb-buy-once-own-forever-2026-08-04/1.png",
+        "https://garybudgets-command-center.vercel.app/images/gb-buy-once-own-forever-2026-08-04/2.png",
+        "https://garybudgets-command-center.vercel.app/images/gb-buy-once-own-forever-2026-08-04/3.png",
+        "https://garybudgets-command-center.vercel.app/images/gb-buy-once-own-forever-2026-08-04/4.png",
+        "https://garybudgets-command-center.vercel.app/images/gb-buy-once-own-forever-2026-08-04/5.png",
+        "https://garybudgets-command-center.vercel.app/images/gb-buy-once-own-forever-2026-08-04/6.png"
+      ],
+      "created_at": "2026-08-04T22:00:00.000Z",
+      "source": "Manual",
+      "suggestion": "Focus on buy once own forever, no subscription model that Gary Budgets offers"
     }
   ]
 }
