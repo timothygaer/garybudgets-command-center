@@ -2929,7 +2929,7 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -2939,12 +2939,12 @@
         "6.png"
       ],
       "image_urls": [
-        "/images/scout-1785866073798-6/1.png",
-        "/images/scout-1785866073798-6/2.png",
-        "/images/scout-1785866073798-6/3.png",
-        "/images/scout-1785866073798-6/4.png",
-        "/images/scout-1785866073798-6/5.png",
-        "/images/scout-1785866073798-6/6.png"
+        "https://garybudgets-command-center.vercel.app/images/scout-1785866073798-6/1.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1785866073798-6/2.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1785866073798-6/3.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1785866073798-6/4.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1785866073798-6/5.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1785866073798-6/6.png"
       ],
       "created_at": "2026-08-04T17:54:33.798Z",
       "source": "Topic Scout",
