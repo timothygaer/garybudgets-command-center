@@ -2933,7 +2933,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2954,7 +2954,8 @@
       "created_at": "2026-08-04T17:54:33.798Z",
       "source": "Topic Scout",
       "suggestion": "Show how E&O, chain of title, captions, M&E, QC fixes, artwork, trailers, and file specs hit after production feels finished.",
-      "source_name": "Auto Scout · distributor delivery schedules"
+      "source_name": "Auto Scout · distributor delivery schedules",
+      "approved_at": "2026-08-04T20:36:53.299Z"
     },
     {
       "id": "scout-1785875620409-1",
