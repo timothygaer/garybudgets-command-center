@@ -2603,7 +2603,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2625,7 +2625,10 @@
       "source": "Topic Scout",
       "suggestion": "A practical list of conform, color, mix, QC, deliverables, captions, DCP, and archival costs that often get missed until delivery.",
       "source_name": "Auto Scout \u00b7 post supervisor checklists",
-      "approved_at": "2026-08-04T20:34:45.630Z"
+      "approved_at": "2026-08-04T20:34:45.630Z",
+      "posted_at": "2026-08-05T16:00:52+0000",
+      "instagram_url": "https://www.instagram.com/p/DbqhNggG-hR/",
+      "instagram_media_id": "18125892919759648"
     },
     {
       "id": "scout-1785866073798-2",
