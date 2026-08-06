@@ -2807,7 +2807,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2829,7 +2829,10 @@
       "source": "Topic Scout",
       "suggestion": "Explain payroll taxes, workers comp, union fringes, pension, health, and payroll fees as a multiplier on top of crew day rates.",
       "source_name": "Auto Scout \u00b7 entertainment payroll guidance",
-      "approved_at": "2026-08-04T20:36:44.507Z"
+      "approved_at": "2026-08-04T20:36:44.507Z",
+      "posted_at": "2026-08-06T07:00:53+0000",
+      "instagram_url": "https://www.instagram.com/p/DbsINZBm0gM/",
+      "instagram_media_id": "17978581419115193"
     },
     {
       "id": "scout-1785866073798-5",
