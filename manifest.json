@@ -2741,7 +2741,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -2763,7 +2763,10 @@
       "source": "Topic Scout",
       "suggestion": "Explain why contingency protects the schedule, how much indie films usually reserve, and what spending it too early does to the final weeks.",
       "source_name": "Auto Scout \u00b7 line producer best practices",
-      "approved_at": "2026-08-04T20:36:35.487Z"
+      "approved_at": "2026-08-04T20:36:35.487Z",
+      "posted_at": "2026-08-06T16:00:52+0000",
+      "instagram_url": "https://www.instagram.com/p/DbtGAcQm3G-/",
+      "instagram_media_id": "18077812844336997"
     },
     {
       "id": "scout-1785866073798-4",
