@@ -89,7 +89,10 @@ function postTitle(post: Post): string {
   return (post.caption || "").split("\n").find(Boolean)?.replace(/#/g, "").slice(0, 70) || "Untitled"
 }
 function engagementTotal(post: Post): number { return (post.like_count || 0) + (post.comments_count || 0) + (post.insights?.saved || 0) }
-function engineRate(post: Post): number { return post.insights?.reach ? engagementTotal(post) / post.insights.reach * 100 : 0 }
+// Engagement rate is only meaningful above a minimum impression count.
+// Below it, return NaN so callers render "—" instead of a false 1000% / false-green figure.
+const REACH_MIN_FOR_RATE = 100;
+function engineRate(post: Post): number { const reach = post.insights?.reach || 0; return reach >= REACH_MIN_FOR_RATE ? engagementTotal(post) / reach * 100 : NaN }
 function engRateStr(post: Post): string { const r = engineRate(post); return isNaN(r) ? "—" : r.toFixed(1) + "%" }
 function recentWI(posts: Post[], lim = 7): Post[] { return [...posts].filter(p => p.insights).sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, lim) }
 function extractHashtags(c: string): string[] { return c.match(/#[\w]+/g) || [] }
@@ -558,6 +561,7 @@ function AllPosts({ posts }: { posts: Post[] }) {
 
 export default function Dashboard() {
   const [data, setData] = useState<DashboardData | null>(null)
+  const [lastFetch, setLastFetch] = useState<number>(0)
   const [loading, setLoading] = useState(true)
   const [activeQueue, setActiveQueue] = useState<any[]>([])
   const [error, setError] = useState<string | null>(null)
@@ -578,6 +582,7 @@ export default function Dashboard() {
       const r = await fetch("/api/instagram")
       if (!r.ok) { const e = await r.json(); throw new Error(e.error || "Fetch failed") }
       setData(await r.json())
+      setLastFetch(Date.now())
       setError(null)
     } catch (err: any) { setError(err.message) }
     setLoading(false)
@@ -798,14 +803,13 @@ export default function Dashboard() {
 
               {/* ── INTEGRITY INDICATOR ── */}
               {(() => {
-                const tokenOk = true;
-                const freshAge = "2m";
+                const freshAge = lastFetch > 0 ? Math.max(0, Math.round((Date.now() - lastFetch) / 60000)) : 0;
                 return <div style={{ display: "flex", gap: 8, marginBottom: 8, ...s.bd1, ...s.bd6, padding: "4px 8px", background: "rgba(5,5,10,0.6)" }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 14, color: "#7a7a8a" }}>
-                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: tokenOk ? "#00ff88" : "#ef4444", boxShadow: tokenOk ? "0 0 6px #00ff88" : "0 0 6px #ef4444" }} />
-                    Data integrity: {tokenOk ? "Good" : "Failing"}
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: freshAge <= 5 ? "#00ff88" : "#ef4444", boxShadow: freshAge <= 5 ? "0 0 6px #00ff88" : "0 0 6px #ef4444" }} />
+                    Data integrity: {freshAge <= 5 ? "Good" : "Stale"}
                   </span>
-                  <span style={{ fontSize: 14, color: "#555566" }}>· Fresh {freshAge} ago · {data.posts.length} posts tracked · Token: 31 days</span>
+                  <span style={{ fontSize: 14, color: "#555566" }}>· Fresh {freshAge}m ago · {data.posts.length} posts tracked</span>
                 </div>
               })()}
               {showPending && pendingPosts.length > 0 && (
@@ -832,7 +836,7 @@ export default function Dashboard() {
                       const totalComments = data.posts.reduce((s,p) => s + ((p.insights?.comments || p.comments_count) || 0), 0);
                       const totalSaves = data.posts.reduce((s,p) => s + (p.insights?.saved || 0), 0);
                       const totalInteract = totalLikes + totalComments + totalSaves;
-                      const engRate = totalReach > 0 ? ((totalInteract / totalReach) * 100) : 0;
+                      const engRate = totalReach >= REACH_MIN_FOR_RATE ? ((totalInteract / totalReach) * 100) : NaN;
                       // Compare with localStorage snapshot for week-over-week
                       const prev = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("gb_snapshot") || "{}") : {};
                       const curr = { reach: totalReach, likes: totalLikes, comments: totalComments, saves: totalSaves, interact: totalInteract, followers: data.account?.followers || 0 };
@@ -844,7 +848,7 @@ export default function Dashboard() {
                       return [
                         { label: "Reach", value: n(totalReach), c: "#4a9eff", ch: `${arrow(pct(curr.reach, prev.reach||0))}${Math.abs(pct(curr.reach, prev.reach||0)).toFixed(0)}%`, cc: color(pct(curr.reach, prev.reach||0)) },
                         { label: "Saves", value: n(totalSaves), c: "#00ff88", ch: `${arrow(pct(curr.saves, prev.saves||0))}${Math.abs(pct(curr.saves, prev.saves||0)).toFixed(0)}%`, cc: color(pct(curr.saves, prev.saves||0)) },
-                        { label: "Eng. Rate", value: engRate.toFixed(1) + "%", c: "#ffb347", ch: "—", cc: "#555566" },
+                        { label: "Eng. Rate", value: isNaN(engRate) ? "—" : engRate.toFixed(1) + "%", c: "#ffb347", ch: totalReach < REACH_MIN_FOR_RATE ? "needs 100+ reach" : "—", cc: "#555566" },
                         { label: "Interact", value: n(totalInteract), c: "#b44aff", ch: `${arrow(pct(curr.interact, prev.interact||0))}${Math.abs(pct(curr.interact, prev.interact||0)).toFixed(0)}%`, cc: color(pct(curr.interact, prev.interact||0)) },
                       ].map(card => (
                         <div key={card.label} style={{ flex: 1, ...s.bd1, ...s.bd6, padding: "6px 8px", background: "rgba(255,255,255,0.01)" }}>
@@ -865,7 +869,11 @@ export default function Dashboard() {
                       <div style={{ fontSize: 14, ...s.txMuted, marginTop: 2 }}>· <span style={{ ...s.txBlue, fontWeight: 600 }}>{n(best.insights?.reach || 0)} reach</span> · <span style={{ ...s.txAmber, fontWeight: 600 }}>{engRateStr(best)}</span></div>
                     </div>
                   })()}
-                  <div style={{ ...s.textXxs, ...s.txDim, marginTop: 4 }}>📈 Growth: +18% this period · 7 posts tracked</div>
+                  {(() => {
+                    const tracked = data.posts.filter(p => p.insights).length;
+                    const totalReachAll = data.posts.reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
+                    return <div style={{ ...s.textXxs, ...s.txDim, marginTop: 4 }}>📈 {tracked} posts tracked · {n(totalReachAll)} total reach (last {data.posts.length} posts)</div>;
+                  })()}
                 </div>
 
                 {/* Engagement + Diagnosis (combined) */}
@@ -918,17 +926,41 @@ export default function Dashboard() {
                   <div style={{ marginTop: 6, ...s.bd4, ...s.bd1, padding: "5px 7px", background: "rgba(255,255,255,0.01)" }}>
                     <div style={{ ...s.textXxs, ...s.txDim, ...s.ttu, ...s.ls05, marginBottom: 3 }}>Diagnosis</div>
                     {(() => {
-                      // Compute diagnostic hints from real data
-                      const reachGrowth = 18;
-                      const saveRatio = 247 / 667;
-                      const engRate = 3.2;
-                      const likeCommentRatio = 362 / Math.max(58, 1);
-                      const diagnostics = [];
-                      if (engRate > 3) diagnostics.push({ icon: "🟢", label: "Engagement strong", detail: `${engRate}% rate exceeds 3% threshold` });
-                      if (saveRatio > 0.3) diagnostics.push({ icon: "🟢", label: "Saves high", detail: `${Math.round(saveRatio*100)}% of interactions` });
-                      if (likeCommentRatio > 8) diagnostics.push({ icon: "🟡", label: "Comment gap", detail: `${Math.round(likeCommentRatio)}:1 like-to-comment` });
-                      if (reachGrowth < 10) diagnostics.push({ icon: "🔴", label: "Reach declining", detail: `${reachGrowth}% growth this period` });
+                      // Real diagnostic hints from live Instagram data — no hardcoded numbers
+                      const followers = data.account?.followers || 0;
+                      const accountReach = data.insights?.reach || 0;
+                      const postReachSum = data.posts.reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
+                      const totalReach = Math.max(accountReach, postReachSum);
+                      const totalLikes = data.posts.reduce((s: number, p: any) => s + ((p.insights?.likes || p.like_count) || 0), 0);
+                      const totalComments = data.posts.reduce((s: number, p: any) => s + ((p.insights?.comments || p.comments_count) || 0), 0);
+                      const totalSaves = data.posts.reduce((s: number, p: any) => s + (p.insights?.saved || 0), 0);
+                      const totalInteract = totalLikes + totalComments + totalSaves;
+                      const engRate = totalReach >= REACH_MIN_FOR_RATE ? (totalInteract / totalReach) * 100 : NaN;
+                      const saveRatio = totalInteract > 0 ? totalSaves / totalInteract : 0;
+                      const likeCommentRatio = totalComments > 0 ? totalLikes / totalComments : 0;
+                      const now = Date.now();
+                      const reachInWindow = (days: number) => data.posts
+                        .filter(p => p.insights && now - new Date(p.timestamp).getTime() >= 0 && now - new Date(p.timestamp).getTime() < days * 86400000)
+                        .reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
+                      const reachRecent = reachInWindow(7);
+                      const reachPrev = reachInWindow(14) - reachRecent;
+                      const reachGrowth = reachPrev > 0 ? ((reachRecent - reachPrev) / reachPrev) * 100 : NaN;
+                      const coldStart = followers < 100 || totalReach < REACH_MIN_FOR_RATE;
+                      const diagnostics: { icon: string; label: string; detail: string }[] = [];
+                      if (coldStart) {
+                        diagnostics.push({ icon: "🟡", label: "Cold start — not enough data", detail: `${followers} followers · ~${totalReach} reach. Engagement rates are meaningless at this scale — focus on discovery (Reels + daily outbound engagement).` });
+                      } else {
+                        if (engRate > 3) diagnostics.push({ icon: "🟢", label: "Engagement strong", detail: `${engRate.toFixed(1)}% rate exceeds 3% threshold` });
+                        if (saveRatio > 0.3) diagnostics.push({ icon: "🟢", label: "Saves high", detail: `${Math.round(saveRatio*100)}% of interactions` });
+                        if (likeCommentRatio > 8) diagnostics.push({ icon: "🟡", label: "Comment gap", detail: `${Math.round(likeCommentRatio)}:1 like-to-comment` });
+                        if (!isNaN(reachGrowth) && reachGrowth < 10) diagnostics.push({ icon: "🔴", label: "Reach declining", detail: `${reachGrowth.toFixed(0)}% growth this period` });
+                      }
                       if (diagnostics.length === 0) diagnostics.push({ icon: "⚪", label: "All nominal", detail: "No anomalies detected" });
+                      const hint = coldStart
+                        ? "Focus on discovery: post Reels, engage outbound daily, keep posting consistently — interactions will lag reach."
+                        : likeCommentRatio > 8
+                          ? "Reply to comments within the hour and ask questions to lift comment rate."
+                          : "Engagement nominal — keep posting consistently and test hooks.";
                       return <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                         {diagnostics.map((d, i) => (
                           <div key={i} style={{ display: "flex", gap: 4, alignItems: "center" }}>
@@ -937,30 +969,46 @@ export default function Dashboard() {
                             <span style={{ fontSize: 12, color: "#555566" }}>— {d.detail}</span>
                           </div>
                         ))}
-                      </div>
+                        <div style={{ marginTop: 4, ...s.bd4, padding: "3px 5px", background: "rgba(220,38,38,0.04)", border: "1px solid rgba(220,38,38,0.08)", borderRadius: 3 }}>
+                          <span style={{ fontSize: 13, color: "#00ff88" }}>→</span> <span style={{ fontSize: 13, color: "#7a7a8a" }}>{hint}</span>
+                        </div>
+                      </div>;
                     })()}
-                    {/* Response hint */}
-                    <div style={{ marginTop: 4, ...s.bd4, padding: "3px 5px", background: "rgba(220,38,38,0.04)", border: "1px solid rgba(220,38,38,0.08)", borderRadius: 3 }}>
-                      <span style={{ fontSize: 13, color: "#00ff88" }}>→</span> <span style={{ fontSize: 13, color: "#7a7a8a" }}>Engagement good — focus on reply rate & peak-time posting to maximize reach</span>
-                    </div>
                   </div>
                 </div>
               </div>
 
-                            {/* ── Row 2: Trend Chart (full width) ── */}
+                            {/* ── Row 2: Reach Trend (full width, real data) ── */}
               <div style={{ marginBottom: 8 }}>
                 <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
-                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
-                    Trend <span style={{ fontSize: 16, ...s.txGreen, ...s.fw5 }}>+18%</span>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "flex-end", gap: 2, height: 48 }}>
-                    {[20,40,25,60,35,72,50,45,90,55].map((h, i) => (
-                      <div key={i} style={{ flex: 1, borderRadius: "1px 1px 0 0", background: "linear-gradient(180deg,#dc2626,rgba(220,38,38,0.25))", height: `${h}%`, minHeight: 2 }} />
-                    ))}
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, ...s.txDim, marginTop: 2 }}>
-                    <span>Jul 10</span><span>Jul 12</span><span>Jul 14</span><span>Jul 16</span>
-                  </div>
+                  {(() => {
+                    const days: { label: string; reach: number }[] = [];
+                    const today = new Date();
+                    for (let i = 13; i >= 0; i--) {
+                      const d = new Date(today);
+                      d.setDate(today.getDate() - i);
+                      const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+                      const reach = data.posts.filter(p => (p.timestamp || "").slice(0, 10) === key).reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
+                      days.push({ label: `${d.getMonth() + 1}/${d.getDate()}`, reach });
+                    }
+                    const maxReach = Math.max(...days.map(d => d.reach), 1);
+                    const totalReach14 = days.reduce((s, d) => s + d.reach, 0);
+                    const hasData = totalReach14 > 0;
+                    return <>
+                      <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
+                        Reach · 14 days <span style={{ fontSize: 16, ...s.txGreen, ...s.fw5 }}>{hasData ? n(totalReach14) : "—"}</span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "flex-end", gap: 2, height: 48 }}>
+                        {days.map((d, i) => (
+                          <div key={i} title={`${d.label}: ${d.reach} reach`} style={{ flex: 1, borderRadius: "1px 1px 0 0", background: "linear-gradient(180deg,#dc2626,rgba(220,38,38,0.25))", height: `${hasData ? Math.max((d.reach / maxReach) * 100, 2) : 2}%`, minHeight: 2 }} />
+                        ))}
+                      </div>
+                      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, ...s.txDim, marginTop: 2 }}>
+                        <span>{days[0]?.label}</span><span>{days[6]?.label}</span><span>{days[13]?.label}</span>
+                      </div>
+                      {!hasData && <div style={{ fontSize: 12, ...s.txMuted, marginTop: 4 }}>No reach data for the last 14 days yet.</div>}
+                    </>;
+                  })()}
                 </div>
               </div>
 
@@ -1135,9 +1183,17 @@ export default function Dashboard() {
                       <span key={t} style={{ fontSize: 12, padding: "2px 8px", borderRadius: 3, border: i === 0 ? "1px solid rgba(220,38,38,0.25)" : "1px solid #181830", background: i === 0 ? "rgba(220,38,38,0.06)" : "rgba(255,255,255,0.01)", color: i === 0 ? "#ef4444" : "#888", display: "inline-block", lineHeight: 1.4 }}>{t}</span>
                     ))}
                   </div>
-                  <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span>Budget School</span><span style={{ fontWeight: 600, ...s.txBlue }}>2.4K avg</span></div>
-                  <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span>Industry Watch</span><span style={{ fontWeight: 600, ...s.txGreen }}>3.1K avg</span></div>
-                  <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span>Questions</span><span style={{ fontWeight: 600, ...s.txAmber }}>1.8K avg</span></div>
+                  {(() => {
+                    const withInsights = data.posts.filter(p => p.insights);
+                    const avgReach = withInsights.length > 0 ? Math.round(withInsights.reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0) / withInsights.length) : 0;
+                    const avgLikes = withInsights.length > 0 ? Math.round(withInsights.reduce((s: number, p: any) => s + ((p.insights?.likes || p.like_count) || 0), 0) / withInsights.length) : 0;
+                    const engaged = withInsights.filter(p => ((p.insights?.likes || p.like_count) || 0) + (p.insights?.comments || 0) + (p.insights?.saved || 0) > 0).length;
+                    return <>
+                      <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span>Avg reach</span><span style={{ fontWeight: 600, ...s.txBlue }}>{n(avgReach)}</span></div>
+                      <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span>Avg likes</span><span style={{ fontWeight: 600, ...s.txGreen }}>{n(avgLikes)}</span></div>
+                      <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span>Posts w/ engagement</span><span style={{ fontWeight: 600, ...s.txAmber }}>{engaged}/{withInsights.length}</span></div>
+                    </>;
+                  })()}
                 </div>
 
                 {/* Hashtag Performance (own box, full featured) */}
