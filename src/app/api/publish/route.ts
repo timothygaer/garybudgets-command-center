@@ -1,7 +1,7 @@
 import { uploadImageToHost, publishPost } from "@/lib/instagram"
 import { readFile } from "fs/promises"
 
-const IG_ID = "17841414649666550"
+const IG_ID = "17841414649666554"
 
 export async function POST(request: Request) {
   try {
