@@ -3124,6 +3124,26 @@
       "instagram_url": "https://www.instagram.com/reel/DbzxQDbGJE4/",
       "instagram_media_id": "18237882151313815",
       "created_at": "2026-08-08T22:30:00-07:00"
+    },
+    {
+      "id": "gb-reel-night-shoots-cost-more-2026-08-10",
+      "title": "Why Night Shoots Cost More Than Producers Expect",
+      "pillar": "Budget School",
+      "slug": "Reel_Why_Night_Shoots_Cost_More",
+      "source": "Reel",
+      "status": "approved",
+      "original_schedule": "Mon, Aug 10 \u00b7 9:00 AM PT",
+      "proposed_schedule": "Mon, Aug 10 \u00b7 9:00 AM PT",
+      "caption": "Why your night shoot costs 20-30% more than the day version. \ud83c\udf19\n\nNight premium isn't one line item \u2014 it's five:\n1. Cast +15% after midnight, crew night rates 15-25% (union)\n2. Meal penalties accrue by the half-hour the moment you're late\n3. Overtime kicks in after 12 hours \u2014 night days run long\n4. 2-3x the lighting package: generators, fuel, grip + electric hours\n5. The safety tax: police details, traffic control, noise permits, medics, insurance night caveats\n\nAnd the hidden burn: turnaround eats the next day. Flip to day? More penalties. The 8-hour night day often costs as much as a 14-hour day.\n\nPut every one of these in the budget before you greenlight the night block \u2014 not after the wrap report.\n\nSave this for your next night shoot. \u267b\ufe0f\nTag the producer who needs to see the real number before locking the schedule.\n\n#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "slide_count": 6,
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/night-shoots-cost-more.mp4",
+      "has_images": true,
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/night-shoots-cost-more-cover.jpg"
+      ],
+      "created_at": "2026-08-08T23:30:00-07:00",
+      "build_type": "reel"
     }
   ]
 }

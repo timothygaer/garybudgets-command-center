@@ -1,0 +1,185 @@
+{
+  "slug": "night-shoots-cost-more",
+  "title": "Why Night Shoots Cost More Than Producers Expect",
+  "fps": 30,
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "music_fade_in": 0.8,
+  "music_fade_out": 1.6,
+  "bg_dir": "public/reels/bg/night-shoots",
+  "scenes": [
+    {
+      "name": "HOOK",
+      "duration": 4.5,
+      "bg": "01-night-set.jpg",
+      "kenburns": "zoom_in",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "elastic_scale",
+          "stagger": 0.16,
+          "y": 0.28,
+          "lines": [
+            { "text": "NIGHT SHOOTS", "font": "ArchivoBlack", "size": 104, "color": "#F5EFE2" },
+            { "text": "COST 20-30% MORE", "font": "ArchivoBlack", "size": 104, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.9, "y": 0.64,
+          "text": "Than producers expect. Here's where the money goes.",
+          "font": "Roboto", "size": 42, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE PREMIUMS",
+      "duration": 5.0,
+      "bg": "01-night-set.jpg",
+      "kenburns": "pan_right",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "punch",
+          "y": 0.18,
+          "lines": [
+            { "text": "THE PREMIUMS", "font": "ArchivoBlack", "size": 88, "color": "#F5EFE2" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.4,
+          "y0": 0.42,
+          "items": [
+            { "text": "CAST +15% after midnight", "color": "#F5B24A" },
+            { "text": "CREW NIGHT RATES 15-25%", "color": "#F5EFE2" },
+            { "text": "MEAL PENALTIES by the half-hour", "color": "#F5EFE2" },
+            { "text": "OVERTIME after 12 hours", "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.6, "y": 0.85,
+          "text": "Union rules make after dark the most expensive hours on set.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE HIDDEN BURN",
+      "duration": 5.0,
+      "bg": "01-night-set.jpg",
+      "kenburns": "pan_up",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "expand",
+          "y": 0.18,
+          "lines": [
+            { "text": "THE HIDDEN BURN", "font": "ArchivoBlack", "size": 88, "color": "#F5EFE2" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.4,
+          "y0": 0.42,
+          "items": [
+            { "text": "TURNAROUND eats the next day", "color": "#F5EFE2" },
+            { "text": "FLIP TO DAY = MORE PENALTIES", "color": "#DA202A" },
+            { "text": "FATIGUE slows every setup", "color": "#F5EFE2" },
+            { "text": "WRAP runs into the morning", "color": "#F5EFE2" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.6, "y": 0.85,
+          "text": "The 8-hour night day often costs as much as a 14-hour day.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE RIG",
+      "duration": 5.0,
+      "bg": "01-night-set.jpg",
+      "kenburns": "zoom_out",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "elastic_scale",
+          "y": 0.18,
+          "lines": [
+            { "text": "MORE LIGHT.", "font": "ArchivoBlack", "size": 88, "color": "#F5EFE2" },
+            { "text": "MORE POWER.", "font": "ArchivoBlack", "size": 88, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.5,
+          "y0": 0.42,
+          "items": [
+            { "text": "2-3x the lighting package", "color": "#F5EFE2" },
+            { "text": "GENERATORS + fuel + cables", "color": "#F5EFE2" },
+            { "text": "GRIP + ELECTRIC crew hours", "color": "#F5EFE2" },
+            { "text": "NIGHT EXTERIORS eat watts", "color": "#F5B24A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.6, "y": 0.85,
+          "text": "You are buying the sun. It is not cheap.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE SAFETY TAX",
+      "duration": 4.5,
+      "bg": "01-night-set.jpg",
+      "kenburns": "pan_left",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "punch",
+          "y": 0.18,
+          "lines": [
+            { "text": "THE SAFETY TAX", "font": "ArchivoBlack", "size": 88, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.4,
+          "y0": 0.42,
+          "items": [
+            { "text": "POLICE DETAILS / TRAFFIC CONTROL", "color": "#F5EFE2" },
+            { "text": "NOISE ORDINANCE permits", "color": "#F5EFE2" },
+            { "text": "MEDICS + safety officers", "color": "#F5EFE2" },
+            { "text": "INSURANCE night caveats", "color": "#F5B24A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.5, "y": 0.85,
+          "text": "Locations get expensive after dark.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "CTA",
+      "duration": 4.5,
+      "bg": "02-ledger-desk.jpg",
+      "kenburns": "zoom_in",
+      "blocks": [
+        {
+          "kind": "cta",
+          "anim": "elastic_scale",
+          "stagger": 0.15,
+          "y": 0.30,
+          "lines": [
+            { "text": "BUDGET THE NIGHT", "font": "ArchivoBlack", "size": 92, "color": "#F5EFE2" },
+            { "text": "BEFORE YOU SHOOT", "font": "ArchivoBlack", "size": 92, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.9, "y": 0.58,
+          "text": "Night premium, meal, OT, lighting — every line item in the plan.",
+          "font": "Roboto", "size": 40, "color": "#B0A99A" },
+        { "kind": "sub", "anim": "fade_up", "delay": 1.4, "y": 0.70,
+          "text": "garybudgets.com  ·  @garyfilmbudgets", "font": "Anton", "size": 52, "color": "#F5B24A" }
+      ]
+    }
+  ]
+}
