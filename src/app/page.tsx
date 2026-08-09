@@ -75,6 +75,16 @@ const TOPIC_SCOUT_AUTO_TOP_UP_TOPICS = [
   { topic: "Deliverables Can Eat Your Final Contingency", source: "Auto Scout · distributor delivery schedules", confidence: 85, suggestion: "Show how E&O, chain of title, captions, M&E, QC fixes, artwork, trailers, and file specs hit after production feels finished." },
   { topic: "Union vs Non-Union Budget Tradeoffs", source: "Auto Scout · SAG-AFTRA / crew agreement resources", confidence: 81, suggestion: "Compare predictability, paperwork, fringes, rate floors, overtime, and talent access so producers can choose the right structure before scheduling." },
   { topic: "The Real Cost of a Company Move", source: "Auto Scout · assistant director scheduling guidance", confidence: 80, suggestion: "Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee." },
+  { topic: "Catering & Craft Services: The Feeding Line Item", source: "Auto Scout · craft service budgeting guides", confidence: 84, suggestion: "Break down per-day meal counts, craft stations, late meal costs, and dietary riders that quietly inflate the feeding line on long shoots." },
+  { topic: "Equipment Rental vs Purchase: The Break-Even Decision", source: "Auto Scout · rental house rate cards", confidence: 83, suggestion: "Show when buying a camera or lens package beats renting on a 30-day shoot, including insurance, maintenance, and resale assumptions." },
+  { topic: "The Real Cost of a Reshoot Day", source: "Auto Scout · production scheduling guidance", confidence: 87, suggestion: "Model what one added shooting day really costs: cast availability, location re-permits, crew OT, and the knock-on schedule effects." },
+  { topic: "Permit Costs: LA vs Atlanta vs NYC", source: "Auto Scout · city film office rate sheets", confidence: 78, suggestion: "Compare street closure, police detail, parking, and basecamp permit costs across major production cities for an indie feature." },
+  { topic: "Stunt & Special Skills Budget Lines", source: "Auto Scout · stunt coordinator checklists", confidence: 82, suggestion: "Cover stunt coordinator, rigging, safety crew, medical standby, insurance riders, and rehearsal days as explicit budget lines." },
+  { topic: "DIT & Data Management: The Invisible Post Cost", source: "Auto Scout · DIT workflows", confidence: 85, suggestion: "Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot." },
+  { topic: "Sound Design Budget: Why Silence Isn't Free", source: "Auto Scout · post sound guidance", confidence: 86, suggestion: "Dialogue clean, foley, sound design, mix, and M&E tracks each carry costs producers forget until the mix stage." },
+  { topic: "Weather Contingency: Rain Days in the Budget", source: "Auto Scout · production insurance guidance", confidence: 80, suggestion: "How to budget rain days, weather holds, force majeure, and reshoot planning so one bad week doesn't blow the contingency." },
+  { topic: "Casting Costs Beyond the Casting Director", source: "Auto Scout · casting budgets", confidence: 79, suggestion: "Session fees, self-tape review hours, callbacks, chemistry reads, and hold fees add up — budget the full casting pipeline." },
+  { topic: "Marketing Budget for a Self-Distributed Film", source: "Auto Scout · indie distribution guides", confidence: 84, suggestion: "Ads, festival circuit, key art, trailers, and premiere costs — what a realistic P&A line looks like for a micro-budget feature." }
 ]
 
 function n(num: number | string | undefined | null): string {
@@ -283,6 +293,9 @@ function QueueTab() {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
             <span className="text-[10px] px-1.5 py-0.5 rounded font-medium" style={{ background: `${pillarColors[item.pillar] || "#666"}20`, color: pillarColors[item.pillar] || "#666" }}>{item.pillar}</span>
+            {item.build_type && item.build_type !== "carousel" && (
+              <span className="text-[10px] px-1.5 py-0.5 rounded font-medium" style={{ background: item.build_type === "both" ? "rgba(0,212,255,0.12)" : "rgba(180,74,255,0.12)", color: item.build_type === "both" ? "#00d4ff" : "#b44aff" }}>{item.build_type === "both" ? "Carousel + Reel" : "Reel"}</span>
+            )}
             <span className={`text-[10px] px-2 py-0.5 rounded font-medium ${st.bg}`} style={{ color: st.color }}>{st.label}</span>
             <span className="text-[9px] text-text-muted"><Image size={10} className="inline mr-0.5" />{item.slide_count || item.slides?.length || 0} slides</span>
           </div>
@@ -575,6 +588,7 @@ export default function Dashboard() {
   const [calendarEvents, setCalendarEvents] = useState<any[]>([])
   const [modalPost, setModalPost] = useState<any | null>(null)
   const [page, setPage] = useState<NavPage>("overview")
+  const [buildType, setBuildType] = useState<"carousel" | "reel" | "both">("carousel")
 
   const fetchData = useCallback(async () => {
     setLoading(true)
@@ -1413,6 +1427,12 @@ export default function Dashboard() {
                     </div>
                   </div>
                 })}
+                <div style={{ display: "flex", gap: 6, justifyContent: "center", marginBottom: 12 }}>
+                  {(["carousel", "reel", "both"] as const).map(bt => (
+                    <div key={bt} onClick={() => setBuildType(bt)} title={bt === "carousel" ? "6-slide carousel (default)" : bt === "reel" ? "Kinetic video reel" : "Carousel images + reel video"} style={{ padding: "6px 16px", borderRadius: 6, fontSize: 12, cursor: "pointer", textTransform: "uppercase", letterSpacing: "0.04em", fontWeight: 600, background: buildType === bt ? "rgba(220,38,38,0.14)" : "rgba(255,255,255,0.02)", border: buildType === bt ? "1px solid rgba(220,38,38,0.45)" : "1px solid #2a2a3a", color: buildType === bt ? "#ef4444" : "#7a7a8a" }}>{bt}</div>
+                  ))}
+                  <span style={{ alignSelf: "center", fontSize: 10, color: "#555566" }}>build as</span>
+                </div>
                 <div style={{ display: "flex", gap: 8, justifyContent: "center", marginTop: 12 }}>
                   <div onClick={() => { setResearchOpen(false); setResearchState("idle") }} style={{ display: "inline-block", padding: "8px 24px", background: "rgba(255,255,255,0.03)", border: "1px solid #3a3a4a", borderRadius: 6, fontSize: 12, color: "#7a7a8a", cursor: "pointer" }}>Cancel</div>
                   <div onClick={() => {
@@ -1441,7 +1461,7 @@ export default function Dashboard() {
                       fetch("/api/write-selection", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion })) })
+                        body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion })), build_type: buildType })
                       }).then(resp => resp.json()).then(result => {
                         if (result.success) {
                           if (result.drafts?.length > 0) {

@@ -119,9 +119,12 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { topics } = body
+    const { topics, build_type = "carousel" } = body
     if (!topics || !Array.isArray(topics)) {
       return Response.json({ error: "topics array required" }, { status: 400 })
+    }
+    if (!["carousel", "reel", "both"].includes(build_type)) {
+      return Response.json({ error: "build_type must be carousel, reel, or both" }, { status: 400 })
     }
 
     // Read current manifest to check for already-built topics
@@ -160,6 +163,7 @@ export async function POST(request: Request) {
         pillar: topic.topic.toLowerCase().includes("budget") || topic.topic.toLowerCase().includes("cost") || topic.topic.toLowerCase().includes("money") ? "Budget School" : "Industry Watch",
         slug: `Post_${slugify(title)}`,
         slide_count: 6,
+        build_type,
         original_schedule: schedule,
         proposed_schedule: schedule,
         caption: discoveryCopy.caption,
