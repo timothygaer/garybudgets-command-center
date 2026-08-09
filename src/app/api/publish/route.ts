@@ -35,9 +35,9 @@ export async function POST(request: Request) {
       if (!cData.id) {
         return Response.json({ error: `Reel container creation failed: ${JSON.stringify(cData)}` }, { status: 400 })
       }
-      // Poll container status until FINISHED (video processing can take 30-90s)
+      // Poll container status until FINISHED (video processing can take 1-5 min)
       let status = "IN_PROGRESS"
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 60; i++) {
         await new Promise(r => setTimeout(r, 5000))
         const sR = await fetch(`${BASE}/${cData.id}?fields=status_code&access_token=${token}`)
         const sData = await sR.json()
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
         }
       }
       if (status !== "FINISHED") {
-        return Response.json({ error: `Reel container still ${status} after 150s` }, { status: 400 })
+        return Response.json({ error: `Reel container ${cData.id} still ${status} after 300s` }, { status: 400 })
       }
       const pR = await fetch(`${BASE}/media_publish`, {
         method: "POST",
