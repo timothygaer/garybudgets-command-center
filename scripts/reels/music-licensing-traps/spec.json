@@ -1,0 +1,154 @@
+{
+  "slug": "music-licensing-traps",
+  "title": "Music Licensing Traps for Indie Films",
+  "fps": 30,
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.38,
+  "music_fade_in": 0.8,
+  "music_fade_out": 1.6,
+  "bg_dir": "public/reels/bg/music-licensing-traps",
+  "scenes": [
+    {
+      "name": "HOOK",
+      "duration": 3.2,
+      "bg": "01-hook.jpg",
+      "kenburns": "zoom_in",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "elastic_scale",
+          "stagger": 0.16,
+          "y": 0.30,
+          "lines": [
+            { "text": "$500 SONG", "font": "ArchivoBlack", "size": 112, "color": "#F5EFE2" },
+            { "text": "$15K RECUT", "font": "ArchivoBlack", "size": 112, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.7, "y": 0.64,
+          "text": "Music rights can break your film after picture lock.",
+          "font": "Roboto", "size": 40, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE EQUATION",
+      "duration": 3.8,
+      "bg": "02-editing.jpg",
+      "kenburns": "pan_right",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "elastic_scale",
+          "stagger": 0.18,
+          "y": 0.30,
+          "lines": [
+            { "text": "FESTIVAL RIGHTS", "font": "ArchivoBlack", "size": 78, "color": "#F5EFE2" },
+            { "text": "ARE NOT", "font": "Anton", "size": 58, "color": "#F5B24A" },
+            { "text": "STREAMING RIGHTS", "font": "ArchivoBlack", "size": 78, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.9, "y": 0.64,
+          "text": "Cheap clearance now becomes expensive delivery later.",
+          "font": "Roboto", "size": 40, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE TRAP",
+      "duration": 3.8,
+      "bg": "03-office.jpg",
+      "kenburns": "zoom_out",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "punch",
+          "y": 0.30,
+          "lines": [
+            { "text": "THE TRAP", "font": "ArchivoBlack", "size": 130, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.7, "y": 0.64,
+          "text": "You cut to a track before worldwide rights are priced.",
+          "font": "Roboto", "size": 40, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE FIX",
+      "duration": 4.2,
+      "bg": "04-contract.jpg",
+      "kenburns": "pan_up",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "expand",
+          "y": 0.22,
+          "lines": [
+            { "text": "BUDGET THE LICENSE", "font": "ArchivoBlack", "size": 96, "color": "#F5EFE2" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.14,
+          "delay": 0.5,
+          "y0": 0.52,
+          "items": [
+            { "text": "USE", "color": "#F5EFE2" },
+            { "text": "TERRITORY", "color": "#F5EFE2" },
+            { "text": "TERM", "color": "#F5EFE2" },
+            { "text": "PLATFORM", "color": "#F5EFE2" },
+            { "text": "APPROVAL", "color": "#F5B24A" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DO IT EARLY",
+      "duration": 4.4,
+      "bg": "05-grading.jpg",
+      "kenburns": "pan_left",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "elastic_scale",
+          "stagger": 0.15,
+          "y": 0.24,
+          "lines": [
+            { "text": "BEFORE", "font": "ArchivoBlack", "size": 96, "color": "#F5EFE2" },
+            { "text": "PICTURE LOCK", "font": "ArchivoBlack", "size": 96, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "punch",
+          "stagger": 0.22,
+          "delay": 0.6,
+          "y0": 0.56,
+          "items": [
+            { "text": "Clear it.", "color": "#46BE80" },
+            { "text": "Cap it.", "color": "#F5B24A" },
+            { "text": "Document it.", "color": "#DA202A" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CTA",
+      "duration": 4.2,
+      "bg": "06-desk.jpg",
+      "kenburns": "zoom_in",
+      "blocks": [
+        {
+          "kind": "cta",
+          "anim": "elastic_scale",
+          "stagger": 0.15,
+          "y": 0.36,
+          "lines": [
+            { "text": "SAVE THIS", "font": "ArchivoBlack", "size": 104, "color": "#F5EFE2" },
+            { "text": "BEFORE YOU CUT", "font": "ArchivoBlack", "size": 104, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 1.0, "y": 0.62,
+          "text": "garybudgets.com  ·  @garyfilmbudgets", "font": "Anton", "size": 52, "color": "#F5B24A" }
+      ]
+    }
+  ]
+}
