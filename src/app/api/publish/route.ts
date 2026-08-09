@@ -5,16 +5,72 @@ const IG_ID = "17841414649666550"
 
 export async function POST(request: Request) {
   try {
-    const { caption, image_base64, filename, image_urls, post_id } = await request.json()
+    const { caption, image_base64, filename, image_urls, post_id, media_type, video_url, cover_url, share_to_feed } = await request.json()
+
+    const token = process.env.INSTAGRAM_ACCESS_TOKEN
+    if (!token) {
+      return Response.json({ error: "INSTAGRAM_ACCESS_TOKEN not configured" }, { status: 500 })
+    }
+
+    // REELS: single video upload (media container flow)
+    if (media_type === "REELS") {
+      if (!video_url) {
+        return Response.json({ error: "video_url required for REELS" }, { status: 400 })
+      }
+      const BASE = `https://graph.instagram.com/v21.0/${IG_ID}`
+      const containerBody: Record<string, string> = {
+        media_type: "REELS",
+        video_url,
+        caption,
+        share_to_feed: share_to_feed === false ? "false" : "true",
+        access_token: token,
+      }
+      if (cover_url) containerBody.cover_url = cover_url
+      const cR = await fetch(`${BASE}/media`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(containerBody),
+      })
+      const cData = await cR.json()
+      if (!cData.id) {
+        return Response.json({ error: `Reel container creation failed: ${JSON.stringify(cData)}` }, { status: 400 })
+      }
+      // Poll container status until FINISHED (video processing can take 30-90s)
+      let status = "IN_PROGRESS"
+      for (let i = 0; i < 30; i++) {
+        await new Promise(r => setTimeout(r, 5000))
+        const sR = await fetch(`${BASE}/${cData.id}?fields=status_code&access_token=${token}`)
+        const sData = await sR.json()
+        status = sData.status_code || status
+        if (status === "FINISHED") break
+        if (status === "ERROR" || status === "EXPIRED") {
+          return Response.json({ error: `Reel container failed: ${JSON.stringify(sData)}` }, { status: 400 })
+        }
+      }
+      if (status !== "FINISHED") {
+        return Response.json({ error: `Reel container still ${status} after 150s` }, { status: 400 })
+      }
+      const pR = await fetch(`${BASE}/media_publish`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ creation_id: cData.id, access_token: token }),
+      })
+      const pData = await pR.json()
+      if (!pData.id) {
+        return Response.json({ error: `Reel publish failed: ${JSON.stringify(pData)}` }, { status: 400 })
+      }
+      const permalinkR = await fetch(`${BASE}/${pData.id}?fields=id,permalink&access_token=${token}`)
+      const permalinkData = await permalinkR.json()
+      return Response.json({
+        success: true,
+        media_id: pData.id,
+        permalink: permalinkData.permalink,
+        image_url: cover_url || video_url,
+      })
+    }
 
     // If we have pre-uploaded image URLs (Vercel/GitHub-hosted), publish carousel directly
     if (image_urls && image_urls.length > 0) {
-      const token = process.env.INSTAGRAM_ACCESS_TOKEN
-      if (!token) {
-        return Response.json({ error: "INSTAGRAM_ACCESS_TOKEN not configured" }, { status: 500 })
-      }
-
-      const IG_ID = "17841414649666554"
       const BASE = `https://graph.instagram.com/v21.0/${IG_ID}`
 
       // Step 1: Create individual media containers
