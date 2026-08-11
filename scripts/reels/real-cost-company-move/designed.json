@@ -1,0 +1,16 @@
+{
+  "slug": "real-cost-company-move-v2",
+  "title": "The Real Cost of a Company Move",
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "out_video": "public/reels/real-cost-company-move-v2.mp4",
+  "out_montage": "public/reels/real-cost-company-move-v2-montage.jpg",
+  "scenes": [
+    { "img": "public/reels/designed/company-move/01-hook.jpg",    "duration": 4.5, "motion": "zoom_in"  },
+    { "img": "public/reels/designed/company-move/02-trucks.jpg",  "duration": 5.0, "motion": "pan_up"    },
+    { "img": "public/reels/designed/company-move/03-clock.jpg",   "duration": 5.0, "motion": "zoom_out"  },
+    { "img": "public/reels/designed/company-move/04-meals.jpg",   "duration": 4.5, "motion": "pan_down"  },
+    { "img": "public/reels/designed/company-move/05-permits.jpg", "duration": 5.0, "motion": "zoom_in"   },
+    { "img": "public/reels/designed/company-move/06-cta.jpg",     "duration": 4.5, "motion": "zoom_in"   }
+  ]
+}

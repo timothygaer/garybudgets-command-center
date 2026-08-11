@@ -1,0 +1,19 @@
+{
+  "_rule": "No song repeats within 10 consecutive reels (2-week window). pick_track.py selects the least-recently-used track for the requested mood. Usage is appended by the picker and committed with each reel.",
+  "_sources": {
+    "motionarray": "User's paid Motion Array sub — 30 tracks (ma-<mood>-NN.mp3) downloaded manually to Drive 'Gary Budgets > Reel Music'. NEVER automate downloads (ToS).",
+    "jamendo": "Free Jamendo API client_id (user registers at api.jamendo.com — sheet 'Gary Budgets — TikTok & Music Launch Checklist' step 3). CC-BY tracks need caption credit.",
+    "youtube": "No-copyright tracks via yt-dlp (fallback)."
+  },
+  "tracks": [
+    {
+      "id": "yt-dark-cinematic-trailer",
+      "source": "youtube",
+      "file": "public/reels/audio/music-licensing-traps-bed.m4a",
+      "mood": "dark_cinematic",
+      "credit": "Soundridemusic — Dark Cinematic Trailer (no copyright)",
+      "last_used_reel": 0
+    }
+  ],
+  "usage_log": []
+}

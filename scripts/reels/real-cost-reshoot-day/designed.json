@@ -1,0 +1,16 @@
+{
+  "slug": "real-cost-reshoot-day-v2",
+  "title": "The Real Cost of a Reshoot Day",
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "out_video": "public/reels/real-cost-reshoot-day-v2.mp4",
+  "out_montage": "public/reels/real-cost-reshoot-day-v2-montage.jpg",
+  "scenes": [
+    { "img": "public/reels/designed/reshoot-day/01-hook.jpg",     "duration": 4.5, "motion": "zoom_in"  },
+    { "img": "public/reels/designed/reshoot-day/02-talent.jpg",   "duration": 5.0, "motion": "pan_up"    },
+    { "img": "public/reels/designed/reshoot-day/03-crew.jpg",     "duration": 5.0, "motion": "zoom_out"  },
+    { "img": "public/reels/designed/reshoot-day/04-location.jpg", "duration": 4.5, "motion": "pan_down"  },
+    { "img": "public/reels/designed/reshoot-day/05-delivery.jpg", "duration": 5.0, "motion": "zoom_in"   },
+    { "img": "public/reels/designed/reshoot-day/06-cta.jpg",      "duration": 4.5, "motion": "zoom_in"   }
+  ]
+}

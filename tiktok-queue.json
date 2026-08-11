@@ -1,0 +1,4 @@
+{
+  "_note": "TikTok posting queue. Items are added from the Mac (committed), pulled by the Oracle VM cron, uploaded via browser automation, and status is committed back. TikTok automation needs a one-time login (login_tiktok.py on the VM). No song/hashtag rules here — content is already-built reels.",
+  "items": []
+}
