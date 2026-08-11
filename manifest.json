@@ -3383,7 +3383,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "cover.jpg"
@@ -3396,7 +3396,8 @@
       "created_at": "2026-08-09T06:42:29.235Z",
       "source": "Topic Scout (Reel split)",
       "suggestion": "Model what one added shooting day really costs: cast availability, location re-permits, crew OT, and the knock-on schedule effects.",
-      "source_name": "Auto Scout · production scheduling guidance"
+      "source_name": "Auto Scout · production scheduling guidance",
+      "approved_at": "2026-08-11T06:20:33.000Z"
     }
   ]
 }
