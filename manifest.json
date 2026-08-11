@@ -3153,8 +3153,8 @@
       "slug": "Post_the-real-cost-of-a-company-move",
       "slide_count": 6,
       "build_type": "both",
-      "original_schedule": "Mon, Aug 10 \u00b7 12:00 AM PT",
-      "proposed_schedule": "Mon, Aug 10 \u00b7 12:00 AM PT",
+      "original_schedule": "Wed, Aug 12 \u00b7 9:00 AM PT",
+      "proposed_schedule": "Wed, Aug 12 \u00b7 9:00 AM PT",
       "caption": "The Real Cost of a Company Move is not just a headline \u2014 it is a production technology decision that can change how indie producers plan, finance, and protect a production. Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate the real cost of a company move: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
       "slides": [
@@ -3279,6 +3279,122 @@
       "suggestion": "Model what one added shooting day really costs: cast availability, location re-permits, crew OT, and the knock-on schedule effects.",
       "source_name": "Auto Scout \u00b7 production scheduling guidance",
       "reel_video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day.mp4"
+    },
+    {
+      "id": "scout-1786257749235-1-reel",
+      "title": "The Real Cost of a Company Move (Reel)",
+      "pillar": "Budget School",
+      "slug": "Reel_real-cost-company-move",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": "Sat, Aug 15 \u00b7 9:00 AM PT",
+      "proposed_schedule": "Sat, Aug 15 \u00b7 9:00 AM PT",
+      "caption": "Your \"simple\" company move just cost you $10K. \ud83d\ude9b\n\nIt's never one line item \u2014 it's five:\n1. 3-4 trucks \u00d7 $500-1K per day, plus drivers, fuel, tolls, parking\n2. 2+ hours per move \u2014 same day rate, half the scenes\n3. Meal penalties: $ per person per half-hour when wrap runs long\n4. Re-permit, re-park, re-police at every new location\n5. Basecamp setup fees + lighting/grip re-rigs\n\nYou pay the same day for less coverage. Budget every move like the line item it is \u2014 before you lock the schedule.\n\nSave this for your next production. \u267b\ufe0f Tag the producer who's planning a company move.\n\n#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: The Real Cost of a Company Move"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": true,
+      "image_file_names": [
+        "cover.jpg"
+      ],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-cover.jpg"
+      ],
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-cover.jpg",
+      "created_at": "2026-08-09T06:42:29.235Z",
+      "source": "Topic Scout (Reel split)",
+      "suggestion": "Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee.",
+      "source_name": "Auto Scout \u00b7 assistant director scheduling guidance"
+    },
+    {
+      "id": "scout-1786257749235-2-reel",
+      "title": "The Real Cost of a Reshoot Day (Reel)",
+      "pillar": "Budget School",
+      "slug": "Reel_real-cost-reshoot-day",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": "Fri, Aug 14 \u00b7 12:00 PM PT",
+      "proposed_schedule": "Fri, Aug 14 \u00b7 12:00 PM PT",
+      "caption": "One reshoot day costs 3-5x the original. \ud83c\udfac\n\nSame scene, same cast, triple the line items:\n1. Cast day rates restart \u2014 hold fees already paid, union minimums reset\n2. Full crew rebuild \u2014 OT from hour one, new kit rentals, half the prep\n3. Re-permit, re-rig, re-light \u2014 location fees, grip/electric, insurance day extension\n4. One day pushes delivery \u2014 post compresses, fixes get rushed, dates slip\n\nA reshoot isn't a failure \u2014 it's a line item. Plan a 5-10% reshoot contingency in the top sheet.\n\nSave this before your next schedule. \u267b\ufe0f\n\n#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: The Real Cost of a Reshoot Day"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": true,
+      "image_file_names": [
+        "cover.jpg"
+      ],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day-cover.jpg"
+      ],
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day-cover.jpg",
+      "created_at": "2026-08-09T06:42:29.235Z",
+      "source": "Topic Scout (Reel split)",
+      "suggestion": "Model what one added shooting day really costs: cast availability, location re-permits, crew OT, and the knock-on schedule effects.",
+      "source_name": "Auto Scout \u00b7 production scheduling guidance"
     }
   ]
 }

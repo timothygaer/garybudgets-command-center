@@ -57,11 +57,11 @@ function buildDiscoveryCopy(topic: any): { caption: string; hashtags: string } {
   return { caption, hashtags }
 }
 
-/** Find next available Mon-Sat slot (skipping Sundays, max 2 per day) */
-function findNextSlot(existingSchedules: string[]): string {
+/** Find next available Mon-Sat slot (skipping Sundays, max 2 per day), at least minDaysAhead days out */
+function findNextSlot(existingSchedules: string[], minDaysAhead = 1): string {
   const now = new Date()
   const tomorrow = new Date(now)
-  tomorrow.setDate(tomorrow.getDate() + 1)
+  tomorrow.setDate(tomorrow.getDate() + minDaysAhead)
   tomorrow.setHours(9, 0, 0, 0)
 
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -76,8 +76,7 @@ function findNextSlot(existingSchedules: string[]): string {
     const dateStr = `${dayNames[dayOfWeek]}, ${monthNames[check.getMonth()]} ${check.getDate()}`
     const dayPostCount = existingSchedules.filter((s) => s && s.startsWith(dateStr)).length
     if (dayPostCount < 2) {
-      const hour = dayPostCount === 0 ? "9:00" : "12:00"
-      return `${dateStr} · ${hour} AM PT`
+      return `${dateStr} · ${dayPostCount === 0 ? "9:00 AM" : "12:00 PM"} PT`
     }
   }
   return `${dayNames[tomorrow.getDay()]}, ${monthNames[tomorrow.getMonth()]} ${tomorrow.getDate()} · 9:00 AM PT`
@@ -197,6 +196,30 @@ export async function POST(request: Request) {
       existingSchedules.push(schedule)
       existingTitles.add(title.toLowerCase())
       addedDrafts.push({ id: postId, title, schedule })
+
+      // build_type "both": also create a separate REEL draft, scheduled a few
+      // days AFTER the carousel so same-content posts never land the same day.
+      if (build_type === "both") {
+        const reelSchedule = findNextSlot(existingSchedules, 3)
+        const reelPost: any = {
+          ...draftPost,
+          id: postId + "-reel",
+          title: title + " (Reel)",
+          slug: `Reel_${slugify(title)}`,
+          build_type: "reel",
+          original_schedule: reelSchedule,
+          proposed_schedule: reelSchedule,
+          caption: "REEL: " + draftPost.caption,
+          status: "ready",
+          has_images: false,
+          video_url: null,
+          cover_url: null,
+        }
+        delete reelPost.image_urls
+        manifest.posts.push(reelPost)
+        existingSchedules.push(reelSchedule)
+        addedDrafts.push({ id: reelPost.id, title: reelPost.title, schedule: reelSchedule })
+      }
     }
 
     // Persist to GitHub so it survives Vercel cold-starts
