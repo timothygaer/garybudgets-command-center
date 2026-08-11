@@ -10,3 +10,4 @@ out/
 public/posts/launch-01/
 .vercel
 .env*
+__pycache__/
