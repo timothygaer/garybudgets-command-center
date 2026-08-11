@@ -97,6 +97,32 @@ async function getUsableImageUrls(post: any, origin: string): Promise<string[]> 
   return filterReachableImageUrls(imageUrls)
 }
 
+/** For reel posts: the cover only needs to be a reachable image (any size — it's a thumbnail). */
+async function getUsableCoverUrl(post: any, origin: string): Promise<string> {
+  for (const url of normalizeImageUrls(post, origin)) {
+    try {
+      const resp = await fetch(url, { method: "HEAD", cache: "no-store" })
+      const contentType = resp.headers.get("content-type") || ""
+      if (resp.ok && contentType.startsWith("image/")) return url
+    } catch { /* try next */ }
+  }
+  return ""
+}
+
+/** For reel posts: the publishable artifact is the video — require a real, sizable video URL. */
+async function getUsableVideoUrl(post: any): Promise<string> {
+  const url = post.video_url || ""
+  if (!url) return ""
+  try {
+    const resp = await fetch(url, { method: "HEAD", cache: "no-store" })
+    const contentType = resp.headers.get("content-type") || ""
+    const contentLength = Number(resp.headers.get("content-length") || "0")
+    return resp.ok && contentType.startsWith("video/") && contentLength > 500_000 ? url : ""
+  } catch {
+    return ""
+  }
+}
+
 /**
  * Write approved_at back to the GitHub repo manifest via REST API.
  * This is the key piece: approval state goes into the source of truth,
@@ -190,6 +216,9 @@ export async function POST(request: Request) {
     const post = manifest.posts[postIndex]
     const origin = requestOrigin(request)
     const usableImageUrls = await getUsableImageUrls(post, origin)
+    const isReel = !!(post.video_url)
+    const usableVideoUrl = isReel ? await getUsableVideoUrl(post) : ""
+    const usableCoverUrl = isReel ? (await getUsableCoverUrl(post, origin)) || usableImageUrls[0] || "" : ""
     let schedule = post.proposed_schedule || post.original_schedule
 
     // If no schedule set, auto-assign the next available slot
@@ -270,9 +299,26 @@ export async function POST(request: Request) {
       })
     }
 
-    // Gate: no images = can't approve
-    const hasImages = usableImageUrls.length > 0
-    if (!hasImages) {
+    // Gate: no publishable media = can't approve. Reels validate the VIDEO
+    // (video_url reachable + real video bytes); carousels validate images.
+    if (isReel) {
+      if (!usableVideoUrl) {
+        return Response.json({
+          success: false,
+          error: "Cannot approve — reel video is not reachable (video_url missing or not serving).",
+          post_id,
+          image_status: "awaiting_video",
+        }, { status: 400 })
+      }
+      if (!usableCoverUrl) {
+        return Response.json({
+          success: false,
+          error: "Cannot approve — reel cover image not found.",
+          post_id,
+          image_status: "awaiting_cover",
+        }, { status: 400 })
+      }
+    } else if (usableImageUrls.length === 0) {
       return Response.json({
         success: false,
         error: "Cannot approve — no publishable images found.",
@@ -285,14 +331,17 @@ export async function POST(request: Request) {
     const approvedAt = new Date().toISOString()
     manifest.posts[postIndex].status = "approved"
     manifest.posts[postIndex].approved_at = approvedAt
-    if (usableImageUrls.length > 0) {
-      manifest.posts[postIndex].image_urls = usableImageUrls
+    const persistedImageUrls = isReel
+      ? (usableCoverUrl ? [usableCoverUrl] : usableImageUrls)
+      : usableImageUrls
+    if (persistedImageUrls.length > 0) {
+      manifest.posts[postIndex].image_urls = persistedImageUrls
       manifest.posts[postIndex].has_images = true
     }
     await saveManifest(manifest, path)
 
     // Persist to GitHub repo — this is what survives deploys
-    const githubOk = await writeApprovalToGitHub(post_id, approvedAt, schedule, usableImageUrls)
+    const githubOk = await writeApprovalToGitHub(post_id, approvedAt, schedule, persistedImageUrls)
     if (!githubOk) {
       return Response.json({
         success: false,
