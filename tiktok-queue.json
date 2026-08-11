@@ -1,4 +1,14 @@
 {
-  "_note": "TikTok posting queue. Items are added from the Mac (committed), pulled by the Oracle VM cron, uploaded via browser automation, and status is committed back. TikTok automation needs a one-time login (login_tiktok.py on the VM). No song/hashtag rules here — content is already-built reels.",
-  "items": []
+  "_note": "TikTok posting queue. Items are added from the Mac (committed), pulled by the Oracle VM cron, uploaded via browser automation, and status is committed back. TikTok automation needs a one-time login (login_tiktok.py on the VM). No song/hashtag rules here \u2014 content is already-built reels.",
+  "items": [
+    {
+      "id": "test-001",
+      "video": "public/reels/real-cost-company-move.mp4",
+      "caption": "test",
+      "hashtags": "#test",
+      "due": "2026-08-10T00:00:00-07:00",
+      "status": "posted_dry",
+      "posted_at": "2026-08-11T07:06:09.957610+00:00"
+    }
+  ]
 }
