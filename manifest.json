@@ -3017,7 +3017,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3040,7 +3040,8 @@
       "suggestion": "Explain when a completion bond becomes mandatory, what it costs, and how indie producers can budget for bond company oversight before financing closes.",
       "source_name": "Auto Scout · Producers Guild / bond companies",
       "rescheduled_at": "2026-08-10T20:30:41.116801-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot."
+      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
+      "approved_at": "2026-08-11T06:20:36.473Z"
     },
     {
       "id": "gb-buy-once-own-forever-2026-08-04",
