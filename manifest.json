@@ -3327,7 +3327,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "cover.jpg"
@@ -3340,7 +3340,8 @@
       "created_at": "2026-08-09T06:42:29.235Z",
       "source": "Topic Scout (Reel split)",
       "suggestion": "Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee.",
-      "source_name": "Auto Scout · assistant director scheduling guidance"
+      "source_name": "Auto Scout · assistant director scheduling guidance",
+      "approved_at": "2026-08-11T06:20:44.065Z"
     },
     {
       "id": "scout-1786257749235-2-reel",
