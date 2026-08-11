@@ -151,6 +151,9 @@ class TextLayer:
         if alpha <= 0.01 or scale <= 0.01:
             return
         img = self.img
+        # clamp scale so text never overflows the frame width (fixes side clipping)
+        max_scale = canvas.width / max(1, img.width)
+        scale = min(scale, max_scale)
         if scale != 1.0:
             nw = max(1, int(img.width * scale))
             nh = max(1, int(img.height * scale))
@@ -161,6 +164,9 @@ class TextLayer:
             img.putalpha(a)
         x = int(self.cx + dx - img.width / 2)
         y = int(self.cy + dy - img.height / 2)
+        # keep text fully on-canvas (no top/bottom/left/right clipping)
+        x = max(0, min(x, canvas.width - img.width))
+        y = max(0, min(y, canvas.height - img.height))
         canvas.alpha_composite(img, (x, y))
 
 

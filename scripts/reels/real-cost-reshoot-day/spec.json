@@ -1,0 +1,182 @@
+{
+  "slug": "real-cost-reshoot-day",
+  "title": "The Real Cost of a Reshoot Day",
+  "fps": 30,
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "music_fade_in": 0.8,
+  "music_fade_out": 1.6,
+  "bg_dir": "public/reels/bg/reshoot-day",
+  "scenes": [
+    {
+      "name": "HOOK",
+      "duration": 4.5,
+      "bg": "01-reshoot-set.jpg",
+      "kenburns": "zoom_in",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "elastic_scale",
+          "stagger": 0.16,
+          "y": 0.28,
+          "lines": [
+            { "text": "A RESHOOT DAY", "font": "ArchivoBlack", "size": 104, "color": "#F5EFE2" },
+            { "text": "COSTS 3-5x THE ORIGINAL", "font": "ArchivoBlack", "size": 88, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.9, "y": 0.64,
+          "text": "Same scene, same cast, triple the line items. Here's where.",
+          "font": "Roboto", "size": 40, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "TALENT",
+      "duration": 5.0,
+      "bg": "01-reshoot-set.jpg",
+      "kenburns": "pan_right",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "punch",
+          "y": 0.18,
+          "lines": [
+            { "text": "CAST DAY RATES RESTART", "font": "ArchivoBlack", "size": 80, "color": "#F5EFE2" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.5,
+          "y0": 0.44,
+          "items": [
+            { "text": "HOLD FEES ALREADY PAID", "color": "#F5EFE2" },
+            { "text": "UNION MINIMUMS RESET", "color": "#F5B24A" },
+            { "text": "AVAILABILITY WINDOWS COST", "color": "#DA202A" },
+            { "text": "THE INVOICE STARTS FROM ZERO", "color": "#F5EFE2" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.8, "y": 0.84,
+          "text": "Talent is the most expensive clock on set.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE CREW",
+      "duration": 5.0,
+      "bg": "01-reshoot-set.jpg",
+      "kenburns": "pan_up",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "expand",
+          "y": 0.18,
+          "lines": [
+            { "text": "FULL CREW REBUILD", "font": "ArchivoBlack", "size": 92, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.5,
+          "y0": 0.44,
+          "items": [
+            { "text": "OT FROM HOUR ONE", "color": "#DA202A" },
+            { "text": "NEW KIT + GEAR RENTALS", "color": "#F5EFE2" },
+            { "text": "HALF THE PREP TIME", "color": "#F5EFE2" },
+            { "text": "SAME DAY RATE, RUSHED SETUPS", "color": "#F5B24A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.8, "y": 0.84,
+          "text": "Everyone re-rents, re-rigs, re-lights.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE LOCATION",
+      "duration": 4.5,
+      "bg": "01-reshoot-set.jpg",
+      "kenburns": "zoom_out",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "punch",
+          "y": 0.18,
+          "lines": [
+            { "text": "RE-PERMIT. RE-RIG. RE-LIGHT.", "font": "ArchivoBlack", "size": 76, "color": "#F5EFE2" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.4,
+          "y0": 0.44,
+          "items": [
+            { "text": "LOCATION FEES AGAIN", "color": "#F5EFE2" },
+            { "text": "GRIP + ELECTRIC RE-SET", "color": "#F5EFE2" },
+            { "text": "INSURANCE DAY EXTENSION", "color": "#F5B24A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.6, "y": 0.84,
+          "text": "Same costs as day one — with less time to do it.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "DELIVERY",
+      "duration": 5.0,
+      "bg": "01-reshoot-set.jpg",
+      "kenburns": "pan_left",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "expand",
+          "y": 0.18,
+          "lines": [
+            { "text": "ONE DAY PUSHES DELIVERY", "font": "ArchivoBlack", "size": 82, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.5,
+          "y0": 0.44,
+          "items": [
+            { "text": "POST COMPRESSES", "color": "#F5EFE2" },
+            { "text": "FIXES GET RUSHED", "color": "#F5EFE2" },
+            { "text": "DISTRIBUTION DATES SLIP", "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.8, "y": 0.84,
+          "text": "One reshoot day echoes for weeks.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "CTA",
+      "duration": 4.5,
+      "bg": "02-ledger-desk.jpg",
+      "kenburns": "zoom_in",
+      "blocks": [
+        {
+          "kind": "cta",
+          "anim": "elastic_scale",
+          "stagger": 0.15,
+          "y": 0.30,
+          "lines": [
+            { "text": "BUDGET FOR RETAKES", "font": "ArchivoBlack", "size": 92, "color": "#F5EFE2" },
+            { "text": "LIKE ANY LINE ITEM", "font": "ArchivoBlack", "size": 92, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.9, "y": 0.58,
+          "text": "Plan a 5-10% reshoot contingency in the top sheet.",
+          "font": "Roboto", "size": 40, "color": "#B0A99A" },
+        { "kind": "sub", "anim": "fade_up", "delay": 1.4, "y": 0.70,
+          "text": "garybudgets.com  ·  @garyfilmbudgets", "font": "Anton", "size": 52, "color": "#F5B24A" }
+      ]
+    }
+  ]
+}

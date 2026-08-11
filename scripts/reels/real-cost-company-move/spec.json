@@ -1,0 +1,186 @@
+{
+  "slug": "real-cost-company-move",
+  "title": "The Real Cost of a Company Move",
+  "fps": 30,
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "music_fade_in": 0.8,
+  "music_fade_out": 1.6,
+  "bg_dir": "public/reels/bg/company-move",
+  "scenes": [
+    {
+      "name": "HOOK",
+      "duration": 4.5,
+      "bg": "01-company-move.jpg",
+      "kenburns": "zoom_in",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "elastic_scale",
+          "stagger": 0.16,
+          "y": 0.28,
+          "lines": [
+            { "text": "A \"SIMPLE\" MOVE", "font": "ArchivoBlack", "size": 100, "color": "#F5EFE2" },
+            { "text": "COSTS $10K+", "font": "ArchivoBlack", "size": 112, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.9, "y": 0.64,
+          "text": "Company moves eat hours, overtime, and contingency. Here's where.",
+          "font": "Roboto", "size": 40, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE TRUCKS",
+      "duration": 5.0,
+      "bg": "01-company-move.jpg",
+      "kenburns": "pan_right",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "punch",
+          "y": 0.18,
+          "lines": [
+            { "text": "THE TRUCKS ARE", "font": "ArchivoBlack", "size": 84, "color": "#F5EFE2" },
+            { "text": "ON THE CLOCK", "font": "ArchivoBlack", "size": 84, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.5,
+          "y0": 0.46,
+          "items": [
+            { "text": "$500-1K PER TRUCK / DAY", "color": "#F5B24A" },
+            { "text": "DRIVERS + FUEL + TOLLS", "color": "#F5EFE2" },
+            { "text": "LOAD-IN / LOAD-OUT HOURS", "color": "#F5EFE2" },
+            { "text": "3-4 TRUCKS × THE DAY RATE", "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.8, "y": 0.86,
+          "text": "The gear bill runs even when the camera is off.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE CLOCK",
+      "duration": 5.0,
+      "bg": "01-company-move.jpg",
+      "kenburns": "pan_up",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "expand",
+          "y": 0.18,
+          "lines": [
+            { "text": "EVERY HOUR MOVING", "font": "ArchivoBlack", "size": 78, "color": "#F5EFE2" },
+            { "text": "IS AN HOUR NOT SHOOTING", "font": "ArchivoBlack", "size": 78, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.5,
+          "y0": 0.46,
+          "items": [
+            { "text": "2+ HOURS LOST PER MOVE", "color": "#F5EFE2" },
+            { "text": "SAME DAY RATE, LESS COVERAGE", "color": "#DA202A" },
+            { "text": "WRAP SLIPS INTO OT", "color": "#F5EFE2" },
+            { "text": "SETUPS GET RUSHED", "color": "#F5EFE2" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.8, "y": 0.86,
+          "text": "You pay the same day for half the scenes.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "MEAL PENALTIES",
+      "duration": 4.5,
+      "bg": "01-company-move.jpg",
+      "kenburns": "zoom_out",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "punch",
+          "y": 0.18,
+          "lines": [
+            { "text": "LATE WRAP = MEAL PENALTIES", "font": "ArchivoBlack", "size": 82, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.4,
+          "y0": 0.44,
+          "items": [
+            { "text": "$ PER PERSON PER HALF-HOUR", "color": "#F5EFE2" },
+            { "text": "FULL CREW × MINUTES LATE", "color": "#DA202A" },
+            { "text": "IT ADDS UP BEFORE YOU NOTICE", "color": "#F5EFE2" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.6, "y": 0.84,
+          "text": "The clock starts the moment wrap runs long.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "THE NEW LOCATION",
+      "duration": 5.0,
+      "bg": "01-company-move.jpg",
+      "kenburns": "pan_left",
+      "blocks": [
+        {
+          "kind": "headline",
+          "anim": "expand",
+          "y": 0.18,
+          "lines": [
+            { "text": "RE-PERMIT.", "font": "ArchivoBlack", "size": 82, "color": "#F5EFE2" },
+            { "text": "RE-PARK. RE-POLICE.", "font": "ArchivoBlack", "size": 82, "color": "#DA202A" }
+          ]
+        },
+        {
+          "kind": "check",
+          "anim": "slide_left",
+          "stagger": 0.2,
+          "delay": 0.5,
+          "y0": 0.46,
+          "items": [
+            { "text": "NEW PERMITS + PARKING", "color": "#F5EFE2" },
+            { "text": "POLICE DETAILS AGAIN", "color": "#F5EFE2" },
+            { "text": "BASECAMP SETUP FEES", "color": "#F5EFE2" },
+            { "text": "LIGHTING + GRIP RE-RIG", "color": "#F5B24A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 2.8, "y": 0.86,
+          "text": "Every new location is a new stack of line items.",
+          "font": "Roboto", "size": 38, "color": "#B0A99A" }
+      ]
+    },
+    {
+      "name": "CTA",
+      "duration": 4.5,
+      "bg": "02-ledger-desk.jpg",
+      "kenburns": "zoom_in",
+      "blocks": [
+        {
+          "kind": "cta",
+          "anim": "elastic_scale",
+          "stagger": 0.15,
+          "y": 0.30,
+          "lines": [
+            { "text": "BUDGET THE MOVE", "font": "ArchivoBlack", "size": 92, "color": "#F5EFE2" },
+            { "text": "BEFORE YOU LOCK IT", "font": "ArchivoBlack", "size": 92, "color": "#DA202A" }
+          ]
+        },
+        { "kind": "sub", "anim": "fade_up", "delay": 0.9, "y": 0.58,
+          "text": "Trucks, hours, penalties, permits — every line item in the plan.",
+          "font": "Roboto", "size": 40, "color": "#B0A99A" },
+        { "kind": "sub", "anim": "fade_up", "delay": 1.4, "y": 0.70,
+          "text": "garybudgets.com  ·  @garyfilmbudgets", "font": "Anton", "size": 52, "color": "#F5B24A" }
+      ]
+    }
+  ]
+}

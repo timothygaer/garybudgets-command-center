@@ -3190,7 +3190,7 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -3210,7 +3210,8 @@
       "created_at": "2026-08-09T06:42:29.235Z",
       "source": "Topic Scout",
       "suggestion": "Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee.",
-      "source_name": "Auto Scout \u00b7 assistant director scheduling guidance"
+      "source_name": "Auto Scout \u00b7 assistant director scheduling guidance",
+      "reel_video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move.mp4"
     },
     {
       "id": "scout-1786257749235-2",
@@ -3256,7 +3257,7 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -3276,7 +3277,8 @@
       "created_at": "2026-08-09T06:42:29.235Z",
       "source": "Topic Scout",
       "suggestion": "Model what one added shooting day really costs: cast availability, location re-permits, crew OT, and the knock-on schedule effects.",
-      "source_name": "Auto Scout \u00b7 production scheduling guidance"
+      "source_name": "Auto Scout \u00b7 production scheduling guidance",
+      "reel_video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day.mp4"
     }
   ]
 }
