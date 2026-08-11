@@ -3017,7 +3017,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3042,7 +3042,10 @@
       "rescheduled_at": "2026-08-10T20:30:41.116801-07:00",
       "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
       "approved_at": "2026-08-11T06:20:36.473Z",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "posted_at": "2026-08-11T19:00:57+0000",
+      "instagram_url": "https://www.instagram.com/p/Db6SlrKj8yM/",
+      "instagram_media_id": "18167181340399182"
     },
     {
       "id": "gb-buy-once-own-forever-2026-08-04",
