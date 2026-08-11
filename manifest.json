@@ -3259,7 +3259,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3270,18 +3270,19 @@
         "6.png"
       ],
       "image_urls": [
-        "/images/scout-1786257749235-2/1.png",
-        "/images/scout-1786257749235-2/2.png",
-        "/images/scout-1786257749235-2/3.png",
-        "/images/scout-1786257749235-2/4.png",
-        "/images/scout-1786257749235-2/5.png",
-        "/images/scout-1786257749235-2/6.png"
+        "https://garybudgets-command-center.vercel.app/images/scout-1786257749235-2/1.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1786257749235-2/2.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1786257749235-2/3.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1786257749235-2/4.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1786257749235-2/5.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1786257749235-2/6.png"
       ],
       "created_at": "2026-08-09T06:42:29.235Z",
       "source": "Topic Scout",
       "suggestion": "Model what one added shooting day really costs: cast availability, location re-permits, crew OT, and the knock-on schedule effects.",
       "source_name": "Auto Scout · production scheduling guidance",
-      "reel_video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day.mp4"
+      "reel_video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day.mp4",
+      "approved_at": "2026-08-11T06:20:39.801Z"
     },
     {
       "id": "scout-1786257749235-1-reel",
