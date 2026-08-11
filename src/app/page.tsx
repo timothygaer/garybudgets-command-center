@@ -19,7 +19,7 @@ interface PostInsights { impressions: number; reach: number; saved: number; like
 interface Post { id: string; media_type: string; media_url: string; permalink?: string; caption: string; timestamp: string; like_count: number; comments_count: number; insights: PostInsights | null }
 interface DashboardData { account: Account; insights: Record<string, number>; posts: Post[] }
 interface CalendarSlidePreview { slide: number; heading: string; prompt_summary: string; image_url: string; file_id?: string }
-interface CalendarEvent { id: string; date: string; day?: number; title: string; pillar: string; status: string; source_status?: string; time: string; schedule_label?: string; original_schedule?: string | null; proposed_schedule?: string | null; approved_at?: string | null; caption?: string; hashtags?: string; slide_count?: number; slidePreviews?: CalendarSlidePreview[]; image_urls?: string[]; instagram_url?: string | null }
+interface CalendarEvent { id: string; date: string; day?: number; title: string; pillar: string; status: string; source_status?: string; time: string; schedule_label?: string; original_schedule?: string | null; proposed_schedule?: string | null; approved_at?: string | null; caption?: string; hashtags?: string; slide_count?: number; slidePreviews?: CalendarSlidePreview[]; image_urls?: string[]; instagram_url?: string | null; video_url?: string | null; cover_url?: string | null }
 type NavPage = "overview" | "calendar" | "posts" | "inspire" | "history" | "settings"
 
 // ─── Sample data ───
