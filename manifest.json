@@ -3197,7 +3197,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3221,7 +3221,10 @@
       "source_name": "Auto Scout · assistant director scheduling guidance",
       "reel_video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move.mp4",
       "approved_at": "2026-08-11T06:20:47.690Z",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "posted_at": "2026-08-12T16:00:58+0000",
+      "instagram_url": "https://www.instagram.com/p/Db8iyVtG9UB/",
+      "instagram_media_id": "18335881450251794"
     },
     {
       "id": "scout-1786257749235-2",
