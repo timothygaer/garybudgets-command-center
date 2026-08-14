@@ -3089,7 +3089,7 @@
           "prompt_summary": "Alpha test call to action, text: JOIN THE ALPHA TEST"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3111,7 +3111,10 @@
       "source": "Manual",
       "suggestion": "Focus on buy once own forever, no subscription model that Gary Budgets offers",
       "approved_at": "2026-08-04T21:49:14.974Z",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "posted_at": "2026-08-14T16:00:54+0000",
+      "instagram_url": "https://www.instagram.com/p/DcBsXmnm9Yn/",
+      "instagram_media_id": "17861057007678932"
     },
     {
       "id": "gb-reel-music-licensing-traps-2026-08-08",
