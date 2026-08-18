@@ -3800,7 +3800,7 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -3813,8 +3813,10 @@
       "source": "Topic Scout",
       "suggestion": "Cover stunt coordinator, rigging, safety crew, medical standby, insurance riders, and rehearsal days as explicit budget lines.",
       "source_name": "Auto Scout \u00b7 stunt coordinator checklists",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-3.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/images/scout-1786906441936-3/6.png",
+      "media_type": "reel",
+      "image_urls": []
     },
     {
       "id": "scout-1786906441936-4",
