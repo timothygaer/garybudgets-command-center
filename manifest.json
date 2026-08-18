@@ -3464,7 +3464,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3486,7 +3486,8 @@
       "source": "Topic Scout",
       "suggestion": "Show when buying a camera or lens package beats renting on a 30-day shoot, including insurance, maintenance, and resale assumptions.",
       "source_name": "Auto Scout · rental house rate cards",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "approved_at": "2026-08-18T01:12:46.437Z"
     },
     {
       "id": "scout-1786906441935-1-reel",
@@ -3591,7 +3592,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3613,7 +3614,8 @@
       "source": "Topic Scout",
       "suggestion": "Compare street closure, police detail, parking, and basecamp permit costs across major production cities for an indie feature.",
       "source_name": "Auto Scout · city film office rate sheets",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "approved_at": "2026-08-18T01:12:48.300Z"
     },
     {
       "id": "scout-1786906441936-2-reel",
@@ -3718,7 +3720,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3740,7 +3742,8 @@
       "source": "Topic Scout",
       "suggestion": "Cover stunt coordinator, rigging, safety crew, medical standby, insurance riders, and rehearsal days as explicit budget lines.",
       "source_name": "Auto Scout · stunt coordinator checklists",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "approved_at": "2026-08-18T01:12:49.939Z"
     },
     {
       "id": "scout-1786906441936-3-reel",
@@ -3845,7 +3848,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3867,7 +3870,8 @@
       "source": "Topic Scout",
       "suggestion": "Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot.",
       "source_name": "Auto Scout · DIT workflows",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "approved_at": "2026-08-18T01:12:51.370Z"
     },
     {
       "id": "scout-1786906441936-4-reel",
@@ -3972,7 +3976,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "draft",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3994,8 +3998,7 @@
       "source": "Topic Scout",
       "suggestion": "Dialogue clean, foley, sound design, mix, and M&E tracks each carry costs producers forget until the mix stage.",
       "source_name": "Auto Scout · post sound guidance",
-      "media_type": "carousel",
-      "approved_at": "2026-08-18T01:12:52.870Z"
+      "media_type": "carousel"
     },
     {
       "id": "scout-1786906441945-5-reel",
