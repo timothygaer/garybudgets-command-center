@@ -791,6 +791,13 @@ export default function Dashboard() {
               </div>
             </div>
           )}
+          <div onClick={() => setHashtagOpen(true)} title="Open hashtag performance" style={{ ...s.flex, ...s.aic, ...s.gap8, ...s.pSb, ...s.curPt, ...s.trAll, marginBottom: 6, cursor: "pointer" }}>
+            <div style={{ width: 28, height: 28, borderRadius: 6, background: "rgba(0,212,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0 }}>#</div>
+            <div style={{ ...s.flexCol, minWidth: 0, flex: 1 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, color: "#d0d0e0" }}>Hashtag Performance</div>
+              <div style={{ fontSize: 9, color: "#555566" }}>View reach by hashtag</div>
+            </div>
+          </div>
           <div style={{ ...s.flex, ...s.aic, ...s.gap8, ...s.pSb, ...s.textXs, ...s.txDim, ...s.curDf, marginTop: "auto" }}>
             <span style={{ ...s.txGreen, fontSize: 13 }}>●</span> v2.4.1
           </div>
@@ -1139,22 +1146,22 @@ export default function Dashboard() {
                   })()}
                 </div>
 
-                {/* Build Queue — only shows unbuilt Topic Scout posts */}
-                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
-                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
+                {/* Build Queue — fills its half-box */}
+                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb, flexShrink: 0 }}>
                     <span>Build Queue</span>
                     <span style={{ fontSize: 10, color: scoutDrafts.length > 0 ? "#ef4444" : "#555566" }}>{scoutDrafts.length > 0 ? `📦 ${scoutDrafts.length}` : "—"}</span>
                   </div>
-                  <div style={{ maxHeight: scoutDrafts.length > 0 ? 150 : 24, overflow: "auto" }}>
+                  <div style={{ flex: 1, overflow: "auto", display: "flex", flexDirection: "column" }}>
                     {scoutDrafts.length === 0 ? (
-                      <div style={{ fontSize: 10, color: "#3a3a4a", textAlign: "center", padding: "8px 0" }}>No pending builds — use Topic Scout above to find topics</div>
+                      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#3a3a4a", textAlign: "center", padding: "8px 0" }}>No pending builds — use Topic Scout above to find topics</div>
                     ) : (
                       <>
                         {scoutDrafts.map((item: any) => (
-                          <div key={item.id} style={{ display: "flex", gap: 4, padding: "4px 6px", marginBottom: 2, ...s.bd1, ...s.bd4, background: "rgba(255,179,71,0.04)" }}>
+                          <div key={item.id} style={{ display: "flex", gap: 4, padding: "10px 8px", marginBottom: 4, ...s.bd1, ...s.bd4, background: "rgba(255,179,71,0.04)" }}>
                             <div style={{ flex: 1, minWidth: 0 }}>
-                              <div style={{ fontSize: 10, ...s.fw6, color: "#ffb347", lineHeight: 1.3 }}>{item.title}</div>
-                              <div style={{ fontSize: 8, color: "#7a7a8a" }}>Awaiting carousel build</div>
+                              <div style={{ fontSize: 11, ...s.fw6, color: "#ffb347", lineHeight: 1.3 }}>{item.title}</div>
+                              <div style={{ fontSize: 9, color: "#7a7a8a", marginTop: 1 }}>Awaiting carousel build</div>
                             </div>
                           </div>
                         ))}
@@ -1213,50 +1220,7 @@ export default function Dashboard() {
                   })()}
                 </div>
               </div>
-
-              {/* ── Hashtag Performance (clickable → opens popup) ── */}
-              <div onClick={() => setHashtagOpen(true)} style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden", cursor: "pointer", ...s.trAll }} title="Open full hashtag performance">
-                <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, ...s.flex, ...s.aic, ...s.jcsb }}>
-                  <span>Hashtag Performance</span>
-                  <span style={{ fontSize: 14, color: "#ef4444" }}>↗</span>
-                </div>
-                {(() => {
-                  const tagData: Record<string, {posts: number, totalReach: number, totalLikes: number}> = {};
-                  data.posts.forEach((p: any) => {
-                    const caption = p.caption || '';
-                    const tags = caption.match(/#(\w+)/g) || [];
-                    const reach = p.insights?.reach || 0;
-                    const likes = p.insights?.likes || p.like_count || 0;
-                    tags.forEach((t: string) => {
-                      const key = t.toLowerCase();
-                      if (!tagData[key]) tagData[key] = { posts: 0, totalReach: 0, totalLikes: 0 };
-                      tagData[key].posts++;
-                      tagData[key].totalReach += reach;
-                      tagData[key].totalLikes += likes;
-                    });
-                  });
-                  const sorted = Object.entries(tagData).sort((a, b) => b[1].totalReach - a[1].totalReach).slice(0, 5);
-                  if (sorted.length === 0) return <div style={{ fontSize: 12, color: "#3a3a4a", padding: "8px 0", textAlign: "center" }}>No hashtags yet — click to view details</div>;
-                  return <div style={{ display: "flex", flexDirection: "column", gap: 3, marginTop: 6 }}>
-                    {sorted.map(([tag, info], i) => {
-                      const avgReach = info.posts > 0 ? Math.round(info.totalReach / info.posts) : 0;
-                      return <div key={tag} style={{ display: "flex", gap: 4, alignItems: "center", padding: "3px 0", borderBottom: i < sorted.length-1 ? "1px solid rgba(26,26,46,0.3)" : "none" }}>
-                        <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
-                            <span style={{ fontSize: 12, color: "#00d4ff", fontWeight: 500 }}>{tag}</span>
-                            {info.totalLikes > 5 && <span style={{ fontSize: 9, color: "#00ff88" }}>▲</span>}
-                          </div>
-                          <div style={{ display: "flex", gap: 3, marginTop: 1 }}>
-                            <span style={{ fontSize: 10, color: "#555566" }}>{info.posts} posts</span>
-                            <span style={{ fontSize: 10, color: "#7a7a8a" }}>·</span>
-                            <span style={{ fontSize: 10, color: "#7a7a8a" }}>{avgReach} avg</span>
-                          </div>
-                        </div>
-                      </div>;
-                    })}
-                  </div>;
-                })()}
-              </div>            </>
+            </>
           )}{page === "calendar" && <PostCalendar />}
           {page === "posts" && data && <AllPosts posts={data.posts} />}
           {page === "history" && data && <HistoryPage posts={data.posts} />}
