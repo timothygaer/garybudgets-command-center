@@ -3591,7 +3591,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "draft",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3613,8 +3613,7 @@
       "source": "Topic Scout",
       "suggestion": "Compare street closure, police detail, parking, and basecamp permit costs across major production cities for an indie feature.",
       "source_name": "Auto Scout · city film office rate sheets",
-      "media_type": "carousel",
-      "approved_at": "2026-08-18T01:12:48.300Z"
+      "media_type": "carousel"
     },
     {
       "id": "scout-1786906441936-2-reel",
