@@ -3929,7 +3929,7 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -3942,8 +3942,10 @@
       "source": "Topic Scout",
       "suggestion": "Media management, backups, LTO archives, and card purchases are real line items \u2014 show how much data management adds to a shoot.",
       "source_name": "Auto Scout \u00b7 DIT workflows",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-4.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/images/scout-1786906441936-4/6.png",
+      "media_type": "reel",
+      "image_urls": []
     },
     {
       "id": "scout-1786906441945-5",

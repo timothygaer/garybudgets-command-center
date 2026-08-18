@@ -1,0 +1,40 @@
+{
+  "slug": "scout-1786906441936-4",
+  "title": "DIT & Data Management: The Invisible Post Cost",
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "out_video": "public/reels/scout-1786906441936-4.mp4",
+  "out_montage": "public/reels/scout-1786906441936-4-montage.jpg",
+  "scenes": [
+    {
+      "img": "public/reels/bg/scout-1786906441936-4/01.jpg",
+      "duration": 4.5,
+      "motion": "zoom_in"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-4/02.jpg",
+      "duration": 5.0,
+      "motion": "pan_up"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-4/03.jpg",
+      "duration": 5.0,
+      "motion": "zoom_out"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-4/04.jpg",
+      "duration": 5.0,
+      "motion": "pan_down"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-4/05.jpg",
+      "duration": 5.0,
+      "motion": "zoom_in"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-4/06.jpg",
+      "duration": 4.5,
+      "motion": "zoom_in"
+    }
+  ]
+}
