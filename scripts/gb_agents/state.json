@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-08-18T04:11:02.542733Z",
+  "jobs": [
+    {
+      "id": "scout-1786906441935-1-reel",
+      "title": "Equipment Rental vs Purchase: The Break-Even Decision (Reel)",
+      "status": "ready",
+      "media_type": "reel",
+      "route": "ReelAgent",
+      "has_images": false,
+      "aspect": "9:16"
+    },
+    {
+      "id": "scout-1786906441936-2",
+      "title": "Permit Costs: LA vs Atlanta vs NYC",
+      "status": "draft",
+      "media_type": "carousel",
+      "route": "CarouselAgent",
+      "has_images": true,
+      "aspect": "4:5"
+    },
+    {
+      "id": "scout-1786906441936-2-reel",
+      "title": "Permit Costs: LA vs Atlanta vs NYC (Reel)",
+      "status": "ready",
+      "media_type": "reel",
+      "route": "ReelAgent",
+      "has_images": false,
+      "aspect": "9:16"
+    },
+    {
+      "id": "scout-1786906441936-3-reel",
+      "title": "Stunt & Special Skills Budget Lines (Reel)",
+      "status": "ready",
+      "media_type": "reel",
+      "route": "ReelAgent",
+      "has_images": false,
+      "aspect": "9:16"
+    },
+    {
+      "id": "scout-1786906441936-4",
+      "title": "DIT & Data Management: The Invisible Post Cost",
+      "status": "draft",
+      "media_type": "carousel",
+      "route": "CarouselAgent",
+      "has_images": true,
+      "aspect": "4:5"
+    },
+    {
+      "id": "scout-1786906441936-4-reel",
+      "title": "DIT & Data Management: The Invisible Post Cost (Reel)",
+      "status": "ready",
+      "media_type": "reel",
+      "route": "ReelAgent",
+      "has_images": false,
+      "aspect": "9:16"
+    },
+    {
+      "id": "scout-1786906441945-5",
+      "title": "Sound Design Budget: Why Silence Isn't Free",
+      "status": "draft",
+      "media_type": "carousel",
+      "route": "CarouselAgent",
+      "has_images": true,
+      "aspect": "4:5"
+    },
+    {
+      "id": "scout-1786906441945-5-reel",
+      "title": "Sound Design Budget: Why Silence Isn't Free (Reel)",
+      "status": "ready",
+      "media_type": "reel",
+      "route": "ReelAgent",
+      "has_images": false,
+      "aspect": "9:16"
+    }
+  ],
+  "note": "READ ONLY \u2014 orchestrator never approves/schedules/posts. Posts here are Ready-for-user-approval at most."
+}
