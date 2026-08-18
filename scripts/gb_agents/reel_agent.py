@@ -10,6 +10,11 @@ Phases:
 
 Ends with reel at `ready` in queue for USER approval. Reel manifest entries must
 carry video_url + cover_url, NOT image_urls (Oracle publisher rules).
+
+Slug: pass an explicit readable slug (e.g. "actor-travel-costs-v2") so frames,
+the designed.json spec, and the output MP4 all use the SAME slug. If omitted,
+falls back to the post id. (Cleaned up 2026-08-17 — previously the scout ID was
+used, which made spec/frame paths disagree.)
 """
 from __future__ import annotations
 
@@ -24,11 +29,35 @@ RENDERER = os.path.join(REPO, "scripts", "make_designed_reel.py")
 
 
 class ReelAgent:
-    def __init__(self, post: dict):
+    def __init__(self, post: dict, slug: str | None = None):
         self.post = post
         self.id = str(post.get("id") or "")
         self.title = str(post.get("title") or "")
-        self.slug = self.id.replace("-reel", "")
+        # Explicit readable slug wins; else fall back to post id (minus -reel suffix).
+        self.slug = slug or self.id.replace("-reel", "")
+
+    @property
+    def bg_dir(self):
+        """Where designed frames are stored (one dir per reel slug)."""
+        return os.path.join(REPO, "public", "reels", "bg", self.slug)
+
+    def generate_frames(self, frames: list[dict], backend: str = "web"):
+        """Generate 9:16 designed frames (one chatgpt-imagegen call each)."""
+        bg = self.bg_dir
+        os.makedirs(bg, exist_ok=True)
+        env = dict(os.environ); env["PATH"] = PATH
+        for fr in frames:
+            n = fr["n"]; prompt = fr["prompt"]
+            out = os.path.join(bg, f"{n:02d}.jpg")
+            r = subprocess.run(
+                ["chatgpt-imagegen", prompt, "--size", "1080x1920", "--format", "jpeg",
+                 "--backend", backend, "-o", out],
+                capture_output=True, text=True, env=env, timeout=280,
+            )
+            if r.returncode != 0 or not (os.path.exists(out) and os.path.getsize(out) > 500_000):
+                raise RuntimeError(f"reel frame {n} failed: {r.stderr[-300:]}")
+            print(f"[ReelAgent:{self.id}] frame {n} generated")
+        return bg
 
     def render(self, spec_path: str):
         """Render a designed-reel MP4 from a designed.json spec. Returns out mp4 path."""
@@ -41,23 +70,28 @@ class ReelAgent:
             raise RuntimeError(f"renderer did not produce {mp4}")
         return mp4
 
-    def generate_frames(self, frames: list[dict], backend: str = "web"):
-        """Generate 9:16 designed frames (one chatgpt-imagegen call each)."""
-        import subprocess as sp
-        bg = os.path.join(REPO, "public", "reels", "bg", self.slug)
-        os.makedirs(bg, exist_ok=True)
-        env = dict(os.environ); env["PATH"] = PATH
-        for fr in frames:
-            n = fr["n"]; prompt = fr["prompt"]
-            out = os.path.join(bg, f"{n:02d}.jpg")
-            r = sp.run(
-                ["chatgpt-imagegen", prompt, "--size", "1080x1920", "--format", "jpeg", "--backend", backend, "-o", out],
-                capture_output=True, text=True, env=env, timeout=280,
-            )
-            if r.returncode != 0 or not (os.path.exists(out) and os.path.getsize(out) > 500_000):
-                raise RuntimeError(f"reel frame {n} failed: {r.stderr[-300:]}")
-            print(f"[ReelAgent:{self.id}] frame {n} generated")
-        return bg
+    def build_spec(self, scenes, music="public/reels/audio/music-licensing-traps-bed.m4a",
+                   music_volume=0.34, out_dir: str | None = None):
+        """Write the designed.json spec. Scenes = list of {dur, motion}. Returns spec path."""
+        import json
+        out_dir = out_dir or os.path.join(REPO, "scripts", "reels", self.slug)
+        os.makedirs(out_dir, exist_ok=True)
+        spec = {
+            "slug": self.slug,
+            "title": self.title.replace(" (Reel)", ""),
+            "music": music,
+            "music_volume": music_volume,
+            "out_video": f"public/reels/{self.slug}.mp4",
+            "out_montage": f"public/reels/{self.slug}-montage.jpg",
+            "scenes": [
+                {"img": f"public/reels/bg/{self.slug}/{i+1:02d}.jpg", "duration": s["dur"], "motion": s.get("motion", "zoom_in")}
+                for i, s in enumerate(scenes)
+            ],
+        }
+        path = os.path.join(out_dir, "designed.json")
+        with open(path, "w") as f:
+            json.dump(spec, f, indent=2)
+        return path
 
     def __repr__(self):
-        return f"<ReelAgent {self.id}: {self.title}>"
+        return f"<ReelAgent {self.id}: {self.title} slug={self.slug}>"
