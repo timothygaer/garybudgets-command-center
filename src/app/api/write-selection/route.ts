@@ -57,31 +57,6 @@ function buildDiscoveryCopy(topic: any): { caption: string; hashtags: string } {
   return { caption, hashtags }
 }
 
-/** Find next available Mon-Sat slot (skipping Sundays, max 2 per day), at least minDaysAhead days out */
-function findNextSlot(existingSchedules: string[], minDaysAhead = 1): string {
-  const now = new Date()
-  const tomorrow = new Date(now)
-  tomorrow.setDate(tomorrow.getDate() + minDaysAhead)
-  tomorrow.setHours(9, 0, 0, 0)
-
-  const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-
-  for (let days = 1; days <= 14; days++) {
-    const check = new Date(tomorrow)
-    check.setDate(check.getDate() + days - 1)
-    const dayOfWeek = check.getDay()
-    if (dayOfWeek === 0) continue // Skip Sunday
-
-    const dateStr = `${dayNames[dayOfWeek]}, ${monthNames[check.getMonth()]} ${check.getDate()}`
-    const dayPostCount = existingSchedules.filter((s) => s && s.startsWith(dateStr)).length
-    if (dayPostCount < 2) {
-      return `${dateStr} · ${dayPostCount === 0 ? "9:00 AM" : "12:00 PM"} PT`
-    }
-  }
-  return `${dayNames[tomorrow.getDay()]}, ${monthNames[tomorrow.getMonth()]} ${tomorrow.getDate()} · 9:00 AM PT`
-}
-
 /** Fetch the latest manifest from GitHub and extract scout drafts */
 async function getScoutDraftsFromGitHub(): Promise<{ drafts: any[]; used_topics?: string[]; error?: string }> {
   const token = process.env.GITHUB_TOKEN
@@ -133,11 +108,6 @@ export async function POST(request: Request) {
     const manifestContent = await readFile(SRC_PATH, "utf-8")
     const manifest = JSON.parse(manifestContent)
 
-    // Get existing schedules for slot assignment
-    const existingSchedules = (manifest.posts || [])
-      .filter((p: any) => p.proposed_schedule || p.original_schedule)
-      .map((p: any) => p.proposed_schedule || p.original_schedule)
-
     // Get existing titles to avoid duplicates
     const existingTitles = new Set((manifest.posts || []).map((p: any) => p.title.toLowerCase()))
 
@@ -153,7 +123,6 @@ export async function POST(request: Request) {
       }
 
       const postId = createPostId()
-      const schedule = findNextSlot(existingSchedules)
       const discoveryCopy = buildDiscoveryCopy(topic)
 
       const draftPost: any = {
@@ -163,8 +132,11 @@ export async function POST(request: Request) {
         slug: `Post_${slugify(title)}`,
         slide_count: 6,
         build_type,
-        original_schedule: schedule,
-        proposed_schedule: schedule,
+        // NO schedule is baked in at creation. The day/time is assigned only when the
+        // user approves the post (approve route assigns the next free slot in the order
+        // posts are approved).
+        original_schedule: null,
+        proposed_schedule: null,
         caption: discoveryCopy.caption,
         hashtags: discoveryCopy.hashtags,
         slides: [
@@ -193,22 +165,20 @@ export async function POST(request: Request) {
       }
 
       manifest.posts.push(draftPost)
-      existingSchedules.push(schedule)
       existingTitles.add(title.toLowerCase())
-      addedDrafts.push({ id: postId, title, schedule })
+      addedDrafts.push({ id: postId, title })
 
-      // build_type "both": also create a separate REEL draft, scheduled a few
-      // days AFTER the carousel so same-content posts never land the same day.
+      // build_type "both": also create a separate REEL draft (also unscheduled —
+      // assigned a slot when the user approves it).
       if (build_type === "both") {
-        const reelSchedule = findNextSlot(existingSchedules, 3)
         const reelPost: any = {
           ...draftPost,
           id: postId + "-reel",
           title: title + " (Reel)",
           slug: `Reel_${slugify(title)}`,
           build_type: "reel",
-          original_schedule: reelSchedule,
-          proposed_schedule: reelSchedule,
+          original_schedule: null,
+          proposed_schedule: null,
           caption: "REEL: " + draftPost.caption,
           status: "ready",
           has_images: false,
@@ -217,8 +187,7 @@ export async function POST(request: Request) {
         }
         delete reelPost.image_urls
         manifest.posts.push(reelPost)
-        existingSchedules.push(reelSchedule)
-        addedDrafts.push({ id: reelPost.id, title: reelPost.title, schedule: reelSchedule })
+        addedDrafts.push({ id: reelPost.id, title: reelPost.title })
       }
     }
 
