@@ -234,9 +234,11 @@ export async function POST(request: Request) {
       tomorrow.setHours(9, 0, 0, 0)
 
       // Find a Mon-Sat day that doesn't already have 2 posts scheduled.
-      // Only count approved/scheduled posts (drafts have no schedule).
+      // Only count APPROVED posts (those that actually occupy a real slot). Drafts
+      // and ready posts carry placeholder/no schedules and get reassigned here on
+      // approval, so they must not consume capacity.
       const allSchedules = manifest.posts
-        .filter((p: any) => p.proposed_schedule || p.original_schedule)
+        .filter((p: any) => p.status === "approved" && (p.proposed_schedule || p.original_schedule))
         .map((p: any) => p.proposed_schedule || p.original_schedule)
 
       const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
