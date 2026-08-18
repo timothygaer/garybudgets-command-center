@@ -42,15 +42,15 @@ def generate_one(post_id: str, slide: int, prompt: str, backend: str = "web") ->
 
 def build_montage(post_id: str, title: str) -> str:
     """Build a 2x3 montage for one-pass verification. Returns montage path."""
-    script = "/tmp/gb_make_montages.py"
-    if not os.path.exists(script):
-        # one-off inline montage builder
-        script = _write_montage_helper()
+    script = _write_montage_helper()  # always write the arg-aware helper (stale copies exist)
     env = dict(os.environ)
     r = subprocess.run([PY, script, post_id, title], capture_output=True, text=True, env=env, timeout=120)
     if r.returncode != 0:
         raise RuntimeError(f"montage build failed: {r.stderr[-300:]}")
-    return f"/tmp/gb_montages/{post_id}.png"
+    out = f"/tmp/gb_montages/{post_id}.png"
+    if not os.path.exists(out):
+        raise RuntimeError(f"montage build did not produce {out}")
+    return out
 
 
 def _write_montage_helper() -> str:
