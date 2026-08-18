@@ -3845,7 +3845,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "draft",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3867,8 +3867,7 @@
       "source": "Topic Scout",
       "suggestion": "Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot.",
       "source_name": "Auto Scout · DIT workflows",
-      "media_type": "carousel",
-      "approved_at": "2026-08-18T01:12:51.370Z"
+      "media_type": "carousel"
     },
     {
       "id": "scout-1786906441936-4-reel",
