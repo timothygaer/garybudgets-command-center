@@ -859,12 +859,26 @@ export default function Dashboard() {
                   <span style={{ fontSize: 13, color: "#555566" }}>Build activity · live</span>
                 </div>
                 {!agentState || Object.keys(agentState.agents || {}).length === 0 ? (
-                  <div style={{ fontSize: 12, color: "#3a3a4a", padding: "8px 0" }}>No agent builds running yet. Start a build from the Queue and watch progress here.</div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                    {(["Router", "Carousel", "Reel", "Verifier", "Deployer"] as string[]).map(name => (
+                      <div key={name} style={{ display: "flex", gap: 6, alignItems: "center", ...s.bd1, ...s.bd4, padding: "5px 8px", background: "rgba(255,255,255,0.01)" }}>
+                        <span style={{ width: 18, textAlign: "center", fontSize: 14, color: "#555566" }}>○</span>
+                        <span style={{ width: 72, fontSize: 12, fontWeight: 600, color: "#d0d0e0", textTransform: "uppercase" }}>{name}</span>
+                        <span style={{ fontSize: 11, color: "#7a7a8a" }}>In the break room</span>
+                      </div>
+                    ))}
+                  </div>
                 ) : (
                   <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                     {(["Router", "Carousel", "Reel", "Verifier", "Deployer"] as string[]).map(name => {
                       const a = (agentState.agents || {})[name]
-                      if (!a) return null
+                      if (!a) {
+                        return <div key={name} style={{ display: "flex", gap: 6, alignItems: "center", ...s.bd1, ...s.bd4, padding: "5px 8px", background: "rgba(255,255,255,0.01)" }}>
+                          <span style={{ width: 18, textAlign: "center", fontSize: 14, color: "#555566" }}>○</span>
+                          <span style={{ width: 72, fontSize: 12, fontWeight: 600, color: "#d0d0e0", textTransform: "uppercase" }}>{name}</span>
+                          <span style={{ fontSize: 11, color: "#7a7a8a" }}>In the break room</span>
+                        </div>
+                      }
                       const isWorking = a.status === "working"
                       const isDone = a.status === "done"
                       const isError = a.status === "error"
@@ -873,7 +887,7 @@ export default function Dashboard() {
                       return <div key={name} style={{ display: "flex", gap: 6, alignItems: "center", ...s.bd1, ...s.bd4, padding: "5px 8px", background: isWorking ? "rgba(255,179,71,0.04)" : "rgba(255,255,255,0.01)" }}>
                         <span style={{ width: 18, textAlign: "center", fontSize: 14, color }}>{dot}</span>
                         <span style={{ width: 72, fontSize: 12, fontWeight: 600, color: "#d0d0e0", textTransform: "uppercase" }}>{name}</span>
-                        <span style={{ fontSize: 11, color: isWorking ? "#ffb347" : "#7a7a8a" }}>{a.detail || a.phase || a.status}</span>
+                        <span style={{ fontSize: 11, color: isWorking ? "#ffb347" : "#7a7a8a" }}>{isDone ? "Done · " + (a.detail || a.phase || "") : isWorking ? (a.detail || a.phase || "Working...") : (a.detail || a.phase || a.status || "In the break room")}</span>
                         {a.post_id && <span style={{ fontSize: 10, color: "#3a3a4a", marginLeft: "auto" }}>{a.post_id}</span>}
                       </div>
                     })}
@@ -1018,8 +1032,9 @@ export default function Dashboard() {
                 </div>
               </div>
 
-                            {/* ── Row 2: Reach Trend (full width, real data) ── */}
-              <div style={{ marginBottom: 8 }}>
+              {/* ── Row 2: Reach (line graph, half width) + Build Queue ── */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 8, alignItems: "stretch" }}>
+                {/* Reach Trend — line/area graph, left numbers, bottom dates */}
                 <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
                   {(() => {
                     const days: { label: string; reach: number }[] = [];
@@ -1031,24 +1046,73 @@ export default function Dashboard() {
                       const reach = data.posts.filter(p => (p.timestamp || "").slice(0, 10) === key).reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
                       days.push({ label: `${d.getMonth() + 1}/${d.getDate()}`, reach });
                     }
-                    const maxReach = Math.max(...days.map(d => d.reach), 1);
                     const totalReach14 = days.reduce((s, d) => s + d.reach, 0);
                     const hasData = totalReach14 > 0;
-                    return <>
-                      <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
-                        Reach · 14 days <span style={{ fontSize: 16, ...s.txGreen, ...s.fw5 }}>{hasData ? n(totalReach14) : "—"}</span>
+                    // Chart geometry
+                    const W = 300, H = 120, PAD_L = 34, PAD_B = 20, PAD_T = 8, PAD_R = 6;
+                    const plotW = W - PAD_L - PAD_R;
+                    const plotH = H - PAD_T - PAD_B;
+                    const maxReach = Math.max(...days.map(d => d.reach), 1);
+                    // Y-axis: pick 4 nice ticks
+                    const yTicks = [0, 0.5, 1].map(f => Math.round(maxReach * f));
+                    // X-axis: show ~5 date labels
+                    const xLabels: { i: number; label: string }[] = [];
+                    const showIdx = [0, 3, 6, 9, 13];
+                    showIdx.forEach((ix, k) => { if (days[ix]) xLabels.push({ i: ix, label: days[ix].label }) });
+                    const px = (i: number) => PAD_L + (i / (days.length - 1)) * plotW;
+                    const py = (v: number) => PAD_T + plotH - (v / maxReach) * plotH;
+                    const pts = days.map((d, i) => `${px(i)},${py(d.reach)}`).join(" ");
+                    const area = `${PAD_L},${PAD_T + plotH} ${pts} ${px(days.length - 1)},${PAD_T + plotH}`;
+                    return <div style={{ position: "relative" }}>
+                      <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 4, ...s.flex, ...s.aic, ...s.jcsb }}>
+                        <span>Reach · 14 days</span>
+                        <span style={{ fontSize: 15, ...s.txGreen, ...s.fw5 }}>{hasData ? n(totalReach14) : "—"}</span>
                       </div>
-                      <div style={{ display: "flex", alignItems: "flex-end", gap: 2, height: 48 }}>
-                        {days.map((d, i) => (
-                          <div key={i} title={`${d.label}: ${d.reach} reach`} style={{ flex: 1, borderRadius: "1px 1px 0 0", background: "linear-gradient(180deg,#dc2626,rgba(220,38,38,0.25))", height: `${hasData ? Math.max((d.reach / maxReach) * 100, 2) : 2}%`, minHeight: 2 }} />
+                      <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: "block", maxHeight: H }}>
+                        {/* horizontal gridlines + y labels */}
+                        {yTicks.map((tv, i) => (
+                          <g key={i}>
+                            <line x1={PAD_L} x2={W - PAD_R} y1={py(tv)} y2={py(tv)} stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+                            <text x={PAD_L - 4} y={py(tv) + 3} textAnchor="end" fontSize="8" fill="#555566">{tv}</text>
+                          </g>
                         ))}
-                      </div>
-                      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, ...s.txDim, marginTop: 2 }}>
-                        <span>{days[0]?.label}</span><span>{days[6]?.label}</span><span>{days[13]?.label}</span>
-                      </div>
-                      {!hasData && <div style={{ fontSize: 12, ...s.txMuted, marginTop: 4 }}>No reach data for the last 14 days yet.</div>}
-                    </>;
+                        {/* area + line */}
+                        {hasData && <>
+                          <polygon points={area} fill="rgba(220,38,38,0.12)" />
+                          <polyline points={pts} fill="none" stroke="#dc2626" strokeWidth="1.5" strokeLinejoin="round" />
+                        </>}
+                        {/* x date labels */}
+                        {xLabels.map((xl, k) => (
+                          <text key={k} x={px(xl.i)} y={H - 6} textAnchor="middle" fontSize="8" fill="#7a7a8a">{xl.label}</text>
+                        ))}
+                      </svg>
+                      {!hasData && <div style={{ fontSize: 12, ...s.txMuted, marginTop: 2 }}>No reach data for the last 14 days yet.</div>}
+                    </div>;
                   })()}
+                </div>
+
+                {/* Build Queue — only shows unbuilt Topic Scout posts */}
+                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
+                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
+                    <span>Build Queue</span>
+                    <span style={{ fontSize: 10, color: scoutDrafts.length > 0 ? "#ef4444" : "#555566" }}>{scoutDrafts.length > 0 ? `📦 ${scoutDrafts.length}` : "—"}</span>
+                  </div>
+                  <div style={{ maxHeight: scoutDrafts.length > 0 ? 150 : 24, overflow: "auto" }}>
+                    {scoutDrafts.length === 0 ? (
+                      <div style={{ fontSize: 10, color: "#3a3a4a", textAlign: "center", padding: "8px 0" }}>No pending builds — use Topic Scout above to find topics</div>
+                    ) : (
+                      <>
+                        {scoutDrafts.map((item: any) => (
+                          <div key={item.id} style={{ display: "flex", gap: 4, padding: "4px 6px", marginBottom: 2, ...s.bd1, ...s.bd4, background: "rgba(255,179,71,0.04)" }}>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <div style={{ fontSize: 10, ...s.fw6, color: "#ffb347", lineHeight: 1.3 }}>{item.title}</div>
+                              <div style={{ fontSize: 8, color: "#7a7a8a" }}>Awaiting carousel build</div>
+                            </div>
+                          </div>
+                        ))}
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
 
