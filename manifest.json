@@ -3670,7 +3670,7 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -3683,8 +3683,10 @@
       "source": "Topic Scout",
       "suggestion": "Compare street closure, police detail, parking, and basecamp permit costs across major production cities for an indie feature.",
       "source_name": "Auto Scout \u00b7 city film office rate sheets",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-2.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/images/scout-1786906441936-2/6.png",
+      "media_type": "reel",
+      "image_urls": []
     },
     {
       "id": "scout-1786906441936-3",

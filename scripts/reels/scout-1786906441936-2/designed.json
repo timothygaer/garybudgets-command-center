@@ -1,0 +1,40 @@
+{
+  "slug": "scout-1786906441936-2",
+  "title": "Permit Costs: LA vs Atlanta vs NYC",
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "out_video": "public/reels/scout-1786906441936-2.mp4",
+  "out_montage": "public/reels/scout-1786906441936-2-montage.jpg",
+  "scenes": [
+    {
+      "img": "public/reels/bg/scout-1786906441936-2/01.jpg",
+      "duration": 4.5,
+      "motion": "zoom_in"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-2/02.jpg",
+      "duration": 5.0,
+      "motion": "pan_up"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-2/03.jpg",
+      "duration": 5.0,
+      "motion": "zoom_out"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-2/04.jpg",
+      "duration": 5.0,
+      "motion": "pan_down"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-2/05.jpg",
+      "duration": 5.0,
+      "motion": "zoom_in"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441936-2/06.jpg",
+      "duration": 4.5,
+      "motion": "zoom_in"
+    }
+  ]
+}
