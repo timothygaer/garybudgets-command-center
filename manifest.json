@@ -3718,7 +3718,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "draft",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3740,8 +3740,7 @@
       "source": "Topic Scout",
       "suggestion": "Cover stunt coordinator, rigging, safety crew, medical standby, insurance riders, and rehearsal days as explicit budget lines.",
       "source_name": "Auto Scout · stunt coordinator checklists",
-      "media_type": "carousel",
-      "approved_at": "2026-08-18T01:12:49.939Z"
+      "media_type": "carousel"
     },
     {
       "id": "scout-1786906441936-3-reel",
