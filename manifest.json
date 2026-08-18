@@ -3464,7 +3464,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3486,7 +3486,8 @@
       "source": "Topic Scout",
       "suggestion": "Show when buying a camera or lens package beats renting on a 30-day shoot, including insurance, maintenance, and resale assumptions.",
       "source_name": "Auto Scout · rental house rate cards",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "approved_at": "2026-08-18T01:12:46.437Z"
     },
     {
       "id": "scout-1786906441935-1-reel",
