@@ -158,16 +158,42 @@ def load_manifest():
     return json.loads(MANIFEST.read_text())
 
 
+def _abort_stale_rebase():
+    """If a previous pull --rebase was left abandoned mid-conflict (2026-08-18 incident:
+    a UU manifest.json left a dirty repo that blocked publishing for ~9 hours), clear it so
+    the publisher self-heals instead of refusing forever. Safe: only touches a partial rebase
+    that git itself left incomplete, never committed work."""
+    if not (REPO_DIR / ".git").exists():
+        return
+    import os
+    for d in (REPO_DIR / ".git" / "rebase-merge", REPO_DIR / ".git" / "rebase-apply"):
+        if d.exists():
+            print("GIT_SELFHEAL: aborting abandoned rebase state at " + d.name)
+            subprocess.run(["git", "rebase", "--abort"], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=30, check=False)
+            # If still dirty (unmerged), reset to origin/main since the only in-flight
+            # work is a half-applied rebase we just aborted.
+            st = subprocess.run(["git", "status", "--porcelain"], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=15, check=False)
+            if st.stdout.strip():
+                print("GIT_SELFHEAL: residual conflict markers; hard-resetting to origin/main")
+                subprocess.run(["git", "reset", "--hard", "origin/main"], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=30, check=False)
+            break
+
+
 def sync_repo_before_publish():
     """Start every publish from origin/main so Oracle cannot post from stale state."""
     if not (REPO_DIR / ".git").exists():
         return
+    _abort_stale_rebase()
     subprocess.run(["git", "fetch", "origin", "main"], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=45, check=False)
     status = subprocess.run(["git", "status", "--porcelain"], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=15, check=False)
     if status.stdout.strip():
         raise RuntimeError("Repo has uncommitted changes before publish; refusing to publish from dirty state")
     rebase = subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=60)
     if rebase.returncode != 0:
+        # A pull --rebase that fails leaves the repo dirty (conflict markers). Don't leave
+        # it locked for hours — abort so the NEXT tick gets a clean repo and can retry.
+        print("GIT_SELFHEAL: pull --rebase failed; aborting to leave a clean repo: " + (rebase.stderr.strip()[-300:] or str(rebase.returncode)))
+        subprocess.run(["git", "rebase", "--abort"], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=30, check=False)
         raise RuntimeError("Repo sync failed before publish: " + (rebase.stderr.strip()[-500:] or str(rebase.returncode)))
 
 
