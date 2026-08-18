@@ -3468,7 +3468,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3492,7 +3492,8 @@
       "source_name": "Auto Scout · rental house rate cards",
       "media_type": "carousel",
       "rescheduled_at": "2026-08-17T20:35:11.543196-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot."
+      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
+      "approved_at": "2026-08-18T03:53:29.909Z"
     },
     {
       "id": "scout-1786906441935-1-reel",
