@@ -26,6 +26,14 @@ PATH = "/Users/dit/.local/bin:/usr/local/bin:/opt/homebrew/bin:$PATH"
 SLIDE_COUNT = 6
 
 
+def report(name: str, status: str = "working", post_id: str = "", phase: str = "", detail: str = ""):
+    """Proxy to orchestrator.report_agent for live state.json updates."""
+    import sys
+    sys.path.insert(0, os.path.join(REPO, "scripts"))
+    from scripts.gb_agents.orchestrator import report_agent
+    report_agent(name, status, post_id, phase, detail)
+
+
 def generate_one(post_id: str, slide: int, prompt: str, backend: str = "web") -> str:
     """Generate a single carousel slide with chatgpt-imagegen. Returns out path."""
     out = os.path.join(IMG, post_id, f"{slide}.png")
@@ -93,6 +101,7 @@ class CarouselAgent:
 
     def generate(self, content: dict, backend: str = "web"):
         """Generate all slides for this carousel from approved educational content."""
+        report("Carousel", "working", self.id, "generate", f"Generating {SLIDE_COUNT} slides")
         slides = content[self.id]["slides"]
         assert len(slides) == SLIDE_COUNT, f"{self.id} needs {SLIDE_COUNT} slides, got {len(slides)}"
         for s in slides:
@@ -100,6 +109,8 @@ class CarouselAgent:
             prompt = _build_prompt(self.id, n, s["heading"], s["text"])
             generate_one(self.id, n, prompt, backend=backend)
             print(f"[CarouselAgent:{self.id}] slide {n} generated")
+            report("Carousel", "working", self.id, "generate", f"Slide {n}/{SLIDE_COUNT} done")
+        report("Carousel", "done", self.id, "generate", "All slides generated")
         return os.path.join(IMG, self.id)
 
     def verify(self):

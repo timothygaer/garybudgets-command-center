@@ -588,6 +588,7 @@ export default function Dashboard() {
   const [showPending, setShowPending] = useState(false)
   const [scoutDrafts, setScoutDrafts] = useState<any[]>([])
   const [calendarEvents, setCalendarEvents] = useState<any[]>([])
+  const [agentState, setAgentState] = useState<any>(null)
   const [modalPost, setModalPost] = useState<any | null>(null)
   const [page, setPage] = useState<NavPage>("overview")
   const [buildType, setBuildType] = useState<"carousel" | "reel" | "both">("carousel")
@@ -605,6 +606,14 @@ export default function Dashboard() {
   }, [])
 
   useEffect(() => { fetchData() }, [fetchData])
+
+  // Poll agent-workflow state (real-time activity panel). Refresh every 15s.
+  useEffect(() => {
+    const load = () => fetch("/api/agents").then(r => r.json()).then(setAgentState).catch(() => {})
+    load()
+    const id = setInterval(load, 15000)
+    return () => clearInterval(id)
+  }, [])
 
   // Load scout drafts from write-selection API (reads live GitHub manifest)
   const loadScoutDrafts = useCallback(async () => {
@@ -643,8 +652,6 @@ export default function Dashboard() {
   const handleSelectedPostInModal = useCallback((post: any) => {
     setModalPost(post)
   }, [])
-
-  const recentPosts = data?.posts?.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 5) || []
 
   const navItems: { id: NavPage; icon: string; label: string }[] = [
     { id: "overview", icon: "◉", label: "Overview" },
@@ -773,6 +780,15 @@ export default function Dashboard() {
             )
           })}
           <div style={{ height: 1, ...s.bg1, margin: "4px 14px" }} />
+          {data && (
+            <div onClick={() => setPage("settings")} title="Connected Accounts (Settings)" style={{ ...s.flex, ...s.aic, ...s.gap8, ...s.pSb, ...s.curPt, ...s.trAll, marginBottom: 6, cursor: "pointer" }}>
+              <div style={{ width: 28, height: 28, borderRadius: 6, background: "linear-gradient(135deg,#dc2626,#881515)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, flexShrink: 0, fontWeight: 700, color: "#fff" }}>IG</div>
+              <div style={{ ...s.flexCol, minWidth: 0, flex: 1 }}>
+                <div style={{ fontSize: 11, fontWeight: 600, color: "#d0d0e0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>@{data.account?.username || "garyfilmbudgets"}</div>
+                <div style={{ fontSize: 9, color: "#555566" }}>{data.account?.followers || 0} followers</div>
+              </div>
+            </div>
+          )}
           <div style={{ ...s.flex, ...s.aic, ...s.gap8, ...s.pSb, ...s.textXs, ...s.txDim, ...s.curDf, marginTop: "auto" }}>
             <span style={{ ...s.txGreen, fontSize: 13 }}>●</span> v2.4.1
           </div>
@@ -836,161 +852,169 @@ export default function Dashboard() {
                 </div>
               )}
 
-              {/* ── CONTEXT LAYER: Row 1 (This Week + Engagement+Diagnosis) ── */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 8 }}>
-                {/* This Week (Context) */}
-                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
-                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
-                    <span style={{ fontSize: 18 }}>This Week</span>
-                    <span style={{ fontSize: 13, color: "#555566" }}>Context</span>
+              {/* ── AGENT ACTIVITY (real-time from state.json) ── */}
+              <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden", marginBottom: 8 }}>
+                <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
+                  <span style={{ fontSize: 18 }}>Agents</span>
+                  <span style={{ fontSize: 13, color: "#555566" }}>Build activity · live</span>
+                </div>
+                {!agentState || Object.keys(agentState.agents || {}).length === 0 ? (
+                  <div style={{ fontSize: 12, color: "#3a3a4a", padding: "8px 0" }}>No agent builds running yet. Start a build from the Queue and watch progress here.</div>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                    {(["Router", "Carousel", "Reel", "Verifier", "Deployer"] as string[]).map(name => {
+                      const a = (agentState.agents || {})[name]
+                      if (!a) return null
+                      const isWorking = a.status === "working"
+                      const isDone = a.status === "done"
+                      const isError = a.status === "error"
+                      const color = isError ? "#ef4444" : isWorking ? "#ffb347" : isDone ? "#00ff88" : "#555566"
+                      const dot = isError ? "✕" : isWorking ? "◉" : isDone ? "✓" : "○"
+                      return <div key={name} style={{ display: "flex", gap: 6, alignItems: "center", ...s.bd1, ...s.bd4, padding: "5px 8px", background: isWorking ? "rgba(255,179,71,0.04)" : "rgba(255,255,255,0.01)" }}>
+                        <span style={{ width: 18, textAlign: "center", fontSize: 14, color }}>{dot}</span>
+                        <span style={{ width: 72, fontSize: 12, fontWeight: 600, color: "#d0d0e0", textTransform: "uppercase" }}>{name}</span>
+                        <span style={{ fontSize: 11, color: isWorking ? "#ffb347" : "#7a7a8a" }}>{a.detail || a.phase || a.status}</span>
+                        {a.post_id && <span style={{ fontSize: 10, color: "#3a3a4a", marginLeft: "auto" }}>{a.post_id}</span>}
+                      </div>
+                    })}
                   </div>
-                  <div style={{ ...s.flex, gap: 6, marginBottom: 6 }}>
+                )}
+              </div>
+
+              {/* ── PERFORMANCE: This Week + Post of Week + Engagement + Diagnosis (one clean panel) ── */}
+              <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden", marginBottom: 8 }}>
+                <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
+                  <span style={{ fontSize: 18 }}>Performance</span>
+                  <span style={{ fontSize: 13, color: "#555566" }}>This Week · Context</span>
+                </div>
+                {/* Stat cards */}
+                <div style={{ ...s.flex, gap: 6, marginBottom: 8 }}>
+                  {(() => {
+                    const totalReach = data.insights?.reach || 0;
+                    const totalLikes = data.posts.reduce((s,p) => s + ((p.insights?.likes || p.like_count) || 0), 0);
+                    const totalComments = data.posts.reduce((s,p) => s + ((p.insights?.comments || p.comments_count) || 0), 0);
+                    const totalSaves = data.posts.reduce((s,p) => s + (p.insights?.saved || 0), 0);
+                    const totalInteract = totalLikes + totalComments + totalSaves;
+                    const engRate = totalReach >= REACH_MIN_FOR_RATE ? ((totalInteract / totalReach) * 100) : NaN;
+                    const prev = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("gb_snapshot") || "{}") : {};
+                    const curr = { reach: totalReach, likes: totalLikes, comments: totalComments, saves: totalSaves, interact: totalInteract, followers: data.account?.followers || 0 };
+                    if (typeof window !== "undefined" && Object.keys(prev).length === 0) localStorage.setItem("gb_snapshot", JSON.stringify(curr));
+                    const pct = (cur: number, old: number) => old > 0 ? (((cur - old) / old) * 100) : 0;
+                    const arrow = (v: number) => v > 0 ? "▲" : v < 0 ? "▼" : "—";
+                    const color = (v: number) => v > 0 ? "#00ff88" : v < 0 ? "#ef4444" : "#555566";
+                    return [
+                      { label: "Reach", value: n(totalReach), c: "#4a9eff", ch: `${arrow(pct(curr.reach, prev.reach||0))}${Math.abs(pct(curr.reach, prev.reach||0)).toFixed(0)}%`, cc: color(pct(curr.reach, prev.reach||0)) },
+                      { label: "Saves", value: n(totalSaves), c: "#00ff88", ch: `${arrow(pct(curr.saves, prev.saves||0))}${Math.abs(pct(curr.saves, prev.saves||0)).toFixed(0)}%`, cc: color(pct(curr.saves, prev.saves||0)) },
+                      { label: "Eng. Rate", value: isNaN(engRate) ? "—" : engRate.toFixed(1) + "%", c: "#ffb347", ch: totalReach < REACH_MIN_FOR_RATE ? "needs 100+ reach" : "—", cc: "#555566" },
+                      { label: "Interact", value: n(totalInteract), c: "#b44aff", ch: `${arrow(pct(curr.interact, prev.interact||0))}${Math.abs(pct(curr.interact, prev.interact||0)).toFixed(0)}%`, cc: color(pct(curr.interact, prev.interact||0)) },
+                    ].map(card => (
+                      <div key={card.label} style={{ flex: 1, ...s.bd1, ...s.bd6, padding: "6px 8px", background: "rgba(255,255,255,0.01)" }}>
+                        <div style={{ fontSize: 18, ...s.fw7, color: card.c }}>{card.value}</div>
+                        <div style={{ fontSize: 12, ...s.txMuted, ...s.ttu }}>{card.label}</div>
+                        <div style={{ fontSize: 12, color: card.cc }}>{card.ch}</div>
+                      </div>
+                    ))
+                  })()}
+                </div>
+                {/* Engagement bars + Post of the Week */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 8 }}>
+                  <div style={{ display: "flex", alignItems: "flex-end", gap: 4, ...s.bd1, padding: "6px 8px", background: "rgba(255,255,255,0.01)", ...s.bd6 }}>
                     {(() => {
-                      // Compute real metrics from API data
-                      const totalReach = data.insights?.reach || 0;
                       const totalLikes = data.posts.reduce((s,p) => s + ((p.insights?.likes || p.like_count) || 0), 0);
                       const totalComments = data.posts.reduce((s,p) => s + ((p.insights?.comments || p.comments_count) || 0), 0);
                       const totalSaves = data.posts.reduce((s,p) => s + (p.insights?.saved || 0), 0);
-                      const totalInteract = totalLikes + totalComments + totalSaves;
-                      const engRate = totalReach >= REACH_MIN_FOR_RATE ? ((totalInteract / totalReach) * 100) : NaN;
-                      // Compare with localStorage snapshot for week-over-week
+                      const followers = data.account?.followers || 0;
+                      const maxVal = Math.max(totalLikes, totalComments, totalSaves, followers, 1);
                       const prev = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("gb_snapshot") || "{}") : {};
-                      const curr = { reach: totalReach, likes: totalLikes, comments: totalComments, saves: totalSaves, interact: totalInteract, followers: data.account?.followers || 0 };
-                      // Save current snapshot (once per data load)
-                      if (typeof window !== "undefined" && Object.keys(prev).length === 0) localStorage.setItem("gb_snapshot", JSON.stringify(curr));
                       const pct = (cur: number, old: number) => old > 0 ? (((cur - old) / old) * 100) : 0;
                       const arrow = (v: number) => v > 0 ? "▲" : v < 0 ? "▼" : "—";
-                      const color = (v: number) => v > 0 ? "#00ff88" : v < 0 ? "#ef4444" : "#555566";
-                      return [
-                        { label: "Reach", value: n(totalReach), c: "#4a9eff", ch: `${arrow(pct(curr.reach, prev.reach||0))}${Math.abs(pct(curr.reach, prev.reach||0)).toFixed(0)}%`, cc: color(pct(curr.reach, prev.reach||0)) },
-                        { label: "Saves", value: n(totalSaves), c: "#00ff88", ch: `${arrow(pct(curr.saves, prev.saves||0))}${Math.abs(pct(curr.saves, prev.saves||0)).toFixed(0)}%`, cc: color(pct(curr.saves, prev.saves||0)) },
-                        { label: "Eng. Rate", value: isNaN(engRate) ? "—" : engRate.toFixed(1) + "%", c: "#ffb347", ch: totalReach < REACH_MIN_FOR_RATE ? "needs 100+ reach" : "—", cc: "#555566" },
-                        { label: "Interact", value: n(totalInteract), c: "#b44aff", ch: `${arrow(pct(curr.interact, prev.interact||0))}${Math.abs(pct(curr.interact, prev.interact||0)).toFixed(0)}%`, cc: color(pct(curr.interact, prev.interact||0)) },
-                      ].map(card => (
-                        <div key={card.label} style={{ flex: 1, ...s.bd1, ...s.bd6, padding: "6px 8px", background: "rgba(255,255,255,0.01)" }}>
-                          <div style={{ fontSize: 18, ...s.fw7, color: card.c }}>{card.value}</div>
-                          <div style={{ fontSize: 12, ...s.txMuted, ...s.ttu }}>{card.label}</div>
-                          <div style={{ fontSize: 12, color: card.cc }}>{card.ch}</div>
-                        </div>
-                      ))
+                      const bars = [
+                        { label: "Likes", value: totalLikes, color: "#b44aff", prev: prev.likes || 0 },
+                        { label: "Comments", value: totalComments, color: "#ffb347", prev: prev.comments || 0 },
+                        { label: "Saves", value: totalSaves, color: "#00ff88", prev: prev.saves || 0 },
+                        { label: "Followers", value: followers, color: "#ef4444", prev: prev.followers || 0 },
+                      ];
+                      return bars.map(bar => {
+                        const h = bar.value > 0 ? Math.max((bar.value / maxVal) * 100, 8) : 0;
+                        const delta = pct(bar.value, bar.prev);
+                        return <div key={bar.label} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, justifyContent: "flex-end", height: 64 }}>
+                          {h > 0 && <div style={{ width: "100%", background: `linear-gradient(180deg, ${bar.color}, ${bar.color}88)`, height: `${h}%`, borderRadius: "2px 2px 0 0", minHeight: 4 }} />}
+                          {h > 0 && <span style={{ fontSize: 10, color: bar.color, fontWeight: 600 }}>{bar.value}</span>}
+                          {bar.prev > 0 && <span style={{ fontSize: 8, color: delta > 0 ? "#00ff88" : delta < 0 ? "#ef4444" : "#555566" }}>{arrow(delta)}{Math.abs(delta).toFixed(0)}%</span>}
+                          <span style={{ fontSize: 7, color: "#555566", textTransform: "uppercase" }}>{bar.label}</span>
+                        </div>;
+                      })
                     })()}
                   </div>
-                  {/* Post of the Week */}
                   {(() => {
                     const best = data.posts.filter(p => p.insights).sort((a, b) => (b.insights?.reach || 0) - (a.insights?.reach || 0))[0]
-                    if (!best) return null
-                    return <div style={{ background: "rgba(220,38,38,0.06)", ...s.bd4, border: "1px solid rgba(220,38,38,0.12)", padding: "5px 7px" }}>
-                      <div style={{ fontSize: 14, ...s.txDim, ...s.ttu, ...s.ls05, marginBottom: 3 }}>🏆 Post of the Week</div>
-                      <div style={{ fontSize: 16, ...s.fw5, color: "#c0c0d0" }}>{postTitle(best)}</div>
-                      <div style={{ fontSize: 14, ...s.txMuted, marginTop: 2 }}>· <span style={{ ...s.txBlue, fontWeight: 600 }}>{n(best.insights?.reach || 0)} reach</span> · <span style={{ ...s.txAmber, fontWeight: 600 }}>{engRateStr(best)}</span></div>
+                    if (!best) return <div style={{ ...s.bd1, ...s.bd6, padding: "6px 8px", background: "rgba(255,255,255,0.01)", display: "flex", alignItems: "center" }}>
+                      <div style={{ fontSize: 12, ...s.txMuted }}>🏆 No post data yet</div>
                     </div>
-                  })()}
-                  {(() => {
-                    const tracked = data.posts.filter(p => p.insights).length;
-                    const totalReachAll = data.posts.reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
-                    return <div style={{ ...s.textXxs, ...s.txDim, marginTop: 4 }}>📈 {tracked} posts tracked · {n(totalReachAll)} total reach (last {data.posts.length} posts)</div>;
+                    return <div style={{ ...s.bd1, ...s.bd6, padding: "6px 8px", background: "rgba(220,38,38,0.04)", border: "1px solid rgba(220,38,38,0.12)" }}>
+                      <div style={{ fontSize: 12, ...s.txDim, ...s.ttu, ...s.ls05, marginBottom: 3 }}>🏆 Post of the Week</div>
+                      <div style={{ fontSize: 15, ...s.fw5, color: "#c0c0d0" }}>{postTitle(best)}</div>
+                      <div style={{ fontSize: 13, ...s.txMuted, marginTop: 2 }}>· <span style={{ ...s.txBlue, fontWeight: 600 }}>{n(best.insights?.reach || 0)} reach</span> · <span style={{ ...s.txAmber, fontWeight: 600 }}>{engRateStr(best)}</span></div>
+                    </div>
                   })()}
                 </div>
-
-                {/* Engagement + Diagnosis (combined) */}
-                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
-                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
-                    <span>Engagement</span>
-                    <span style={{ fontSize: 13, color: "#555566" }}>Diagnosis</span>
-                  </div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
-                    <div style={{ ...s.flex, gap: 6 }}>
-                      <div style={{ flex: 1, display: "flex", alignItems: "flex-end", gap: 4, ...s.bd1, padding: "6px 8px", background: "rgba(255,255,255,0.01)", ...s.bd6 }}>
-                        {(() => {
-                          const totalLikes = data.posts.reduce((s,p) => s + ((p.insights?.likes || p.like_count) || 0), 0);
-                          const totalComments = data.posts.reduce((s,p) => s + ((p.insights?.comments || p.comments_count) || 0), 0);
-                          const totalSaves = data.posts.reduce((s,p) => s + (p.insights?.saved || 0), 0);
-                          const followers = data.account?.followers || 0;
-                          const maxVal = Math.max(totalLikes, totalComments, totalSaves, followers, 1);
-                          const prev = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("gb_snapshot") || "{}") : {};
-                          const pct2 = (cur: number, old: number) => old > 0 ? (((cur - old) / old) * 100) : 0;
-                          const arrow2 = (v: number) => v > 0 ? "▲" : v < 0 ? "▼" : "—";
-                          const bars = [
-                            { label: "Likes", value: totalLikes, color: "#b44aff", prev: prev.likes || 0 },
-                            { label: "Comments", value: totalComments, color: "#ffb347", prev: prev.comments || 0 },
-                            { label: "Saves", value: totalSaves, color: "#00ff88", prev: prev.saves || 0 },
-                            { label: "Followers", value: followers, color: "#ef4444", prev: prev.followers || 0 },
-                          ];
-                          return bars.map(bar => {
-                            const pct = (cur: number, old: number) => old > 0 ? (((cur - old) / old) * 100) : 0;
-                            const arrow = (v: number) => v > 0 ? "▲" : v < 0 ? "▼" : "—";
-                            const h = bar.value > 0 ? Math.max((bar.value / maxVal) * 100, 8) : 0;
-                            const delta = pct(bar.value, bar.prev);
-                            return <div key={bar.label} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, justifyContent: "flex-end", height: "100%" }}>
-                              {h > 0 && <div style={{ width: "100%", background: `linear-gradient(180deg, ${bar.color}, ${bar.color}88)`, height: `${h}%`, borderRadius: "2px 2px 0 0", minHeight: 4 }} />}
-                              {h > 0 && <span style={{ fontSize: 10, color: bar.color, fontWeight: 600 }}>{bar.value}</span>}
-                              {bar.prev > 0 && <span style={{ fontSize: 8, color: delta > 0 ? "#00ff88" : delta < 0 ? "#ef4444" : "#555566" }}>{arrow(delta)}{Math.abs(delta).toFixed(0)}%</span>}
-                              <span style={{ fontSize: 7, color: "#555566", textTransform: "uppercase" }}>{bar.label}</span>
-                            </div>
-                          });
-                        })()}
-                      </div>
-                    </div>
-                    <div>
-                      <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span style={{ color: "#b44aff" }}>Likes</span><span>{data.posts.reduce((s: number, p: any) => s + ((p.insights?.likes || p.like_count) || 0), 0)}</span></div>
-                      <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span style={{ color: "#ffb347" }}>Comments</span><span>{data.posts.reduce((s: number, p: any) => s + ((p.insights?.comments || p.comments_count) || 0), 0)}</span></div>
-                      <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span style={{ color: "#00ff88" }}>Saves</span><span>{data.posts.reduce((s: number, p: any) => s + (p.insights?.saved || 0), 0)}</span></div>
-                      <div style={{ ...s.flex, ...s.jcsb, fontSize: 12, padding: "6px 0", color: "#9a9aaa" }}><span style={{ color: "#ef4444" }}>Followers</span><span>{data.account?.followers || 0}</span></div>
-                    </div>
-                  </div>
-                  {/* Diagnosis - data-driven */}
-                  <div style={{ marginTop: 6, ...s.bd4, ...s.bd1, padding: "5px 7px", background: "rgba(255,255,255,0.01)" }}>
-                    <div style={{ ...s.textXxs, ...s.txDim, ...s.ttu, ...s.ls05, marginBottom: 3 }}>Diagnosis</div>
-                    {(() => {
-                      // Real diagnostic hints from live Instagram data — no hardcoded numbers
-                      const followers = data.account?.followers || 0;
-                      const accountReach = data.insights?.reach || 0;
-                      const postReachSum = data.posts.reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
-                      const totalReach = Math.max(accountReach, postReachSum);
-                      const totalLikes = data.posts.reduce((s: number, p: any) => s + ((p.insights?.likes || p.like_count) || 0), 0);
-                      const totalComments = data.posts.reduce((s: number, p: any) => s + ((p.insights?.comments || p.comments_count) || 0), 0);
-                      const totalSaves = data.posts.reduce((s: number, p: any) => s + (p.insights?.saved || 0), 0);
-                      const totalInteract = totalLikes + totalComments + totalSaves;
-                      const engRate = totalReach >= REACH_MIN_FOR_RATE ? (totalInteract / totalReach) * 100 : NaN;
-                      const saveRatio = totalInteract > 0 ? totalSaves / totalInteract : 0;
-                      const likeCommentRatio = totalComments > 0 ? totalLikes / totalComments : 0;
-                      const now = Date.now();
-                      const reachInWindow = (days: number) => data.posts
-                        .filter(p => p.insights && now - new Date(p.timestamp).getTime() >= 0 && now - new Date(p.timestamp).getTime() < days * 86400000)
-                        .reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
-                      const reachRecent = reachInWindow(7);
-                      const reachPrev = reachInWindow(14) - reachRecent;
-                      const reachGrowth = reachPrev > 0 ? ((reachRecent - reachPrev) / reachPrev) * 100 : NaN;
-                      const coldStart = followers < 100 || totalReach < REACH_MIN_FOR_RATE;
-                      const diagnostics: { icon: string; label: string; detail: string }[] = [];
-                      if (coldStart) {
-                        diagnostics.push({ icon: "🟡", label: "Cold start — not enough data", detail: `${followers} followers · ~${totalReach} reach. Engagement rates are meaningless at this scale — focus on discovery (Reels + daily outbound engagement).` });
-                      } else {
-                        if (engRate > 3) diagnostics.push({ icon: "🟢", label: "Engagement strong", detail: `${engRate.toFixed(1)}% rate exceeds 3% threshold` });
-                        if (saveRatio > 0.3) diagnostics.push({ icon: "🟢", label: "Saves high", detail: `${Math.round(saveRatio*100)}% of interactions` });
-                        if (likeCommentRatio > 8) diagnostics.push({ icon: "🟡", label: "Comment gap", detail: `${Math.round(likeCommentRatio)}:1 like-to-comment` });
-                        if (!isNaN(reachGrowth) && reachGrowth < 10) diagnostics.push({ icon: "🔴", label: "Reach declining", detail: `${reachGrowth.toFixed(0)}% growth this period` });
-                      }
-                      if (diagnostics.length === 0) diagnostics.push({ icon: "⚪", label: "All nominal", detail: "No anomalies detected" });
-                      const hint = coldStart
-                        ? "Focus on discovery: post Reels, engage outbound daily, keep posting consistently — interactions will lag reach."
-                        : likeCommentRatio > 8
-                          ? "Reply to comments within the hour and ask questions to lift comment rate."
-                          : "Engagement nominal — keep posting consistently and test hooks.";
-                      return <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                {/* Diagnosis - data-driven */}
+                <div style={{ marginTop: 2 }}>
+                  {(() => {
+                    const followers = data.account?.followers || 0;
+                    const accountReach = data.insights?.reach || 0;
+                    const postReachSum = data.posts.reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
+                    const totalReach = Math.max(accountReach, postReachSum);
+                    const totalLikes = data.posts.reduce((s: number, p: any) => s + ((p.insights?.likes || p.like_count) || 0), 0);
+                    const totalComments = data.posts.reduce((s: number, p: any) => s + ((p.insights?.comments || p.comments_count) || 0), 0);
+                    const totalSaves = data.posts.reduce((s: number, p: any) => s + (p.insights?.saved || 0), 0);
+                    const totalInteract = totalLikes + totalComments + totalSaves;
+                    const engRate = totalReach >= REACH_MIN_FOR_RATE ? (totalInteract / totalReach) * 100 : NaN;
+                    const saveRatio = totalInteract > 0 ? totalSaves / totalInteract : 0;
+                    const likeCommentRatio = totalComments > 0 ? totalLikes / totalComments : 0;
+                    const now = Date.now();
+                    const reachInWindow = (days: number) => data.posts
+                      .filter(p => p.insights && now - new Date(p.timestamp).getTime() >= 0 && now - new Date(p.timestamp).getTime() < days * 86400000)
+                      .reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
+                    const reachRecent = reachInWindow(7);
+                    const reachPrev = reachInWindow(14) - reachRecent;
+                    const reachGrowth = reachPrev > 0 ? ((reachRecent - reachPrev) / reachPrev) * 100 : NaN;
+                    const coldStart = followers < 100 || totalReach < REACH_MIN_FOR_RATE;
+                    const diagnostics: { icon: string; label: string; detail: string }[] = [];
+                    if (coldStart) {
+                      diagnostics.push({ icon: "🟡", label: "Cold start — not enough data", detail: `${followers} followers · ~${totalReach} reach. Engagement rates are meaningless at this scale — focus on discovery (Reels + daily outbound engagement).` });
+                    } else {
+                      if (engRate > 3) diagnostics.push({ icon: "🟢", label: "Engagement strong", detail: `${engRate.toFixed(1)}% rate exceeds 3% threshold` });
+                      if (saveRatio > 0.3) diagnostics.push({ icon: "🟢", label: "Saves high", detail: `${Math.round(saveRatio*100)}% of interactions` });
+                      if (likeCommentRatio > 8) diagnostics.push({ icon: "🟡", label: "Comment gap", detail: `${Math.round(likeCommentRatio)}:1 like-to-comment` });
+                      if (!isNaN(reachGrowth) && reachGrowth < 10) diagnostics.push({ icon: "🔴", label: "Reach declining", detail: `${reachGrowth.toFixed(0)}% growth this period` });
+                    }
+                    if (diagnostics.length === 0) diagnostics.push({ icon: "⚪", label: "All nominal", detail: "No anomalies detected" });
+                    const hint = coldStart
+                      ? "Focus on discovery: post Reels, engage outbound daily, keep posting consistently — interactions will lag reach."
+                      : likeCommentRatio > 8
+                        ? "Reply to comments within the hour and ask questions to lift comment rate."
+                        : "Engagement nominal — keep posting consistently and test hooks.";
+                    const tracked = data.posts.filter(p => p.insights).length;
+                    const totalReachAll = data.posts.reduce((s: number, p: any) => s + (p.insights?.reach || 0), 0);
+                    return <>
+                      <div style={{ display: "flex", gap: 4, alignItems: "center", flexWrap: "wrap" }}>
                         {diagnostics.map((d, i) => (
-                          <div key={i} style={{ display: "flex", gap: 4, alignItems: "center" }}>
-                            <span style={{ fontSize: 14 }}>{d.icon}</span>
-                            <span style={{ fontSize: 14, color: "#b0b0c0" }}>{d.label}</span>
-                            <span style={{ fontSize: 12, color: "#555566" }}>— {d.detail}</span>
+                          <div key={i} style={{ display: "flex", gap: 4, alignItems: "center", ...s.bd1, ...s.bd4, padding: "3px 6px", background: "rgba(255,255,255,0.01)", marginRight: 4 }}>
+                            <span style={{ fontSize: 13 }}>{d.icon}</span>
+                            <span style={{ fontSize: 13, color: "#b0b0c0" }}>{d.label}</span>
+                            <span style={{ fontSize: 11, color: "#555566" }}>— {d.detail}</span>
                           </div>
                         ))}
-                        <div style={{ marginTop: 4, ...s.bd4, padding: "3px 5px", background: "rgba(220,38,38,0.04)", border: "1px solid rgba(220,38,38,0.08)", borderRadius: 3 }}>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 6, flexWrap: "wrap" }}>
+                        <div style={{ ...s.bd4, padding: "3px 6px", background: "rgba(220,38,38,0.04)", border: "1px solid rgba(220,38,38,0.08)", borderRadius: 3 }}>
                           <span style={{ fontSize: 13, color: "#00ff88" }}>→</span> <span style={{ fontSize: 13, color: "#7a7a8a" }}>{hint}</span>
                         </div>
-                      </div>;
-                    })()}
-                  </div>
+                        <div style={{ ...s.textXxs, ...s.txDim }}>📈 {tracked} posts tracked · {n(totalReachAll)} total reach (last {data.posts.length} posts)</div>
+                      </div>
+                    </>;
+                  })()}
                 </div>
               </div>
 
@@ -1028,32 +1052,8 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              {/* ── Social Accounts ── */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 8 }}>
-                {/* Connected Accounts */}
-                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
-                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8 }}>Connected Accounts</div>
-                  <div style={{ display: "flex", gap: 6 }}>
-                    <div style={{ flex: 1, display: "flex", gap: 4, padding: "6px 8px", ...s.bd1, ...s.bd6, background: "rgba(220,38,38,0.04)", border: "1px solid rgba(220,38,38,0.12)" }}>
-                      <div style={{ width: 32, height: 32, borderRadius: 6, background: "linear-gradient(135deg,#dc2626,#881515)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, flexShrink: 0, fontWeight: 700, color: "#fff" }}>IG</div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontSize: 11, fontWeight: 600, color: "#d0d0e0" }}>Instagram</div>
-                        <div style={{ fontSize: 9, color: "#7a7a8a" }}>@garyfilmbudgets</div>
-                        <div style={{ display: "flex", gap: 3, marginTop: 3 }}>
-                          <span style={{ fontSize: 9, color: "#ef4444", fontWeight: 600 }}>{data.account?.followers || 0}</span>
-                          <span style={{ fontSize: 9, color: "#555566" }}>followers</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", ...s.bd1, ...s.bd6, padding: "6px 8px", opacity: 0.4 }}>
-                      <div style={{ textAlign: "center" }}>
-                        <div style={{ fontSize: 14, color: "#3a3a4a" }}>+</div>
-                        <div style={{ fontSize: 9, color: "#3a3a4a" }}>Add Account</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
+              {/* ── Build Queue (full width) ── */}
+              <div style={{ marginBottom: 8 }}>
                 {/* Build Queue — only shows unbuilt Topic Scout posts */}
                 <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
                   <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8, ...s.flex, ...s.aic, ...s.jcsb }}>
@@ -1079,68 +1079,8 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              {/* ── Row 2: Best Posting Times + Calendar Quick Peek ── */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 8, marginBottom: 8, alignItems: "stretch" }}>
-                {/* Best Posting Times */}
-                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
-                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8 }}>Best Posting Times</div>
-                  {(() => {
-                    const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                    const dayShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-                    const dayData: Record<number, {posts: number, reach: number, totalEng: number}> = {};
-                    data.posts.forEach((p: any) => {
-                      const ts = p.timestamp;
-                      if (!ts) return;
-                      const day = new Date(ts).getDay();
-                      if (!dayData[day]) dayData[day] = { posts: 0, reach: 0, totalEng: 0 };
-                      dayData[day].posts++;
-                      dayData[day].reach += p.insights?.reach || 0;
-                      dayData[day].totalEng += (p.insights?.likes || p.like_count || 0) + (p.insights?.comments || p.comments_count || 0) + (p.insights?.saved || 0);
-                    });
-                    const hoursByDay: Record<number, Record<number, number>> = {};
-                    data.posts.forEach((p: any) => {
-                      const ts = p.timestamp;
-                      if (!ts) return;
-                      const d = new Date(ts);
-                      const day = d.getDay();
-                      const hour = d.getHours();
-                      if (!hoursByDay[day]) hoursByDay[day] = {};
-                      if (!hoursByDay[day][hour]) hoursByDay[day][hour] = 0;
-                      hoursByDay[day][hour] += (p.insights?.reach || 0);
-                    });
-                    const peakHour = (day: number): string => {
-                      const h = hoursByDay[day];
-                      if (!h || Object.keys(h).length === 0) return "—";
-                      const bestH = Object.entries(h).sort((a, b) => b[1] - a[1])[0];
-                      if (!bestH) return "—";
-                      const hourN = parseInt(bestH[0]);
-                      if (hourN === 0) return "12 AM";
-                      if (hourN < 12) return `${hourN} AM`;
-                      if (hourN === 12) return "12 PM";
-                      return `${hourN-12} PM`;
-                    };
-                    const webTimes: Record<number, string> = {
-                      0: "1-2 PM", 1: "2-4 PM", 2: "1-7 PM", 3: "12-9 PM",
-                      4: "12-2 PM", 5: "9-10 AM", 6: "9-11 AM"
-                    };
-                    const best = [...Array(7).keys()].map(d => ({ day: d, reach: dayData[d]?.reach || 0, posts: dayData[d]?.posts || 0 })).sort((a, b) => b.reach - a.reach);
-                    return <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr 1.3fr", gap: 3, fontSize: 10, color: "#555566", ...s.ttu, ...s.ls05, paddingBottom: 4, borderBottom: "1px solid rgba(26,26,46,0.3)" }}>
-                        <span>Day</span>
-                        <span>Our Best</span>
-                        <span>Web Best</span>
-                      </div>
-                      {best.map((d, i) => (
-                        <div key={d.day} style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr 1.3fr", gap: 3, alignItems: "center", padding: "4px 0", borderBottom: i < best.length-1 ? "1px solid rgba(26,26,46,0.15)" : "none" }}>
-                          <span style={{ fontSize: 13, color: d.reach === best[0].reach ? "#ef4444" : "#b0b0c0", fontWeight: d.reach === best[0].reach ? 600 : 400 }}>{dayShort[d.day]}</span>
-                          <span style={{ fontSize: 12, color: d.reach > 0 ? "#ef4444" : "#555566", fontWeight: d.reach > 0 ? 500 : 400 }}>{d.reach > 0 ? peakHour(d.day) : "—"}</span>
-                          <span style={{ fontSize: 11, color: "#7a7a8a" }}>{webTimes[d.day]}</span>
-                        </div>
-                      ))}
-                    </div>;
-                  })()}
-                </div>
-
+              {/* ── Row 2: Coming Up (full width) ── */}
+              <div style={{ marginBottom: 8 }}>
                 {/* Coming Up */}
                 <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
                   <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8 }}>Coming Up</div>
@@ -1189,8 +1129,8 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              {/* ── Row 3: Content Type + Hashtag Box + Recent Posts ── */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 0, alignItems: "stretch" }}>
+              {/* ── Row 3: Content Type + Hashtag Performance ── */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 0, alignItems: "stretch" }}>
                 {/* Content Type */}
                 <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
                   <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8 }}>Content Type</div>
@@ -1252,20 +1192,6 @@ export default function Dashboard() {
                     })()}
                   </div>
                 </div>
-
-                {/* Recent Posts (linked) */}
-                <div style={{ border: "1px solid rgba(220,38,38,0.2)", ...s.bd6, padding: "10px 12px", background: "linear-gradient(135deg,#090914,#0c0c18)", position: "relative", overflow: "hidden" }}>
-                  <div style={{ fontSize: 11, ...s.fw6, ...s.ttu, ...s.ls08, ...s.txMuted, marginBottom: 8 }}>Recent Posts</div>
-                  {recentPosts.length === 0 ? <p className="text-text-muted text-xs py-4 text-center">No posts yet</p> : recentPosts.slice(0, 4).map(p => (
-                    <a key={p.id} href={p.permalink || "#"} target="_blank" rel="noopener noreferrer" style={{ display: "flex", gap: 6, padding: "5px 0", borderBottom: "1px solid rgba(26,26,46,0.15)", textDecoration: "none", alignItems: "center", color: "inherit", cursor: "pointer" }}>
-                      <div style={{ width: 24, height: 24, borderRadius: 4, background: "#10101e", ...s.bd1, flexShrink: 0 }} />
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontSize: 12, ...s.fw5, color: "#b0b0c0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{postTitle(p)}</div>
-                        <div style={{ fontSize: 13, ...s.txDim }}>· {n(p.insights?.reach || 0)}</div>
-                      </div>
-                    </a>
-                  ))}
-                </div>
               </div>            </>
           )}{page === "calendar" && <PostCalendar />}
           {page === "posts" && data && <AllPosts posts={data.posts} />}
@@ -1296,23 +1222,6 @@ export default function Dashboard() {
 
         {/* ─── RIGHT PANEL: QUEUE + BUILD QUEUE + MAINTENANCE ─── */}
         <div style={{ ...s.w600, ...s.bdL, ...s.bgRp, ...s.flexCol, height: "100%", ...s.ovh, ...s.fsn }}>
-          {/* ACCOUNT SNAPSHOT */}
-          {data && (<div style={{ flexShrink: 0, border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, overflow: "hidden", margin: "10px 12px 4px", background: "#080810" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1px", background: "#080810" }}>
-              {[
-                { label: "Posts", value: data.account?.media_count || 0, col: "#ff6699" },
-                { label: "Likes", value: data.posts.reduce((s: number, p: any) => s + ((p.insights?.likes || p.like_count) || 0), 0), col: "#b44aff" },
-                { label: "Comments", value: data.posts.reduce((s: number, p: any) => s + ((p.insights?.comments || p.comments_count) || 0), 0), col: "#ffb347" },
-                { label: "Saves", value: data.posts.reduce((s: number, p: any) => s + (p.insights?.saved || 0), 0), col: "#00ff88" },
-              ].map((stat, i) => (
-                <div key={stat.label} style={{ textAlign: "center", padding: "6px 2px", background: "linear-gradient(180deg,#090914,#0c0c18)", position: "relative" }}>
-                  <div style={{ fontSize: 16, fontWeight: 700, color: stat.col, letterSpacing: "-0.02em", lineHeight: 1 }}>{stat.value}</div>
-                  <div style={{ fontSize: 9, color: "#7a7a8a", textTransform: "uppercase", letterSpacing: "0.04em", marginTop: 1, lineHeight: 1 }}>{stat.label}</div>
-                  {i < 3 && <div style={{ position: "absolute", right: 0, top: "20%", height: "60%", width: 1, background: "#181830" }} />}
-                </div>
-              ))}
-            </div>
-            </div>)}
 
           {/* QUEUE + MAINTENANCE (attached to bottom) */}
           <div style={{ flex: "1", minHeight: 0, ...s.flexCol, ...s.pRp, position: "relative" }}>

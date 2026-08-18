@@ -78,7 +78,35 @@ def write_state(work: list[dict]) -> None:
     state = {
         "generated_at": datetime.utcnow().isoformat() + "Z",
         "jobs": work,
+        "agents": {},
         "note": "READ ONLY — orchestrator never approves/schedules/posts. Posts here are Ready-for-user-approval at most.",
+    }
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f, indent=2)
+
+
+# Real-time agent status for the Overview panel. Each agent writes its current
+# phase (research|write|generate|verify|deploy), the post it's working on, and a
+# status (idle|working|done|error). The UI reads state.json live.
+AGENTS = ["Router", "Carousel", "Reel", "Verifier", "Deployer"]
+
+
+def report_agent(name: str, status: str = "working", post_id: str = "",
+                 phase: str = "", detail: str = "") -> None:
+    """Write one agent's live status to state.json. Creates the file if needed."""
+    try:
+        state = json.load(open(STATE_FILE)) if os.path.exists(STATE_FILE) else {
+            "jobs": [], "agents": {}, "note": "READ ONLY — orchestrator never approves/schedules/posts."
+        }
+    except Exception:
+        state = {"jobs": [], "agents": {}, "note": "READ ONLY — orchestrator never approves/schedules/posts."}
+    state.setdefault("agents", {})
+    state["agents"][name] = {
+        "status": status,            # idle | working | done | error
+        "post_id": post_id,
+        "phase": phase,              # research | write | generate | verify | deploy
+        "detail": detail,
+        "updated_at": datetime.utcnow().isoformat() + "Z",
     }
     with open(STATE_FILE, "w") as f:
         json.dump(state, f, indent=2)

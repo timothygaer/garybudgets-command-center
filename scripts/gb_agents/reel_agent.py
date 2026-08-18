@@ -28,6 +28,14 @@ REELS_DIR = os.path.join(REPO, "public", "reels")
 RENDERER = os.path.join(REPO, "scripts", "make_designed_reel.py")
 
 
+def report(name: str, status: str = "working", post_id: str = "", phase: str = "", detail: str = ""):
+    """Proxy to orchestrator.report_agent for live state.json updates."""
+    import sys
+    sys.path.insert(0, os.path.join(REPO, "scripts"))
+    from scripts.gb_agents.orchestrator import report_agent
+    report_agent(name, status, post_id, phase, detail)
+
+
 class ReelAgent:
     def __init__(self, post: dict, slug: str | None = None):
         self.post = post
@@ -43,6 +51,7 @@ class ReelAgent:
 
     def generate_frames(self, frames: list[dict], backend: str = "web"):
         """Generate 9:16 designed frames (one chatgpt-imagegen call each)."""
+        report("Reel", "working", self.id, "generate", f"Generating {len(frames)} frames")
         bg = self.bg_dir
         os.makedirs(bg, exist_ok=True)
         env = dict(os.environ); env["PATH"] = PATH
@@ -55,19 +64,26 @@ class ReelAgent:
                 capture_output=True, text=True, env=env, timeout=280,
             )
             if r.returncode != 0 or not (os.path.exists(out) and os.path.getsize(out) > 500_000):
+                report("Reel", "error", self.id, "generate", f"frame {n} failed")
                 raise RuntimeError(f"reel frame {n} failed: {r.stderr[-300:]}")
             print(f"[ReelAgent:{self.id}] frame {n} generated")
+            report("Reel", "working", self.id, "generate", f"Frame {n}/{len(frames)} done")
+        report("Reel", "done", self.id, "generate", "All frames generated")
         return bg
 
     def render(self, spec_path: str):
         """Render a designed-reel MP4 from a designed.json spec. Returns out mp4 path."""
+        report("Reel", "working", self.id, "render", "Rendering MP4")
         env = dict(os.environ); env["PATH"] = PATH
         r = subprocess.run([PY, RENDERER, spec_path], capture_output=True, text=True, env=env, timeout=1200)
         if r.returncode != 0:
+            report("Reel", "error", self.id, "render", "render failed")
             raise RuntimeError(f"reel render failed: {r.stderr[-400:]}")
         mp4 = os.path.join(REELS_DIR, f"{self.slug}.mp4")
         if not os.path.exists(mp4):
+            report("Reel", "error", self.id, "render", "no output mp4")
             raise RuntimeError(f"renderer did not produce {mp4}")
+        report("Reel", "done", self.id, "render", f"Rendered {os.path.basename(mp4)}")
         return mp4
 
     def build_spec(self, scenes, music="public/reels/audio/music-licensing-traps-bed.m4a",

@@ -74,5 +74,28 @@
       "aspect": "9:16"
     }
   ],
-  "note": "READ ONLY \u2014 orchestrator never approves/schedules/posts. Posts here are Ready-for-user-approval at most."
+  "note": "READ ONLY \u2014 orchestrator never approves/schedules/posts. Posts here are Ready-for-user-approval at most.",
+  "agents": {
+    "Router": {
+      "status": "working",
+      "post_id": "",
+      "phase": "route",
+      "detail": "routing queue",
+      "updated_at": "2026-08-18T05:44:26.688361Z"
+    },
+    "Carousel": {
+      "status": "working",
+      "post_id": "scout-X-1",
+      "phase": "generate",
+      "detail": "Slide 2/6 done",
+      "updated_at": "2026-08-18T05:44:26.689091Z"
+    },
+    "Verifier": {
+      "status": "done",
+      "post_id": "scout-X-1",
+      "phase": "verify",
+      "detail": "PASS all slides",
+      "updated_at": "2026-08-18T05:44:26.689327Z"
+    }
+  }
 }
