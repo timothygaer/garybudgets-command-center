@@ -4177,7 +4177,7 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -4190,8 +4190,10 @@
       "source": "Topic Scout",
       "suggestion": "Break down airfare, lodging, per diem, pickups, and turnaround risks that quietly inflate talent budgets on small features.",
       "source_name": "Auto Scout · SAG-AFTRA / production travel guidance",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/actor-travel-costs-v2.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/images/scout-1787026547647-1/6.png",
+      "media_type": "reel",
+      "image_urls": []
     }
   ]
 }

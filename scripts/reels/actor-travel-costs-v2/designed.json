@@ -1,0 +1,40 @@
+{
+  "slug": "scout-1787026547647-1",
+  "title": "Actor Travel Costs That Sneak Into the Budget",
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "out_video": "public/reels/actor-travel-costs-v2.mp4",
+  "out_montage": "public/reels/actor-travel-costs-v2-montage.jpg",
+  "scenes": [
+    {
+      "img": "public/reels/bg/scout-1787026547647-1/01.jpg",
+      "duration": 4.5,
+      "motion": "zoom_in"
+    },
+    {
+      "img": "public/reels/bg/scout-1787026547647-1/02.jpg",
+      "duration": 5.0,
+      "motion": "pan_up"
+    },
+    {
+      "img": "public/reels/bg/scout-1787026547647-1/03.jpg",
+      "duration": 5.0,
+      "motion": "zoom_out"
+    },
+    {
+      "img": "public/reels/bg/scout-1787026547647-1/04.jpg",
+      "duration": 5.0,
+      "motion": "pan_down"
+    },
+    {
+      "img": "public/reels/bg/scout-1787026547647-1/05.jpg",
+      "duration": 5.0,
+      "motion": "zoom_in"
+    },
+    {
+      "img": "public/reels/bg/scout-1787026547647-1/06.jpg",
+      "duration": 4.5,
+      "motion": "zoom_in"
+    }
+  ]
+}
