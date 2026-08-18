@@ -112,6 +112,16 @@ export async function POST(request: Request) {
         await writeToGitHub(manifest)
         return Response.json({ success: true, message: `"${post.title}" unapproved — back to draft` })
 
+      case "skip":
+        // Mark a stuck/stopped post as skipped so the publisher stops retrying it,
+        // but keep it visible (red) in the calendar until the user fixes/re-approves.
+        post.skipped = true
+        post.stuck = false
+        if (post.status === "approved") post.status = "approved"
+        await saveManifest(manifest, path)
+        await writeToGitHub(manifest)
+        return Response.json({ success: true, message: `"${post.title}" skipped — publisher will not retry it until you re-approve` })
+
       case "delete":
         manifest.posts.splice(idx, 1)
         await saveManifest(manifest, path)

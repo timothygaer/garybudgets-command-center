@@ -41,6 +41,8 @@ type ManifestPost = {
   title: string
   pillar: string
   status: string
+  stuck?: boolean
+  skipped?: boolean
   proposed_schedule?: string
   original_schedule?: string
   posted_at?: string
@@ -102,24 +104,23 @@ export async function GET() {
           date = parsed.date
           time = parsed.time
           calStatus = "scheduled"
-        } else if (normalizedStatus === "draft" && schedStr) {
+        } else if (normalizedStatus === "stuck" || post.stuck || post.skipped) {
+          // Stopped/stuck post — show it (Red) so it can be fixed/skipped, regardless of schedule.
           const parsed = parseScheduleStr(schedStr)
-          date = parsed.date
-          time = parsed.time
-          calStatus = "pending"
+          date = parsed.date || new Date().toISOString().split("T")[0]
+          time = parsed.time || "—"
+          calStatus = "stuck"
         } else {
           calStatus = "pending"
         }
 
         if (!date) return null
 
-        const today = new Date(new Date().toDateString())
-        const eventDate = new Date(date + "T12:00:00")
-        const isFuture = eventDate >= today
-
-        // Don't hide past approved posts — they need to be visible so they can be fixed
-        // Only filter out genuine past pending/draft posts
-        if (isFuture === false && calStatus === "pending") return null
+        // Only show posts that are actually scheduled-to-post or already posted.
+        // Hide bare/unapproved drafts (even if they carry a placeholder schedule baked in
+        // at creation). Past approved and past posted items stay visible so they can be
+        // reviewed/fixed. Stuck posts always show (Red) so they can be fixed/skipped.
+        if (calStatus === "pending") return null
 
         const imageUrls = post.image_urls || []
         const slidePreviews = (post.slides || []).map((slide: ManifestSlide, i: number) => ({
@@ -148,6 +149,7 @@ export async function GET() {
           slide_count: post.slide_count || (post.slides || []).length,
           image_urls: imageUrls,
           instagram_url: post.instagram_url || null,
+          stuck: !!post.stuck,
         }
       })
       .filter(Boolean)

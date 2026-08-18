@@ -197,11 +197,14 @@ function PostCalendar() {
   const monthName = new Date(year, month).toLocaleDateString("en-US", { month: "long", year: "numeric" })
   const posts = events.filter((e: CalendarEvent) => { const d = new Date(e.date + "T12:00:00"); return d.getMonth() === month && d.getFullYear() === year }).map((e: any) => ({ ...e, day: new Date(e.date + "T12:00:00").getDate() }))
   const pillarColors: Record<string, string> = { "Budget School": "#4a9eff", "One-Time Revolution": "#ffb347", "Behind the Build": "#b44aff", "Industry Watch": "#ef4444" }
-  const statusColors: Record<string, string> = { posted: "bg-purple-400", scheduled: "bg-green-400", pending: "bg-amber-400" }
+  const statusColors: Record<string, string> = { posted: "bg-blue-400", stuck: "bg-red-500", scheduled: "bg-green-400", pending: "bg-amber-400" }
   return <div className="neon-panel">
     <div className="flex items-center justify-between mb-4">
       <div className="panel-title mb-0">Content Calendar</div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 text-[9px] text-text-muted"><div className="w-2 h-2 rounded-full bg-blue-400" /> Posted</div>
+        <div className="flex items-center gap-1 text-[9px] text-text-muted"><div className="w-2 h-2 rounded-full bg-red-500" /> Stopped</div>
+        <div className="flex items-center gap-1 text-[9px] text-text-muted"><div className="w-2 h-2 rounded-full bg-green-400" /> Ready to post</div>
         <button className="btn-ghost text-xs px-2" onClick={() => { if (month === 0) { setMonth(11); setYear(y => y-1) } else setMonth(m => m-1) }}>←</button>
         <span className="text-sm font-semibold text-gray-200 w-40 text-center">{monthName}</span>
         <button className="btn-ghost text-xs px-2" onClick={() => { if (month === 11) { setMonth(0); setYear(y => y+1) } else setMonth(m => m+1) }}>→</button>
@@ -279,6 +282,10 @@ function QueueTab() {
   const handleDelete = async (item: any) => {
     if (!confirm(`Delete "${item.title}" permanently?`)) return
     try { const r = await fetch("/api/manage", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "delete", post_id: item.id }) }); const d = await r.json(); if (d.success) loadQueue(); else alert(d.error || "Failed") } catch (e: any) { alert(e.message) }
+  }
+  const handleSkip = async (item: any) => {
+    if (!confirm(`Skip "${item.title}"? It won't be posted until you re-approve it.`)) return
+    try { const r = await fetch("/api/manage", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "skip", post_id: item.id }) }); const d = await r.json(); if (d.success) loadQueue(); else alert(d.error || "Failed") } catch (e: any) { alert(e.message) }
   }
   const handleChangeRequest = async (item: any) => {
     if (!changeText.trim()) return
@@ -1478,7 +1485,25 @@ export default function Dashboard() {
             {modalPost.hashtags && (
               <div style={{ marginTop: 12, fontSize: 10, color: "#dc2626" }}>{modalPost.hashtags}</div>
             )}
-            <div style={{ marginTop: 16, display: "flex", gap: 8, justifyContent: "center" }}>
+            <div style={{ marginTop: 16, display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
+              {(modalPost.status === "stuck" || modalPost.stuck || modalPost.skipped) && (
+                <div onClick={async () => {
+                  try {
+                    const r = await fetch("/api/manage", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "skip", post_id: modalPost.id }) })
+                    const d = await r.json()
+                    if (d.success) { setModalPost(null); window.location.reload() } else alert(d.error || "Failed")
+                  } catch {}
+                }} style={{ padding: "8px 20px", background: "rgba(220,38,38,0.15)", border: "1px solid rgba(220,38,38,0.3)", borderRadius: 6, fontSize: 11, color: "#ef4444", cursor: "pointer" }}>Skip (don't post until re-approved)</div>
+              )}
+              {(modalPost.status === "stuck" || modalPost.stuck || modalPost.skipped) && (
+                <div onClick={async () => {
+                  try {
+                    const r = await fetch("/api/approve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ post_id: modalPost.id }) })
+                    const d = await r.json()
+                    if (d.success) { setModalPost(null); window.location.reload() } else alert(d.error || "Failed")
+                  } catch {}
+                }} style={{ padding: "8px 20px", background: "rgba(34,197,94,0.15)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 6, fontSize: 11, color: "#22c55e", cursor: "pointer" }}>Re-approve & fix</div>
+              )}
               <div onClick={async () => {
                 try {
                   const r = await fetch("/api/manage", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "unapprove", post_id: modalPost.id }) })

@@ -149,6 +149,8 @@ def parse_args():
     p.add_argument("--force", action="store_true", help="Allow publishing before scheduled time for explicit manual recovery")
     p.add_argument("--max-catchup-hours", type=float, default=float(os.environ.get("GB_MAX_CATCHUP_HOURS", "36")),
                    help="With no POST_ID, only auto-publish posts due within this many hours; older stale approvals are skipped")
+    p.add_argument("--retry-window-hours", type=float, default=float(os.environ.get("GB_RETRY_WINDOW_HOURS", "1.0")),
+                   help="How long an approved post past its slot keeps retrying before being marked stuck (default 1 hour)")
     return p.parse_args()
 
 
@@ -240,7 +242,7 @@ def is_due(post):
     return sched.astimezone(timezone.utc) <= now_utc()
 
 
-def select_post(manifest, post_id, force=False, max_catchup_hours=36):
+def select_post(manifest, post_id, force=False, max_catchup_hours=36, retry_window_hours=1.0):
     posts = manifest.get("posts", [])
     if post_id:
         post = next((p for p in posts if p.get("id") == post_id), None)
@@ -259,8 +261,15 @@ def select_post(manifest, post_id, force=False, max_catchup_hours=36):
         return post
 
     due = []
+    stale = []
     for p in posts:
         if p.get("status") != "approved":
+            continue
+        if p.get("stuck"):
+            print("SKIP_STUCK: " + p.get("id", "?") + " was marked stuck; not retrying until fixed/skipped")
+            continue
+        if p.get("skipped"):
+            print("SKIP_SKIPPED: " + p.get("id", "?") + " was marked skipped; not retrying until re-approved")
             continue
         sched = post_schedule_dt(p)
         if not sched:
@@ -268,15 +277,48 @@ def select_post(manifest, post_id, force=False, max_catchup_hours=36):
             continue
         sched_utc = sched.astimezone(timezone.utc)
         age_hours = (now_utc() - sched_utc).total_seconds() / 3600
-        if sched_utc <= now_utc() and age_hours <= max_catchup_hours:
+        if sched_utc <= now_utc() and age_hours <= retry_window_hours:
             due.append((sched_utc, p))
         elif sched_utc <= now_utc():
-            print("SKIP_STALE_APPROVAL: " + p.get("id", "?") + " scheduled " + str(p.get("proposed_schedule") or p.get("original_schedule")) + f" ({age_hours:.1f}h old)")
+            # Past its 1-hour retry window and still not posted -> escalate to stuck.
+            print("STALE_RETRY: " + p.get("id", "?") + " scheduled " + str(p.get("proposed_schedule") or p.get("original_schedule")) + f" ({age_hours:.1f}h old) — past {retry_window_hours}h retry window")
+            stale.append((sched_utc, p))
+    if stale:
+        _escalate_to_stuck(manifest, [p for _, p in stale])
     if not due:
         print("NO_DUE_APPROVED_POSTS: no approved posts are scheduled at or before now")
         return None
     due.sort(key=lambda x: x[0])
     return due[0][1]
+
+
+def _escalate_to_stuck(manifest, posts):
+    """Mark posts that have exceeded their retry window as stuck (Red) so they stop
+    retrying and don't block the rest of the day. Persists to the manifest + GitHub,
+    and sends a single Telegram alert per post so the user knows to fix/skip it."""
+    if not posts:
+        return
+    now_iso = datetime.now(timezone.utc).isoformat()
+    for p in posts:
+        p["stuck"] = True
+        p["stuck_at"] = now_iso
+        p["attempt_count"] = p.get("attempt_count", 0)
+        p["last_error"] = p.get("last_error") or "exceeded 1-hour retry window without posting"
+        print("MARK_STUCK: " + p.get("id", "?") + " (" + p.get("title", "") + ")")
+        alert_deduped(
+            "stuck:" + str(p.get("id", "?")),
+            "⚠️ Post is STUCK:\n\n"
+            + "• " + p.get("title", "?") + "\n"
+            + "• id: " + p.get("id", "?") + "\n"
+            + "• scheduled: " + str(p.get("proposed_schedule") or p.get("original_schedule") or "unknown") + "\n"
+            + "• reason: " + str(p.get("last_error", "unknown")) + "\n\n"
+            + "It did not post after 1 hour of retries. Fix it or skip it in the Gary Budgets Command Center (it shows in red).",
+        )
+    try:
+        MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
+    except Exception as e:
+        print("GIT_ERROR: could not write stuck manifest: " + str(e))
+    _git_commit_push("auto: marked " + ", ".join(p.get("id", "?") for p in posts) + " as stuck after retry window elapsed [Oracle] [" + datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC') + "]")
 
 
 # ---------------------------------------------------------------------------
@@ -439,7 +481,10 @@ def acquire_local_lock(post_id):
     return lock_file
 
 
-def commit_and_push(post_id, post_title):
+def _git_commit_push(message):
+    """Commit the current manifest change and push to origin. Generic — used for
+    publish, stuck-marking, and failure-state persistence. Keeps the repo clean so
+    the 15-min retry loop can keep running (a dirty repo would block the next tick)."""
     try:
         if GH_TOKEN:
             subprocess.run(
@@ -447,8 +492,7 @@ def commit_and_push(post_id, post_title):
                 cwd=str(REPO_DIR), capture_output=True, text=True, timeout=15, check=False,
             )
         subprocess.run(["git", "add", "manifest.json"], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=15, check=False)
-        msg = f"auto: Post {post_id} '{post_title}' published [Oracle] [{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}]"
-        commit = subprocess.run(["git", "commit", "-m", msg], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=20)
+        commit = subprocess.run(["git", "commit", "-m", message], cwd=str(REPO_DIR), capture_output=True, text=True, timeout=20)
         if commit.returncode != 0 and "nothing to commit" not in (commit.stdout + commit.stderr).lower():
             print("GIT_ERROR: commit failed: " + (commit.stderr.strip()[-300:] or str(commit.returncode)))
             return False
@@ -465,6 +509,10 @@ def commit_and_push(post_id, post_title):
         if GH_TOKEN:
             subprocess.run(["git", "remote", "set-url", "origin", "https://github.com/timothygaer/garybudgets-command-center.git"],
                            cwd=str(REPO_DIR), capture_output=True, text=True, timeout=5, check=False)
+
+
+def commit_and_push(post_id, post_title):
+    return _git_commit_push(f"auto: Post {post_id} '{post_title}' published [Oracle] [{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}]")
 
 
 def create_single_container(url, caption, token):
@@ -550,7 +598,7 @@ def main():
     try:
         sync_repo_before_publish()
         manifest = load_manifest()
-        post = select_post(manifest, args.post_id, force=args.force, max_catchup_hours=args.max_catchup_hours)
+        post = select_post(manifest, args.post_id, force=args.force, max_catchup_hours=args.max_catchup_hours, retry_window_hours=args.retry_window_hours)
         if not post:
             return 0
 
@@ -596,6 +644,23 @@ def main():
             media_id = publish_container(container_id, token)
             permalink, timestamp = get_permalink(media_id, token)
         except Exception as e:
+            # Record the failed attempt on the post so retry/stuck tracking is durable
+            # and visible in the Command Center, then alert + exit non-zero.
+            post["attempt_count"] = post.get("attempt_count", 0) + 1
+            post["last_error"] = str(e)[:500]
+            post["last_attempt_at"] = datetime.now(timezone.utc).isoformat()
+            try:
+                MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
+                # Commit the failure state so the repo stays clean — a dirty repo would
+                # block the NEXT 15-min retry tick (dirty-state guard). This is what
+                # keeps the 1-hour retry loop alive.
+                _git_commit_push(f"auto: attempt #{post.get('attempt_count', 1)} failed for {post_id} [Oracle] [{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}]")
+            except Exception as we:
+                print("GIT_ERROR: could not write/commit failure state: " + str(we))
+            alert_deduped(
+                "fail:" + str(post_id) + ":" + str(post.get("attempt_count", 1)),
+                "❌ Post failed to publish:\n\n• " + post.get("title", "?") + "\n• id: " + post_id + "\n• attempt #" + str(post.get("attempt_count", 1)) + " of ~4 (1-hour retry window)\n• error: " + str(e)[:300] + "\n\nIt will keep retrying every 15 min for the next hour. If it still fails after that, you'll be alerted and it will show red in the Command Center.",
+            )
             fail("Publishing " + post_id + " failed: " + str(e))
 
         post["status"] = "posted"

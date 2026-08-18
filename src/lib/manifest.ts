@@ -9,10 +9,14 @@ export type ManifestLikePost = {
   posted_at?: string | null
   instagram_url?: string | null
   instagram_media_id?: string | null
+  stuck?: boolean
+  skipped?: boolean
 }
 
 export function normalizeStatus(post: ManifestLikePost): string {
   if (post.status === "posted" || post.posted_at || post.instagram_url || post.instagram_media_id) return "posted"
+  if (post.stuck) return "stuck"
+  if (post.skipped) return "stuck"
   if (post.approved_at) return "approved"
   return post.status || "draft"
 }

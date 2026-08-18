@@ -273,6 +273,8 @@ export async function POST(request: Request) {
       const approvedAt = post.approved_at || new Date().toISOString()
       manifest.posts[postIndex].status = "approved"
       manifest.posts[postIndex].approved_at = approvedAt
+      manifest.posts[postIndex].stuck = false
+      manifest.posts[postIndex].skipped = false
       if (usableImageUrls.length > 0) {
         manifest.posts[postIndex].image_urls = usableImageUrls
         manifest.posts[postIndex].has_images = true
@@ -331,6 +333,8 @@ export async function POST(request: Request) {
     const approvedAt = new Date().toISOString()
     manifest.posts[postIndex].status = "approved"
     manifest.posts[postIndex].approved_at = approvedAt
+    manifest.posts[postIndex].stuck = false
+    manifest.posts[postIndex].skipped = false
     const persistedImageUrls = isReel
       ? (usableCoverUrl ? [usableCoverUrl] : usableImageUrls)
       : usableImageUrls
