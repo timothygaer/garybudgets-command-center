@@ -1,0 +1,40 @@
+{
+  "slug": "scout-1786906441945-5",
+  "title": "Sound Design Budget: Why Silence Isn't Free",
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "out_video": "public/reels/scout-1786906441945-5.mp4",
+  "out_montage": "public/reels/scout-1786906441945-5-montage.jpg",
+  "scenes": [
+    {
+      "img": "public/reels/bg/scout-1786906441945-5/01.jpg",
+      "duration": 4.5,
+      "motion": "zoom_in"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441945-5/02.jpg",
+      "duration": 5.0,
+      "motion": "pan_up"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441945-5/03.jpg",
+      "duration": 5.0,
+      "motion": "zoom_out"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441945-5/04.jpg",
+      "duration": 5.0,
+      "motion": "pan_down"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441945-5/05.jpg",
+      "duration": 5.0,
+      "motion": "zoom_in"
+    },
+    {
+      "img": "public/reels/bg/scout-1786906441945-5/06.jpg",
+      "duration": 4.5,
+      "motion": "zoom_in"
+    }
+  ]
+}
