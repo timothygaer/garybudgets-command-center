@@ -4139,7 +4139,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -4161,7 +4161,8 @@
       "source": "Topic Scout",
       "suggestion": "Break down airfare, lodging, per diem, pickups, and turnaround risks that quietly inflate talent budgets on small features.",
       "source_name": "Auto Scout · SAG-AFTRA / production travel guidance",
-      "media_type": "carousel"
+      "media_type": "carousel",
+      "approved_at": "2026-08-19T08:22:17.610Z"
     },
     {
       "id": "scout-1787026547647-1-reel",
