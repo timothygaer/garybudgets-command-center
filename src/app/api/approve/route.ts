@@ -97,9 +97,16 @@ async function getUsableImageUrls(post: any, origin: string): Promise<string[]> 
   return filterReachableImageUrls(imageUrls)
 }
 
-/** For reel posts: the cover only needs to be a reachable image (any size — it's a thumbnail). */
+/** For reel posts: the cover only needs to be a reachable image (any size — it's a thumbnail).
+ *  Reels store their cover in `cover_url` (their `image_urls` is deliberately empty), so check
+ *  `cover_url` first, then fall back to any image_urls. */
 async function getUsableCoverUrl(post: any, origin: string): Promise<string> {
-  for (const url of normalizeImageUrls(post, origin)) {
+  const candidates: string[] = []
+  if (typeof post.cover_url === "string" && post.cover_url.trim()) {
+    try { candidates.push(new URL(post.cover_url, origin).toString()) } catch { /* ignore */ }
+  }
+  candidates.push(...normalizeImageUrls(post, origin))
+  for (const url of candidates) {
     try {
       const resp = await fetch(url, { method: "HEAD", cache: "no-store" })
       const contentType = resp.headers.get("content-type") || ""
