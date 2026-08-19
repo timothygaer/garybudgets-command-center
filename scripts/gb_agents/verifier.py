@@ -19,6 +19,8 @@ REPO = "/Users/dit/workspace/garybudgets-command-center"
 MONTAGES = "/tmp/gb_montages"
 
 # The rules the verifier enforces, per platform. Shared, human-readable contract.
+# "technical" is enforced by the deterministic reel_qa gate (never by the builder);
+# the rest by the independent frontier verifier agent.
 RULES = {
     "carousel": {
         "slide_count": 6,
@@ -39,6 +41,14 @@ RULES = {
             "final scene shows garybudgets.com + 'SAVE THIS'",
             "no fake UI / product screenshots",
             "no readable gibberish AI text in backgrounds",
+        ],
+        "technical": [
+            "moov atom near the START (faststart, < 5%) — else Instagram sits IN_PROGRESS forever",
+            "resolution 1080x1920 (9:16)",
+            "video h264, 4:2:0 (yuv420p/yuvj420p)",
+            "audio aac",
+            "duration <= 90s",
+            "file size sane (< 650MB)",
         ],
     },
 }
@@ -71,3 +81,16 @@ def record_verdict(post_id: str, verdicts: list[dict], passed: bool, notes: str 
             "notes": notes,
         }, f, indent=2)
     return out
+
+
+def verify_reel_technical(mp4_path: str) -> dict:
+    """
+    Deterministic Instagram technical-compliance gate for a reel MP4.
+
+    Runs the standalone reel_qa module (NEVER the builder's self-report) against
+    the shared technical contract. Returns {passed, checks} where passed=False
+    means the reel MUST NOT be deployed.
+    """
+    from scripts.gb_agents import reel_qa
+    results = reel_qa.check(mp4_path)
+    return {"passed": reel_qa.passed(results), "checks": results}
