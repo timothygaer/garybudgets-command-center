@@ -128,6 +128,7 @@ def main():
         "-map", "0:v", "-map", "[a]",
         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "medium",
         "-c:a", "aac", "-b:a", "192k", "-shortest",
+        "-movflags", "+faststart",
         str(out_video),
     ], check=True)
     print("OUT", out_video)
