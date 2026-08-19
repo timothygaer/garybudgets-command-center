@@ -3506,7 +3506,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Wed, Aug 19 · 9:00 AM PT",
-      "proposed_schedule": "Wed, Aug 19 · 9:00 AM PT",
+      "proposed_schedule": "Wed, Aug 19 · 4:00 PM PT",
       "caption": "REEL: Equipment Rental vs Purchase: The Break-Even Decision is not just a headline — it is a production insurance decision that can change how indie producers plan, finance, and protect a production. Show when buying a camera or lens package beats renting on a 30-day shoot, including insurance, maintenance, and resale assumptions.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate equipment rental vs purchase: the break-even decision: general liability, workers comp, equipment coverage, E&O, location requirements, rental-house requirements, and the cost of one uncovered claim. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmInsurance #ProductionInsurance #FilmFinance #LineProducer #FilmBudgeting",
       "slides": [
@@ -3566,7 +3566,9 @@
       "last_error": "SKIPPED: reel video did not finish processing on Instagram after 2 attempts (25min + 60min IN_PROGRESS). Video may be corrupt/unsupported.",
       "last_attempt_at": "2026-08-19T17:30:08.387152+00:00",
       "skipped": true,
-      "stuck": false
+      "stuck": false,
+      "rescheduled_at": "2026-08-19T10:41:54.542073-07:00",
+      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week."
     },
     {
       "id": "scout-1786906441936-2",
