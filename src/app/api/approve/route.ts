@@ -169,6 +169,8 @@ async function writeApprovalToGitHub(postId: string, approvedAt: string, schedul
 
       manifest.posts[idx].status = "approved"
       manifest.posts[idx].approved_at = approvedAt
+      manifest.posts[idx].stuck = false
+      manifest.posts[idx].skipped = false
       if (schedule) manifest.posts[idx].proposed_schedule = schedule
       if (imageUrls.length > 0) {
         manifest.posts[idx].image_urls = imageUrls
@@ -231,12 +233,16 @@ export async function POST(request: Request) {
     // ALWAYS assign the next available slot on approval, in the order posts are
     // approved. Drafts are no longer baked with a schedule at creation, and even if
     // a stale schedule exists, approval reassigns it so approval order drives the
-    // calendar. Max 2/day Mon-Sat at 9:00 AM / 12:00 PM.
+    // calendar.
+    //
+    // Posting times are research-based (Buffer/Sprout/Metricool + Gary Budgets vault
+    // research, June 2026). Peak engagement windows by day — carousels do best at
+    // lunch, reels do best in the evening, Tue/Wed/Thu are the strongest days:
+    //   Mon 12 PM + 6 PM · Tue 12 PM + 6 PM · Wed 12 PM + 7 PM
+    //   Thu 9 AM + 6 PM · Fri 12 PM + 5 PM · Sat 12 PM + 5 PM
+    // (PT). First slot fills in approval order, then the second slot on the same day.
     {
       const now = new Date()
-      // Find the next available Mon-Sat slot at 9:00 AM / 12:00 PM PT.
-      // Start from TODAY (not tomorrow) so the same-day 9 AM / 12 PM slots are
-      // eligible if their time hasn't passed yet. Max 2 posts per day.
       const allSchedules = manifest.posts
         .filter((p: any) => p.status === "approved" && (p.proposed_schedule || p.original_schedule))
         .map((p: any) => p.proposed_schedule || p.original_schedule)
@@ -244,28 +250,39 @@ export async function POST(request: Request) {
       const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
       const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
+      // Research-based daily peak slots (index = getDay(): 0=Sun..6=Sat). Sundays skipped.
+      const DAY_SLOTS: Record<number, string[]> = {
+        0: [],                 // Sun — skip
+        1: ["12:00 PM", "6:00 PM"],  // Mon
+        2: ["12:00 PM", "6:00 PM"],  // Tue
+        3: ["12:00 PM", "7:00 PM"],  // Wed (best day — evening boosted)
+        4: ["9:00 AM", "6:00 PM"],   // Thu (Buffer's #1 = Thu 9 AM)
+        5: ["12:00 PM", "5:00 PM"],  // Fri
+        6: ["12:00 PM", "5:00 PM"],  // Sat
+      }
+
       let slotFound = false
       for (let days = 0; days < 14; days++) {
         const check = new Date(now)
         check.setDate(check.getDate() + days)
         const dayOfWeek = check.getDay()
-        // Skip Sunday (day 0)
-        if (dayOfWeek === 0) continue
+        const daySlots = DAY_SLOTS[dayOfWeek] || []
+        if (daySlots.length === 0) continue // Sun
 
         // Count posts already on this day (approved only)
         const dateStr = `${dayNames[dayOfWeek]}, ${monthNames[check.getMonth()]} ${check.getDate()}`
         const dayPostCount = allSchedules.filter((s: string) => s && s.startsWith(dateStr)).length
-        if (dayPostCount >= 2) continue
+        if (dayPostCount >= daySlots.length) continue
 
-        // Candidate slot times for this day, in order. Only accept a slot if its
-        // time hasn't passed yet (so a 9 AM slot is skipped once it's after 9 AM).
-        const slotCandidates = dayPostCount === 0 ? ["9:00", "12:00"] : ["12:00"]
-        for (const hour of slotCandidates) {
-          const [h, m] = hour.split(":").map(Number)
+        // Take the first unfilled slot of the day (in approval order), skipping any
+        // whose time has already passed today.
+        const slotCandidates = daySlots.slice(dayPostCount)
+        for (const timeLabel of slotCandidates) {
+          const [h, m] = timeLabel.split(":").map((n: string) => Number(n.split(" ")[0]))
           const slotTime = new Date(check)
           slotTime.setHours(h, m, 0, 0)
           if (slotTime <= now) continue
-          schedule = `${dateStr} · ${hour} AM PT`
+          schedule = `${dateStr} · ${timeLabel} PT`
           slotFound = true
           break
         }
@@ -273,7 +290,7 @@ export async function POST(request: Request) {
       }
 
       if (!slotFound) {
-        schedule = `${dayNames[now.getDay()]}, ${monthNames[now.getMonth()]} ${now.getDate()} · 9:00 AM PT`
+        schedule = `${dayNames[now.getDay()]}, ${monthNames[now.getMonth()]} ${now.getDate()} · 12:00 PM PT`
       }
 
       // Write the schedule back
