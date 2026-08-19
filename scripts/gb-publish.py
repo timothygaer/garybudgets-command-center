@@ -552,7 +552,13 @@ def create_reel_container(video_url, caption, token, cover_url=None):
     return data["id"]
 
 
-def wait_reel_finished(container_id, token, timeout=1500):
+def wait_reel_finished(container_id, token, timeout=None):
+    # Reel container processing on Instagram can legitimately take 30-60+ minutes
+    # (video is uploaded/transcoded on IG's side). A 25-min timeout (the old default)
+    # was too tight and caused spurious "IN_PROGRESS after 1500s" failures on valid
+    # reels. Default to 1 hour; allow override via GB_REEL_WAIT_SECONDS.
+    if timeout is None:
+        timeout = float(os.environ.get("GB_REEL_WAIT_SECONDS", "3600"))
     deadline = time.time() + timeout
     last_status = "IN_PROGRESS"
     while time.time() < deadline:
