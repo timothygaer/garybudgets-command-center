@@ -3774,7 +3774,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Thu, Aug 20 · 9:00 AM PT",
-      "proposed_schedule": "Thu, Aug 20 · 9:00 AM PT",
+      "proposed_schedule": "Thu, Aug 20 · 12:00 AM PT",
       "caption": "REEL: Stunt & Special Skills Budget Lines is not just a headline — it is a production insurance decision that can change how indie producers plan, finance, and protect a production. Cover stunt coordinator, rigging, safety crew, medical standby, insurance riders, and rehearsal days as explicit budget lines.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate stunt & special skills budget lines: general liability, workers comp, equipment coverage, E&O, location requirements, rental-house requirements, and the cost of one uncovered claim. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmInsurance #ProductionInsurance #FilmFinance #LineProducer #FilmBudgeting",
       "slides": [
@@ -3809,7 +3809,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3826,7 +3826,10 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-3.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/images/scout-1786906441936-3/6.png",
       "media_type": "reel",
-      "image_urls": []
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/scout-1786906441936-3/6.png"
+      ],
+      "approved_at": "2026-08-19T08:21:47.658Z"
     },
     {
       "id": "scout-1786906441936-4",
