@@ -234,16 +234,9 @@ export async function POST(request: Request) {
     // calendar. Max 2/day Mon-Sat at 9:00 AM / 12:00 PM.
     {
       const now = new Date()
-      // Find the next available Mon-Sat slot at 9:00 AM PT
-      // Start looking from tomorrow
-      const tomorrow = new Date(now)
-      tomorrow.setDate(tomorrow.getDate() + 1)
-      tomorrow.setHours(9, 0, 0, 0)
-
-      // Find a Mon-Sat day that doesn't already have 2 posts scheduled.
-      // Only count APPROVED posts (those that actually occupy a real slot). Drafts
-      // and ready posts carry placeholder/no schedules and get reassigned here on
-      // approval, so they must not consume capacity.
+      // Find the next available Mon-Sat slot at 9:00 AM / 12:00 PM PT.
+      // Start from TODAY (not tomorrow) so the same-day 9 AM / 12 PM slots are
+      // eligible if their time hasn't passed yet. Max 2 posts per day.
       const allSchedules = manifest.posts
         .filter((p: any) => p.status === "approved" && (p.proposed_schedule || p.original_schedule))
         .map((p: any) => p.proposed_schedule || p.original_schedule)
@@ -252,24 +245,31 @@ export async function POST(request: Request) {
       const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
       let slotFound = false
-      for (let days = 1; days <= 14; days++) {
-        const check = new Date(tomorrow)
-        check.setDate(check.getDate() + days - 1)
+      for (let days = 0; days < 14; days++) {
+        const check = new Date(now)
+        check.setDate(check.getDate() + days)
         const dayOfWeek = check.getDay()
         // Skip Sunday (day 0)
         if (dayOfWeek === 0) continue
 
-        // Count posts already on this day
+        // Count posts already on this day (approved only)
         const dateStr = `${dayNames[dayOfWeek]}, ${monthNames[check.getMonth()]} ${check.getDate()}`
         const dayPostCount = allSchedules.filter((s: string) => s && s.startsWith(dateStr)).length
+        if (dayPostCount >= 2) continue
 
-        // Max 2 posts per day
-        if (dayPostCount < 2) {
-          const hour = dayPostCount === 0 ? "9:00" : "12:00"
+        // Candidate slot times for this day, in order. Only accept a slot if its
+        // time hasn't passed yet (so a 9 AM slot is skipped once it's after 9 AM).
+        const slotCandidates = dayPostCount === 0 ? ["9:00", "12:00"] : ["12:00"]
+        for (const hour of slotCandidates) {
+          const [h, m] = hour.split(":").map(Number)
+          const slotTime = new Date(check)
+          slotTime.setHours(h, m, 0, 0)
+          if (slotTime <= now) continue
           schedule = `${dateStr} · ${hour} AM PT`
           slotFound = true
           break
         }
+        if (slotFound) break
       }
 
       if (!slotFound) {
