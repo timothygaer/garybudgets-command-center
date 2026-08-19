@@ -3836,7 +3836,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": "Tue, Aug 18 · 12:00 PM PT",
-      "proposed_schedule": "Wed, Aug 19 · 4:00 PM PT",
+      "proposed_schedule": "Wed, Aug 19 · 12:00 AM PT",
       "caption": "DIT & Data Management: The Invisible Post Cost is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate dit & data management: the invisible post cost: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -3871,7 +3871,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3895,7 +3895,8 @@
       "source_name": "Auto Scout · DIT workflows",
       "media_type": "carousel",
       "rescheduled_at": "2026-08-18T19:10:03.647201-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot."
+      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
+      "approved_at": "2026-08-19T08:21:30.709Z"
     },
     {
       "id": "scout-1786906441936-4-reel",
