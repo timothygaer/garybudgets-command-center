@@ -3563,8 +3563,10 @@
       ],
       "approved_at": "2026-08-19T08:21:11.510Z",
       "attempt_count": 2,
-      "last_error": "Reel container still IN_PROGRESS after 3600.0s",
-      "last_attempt_at": "2026-08-19T17:30:08.387152+00:00"
+      "last_error": "SKIPPED: reel video did not finish processing on Instagram after 2 attempts (25min + 60min IN_PROGRESS). Video may be corrupt/unsupported.",
+      "last_attempt_at": "2026-08-19T17:30:08.387152+00:00",
+      "skipped": true,
+      "stuck": false
     },
     {
       "id": "scout-1786906441936-2",
