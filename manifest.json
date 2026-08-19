@@ -3902,7 +3902,11 @@
       "media_type": "carousel",
       "rescheduled_at": "2026-08-18T19:10:03.647201-07:00",
       "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
-      "approved_at": "2026-08-19T08:21:30.709Z"
+      "approved_at": "2026-08-19T08:21:30.709Z",
+      "stuck": true,
+      "stuck_at": "2026-08-19T08:30:02.438012+00:00",
+      "attempt_count": 0,
+      "last_error": "exceeded 1-hour retry window without posting"
     },
     {
       "id": "scout-1786906441936-4-reel",
