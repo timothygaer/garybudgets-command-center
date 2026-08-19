@@ -3644,7 +3644,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Wed, Aug 19 · 12:00 PM PT",
-      "proposed_schedule": "Fri, Aug 21 · 12:00 AM PT",
+      "proposed_schedule": "Fri, Aug 21 · 12:00 PM PT",
       "caption": "REEL: Permit Costs: LA vs Atlanta vs NYC is not just a headline — it is a production technology decision that can change how indie producers plan, finance, and protect a production. Compare street closure, police detail, parking, and basecamp permit costs across major production cities for an indie feature.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate permit costs: la vs atlanta vs nyc: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
       "slides": [
@@ -3780,7 +3780,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Thu, Aug 20 · 9:00 AM PT",
-      "proposed_schedule": "Thu, Aug 20 · 12:00 AM PT",
+      "proposed_schedule": "Thu, Aug 20 · 12:00 PM PT",
       "caption": "REEL: Stunt & Special Skills Budget Lines is not just a headline — it is a production insurance decision that can change how indie producers plan, finance, and protect a production. Cover stunt coordinator, rigging, safety crew, medical standby, insurance riders, and rehearsal days as explicit budget lines.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate stunt & special skills budget lines: general liability, workers comp, equipment coverage, E&O, location requirements, rental-house requirements, and the cost of one uncovered claim. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmInsurance #ProductionInsurance #FilmFinance #LineProducer #FilmBudgeting",
       "slides": [
@@ -3845,7 +3845,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": "Tue, Aug 18 · 12:00 PM PT",
-      "proposed_schedule": "Wed, Aug 19 · 12:00 AM PT",
+      "proposed_schedule": "Wed, Aug 19 · 12:00 PM PT",
       "caption": "DIT & Data Management: The Invisible Post Cost is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate dit & data management: the invisible post cost: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -3906,10 +3906,9 @@
       "rescheduled_at": "2026-08-18T19:10:03.647201-07:00",
       "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
       "approved_at": "2026-08-19T08:21:30.709Z",
-      "stuck": true,
-      "stuck_at": "2026-08-19T08:30:02.438012+00:00",
+      "stuck": false,
       "attempt_count": 0,
-      "last_error": "exceeded 1-hour retry window without posting"
+      "last_error": null
     },
     {
       "id": "scout-1786906441936-4-reel",
@@ -3919,7 +3918,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Thu, Aug 20 · 12:00 PM PT",
-      "proposed_schedule": "Sat, Aug 22 · 12:00 AM PT",
+      "proposed_schedule": "Sat, Aug 22 · 12:00 PM PT",
       "caption": "REEL: DIT & Data Management: The Invisible Post Cost is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate dit & data management: the invisible post cost: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -4185,7 +4184,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Sat, Aug 22 · 12:00 PM PT",
-      "proposed_schedule": "Tue, Aug 25 · 12:00 AM PT",
+      "proposed_schedule": "Tue, Aug 25 · 12:00 PM PT",
       "caption": "REEL: Actor Travel Costs That Sneak Into the Budget is not just a headline — it is a production technology decision that can change how indie producers plan, finance, and protect a production. Break down airfare, lodging, per diem, pickups, and turnaround risks that quietly inflate talent budgets on small features.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate actor travel costs that sneak into the budget: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
       "slides": [
