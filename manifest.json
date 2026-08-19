@@ -3884,7 +3884,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3912,7 +3912,10 @@
       "approved_at": "2026-08-19T08:21:30.709Z",
       "stuck": false,
       "attempt_count": 0,
-      "last_error": null
+      "last_error": null,
+      "posted_at": "2026-08-19T19:00:50+0000",
+      "instagram_url": "https://www.instagram.com/p/DcO479ID6zJ/",
+      "instagram_media_id": "18125605336761774"
     },
     {
       "id": "scout-1786906441936-4-reel",
