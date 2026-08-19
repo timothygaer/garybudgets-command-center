@@ -3541,7 +3541,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3558,7 +3558,10 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441935-1.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/images/scout-1786906441935-1/6.png",
       "media_type": "reel",
-      "image_urls": []
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/scout-1786906441935-1/6.png"
+      ],
+      "approved_at": "2026-08-19T08:21:11.510Z"
     },
     {
       "id": "scout-1786906441936-2",
