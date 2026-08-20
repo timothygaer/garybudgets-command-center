@@ -86,6 +86,44 @@ class ReelAgent:
         report("Reel", "done", self.id, "render", f"Rendered {os.path.basename(mp4)}")
         return mp4
 
+    def make_cover(self) -> str:
+        """Generate a 1080x1920 JPEG cover from the reel's own CTA frame.
+
+        Meta's reel cover spec requires JPEG (<=8MB, sRGB, 9:16). A PNG cover
+        leaves the IG container IN_PROGRESS forever (2026-08-19 incident). Uses
+        the PIL venv. Returns the cover file path.
+        """
+        report("Reel", "working", self.id, "verify", "Generating JPEG cover")
+        import json as _json
+        spec_path = os.path.join(REPO, "scripts", "reels", self.slug, "designed.json")
+        cta_frame = ""
+        if os.path.exists(spec_path):
+            spec = _json.load(open(spec_path))
+            scenes = spec.get("scenes", [])
+            if scenes:
+                # CTA frame = the LAST scene's image.
+                cta_frame = os.path.join(REPO, scenes[-1]["img"].lstrip("./"))
+        if not cta_frame or not os.path.exists(cta_frame):
+            # Fall back to the last generated frame (06.jpg).
+            cta_frame = os.path.join(self.bg_dir, "06.jpg")
+        if not os.path.exists(cta_frame):
+            report("Reel", "error", self.id, "verify", "no CTA frame for cover")
+            raise RuntimeError(f"reel cover: no CTA frame found for {self.slug}")
+
+        out = os.path.join(REELS_DIR, f"{self.slug}-cover.jpg")
+        code = (
+            "from PIL import Image, ImageOps\n"
+            f"im = Image.open({cta_frame!r}).convert('RGB')\n"
+            "im = im.resize((1080, 1920), Image.LANCZOS)\n"
+            f"im.save({out!r}, 'JPEG', quality=90)\n"
+        )
+        r = subprocess.run([PY, "-c", code], capture_output=True, text=True, env=dict(os.environ))
+        if r.returncode != 0 or not os.path.exists(out):
+            report("Reel", "error", self.id, "verify", "cover generation failed")
+            raise RuntimeError(f"reel cover generation failed: {r.stderr[-300:]}")
+        report("Reel", "done", self.id, "verify", f"Cover {os.path.basename(out)}")
+        return out
+
     def build_spec(self, scenes, music="public/reels/audio/music-licensing-traps-bed.m4a",
                    music_volume=0.34, out_dir: str | None = None):
         """Write the designed.json spec. Scenes = list of {dur, motion}. Returns spec path."""

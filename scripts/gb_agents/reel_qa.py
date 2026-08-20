@@ -168,14 +168,61 @@ def print_report(results: dict, path: str) -> None:
     print("  RESULT:", "PASS — ready for deploy" if passed(results) else "FAIL — do NOT deploy")
 
 
+# ------------------------------------------------------------------ cover (JPEG gate)
+def check_cover(cover_path: str) -> dict:
+    """Validate the reel cover image: must be JPEG (Meta spec: JPEG, <=8MB, sRGB, 9:16).
+    A PNG cover leaves the IG container IN_PROGRESS forever (2026-08-19 incident)."""
+    results: dict = {"cover_file_exists": {"ok": False, "detail": "missing"}}
+    if not cover_path or not os.path.exists(cover_path):
+        results["cover_file_exists"]["detail"] = f"missing ({cover_path})"
+        results["cover_format"] = {"ok": False, "detail": "cannot check (file missing)"}
+        results["cover_resolution"] = {"ok": False, "detail": "cannot check (file missing)"}
+        return results
+
+    results["cover_file_exists"] = {"ok": True, "detail": cover_path}
+    size = os.path.getsize(cover_path)
+    if size > 8 * 1024 * 1024:
+        results["cover_file_exists"]["detail"] = f"{size/1024/1024:.1f}MB > 8MB Meta cap"
+
+    # Detect format by magic bytes (independent of file extension — a .jpg that's
+    # actually PNG-content must FAIL, matching the 2026-08-19 bug).
+    with open(cover_path, "rb") as f:
+        head = f.read(16)
+    fmt = None
+    if head[:8] == b"\x89PNG\r\n\x1a\n":
+        fmt = "PNG"
+    elif head[:3] == b"\xff\xd8\xff":
+        fmt = "JPEG"
+    results["cover_format"] = {
+        "ok": fmt == "JPEG",
+        "detail": f"{fmt or 'UNKNOWN'} (must be JPEG)",
+    }
+
+    # Resolution via ffprobe (pure, no PIL dependency).
+    spec = _ffprobe_json(cover_path, ["-show_streams"])
+    w = h = None
+    for s in spec.get("streams", []):
+        if s.get("codec_type") == "video":
+            w, h = s.get("width"), s.get("height")
+            break
+    results["cover_resolution"] = {
+        "ok": w is not None and h is not None and w >= 1080 and h >= 1920,
+        "detail": f"{w or '?'}x{h or '?'} (need >= 1080x1920 9:16)",
+    }
+    return results
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="Deterministic IG reel technical QA gate")
     ap.add_argument("--check", required=True, help="path to the reel MP4")
+    ap.add_argument("--cover", default=None, help="path to the reel cover image (must be JPEG 9:16)")
     ap.add_argument("--json", action="store_true", help="emit JSON only")
     ap.add_argument("--summary", action="store_true", help="one-line result")
     args = ap.parse_args(argv)
 
     results = check(args.check)
+    if args.cover:
+        results.update(check_cover(args.cover))
     if args.json:
         print(json.dumps({"path": args.check, "passed": passed(results), "checks": results}, indent=2))
     elif args.summary:

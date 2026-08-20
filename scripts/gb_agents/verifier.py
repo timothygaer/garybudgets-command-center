@@ -83,14 +83,18 @@ def record_verdict(post_id: str, verdicts: list[dict], passed: bool, notes: str 
     return out
 
 
-def verify_reel_technical(mp4_path: str) -> dict:
+def verify_reel_technical(mp4_path: str, cover_path: str | None = None) -> dict:
     """
-    Deterministic Instagram technical-compliance gate for a reel MP4.
+    Deterministic Instagram technical-compliance gate for a reel MP4 (and, if
+    provided, its cover image).
 
     Runs the standalone reel_qa module (NEVER the builder's self-report) against
     the shared technical contract. Returns {passed, checks} where passed=False
-    means the reel MUST NOT be deployed.
+    means the reel MUST NOT be deployed. Cover must be JPEG 9:16 — a PNG cover
+    leaves the IG container IN_PROGRESS forever (2026-08-19 incident).
     """
     from scripts.gb_agents import reel_qa
     results = reel_qa.check(mp4_path)
+    if cover_path:
+        results.update(reel_qa.check_cover(cover_path))
     return {"passed": reel_qa.passed(results), "checks": results}
