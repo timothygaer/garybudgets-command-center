@@ -3835,7 +3835,9 @@
       "media_type": "reel",
       "image_urls": [],
       "approved_at": "2026-08-19T08:21:47.658Z",
-      "attempt_count": 0
+      "attempt_count": 1,
+      "last_error": "Reel container still IN_PROGRESS after 3600.0s",
+      "last_attempt_at": "2026-08-20T20:00:11.528921+00:00"
     },
     {
       "id": "scout-1786906441936-4",
