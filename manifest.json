@@ -3646,7 +3646,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Wed, Aug 19 · 12:00 PM PT",
-      "proposed_schedule": "Fri, Aug 21 · 7:00 PM PT",
+      "proposed_schedule": "Fri, Aug 21 · 2:14 PM PT",
       "caption": "REEL: Permit Costs: LA vs Atlanta vs NYC is not just a headline — it is a production technology decision that can change how indie producers plan, finance, and protect a production. Compare street closure, police detail, parking, and basecamp permit costs across major production cities for an indie feature.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate permit costs: la vs atlanta vs nyc: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
       "slides": [
@@ -3700,12 +3700,11 @@
       "media_type": "reel",
       "image_urls": [],
       "approved_at": "2026-08-19T08:22:11.238Z",
-      "attempt_count": 0,
+      "attempt_count": 1,
       "stuck": false,
       "skipped": false,
-      "last_error": null,
-      "rescheduled_at": "2026-08-21T15:06:31.683745-07:00",
-      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week."
+      "last_error": "Reel container still IN_PROGRESS after 3600.0s",
+      "last_attempt_at": "2026-08-21T22:44:03.337613+00:00"
     },
     {
       "id": "scout-1786906441936-3",
