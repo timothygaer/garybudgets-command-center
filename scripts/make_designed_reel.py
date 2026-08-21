@@ -127,7 +127,11 @@ def main():
         f"[1:a]volume={volume},afade=t=in:st=0:d=0.8,afade=t=out:st={total - 1.6}:d=1.6[a]",
         "-map", "0:v", "-map", "[a]",
         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "medium",
-        "-c:a", "aac", "-b:a", "192k", "-shortest",
+        # Explicit color metadata — working reels carry full-range pc + bt470bg color
+        # space; files with NO color metadata hang IN_PROGRESS forever on Instagram.
+        "-color_range", "pc", "-colorspace", "bt470bg",
+        "-color_primaries", "bt470bg", "-color_trc", "bt709",
+        "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-shortest",
         "-movflags", "+faststart",
         str(out_video),
     ], check=True)
