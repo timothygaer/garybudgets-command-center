@@ -24,6 +24,21 @@ def ease_in_out(t):
     return t * t * (3 - 2 * t)
 
 
+def cover_fit(img, w=W, h=H):
+    """Scale img to fully cover the (w x h) canvas (no black bars), then center-crop
+    to exactly (w x h). Source frames are 941x1672 (~9:16); cropping a 1080x1920 box
+    straight from them pads black bars and pushes content top-left. Cover-fit first
+    so the Ken Burns crop always stays inside the source."""
+    sw, sh = img.size
+    scale = max(w / sw, h / sh)
+    nw, nh = int(round(sw * scale)), int(round(sh * scale))
+    if nw != sw or nh != sh:
+        img = img.resize((nw, nh), Image.Resampling.LANCZOS)
+    left = (nw - w) // 2
+    top = (nh - h) // 2
+    return img.crop((left, top, left + w, top + h))
+
+
 def kenburns(img, t, motion):
     zoom = 1.0 + 0.08 * ease_in_out(t)
     cw, ch = W / zoom, H / zoom
@@ -74,7 +89,7 @@ def main():
     frames_dir = Path("/tmp") / f"gb_design_{spec['slug']}"
     frames_dir.mkdir(exist_ok=True)
 
-    imgs = [Image.open(s["img"]).convert("RGB") for s in scenes]
+    imgs = [cover_fit(Image.open(s["img"]).convert("RGB")) for s in scenes]
     total = sum(s["duration"] for s in scenes)
     total_frames = int(total * FPS)
 
