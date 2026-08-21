@@ -3681,7 +3681,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3701,13 +3701,16 @@
       "image_urls": [],
       "approved_at": "2026-08-19T08:22:11.238Z",
       "attempt_count": 1,
-      "stuck": true,
+      "stuck": false,
       "skipped": false,
-      "last_error": "Reel container still IN_PROGRESS after 3600.0s",
+      "last_error": null,
       "last_attempt_at": "2026-08-21T22:44:03.337613+00:00",
-      "stuck_at": "2026-08-21T22:45:02.173327+00:00",
       "rescheduled_at": "2026-08-21T15:52:35.594591-07:00",
-      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week."
+      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
+      "posted_at": "2026-08-21T22:48:34+0000",
+      "instagram_url": "https://www.instagram.com/reel/DcUckKxiPNj/",
+      "instagram_media_id": "17902666773545502",
+      "permalink": "https://www.instagram.com/reel/DcUckKxiPNj/"
     },
     {
       "id": "scout-1786906441936-3",
