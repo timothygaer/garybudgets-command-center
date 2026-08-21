@@ -4024,7 +4024,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -4047,7 +4047,10 @@
       "suggestion": "Dialogue clean, foley, sound design, mix, and M&E tracks each carry costs producers forget until the mix stage.",
       "source_name": "Auto Scout · post sound guidance",
       "media_type": "carousel",
-      "approved_at": "2026-08-19T08:22:06.258Z"
+      "approved_at": "2026-08-19T08:22:06.258Z",
+      "posted_at": "2026-08-21T16:00:52+0000",
+      "instagram_url": "https://www.instagram.com/p/DcTt7lTm723/",
+      "instagram_media_id": "18047768351802468"
     },
     {
       "id": "scout-1786906441945-5-reel",
