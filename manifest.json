@@ -4136,12 +4136,13 @@
       "image_urls": [],
       "approved_at": "2026-08-19T08:22:24.535Z",
       "attempt_count": 2,
-      "stuck": false,
+      "stuck": true,
       "skipped": false,
       "last_error": "Reel container still IN_PROGRESS after 3600.0s",
       "last_attempt_at": "2026-08-22T20:00:08.315761+00:00",
       "rescheduled_at": "2026-08-21T18:10:55.426228-07:00",
-      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week."
+      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
+      "stuck_at": "2026-08-22T20:15:02.737555+00:00"
     },
     {
       "id": "scout-1787026547647-1",
