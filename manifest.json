@@ -4135,11 +4135,11 @@
       "media_type": "reel",
       "image_urls": [],
       "approved_at": "2026-08-19T08:22:24.535Z",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "stuck": false,
       "skipped": false,
       "last_error": "Reel container still IN_PROGRESS after 3600.0s",
-      "last_attempt_at": "2026-08-22T01:04:06.863342+00:00",
+      "last_attempt_at": "2026-08-22T20:00:08.315761+00:00",
       "rescheduled_at": "2026-08-21T18:10:55.426228-07:00",
       "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week."
     },
