@@ -3359,7 +3359,10 @@
       "approved_at": "2026-08-11T06:20:44.065Z",
       "media_type": "reel",
       "rescheduled_at": "2026-08-18T00:00:00+00:00",
-      "reschedule_reason": "Re-placed from overloaded Aug 18 (4 posts) to standard 9AM/12PM cadence on a future day (Part D fix)."
+      "reschedule_reason": "Re-placed from overloaded Aug 18 (4 posts) to standard 9AM/12PM cadence on a future day (Part D fix).",
+      "attempt_count": 1,
+      "last_error": "Reel container still IN_PROGRESS after 3600.0s",
+      "last_attempt_at": "2026-08-24T17:00:11.223367+00:00"
     },
     {
       "id": "scout-1786257749235-2-reel",
