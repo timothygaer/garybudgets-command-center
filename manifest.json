@@ -3309,7 +3309,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Sat, Aug 15 · 9:00 AM PT",
-      "proposed_schedule": "Wed, Aug 26 · 9:00 AM PT",
+      "proposed_schedule": "Thu, Aug 27 · 6:00 PM PT",
       "caption": "Your \"simple\" company move just cost you $10K. 🚛\n\nIt's never one line item — it's five:\n1. 3-4 trucks × $500-1K per day, plus drivers, fuel, tolls, parking\n2. 2+ hours per move — same day rate, half the scenes\n3. Meal penalties: $ per person per half-hour when wrap runs long\n4. Re-permit, re-park, re-police at every new location\n5. Basecamp setup fees + lighting/grip re-rigs\n\nYou pay the same day for less coverage. Budget every move like the line item it is — before you lock the schedule.\n\nSave this for your next production. ♻️ Tag the producer who's planning a company move.\n\n#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -3349,22 +3349,25 @@
       "image_file_names": [
         "cover.jpg"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-v2-cover.jpg"
+      ],
       "video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-v2.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-v2-cover.jpg",
       "created_at": "2026-08-09T06:42:29.235Z",
       "source": "Topic Scout (Reel split)",
       "suggestion": "Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee.",
       "source_name": "Auto Scout · assistant director scheduling guidance",
-      "approved_at": "2026-08-11T06:20:44.065Z",
+      "approved_at": "2026-08-26T06:49:15.996Z",
       "media_type": "reel",
       "rescheduled_at": "2026-08-25T23:12:35.291245-07:00",
       "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
       "attempt_count": 1,
       "last_error": "Reel container still IN_PROGRESS after 3600.0s",
       "last_attempt_at": "2026-08-24T17:00:11.223367+00:00",
-      "stuck": true,
-      "stuck_at": "2026-08-24T17:15:02.945167+00:00"
+      "stuck": false,
+      "stuck_at": "2026-08-24T17:15:02.945167+00:00",
+      "skipped": false
     },
     {
       "id": "scout-1786257749235-2-reel",
