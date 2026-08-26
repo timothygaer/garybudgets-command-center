@@ -4243,7 +4243,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Sat, Aug 22 · 12:00 PM PT",
-      "proposed_schedule": "Thu, Aug 27 · 9:00 AM PT",
+      "proposed_schedule": "Wed, Aug 26 · 7:00 PM PT",
       "caption": "REEL: Actor Travel Costs That Sneak Into the Budget is not just a headline — it is a production technology decision that can change how indie producers plan, finance, and protect a production. Break down airfare, lodging, per diem, pickups, and turnaround risks that quietly inflate talent budgets on small features.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate actor travel costs that sneak into the budget: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
       "slides": [
@@ -4295,14 +4295,17 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/actor-travel-costs-v2.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1787026547647-1-cover.jpg",
       "media_type": "reel",
-      "image_urls": [],
-      "approved_at": "2026-08-19T08:22:28.880Z",
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/scout-1787026547647-1-cover.jpg"
+      ],
+      "approved_at": "2026-08-26T06:49:22.611Z",
       "attempt_count": 0,
-      "stuck": true,
+      "stuck": false,
       "stuck_at": "2026-08-24T17:15:02.945167+00:00",
       "last_error": "exceeded 1-hour retry window without posting",
       "rescheduled_at": "2026-08-25T23:12:35.291245-07:00",
-      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week."
+      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
+      "skipped": false
     }
   ]
 }
