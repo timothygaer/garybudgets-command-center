@@ -3349,9 +3349,7 @@
       "image_file_names": [
         "cover.jpg"
       ],
-      "image_urls": [
-        "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-v2-cover.jpg"
-      ],
+      "image_urls": [],
       "video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-strict.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-v2-cover.jpg",
       "created_at": "2026-08-09T06:42:29.235Z",
@@ -3416,9 +3414,7 @@
       "image_file_names": [
         "cover.jpg"
       ],
-      "image_urls": [
-        "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day-v2-cover.jpg"
-      ],
+      "image_urls": [],
       "video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day-v2.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-reshoot-day-v2-cover.jpg",
       "created_at": "2026-08-09T06:42:29.235Z",
@@ -4006,9 +4002,7 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-4.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-4-cover.jpg",
       "media_type": "reel",
-      "image_urls": [
-        "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-4-cover.jpg"
-      ],
+      "image_urls": [],
       "approved_at": "2026-08-26T06:49:19.475Z",
       "attempt_count": 0,
       "stuck": false,
@@ -4148,9 +4142,7 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441945-5.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441945-5-cover.jpg",
       "media_type": "reel",
-      "image_urls": [
-        "https://garybudgets-command-center.vercel.app/reels/scout-1786906441945-5-cover.jpg"
-      ],
+      "image_urls": [],
       "approved_at": "2026-08-26T06:49:21.043Z",
       "attempt_count": 2,
       "stuck": false,
@@ -4291,9 +4283,7 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/actor-travel-costs-v2.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1787026547647-1-cover.jpg",
       "media_type": "reel",
-      "image_urls": [
-        "https://garybudgets-command-center.vercel.app/reels/scout-1787026547647-1-cover.jpg"
-      ],
+      "image_urls": [],
       "approved_at": "2026-08-26T06:49:22.611Z",
       "attempt_count": 0,
       "stuck": false,
