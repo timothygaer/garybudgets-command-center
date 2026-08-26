@@ -3956,7 +3956,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Thu, Aug 20 · 12:00 PM PT",
-      "proposed_schedule": "Wed, Aug 26 · 4:00 PM PT",
+      "proposed_schedule": "Fri, Aug 28 · 5:00 PM PT",
       "caption": "REEL: DIT & Data Management: The Invisible Post Cost is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate dit & data management: the invisible post cost: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -4008,10 +4008,12 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-4.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-4-cover.jpg",
       "media_type": "reel",
-      "image_urls": [],
-      "approved_at": "2026-08-19T08:22:20.782Z",
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/scout-1786906441936-4-cover.jpg"
+      ],
+      "approved_at": "2026-08-26T06:49:19.475Z",
       "attempt_count": 0,
-      "stuck": true,
+      "stuck": false,
       "skipped": false,
       "last_error": "exceeded 1-hour retry window without posting",
       "rescheduled_at": "2026-08-25T23:12:35.291245-07:00",
