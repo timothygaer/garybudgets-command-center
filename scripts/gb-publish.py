@@ -248,6 +248,9 @@ def select_post(manifest, post_id, force=False, max_catchup_hours=36, retry_wind
         post = next((p for p in posts if p.get("id") == post_id), None)
         if not post:
             fail("Post " + post_id + " not found in manifest")
+        if post.get("media_type") == "reel":
+            print("SKIP_REEL: " + post_id + " is a reel — handled by hardened poster (gb_post_reel_standalone.py), not this publisher")
+            return None
         if post.get("status") == "posted":
             print("SKIP: " + post_id + " already posted")
             return None
@@ -264,6 +267,9 @@ def select_post(manifest, post_id, force=False, max_catchup_hours=36, retry_wind
     stale = []
     for p in posts:
         if p.get("status") != "approved":
+            continue
+        if p.get("media_type") == "reel":
+            print("SKIP_REEL: " + p.get("id", "?") + " is a reel — handled by hardened poster (gb_post_reel_standalone.py), not this publisher")
             continue
         if p.get("stuck"):
             print("SKIP_STUCK: " + p.get("id", "?") + " was marked stuck; not retrying until fixed/skipped")
