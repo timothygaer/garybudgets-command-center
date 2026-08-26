@@ -3309,7 +3309,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Sat, Aug 15 · 9:00 AM PT",
-      "proposed_schedule": "Thu, Aug 27 · 6:00 PM PT",
+      "proposed_schedule": null,
       "caption": "Your \"simple\" company move just cost you $10K. 🚛\n\nIt's never one line item — it's five:\n1. 3-4 trucks × $500-1K per day, plus drivers, fuel, tolls, parking\n2. 2+ hours per move — same day rate, half the scenes\n3. Meal penalties: $ per person per half-hour when wrap runs long\n4. Re-permit, re-park, re-police at every new location\n5. Basecamp setup fees + lighting/grip re-rigs\n\nYou pay the same day for less coverage. Budget every move like the line item it is — before you lock the schedule.\n\nSave this for your next production. ♻️ Tag the producer who's planning a company move.\n\n#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -3366,7 +3366,6 @@
       "last_error": "Reel container still IN_PROGRESS after 3600.0s",
       "last_attempt_at": "2026-08-24T17:00:11.223367+00:00",
       "stuck": false,
-      "stuck_at": "2026-08-24T17:15:02.945167+00:00",
       "skipped": false
     },
     {
@@ -3377,7 +3376,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Fri, Aug 14 · 12:00 PM PT",
-      "proposed_schedule": "Fri, Aug 28 · 12:00 PM PT",
+      "proposed_schedule": "Wed, Aug 26 · 12:00 PM PT",
       "caption": "One reshoot day costs 3-5x the original. 🎬\n\nSame scene, same cast, triple the line items:\n1. Cast day rates restart — hold fees already paid, union minimums reset\n2. Full crew rebuild — OT from hour one, new kit rentals, half the prep\n3. Re-permit, re-rig, re-light — location fees, grip/electric, insurance day extension\n4. One day pushes delivery — post compresses, fixes get rushed, dates slip\n\nA reshoot isn't a failure — it's a line item. Plan a 5-10% reshoot contingency in the top sheet.\n\nSave this before your next schedule. ♻️\n\n#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -3431,7 +3430,6 @@
       "rescheduled_at": "2026-08-25T23:12:35.291245-07:00",
       "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
       "stuck": false,
-      "stuck_at": "2026-08-24T17:15:02.945167+00:00",
       "attempt_count": 0,
       "last_error": "exceeded 1-hour retry window without posting",
       "skipped": false
@@ -3956,7 +3954,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Thu, Aug 20 · 12:00 PM PT",
-      "proposed_schedule": "Fri, Aug 28 · 5:00 PM PT",
+      "proposed_schedule": "Wed, Aug 26 · 7:00 PM PT",
       "caption": "REEL: DIT & Data Management: The Invisible Post Cost is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate dit & data management: the invisible post cost: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -4017,8 +4015,7 @@
       "skipped": false,
       "last_error": "exceeded 1-hour retry window without posting",
       "rescheduled_at": "2026-08-25T23:12:35.291245-07:00",
-      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
-      "stuck_at": "2026-08-24T17:15:02.945167+00:00"
+      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week."
     },
     {
       "id": "scout-1786906441945-5",
@@ -4099,7 +4096,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Fri, Aug 21 · 12:00 PM PT",
-      "proposed_schedule": "Wed, Aug 26 · 7:00 PM PT",
+      "proposed_schedule": "Thu, Aug 27 · 9:00 AM PT",
       "caption": "REEL: Sound Design Budget: Why Silence Isn't Free is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Dialogue clean, foley, sound design, mix, and M&E tracks each carry costs producers forget until the mix stage.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate sound design budget: why silence isn't free: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -4161,8 +4158,7 @@
       "last_error": "Reel container still IN_PROGRESS after 3600.0s",
       "last_attempt_at": "2026-08-22T20:00:08.315761+00:00",
       "rescheduled_at": "2026-08-25T23:12:35.291245-07:00",
-      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
-      "stuck_at": "2026-08-22T20:15:02.737555+00:00"
+      "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week."
     },
     {
       "id": "scout-1787026547647-1",
@@ -4243,7 +4239,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Sat, Aug 22 · 12:00 PM PT",
-      "proposed_schedule": "Wed, Aug 26 · 7:00 PM PT",
+      "proposed_schedule": "Thu, Aug 27 · 6:00 PM PT",
       "caption": "REEL: Actor Travel Costs That Sneak Into the Budget is not just a headline — it is a production technology decision that can change how indie producers plan, finance, and protect a production. Break down airfare, lodging, per diem, pickups, and turnaround risks that quietly inflate talent budgets on small features.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate actor travel costs that sneak into the budget: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
       "slides": [
@@ -4301,7 +4297,6 @@
       "approved_at": "2026-08-26T06:49:22.611Z",
       "attempt_count": 0,
       "stuck": false,
-      "stuck_at": "2026-08-24T17:15:02.945167+00:00",
       "last_error": "exceeded 1-hour retry window without posting",
       "rescheduled_at": "2026-08-25T23:12:35.291245-07:00",
       "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
