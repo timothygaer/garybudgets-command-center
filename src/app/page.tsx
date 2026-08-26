@@ -331,7 +331,7 @@ function QueueTab() {
 
 // ─── Maintenance Tab ───
 const TOKEN_DAYS_VALID = 60
-const TOKEN_CREATED_ISO = "2026-06-18T00:00:00.000Z"
+const TOKEN_CREATED_ISO = "2026-08-25T00:00:00.000Z"
 function daysUntil(dateStr: string): number {
   return Math.ceil((new Date(dateStr).getTime() - Date.now()) / (1000 * 60 * 60 * 24))
 }
