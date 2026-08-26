@@ -3309,7 +3309,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Sat, Aug 15 · 9:00 AM PT",
-      "proposed_schedule": "Wed, Aug 26 · 9:00 AM PT",
+      "proposed_schedule": null,
       "caption": "Your \"simple\" company move just cost you $10K. 🚛\n\nIt's never one line item — it's five:\n1. 3-4 trucks × $500-1K per day, plus drivers, fuel, tolls, parking\n2. 2+ hours per move — same day rate, half the scenes\n3. Meal penalties: $ per person per half-hour when wrap runs long\n4. Re-permit, re-park, re-police at every new location\n5. Basecamp setup fees + lighting/grip re-rigs\n\nYou pay the same day for less coverage. Budget every move like the line item it is — before you lock the schedule.\n\nSave this for your next production. ♻️ Tag the producer who's planning a company move.\n\n#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -3352,7 +3352,7 @@
       "image_urls": [
         "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-v2-cover.jpg"
       ],
-      "video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-v2.mp4",
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-strict.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/real-cost-company-move-v2-cover.jpg",
       "created_at": "2026-08-09T06:42:29.235Z",
       "source": "Topic Scout (Reel split)",
