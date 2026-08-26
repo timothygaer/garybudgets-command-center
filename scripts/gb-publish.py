@@ -558,7 +558,9 @@ def wait_reel_finished(container_id, token, timeout=None):
     # was too tight and caused spurious "IN_PROGRESS after 1500s" failures on valid
     # reels. Default to 1 hour; allow override via GB_REEL_WAIT_SECONDS.
     if timeout is None:
-        timeout = float(os.environ.get("GB_REEL_WAIT_SECONDS", "3600"))
+        # Default 2h (2026-08-25): slow-but-valid reel containers can take >1h to
+        # finish; the old 1h default marked them stuck prematurely. Override via GB_REEL_WAIT_SECONDS.
+        timeout = float(os.environ.get("GB_REEL_WAIT_SECONDS", "7200"))
     deadline = time.time() + timeout
     last_status = "IN_PROGRESS"
     while time.time() < deadline:
