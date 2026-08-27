@@ -12,6 +12,7 @@ import subprocess, sys, os, datetime
 
 KEY = "INSTAGRAM_" + "ACCESS_TOKEN"
 KEY_EQ = KEY + "="
+GH_KEY = "GITHUB_TOKEN"
 VAULT = "/Users/dit/Documents/Obsidian Vault/04 - Private/API Keys/Instagram Graph API Token.md.md"
 REPO = "/Users/dit/workspace/garybudgets-command-center"
 ENVFILE = REPO + "/.env.local"
@@ -68,13 +69,51 @@ def write_env(path, tok):
     return "updated" if found else "appended"
 
 
-def update_vercel(tok):
-    # remove + re-add so the value is actually replaced
-    r = subprocess.run(["npx", "vercel", "env", "rm", KEY, "production", "--yes"],
-                       cwd=REPO, capture_output=True, text=True, timeout=120)
-    r2 = subprocess.run(["npx", "vercel", "env", "add", KEY, "production"],
-                        cwd=REPO, input=tok, capture_output=True, text=True, timeout=120)
+def update_vercel_env(name, tok):
+    """Replace a Vercel production env var. `vercel env add` in non-interactive
+    mode first asks \"Store as sensitive? (Y/n)\" then reads the value from stdin,
+    so we must answer 'Y' first and pass the value WITHOUT a trailing newline
+    (a trailing newline corrupts the value — the old bug that silently failed
+    the IG-token sync and left tokens out of sync)."""
+    subprocess.run(["npx", "vercel", "env", "rm", name, "production", "--yes"],
+                   cwd=REPO, capture_output=True, text=True, timeout=120)
+    r2 = subprocess.run(["npx", "vercel", "env", "add", name, "production"],
+                        cwd=REPO, input="Y\n" + tok, capture_output=True, text=True, timeout=120)
     return r2.returncode == 0
+
+
+def update_vercel(tok):
+    return update_vercel_env(KEY, tok)
+
+
+def read_gh_token_oracle():
+    """Read the current valid GITHUB_TOKEN from the Oracle VM (github_env)."""
+    try:
+        out = subprocess.run(
+            ["ssh", "-i", SSH_KEY, "-o", "ConnectTimeout=20", ORACLE_HOST,
+             "grep -E 'GITHUB_TOKEN=' /home/ubuntu/garybudgets/scripts/github_env | head -1 | sed 's/^export //' | cut -d= -f2- | tr -d ' \\r\\n'"],
+            capture_output=True, text=True, timeout=40).stdout
+        return out.strip()
+    except Exception as e:
+        print("ssh/oracle gh-token read failed:", e)
+    return None
+
+
+def sync_vercel_gh_token():
+    """Keep Vercel's GITHUB_TOKEN in sync with the current valid one from Oracle.
+    Runs every sync so it can never go stale (stale GITHUB_TOKEN makes /api/queue
+    fall back to an old manifest)."""
+    gh = read_gh_token_oracle()
+    if not gh:
+        log("GITHUB_TOKEN read failed; skipping vercel update")
+        return False
+    if update_vercel_env(GH_KEY, gh):
+        log("vercel GITHUB_TOKEN updated")
+        print("vercel GITHUB_TOKEN updated")
+        return True
+    log("vercel GITHUB_TOKEN update FAILED (manual intervention needed)")
+    print("vercel GITHUB_TOKEN update FAILED (manual intervention needed)")
+    return False
 
 
 def main():
@@ -83,6 +122,8 @@ def main():
     if not oracle:
         log("ERROR could not read Oracle token; aborting (retry next run)")
         return  # silent — don't spam; will retry
+    # Always keep Vercel's GitHub token in sync too (prevents stale GITHUB_TOKEN)
+    sync_vercel_gh_token()
     if oracle == local:
         log("token in sync; no action needed")
         return  # silent no-op (cron delivers nothing when stdout empty)
