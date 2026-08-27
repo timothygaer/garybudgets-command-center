@@ -3943,7 +3943,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Thu, Aug 20 · 12:00 PM PT",
-      "proposed_schedule": "Thu, Aug 27 · 12:00 PM PT",
+      "proposed_schedule": null,
       "caption": "REEL: DIT & Data Management: The Invisible Post Cost is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate dit & data management: the invisible post cost: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -3998,8 +3998,6 @@
       "image_urls": [],
       "stuck": false,
       "skipped": false,
-      "rescheduled_at": "2026-08-26T16:42:47.698592-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
       "posted_at": "2026-08-27T01:36:13+0000",
       "instagram_url": "https://www.instagram.com/reel/DchnvQezFEy/",
       "instagram_media_id": "18114067861988176"

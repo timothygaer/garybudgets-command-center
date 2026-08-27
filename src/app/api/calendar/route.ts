@@ -92,12 +92,16 @@ export async function GET() {
 
         if (normalizedStatus === "posted" && post.posted_at) {
           const d = new Date(post.posted_at)
-          date = d.toISOString().split("T")[0]
-          const hours = d.getUTCHours()
-          const mins = d.getUTCMinutes().toString().padStart(2, "0")
-          const ampm = hours >= 12 ? "PM" : "AM"
-          const hour12 = hours % 12 || 12
-          time = `${hour12}:${mins} ${ampm} UTC`
+          // Date the post by PACIFIC time (America/Los_Angeles), not UTC. A post made
+          // at 6:36 PM PT on Aug 26 has a UTC timestamp of 2026-08-27T01:36Z — using
+          // toISOString() (UTC) would wrongly place it on tomorrow's calendar. en-CA
+          // yields YYYY-MM-DD for the LA-local date.
+          date = new Intl.DateTimeFormat("en-CA", {
+            timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit",
+          }).format(d)
+          time = new Intl.DateTimeFormat("en-US", {
+            timeZone: "America/Los_Angeles", hour: "numeric", minute: "2-digit", hour12: true,
+          }).format(d) + " PT"
           calStatus = "posted"
         } else if (normalizedStatus === "approved") {
           const parsed = parseScheduleStr(schedStr)
