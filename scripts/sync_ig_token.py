@@ -70,15 +70,15 @@ def write_env(path, tok):
 
 
 def update_vercel_env(name, tok):
-    """Replace a Vercel production env var. `vercel env add` in non-interactive
-    mode first asks \"Store as sensitive? (Y/n)\" then reads the value from stdin,
-    so we must answer 'Y' first and pass the value WITHOUT a trailing newline
-    (a trailing newline corrupts the value — the old bug that silently failed
-    the IG-token sync and left tokens out of sync)."""
+    """Replace a Vercel production env var. IMPORTANT: pass the value as BARE
+    stdin (no 'Y/n' answer, no trailing newline) — in non-interactive mode the
+    CLI reads stdin directly as the value. Prepending 'Y\\n' or leaving a trailing
+    newline CORRUPTS the stored value and silently breaks the GitHub/token fetch
+    (2026-08-26: a corrupted GITHUB_TOKEN broke /api/queue + write-selection)."""
     subprocess.run(["npx", "vercel", "env", "rm", name, "production", "--yes"],
                    cwd=REPO, capture_output=True, text=True, timeout=120)
     r2 = subprocess.run(["npx", "vercel", "env", "add", name, "production"],
-                        cwd=REPO, input="Y\n" + tok, capture_output=True, text=True, timeout=120)
+                        cwd=REPO, input=tok, capture_output=True, text=True, timeout=120)
     return r2.returncode == 0
 
 
