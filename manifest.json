@@ -4274,6 +4274,534 @@
       "rescheduled_at": "2026-08-26T16:42:47.698592-07:00",
       "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
       "skipped": false
+    },
+    {
+      "id": "scout-1787791682478-1",
+      "title": "The Rise of Micro-Dramas: Vertical Films",
+      "pillar": "Industry Watch",
+      "slug": "Post_the-rise-of-micro-dramas-vertical-films",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "The Rise of Micro-Dramas: Vertical Films is not just a headline — it is a production technology decision that can change how indie producers plan, finance, and protect a production. Vertical-format micro-dramas are driving millions of views. Is there a sustainable production model for indie filmmakers to follow?\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate the rise of micro-dramas: vertical films: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
+      "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: The Rise of Micro-Dramas: Vertical Films"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1787791682478-1/1.png",
+        "/images/scout-1787791682478-1/2.png",
+        "/images/scout-1787791682478-1/3.png",
+        "/images/scout-1787791682478-1/4.png",
+        "/images/scout-1787791682478-1/5.png",
+        "/images/scout-1787791682478-1/6.png"
+      ],
+      "created_at": "2026-08-27T00:48:02.479Z",
+      "source": "Topic Scout",
+      "suggestion": "Vertical-format micro-dramas are driving millions of views. Is there a sustainable production model for indie filmmakers to follow?",
+      "source_name": "TikTok / Instagram trends"
+    },
+    {
+      "id": "scout-1787791682479-2",
+      "title": "Crew Shortage: How Indie Producers Adapt",
+      "pillar": "Industry Watch",
+      "slug": "Post_crew-shortage-how-indie-producers-adapt",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Crew Shortage: How Indie Producers Adapt is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate crew shortage: how indie producers adapt: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
+      "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Crew Shortage: How Indie Producers Adapt"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1787791682479-2/1.png",
+        "/images/scout-1787791682479-2/2.png",
+        "/images/scout-1787791682479-2/3.png",
+        "/images/scout-1787791682479-2/4.png",
+        "/images/scout-1787791682479-2/5.png",
+        "/images/scout-1787791682479-2/6.png"
+      ],
+      "created_at": "2026-08-27T00:48:02.479Z",
+      "source": "Topic Scout",
+      "suggestion": "Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget.",
+      "source_name": "Screen Daily / The Wrap"
+    },
+    {
+      "id": "scout-1787791682479-3",
+      "title": "Location Fees Are Only the First Location Cost",
+      "pillar": "Budget School",
+      "slug": "Post_location-fees-are-only-the-first-location-cost",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Location Fees Are Only the First Location Cost is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Cover permits, police, fire watch, parking, holding areas, bathrooms, neighbors, restoration, and company moves that make locations cost more than the fee.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate location fees are only the first location cost: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
+      "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Location Fees Are Only the First Location Cost"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1787791682479-3/1.png",
+        "/images/scout-1787791682479-3/2.png",
+        "/images/scout-1787791682479-3/3.png",
+        "/images/scout-1787791682479-3/4.png",
+        "/images/scout-1787791682479-3/5.png",
+        "/images/scout-1787791682479-3/6.png"
+      ],
+      "created_at": "2026-08-27T00:48:02.479Z",
+      "source": "Topic Scout",
+      "suggestion": "Cover permits, police, fire watch, parking, holding areas, bathrooms, neighbors, restoration, and company moves that make locations cost more than the fee.",
+      "source_name": "Auto Scout · location manager checklists"
+    },
+    {
+      "id": "scout-1787791682479-4",
+      "title": "Union vs Non-Union Budget Tradeoffs",
+      "pillar": "Budget School",
+      "slug": "Post_union-vs-non-union-budget-tradeoffs",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Union vs Non-Union Budget Tradeoffs is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Compare predictability, paperwork, fringes, rate floors, overtime, and talent access so producers can choose the right structure before scheduling.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate union vs non-union budget tradeoffs: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
+      "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Union vs Non-Union Budget Tradeoffs"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1787791682479-4/1.png",
+        "/images/scout-1787791682479-4/2.png",
+        "/images/scout-1787791682479-4/3.png",
+        "/images/scout-1787791682479-4/4.png",
+        "/images/scout-1787791682479-4/5.png",
+        "/images/scout-1787791682479-4/6.png"
+      ],
+      "created_at": "2026-08-27T00:48:02.479Z",
+      "source": "Topic Scout",
+      "suggestion": "Compare predictability, paperwork, fringes, rate floors, overtime, and talent access so producers can choose the right structure before scheduling.",
+      "source_name": "Auto Scout · SAG-AFTRA / crew agreement resources"
+    },
+    {
+      "id": "scout-1787791682479-5",
+      "title": "Catering & Craft Services: The Feeding Line Item",
+      "pillar": "Industry Watch",
+      "slug": "Post_catering-craft-services-the-feeding-line-item",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Catering & Craft Services: The Feeding Line Item is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Break down per-day meal counts, craft stations, late meal costs, and dietary riders that quietly inflate the feeding line on long shoots.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate catering & craft services: the feeding line item: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
+      "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Catering & Craft Services: The Feeding Line Item"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1787791682479-5/1.png",
+        "/images/scout-1787791682479-5/2.png",
+        "/images/scout-1787791682479-5/3.png",
+        "/images/scout-1787791682479-5/4.png",
+        "/images/scout-1787791682479-5/5.png",
+        "/images/scout-1787791682479-5/6.png"
+      ],
+      "created_at": "2026-08-27T00:48:02.479Z",
+      "source": "Topic Scout",
+      "suggestion": "Break down per-day meal counts, craft stations, late meal costs, and dietary riders that quietly inflate the feeding line on long shoots.",
+      "source_name": "Auto Scout · craft service budgeting guides"
+    },
+    {
+      "id": "scout-1787791682479-6",
+      "title": "Weather Contingency: Rain Days in the Budget",
+      "pillar": "Budget School",
+      "slug": "Post_weather-contingency-rain-days-in-the-budget",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Weather Contingency: Rain Days in the Budget is not just a headline — it is a production technology decision that can change how indie producers plan, finance, and protect a production. How to budget rain days, weather holds, force majeure, and reshoot planning so one bad week doesn't blow the contingency.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate weather contingency: rain days in the budget: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
+      "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Weather Contingency: Rain Days in the Budget"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1787791682479-6/1.png",
+        "/images/scout-1787791682479-6/2.png",
+        "/images/scout-1787791682479-6/3.png",
+        "/images/scout-1787791682479-6/4.png",
+        "/images/scout-1787791682479-6/5.png",
+        "/images/scout-1787791682479-6/6.png"
+      ],
+      "created_at": "2026-08-27T00:48:02.479Z",
+      "source": "Topic Scout",
+      "suggestion": "How to budget rain days, weather holds, force majeure, and reshoot planning so one bad week doesn't blow the contingency.",
+      "source_name": "Auto Scout · production insurance guidance"
+    },
+    {
+      "id": "scout-1787791682479-7",
+      "title": "Casting Costs Beyond the Casting Director",
+      "pillar": "Budget School",
+      "slug": "Post_casting-costs-beyond-the-casting-director",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Casting Costs Beyond the Casting Director is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Session fees, self-tape review hours, callbacks, chemistry reads, and hold fees add up — budget the full casting pipeline.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate casting costs beyond the casting director: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
+      "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Casting Costs Beyond the Casting Director"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1787791682479-7/1.png",
+        "/images/scout-1787791682479-7/2.png",
+        "/images/scout-1787791682479-7/3.png",
+        "/images/scout-1787791682479-7/4.png",
+        "/images/scout-1787791682479-7/5.png",
+        "/images/scout-1787791682479-7/6.png"
+      ],
+      "created_at": "2026-08-27T00:48:02.479Z",
+      "source": "Topic Scout",
+      "suggestion": "Session fees, self-tape review hours, callbacks, chemistry reads, and hold fees add up — budget the full casting pipeline.",
+      "source_name": "Auto Scout · casting budgets"
+    },
+    {
+      "id": "scout-1787791682479-8",
+      "title": "Marketing Budget for a Self-Distributed Film",
+      "pillar": "Budget School",
+      "slug": "Post_marketing-budget-for-a-self-distributed-film",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Marketing Budget for a Self-Distributed Film is not just a headline — it is a festival strategy decision that can change how indie producers plan, finance, and protect a production. Ads, festival circuit, key art, trailers, and premiere costs — what a realistic P&A line looks like for a micro-budget feature.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate marketing budget for a self-distributed film: submission fees, premiere status, travel costs, deliverables, sales opportunities, publicity, and whether the festival spend supports distribution. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
+      "hashtags": "#FilmFestivalStrategy #IndieFilmMarketing #FilmDistribution #IndieFilmProducers #FilmBudgeting",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Attention-grabbing hook related to: Marketing Budget for a Self-Distributed Film"
+        },
+        {
+          "slide": 2,
+          "heading": "Educational 1",
+          "prompt_summary": "Deepen the topic"
+        },
+        {
+          "slide": 3,
+          "heading": "Educational 2",
+          "prompt_summary": "More specifics"
+        },
+        {
+          "slide": 4,
+          "heading": "Educational 3",
+          "prompt_summary": "Pitfalls and watch-outs"
+        },
+        {
+          "slide": 5,
+          "heading": "Educational 4",
+          "prompt_summary": "Actionable advice"
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Gary Budgets call to action"
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1787791682479-8/1.png",
+        "/images/scout-1787791682479-8/2.png",
+        "/images/scout-1787791682479-8/3.png",
+        "/images/scout-1787791682479-8/4.png",
+        "/images/scout-1787791682479-8/5.png",
+        "/images/scout-1787791682479-8/6.png"
+      ],
+      "created_at": "2026-08-27T00:48:02.479Z",
+      "source": "Topic Scout",
+      "suggestion": "Ads, festival circuit, key art, trailers, and premiere costs — what a realistic P&A line looks like for a micro-budget feature.",
+      "source_name": "Auto Scout · indie distribution guides"
     }
   ]
 }
