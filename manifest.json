@@ -4319,7 +4319,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -4343,7 +4343,10 @@
       "source_name": "TikTok / Instagram trends",
       "approved_at": "2026-08-27T06:49:51.461Z",
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "posted_at": "2026-08-27T16:00:50+0000",
+      "instagram_url": "https://www.instagram.com/p/DcjKslqmmGB/",
+      "instagram_media_id": "18460666162138656"
     },
     {
       "id": "scout-1787791682479-2",
