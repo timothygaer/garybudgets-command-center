@@ -3978,7 +3978,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "draft",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -3999,7 +3999,10 @@
       "stuck": false,
       "skipped": false,
       "rescheduled_at": "2026-08-26T16:42:47.698592-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot."
+      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
+      "posted_at": "2026-08-27T01:36:13+0000",
+      "instagram_url": "https://www.instagram.com/reel/DchnvQezFEy/",
+      "instagram_media_id": "18114067861988176"
     },
     {
       "id": "scout-1786906441945-5",
