@@ -4352,7 +4352,7 @@
       "slide_count": 6,
       "build_type": "carousel",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Fri, Aug 28 · 12:00 PM PT",
       "caption": "Crew Shortage: How Indie Producers Adapt is not just a headline — it is a budgeting decision that can change how indie producers plan, finance, and protect a production. Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate crew shortage: how indie producers adapt: cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -4387,8 +4387,8 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
-      "has_images": false,
+      "status": "approved",
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -4398,17 +4398,20 @@
         "6.png"
       ],
       "image_urls": [
-        "/images/scout-1787791682479-2/1.png",
-        "/images/scout-1787791682479-2/2.png",
-        "/images/scout-1787791682479-2/3.png",
-        "/images/scout-1787791682479-2/4.png",
-        "/images/scout-1787791682479-2/5.png",
-        "/images/scout-1787791682479-2/6.png"
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-2/1.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-2/2.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-2/3.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-2/4.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-2/5.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-2/6.png"
       ],
       "created_at": "2026-08-27T00:48:02.479Z",
       "source": "Topic Scout",
       "suggestion": "Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget.",
-      "source_name": "Screen Daily / The Wrap"
+      "source_name": "Screen Daily / The Wrap",
+      "approved_at": "2026-08-27T06:50:21.104Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1787791682479-3",
