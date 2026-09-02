@@ -4635,7 +4635,7 @@
       "slide_count": 6,
       "build_type": "carousel",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Sat, Sep 5 · 12:00 PM PT",
       "caption": "Weather Contingency: Rain Days in the Budget is not just a headline — it is a production technology decision that can change how indie producers plan, finance, and protect a production. How to budget rain days, weather holds, force majeure, and reshoot planning so one bad week doesn't blow the contingency.\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate weather contingency: rain days in the budget: software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.",
       "hashtags": "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting",
       "slides": [
@@ -4670,8 +4670,8 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "ready",
-      "has_images": false,
+      "status": "approved",
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -4681,17 +4681,20 @@
         "6.png"
       ],
       "image_urls": [
-        "/images/scout-1787791682479-6/1.png",
-        "/images/scout-1787791682479-6/2.png",
-        "/images/scout-1787791682479-6/3.png",
-        "/images/scout-1787791682479-6/4.png",
-        "/images/scout-1787791682479-6/5.png",
-        "/images/scout-1787791682479-6/6.png"
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-6/1.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-6/2.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-6/3.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-6/4.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-6/5.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1787791682479-6/6.png"
       ],
       "created_at": "2026-08-27T00:48:02.479Z",
       "source": "Topic Scout",
       "suggestion": "How to budget rain days, weather holds, force majeure, and reshoot planning so one bad week doesn't blow the contingency.",
-      "source_name": "Auto Scout · production insurance guidance"
+      "source_name": "Auto Scout · production insurance guidance",
+      "approved_at": "2026-09-02T18:39:13.185Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1787791682479-7",
