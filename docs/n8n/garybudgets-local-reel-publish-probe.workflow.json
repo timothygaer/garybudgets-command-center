@@ -1,0 +1,97 @@
+{
+  "id": "5f44ad7b-3a43-46c0-be5b-cacd10f3bf54",
+  "name": "Gary Budgets - Local Reel Publish Probe",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [180, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/timothygaer/garybudgets-command-center/main/manifest.json",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 30000
+        }
+      },
+      "id": "get-manifest",
+      "name": "Get GitHub Manifest",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const manifest = items[0].json;\nconst posts = Array.isArray(manifest) ? manifest : (manifest.posts || []);\nconst reels = posts.filter(p => p.video_url);\nif (!reels.length) throw new Error('No reels with video_url found');\nconst reel = [...reels].reverse().find(p => ['draft','ready','approved'].includes(p.status)) || reels[reels.length - 1];\nconst caption = `${reel.caption || ''}\\n\\n${reel.hashtags || ''}`.trim();\nreturn [{ json: {\n  ok: true,\n  mode: 'DRY_RUN_ONLY',\n  warning: 'Does NOT publish. This validates local n8n can fetch the manifest and reach the reel assets.',\n  selectedPost: { id: reel.id, title: reel.title, status: reel.status },\n  igUserId: '17841414649666554',\n  videoUrl: reel.video_url,\n  coverUrl: reel.cover_url || '',\n  captionChars: caption.length,\n  graphApiFlow: [\n    'POST /17841414649666554/media media_type=REELS video_url=<public-url> caption=<caption> share_to_feed=true',\n    'Poll /<container_id>?fields=status_code,status until FINISHED',\n    'POST /17841414649666554/media_publish creation_id=<container_id>'\n  ]\n} }];"
+      },
+      "id": "select-reel",
+      "name": "Select Latest Reel",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "HEAD",
+        "url": "={{ $json.videoUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "text"
+            }
+          },
+          "timeout": 30000
+        }
+      },
+      "id": "check-video",
+      "name": "HEAD Check Video URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [940, 220]
+    },
+    {
+      "parameters": {
+        "method": "HEAD",
+        "url": "={{ $('Select Latest Reel').item.json.coverUrl || $('Select Latest Reel').item.json.videoUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "text"
+            }
+          },
+          "timeout": 30000
+        }
+      },
+      "id": "check-cover",
+      "name": "HEAD Check Cover URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [940, 400]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {"main": [[{"node": "Get GitHub Manifest", "type": "main", "index": 0}]]},
+    "Get GitHub Manifest": {"main": [[{"node": "Select Latest Reel", "type": "main", "index": 0}]]},
+    "Select Latest Reel": {"main": [[{"node": "HEAD Check Video URL", "type": "main", "index": 0}, {"node": "HEAD Check Cover URL", "type": "main", "index": 0}]]}
+  },
+  "pinData": {},
+  "settings": {"executionOrder": "v1"},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-09-02T00:00:00.000Z",
+  "versionId": "ea29aee2-27a4-4098-9d37-9db04e938405",
+  "active": false
+}
