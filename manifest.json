@@ -3309,7 +3309,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": "Sat, Aug 15 · 9:00 AM PT",
-      "proposed_schedule": "Wed, Sep 2 · 4:00 PM PT",
+      "proposed_schedule": null,
       "caption": "Your \"simple\" company move just cost you $10K. 🚛\n\nIt's never one line item — it's five:\n1. 3-4 trucks × $500-1K per day, plus drivers, fuel, tolls, parking\n2. 2+ hours per move — same day rate, half the scenes\n3. Meal penalties: $ per person per half-hour when wrap runs long\n4. Re-permit, re-park, re-police at every new location\n5. Basecamp setup fees + lighting/grip re-rigs\n\nYou pay the same day for less coverage. Budget every move like the line item it is — before you lock the schedule.\n\nSave this for your next production. ♻️ Tag the producer who's planning a company move.\n\n#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "hashtags": "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips",
       "slides": [
@@ -3344,7 +3344,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "draft",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "cover.jpg"
@@ -3357,10 +3357,11 @@
       "suggestion": "Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee.",
       "source_name": "Auto Scout · assistant director scheduling guidance",
       "media_type": "reel",
-      "rescheduled_at": "2026-09-02T11:37:38.681254-07:00",
-      "reschedule_reason": "Draft queue item was past scheduled time; moved automatically to the first available future slot.",
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "posted_at": "2026-09-02T19:56:00+0000",
+      "instagram_url": "https://www.instagram.com/reel/DczCOp_BuY4/",
+      "instagram_media_id": "17876992401629268"
     },
     {
       "id": "scout-1786257749235-2-reel",
