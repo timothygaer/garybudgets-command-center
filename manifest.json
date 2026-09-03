@@ -4743,7 +4743,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -4767,7 +4767,10 @@
       "source_name": "Auto Scout · casting budgets",
       "approved_at": "2026-09-02T18:38:33.463Z",
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "posted_at": "2026-09-03T16:00:53+0000",
+      "instagram_url": "https://www.instagram.com/p/Dc1MRD8G0wX/",
+      "instagram_media_id": "18026457434686008"
     },
     {
       "id": "scout-1787791682479-8",
