@@ -4467,7 +4467,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -4491,7 +4491,10 @@
       "source_name": "Auto Scout · location manager checklists",
       "approved_at": "2026-09-02T18:38:47.277Z",
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "posted_at": "2026-09-04T01:00:54+0000",
+      "instagram_url": "https://www.instagram.com/p/Dc2KEROmtKD/",
+      "instagram_media_id": "18014198606744785"
     },
     {
       "id": "scout-1787791682479-4",
