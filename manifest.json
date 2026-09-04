@@ -4539,7 +4539,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -4563,7 +4563,10 @@
       "source_name": "Auto Scout · SAG-AFTRA / crew agreement resources",
       "approved_at": "2026-09-02T18:38:57.161Z",
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "posted_at": "2026-09-04T19:01:02+0000",
+      "instagram_url": "https://www.instagram.com/p/Dc4FrPGj8KS/",
+      "instagram_media_id": "18013013642747827"
     },
     {
       "id": "scout-1787791682479-5",
