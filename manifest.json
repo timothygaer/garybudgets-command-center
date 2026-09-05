@@ -4683,7 +4683,7 @@
           "prompt_summary": "Gary Budgets call to action"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -4707,7 +4707,10 @@
       "source_name": "Auto Scout · production insurance guidance",
       "approved_at": "2026-09-02T18:39:13.185Z",
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "posted_at": "2026-09-05T19:00:55+0000",
+      "instagram_url": "https://www.instagram.com/p/Dc6qdWxmfy9/",
+      "instagram_media_id": "18106592141237243"
     },
     {
       "id": "scout-1787791682479-7",
