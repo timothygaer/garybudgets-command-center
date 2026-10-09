@@ -22,6 +22,9 @@ function slugify(title: string): string {
 function buildDiscoveryCopy(topic: any): { caption: string; hashtags: string } {
   const title = String(topic.topic || "").trim()
   const suggestion = String(topic.suggestion || "").trim()
+  const hook = String(topic.hook || "These are the hidden costs killing indie films right now").trim()
+  const confidenceReason = String(topic.confidence_reason || "").trim()
+  const evidenceUrl = String(topic.evidence_url || "").trim()
   const lower = `${title} ${suggestion}`.toLowerCase()
 
   let hashtags = "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips"
@@ -52,7 +55,8 @@ function buildDiscoveryCopy(topic: any): { caption: string; hashtags: string } {
   }
 
   const context = suggestion || `This topic matters because ${title.toLowerCase()} can change the economics of an indie film before production starts.`
-  const caption = `${title} is not just a headline — it is a ${angle} that can change how ${audience} plan, finance, and protect a production. ${context}\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate ${title.toLowerCase()}: ${practicalLens}. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.`
+  const proof = confidenceReason || `Research confidence comes from current source monitoring and duplicate checks. Evidence: ${evidenceUrl || "source link unavailable"}`
+  const caption = `${hook}\n\n${title} is not just a headline — it is a ${angle} that can change how ${audience} plan, finance, and protect a production. ${context}\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate ${title.toLowerCase()}: ${practicalLens}. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nWhy this trend made the list:\n${proof}\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.`
 
   return { caption, hashtags }
 }
@@ -162,6 +166,10 @@ export async function POST(request: Request) {
         source: "Topic Scout",
         suggestion: topic.suggestion || "",
         source_name: topic.source || "",
+        hook: topic.hook || "",
+        confidence_reason: topic.confidence_reason || "",
+        evidence_url: topic.evidence_url || "",
+        duplicate_note: topic.duplicate_note || "",
       }
 
       manifest.posts.push(draftPost)

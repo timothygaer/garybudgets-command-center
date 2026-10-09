@@ -49,43 +49,6 @@ const EXAMPLE_POSTS = [
   { title: "5 Hidden Costs That Kill Indie Films", caption: "Most indie films blow 30% of their budget on things nobody planned for.", pillar: "Budget School", engagement: "High" },
 ]
 
-const TOPIC_SCOUT_MIN_RESULTS = 10
-const TOPIC_SCOUT_BASE_TOPICS = [
-  { topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year — tax incentives, streaming residuals, and virtual production costs reshaping indie finance." },
-  { topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch / ProductionHUB", confidence: 85, suggestion: "How AI-assisted script breakdown tools are changing how indie producers estimate below-the-line costs across departments." },
-  { topic: "Film Festival Circuit Changes for 2026", source: "Sundance / TIFF announcements", confidence: 78, suggestion: "New submission fee structures, grant programs for low-budget features, and virtual screening options announced at spring festivals." },
-  { topic: "Virtual Production on a Micro-Budget", source: "No Film School / YT", confidence: 90, suggestion: "Case studies of indie films using Unreal Engine and LED walls for under $50K in production value that looks like $500K." },
-  { topic: "Streaming Residuals for Indies in 2026", source: "WGA / DGA reports", confidence: 82, suggestion: "How the new streaming residual formulas affect indie producers who sell to streaming — what to negotiate and what to expect." },
-  { topic: "Insurance Costs Are Eating Indie Budgets", source: "IndieWire / Production Weekly", confidence: 88, suggestion: "Production insurance premiums jumped 15-30% for indie films. How to shop coverage without blowing your below-the-line budget." },
-  { topic: "Tax Incentives Map: Where to Shoot in 2026", source: "FilmLA / state film offices", confidence: 75, suggestion: "Updated state-by-state incentives for indie productions — which states offer the best rebates for budgets under $3M." },
-  { topic: "The Rise of Micro-Dramas: Vertical Films", source: "TikTok / Instagram trends", confidence: 70, suggestion: "Vertical-format micro-dramas are driving millions of views. Is there a sustainable production model for indie filmmakers to follow?" },
-  { topic: "Crew Shortage: How Indie Producers Adapt", source: "Screen Daily / The Wrap", confidence: 84, suggestion: "Post-strike crew shortage is hitting indie sets hardest. Practical strategies for staffing without going over budget." },
-  { topic: "Distribution Strategies for 2026 Indies", source: "IFTA / industry panels", confidence: 76, suggestion: "Direct-to-consumer, AVOD, and hybrid theatrical releases are reshaping indie distribution. What's working for films like yours." },
-]
-const TOPIC_SCOUT_AUTO_TOP_UP_TOPICS = [
-  { topic: "Completion Bond Basics for Low-Budget Films", source: "Auto Scout · Producers Guild / bond companies", confidence: 86, suggestion: "Explain when a completion bond becomes mandatory, what it costs, and how indie producers can budget for bond company oversight before financing closes." },
-  { topic: "Actor Travel Costs That Sneak Into the Budget", source: "Auto Scout · SAG-AFTRA / production travel guidance", confidence: 83, suggestion: "Break down airfare, lodging, per diem, pickups, and turnaround risks that quietly inflate talent budgets on small features." },
-  { topic: "Post-Production Budget Lines Producers Forget", source: "Auto Scout · post supervisor checklists", confidence: 88, suggestion: "A practical list of conform, color, mix, QC, deliverables, captions, DCP, and archival costs that often get missed until delivery." },
-  { topic: "Music Licensing Traps for Indie Films", source: "Auto Scout · music supervisor resources", confidence: 87, suggestion: "Show why festival-only music rights can create expensive recuts later, and how to budget festival, streaming, and worldwide rights from day one." },
-  { topic: "Cash Flow vs Budget: Why Your Film Can Still Run Out", source: "Auto Scout · film finance workflows", confidence: 91, suggestion: "Teach the difference between total budget and weekly cash availability, including deposits, payroll timing, contingency, and reimbursement delays." },
-  { topic: "Contingency Is Not Extra Money", source: "Auto Scout · line producer best practices", confidence: 89, suggestion: "Explain why contingency protects the schedule, how much indie films usually reserve, and what spending it too early does to the final weeks." },
-  { topic: "Location Fees Are Only the First Location Cost", source: "Auto Scout · location manager checklists", confidence: 84, suggestion: "Cover permits, police, fire watch, parking, holding areas, bathrooms, neighbors, restoration, and company moves that make locations cost more than the fee." },
-  { topic: "Payroll Fringes: The Budget Multiplier Nobody Sees", source: "Auto Scout · entertainment payroll guidance", confidence: 90, suggestion: "Explain payroll taxes, workers comp, union fringes, pension, health, and payroll fees as a multiplier on top of crew day rates." },
-  { topic: "Why Night Shoots Cost More Than Producers Expect", source: "Auto Scout · production scheduling guidance", confidence: 82, suggestion: "Translate night premium, meal penalties, turnaround, safety, lighting, and location restrictions into a producer-friendly budgeting lesson." },
-  { topic: "Deliverables Can Eat Your Final Contingency", source: "Auto Scout · distributor delivery schedules", confidence: 85, suggestion: "Show how E&O, chain of title, captions, M&E, QC fixes, artwork, trailers, and file specs hit after production feels finished." },
-  { topic: "Union vs Non-Union Budget Tradeoffs", source: "Auto Scout · SAG-AFTRA / crew agreement resources", confidence: 81, suggestion: "Compare predictability, paperwork, fringes, rate floors, overtime, and talent access so producers can choose the right structure before scheduling." },
-  { topic: "The Real Cost of a Company Move", source: "Auto Scout · assistant director scheduling guidance", confidence: 80, suggestion: "Explain how moving cast, crew, trucks, gear, basecamp, and parking burns hours and creates meal penalties that never appear in the location fee." },
-  { topic: "Catering & Craft Services: The Feeding Line Item", source: "Auto Scout · craft service budgeting guides", confidence: 84, suggestion: "Break down per-day meal counts, craft stations, late meal costs, and dietary riders that quietly inflate the feeding line on long shoots." },
-  { topic: "Equipment Rental vs Purchase: The Break-Even Decision", source: "Auto Scout · rental house rate cards", confidence: 83, suggestion: "Show when buying a camera or lens package beats renting on a 30-day shoot, including insurance, maintenance, and resale assumptions." },
-  { topic: "The Real Cost of a Reshoot Day", source: "Auto Scout · production scheduling guidance", confidence: 87, suggestion: "Model what one added shooting day really costs: cast availability, location re-permits, crew OT, and the knock-on schedule effects." },
-  { topic: "Permit Costs: LA vs Atlanta vs NYC", source: "Auto Scout · city film office rate sheets", confidence: 78, suggestion: "Compare street closure, police detail, parking, and basecamp permit costs across major production cities for an indie feature." },
-  { topic: "Stunt & Special Skills Budget Lines", source: "Auto Scout · stunt coordinator checklists", confidence: 82, suggestion: "Cover stunt coordinator, rigging, safety crew, medical standby, insurance riders, and rehearsal days as explicit budget lines." },
-  { topic: "DIT & Data Management: The Invisible Post Cost", source: "Auto Scout · DIT workflows", confidence: 85, suggestion: "Media management, backups, LTO archives, and card purchases are real line items — show how much data management adds to a shoot." },
-  { topic: "Sound Design Budget: Why Silence Isn't Free", source: "Auto Scout · post sound guidance", confidence: 86, suggestion: "Dialogue clean, foley, sound design, mix, and M&E tracks each carry costs producers forget until the mix stage." },
-  { topic: "Weather Contingency: Rain Days in the Budget", source: "Auto Scout · production insurance guidance", confidence: 80, suggestion: "How to budget rain days, weather holds, force majeure, and reshoot planning so one bad week doesn't blow the contingency." },
-  { topic: "Casting Costs Beyond the Casting Director", source: "Auto Scout · casting budgets", confidence: 79, suggestion: "Session fees, self-tape review hours, callbacks, chemistry reads, and hold fees add up — budget the full casting pipeline." },
-  { topic: "Marketing Budget for a Self-Distributed Film", source: "Auto Scout · indie distribution guides", confidence: 84, suggestion: "Ads, festival circuit, key art, trailers, and premiere costs — what a realistic P&A line looks like for a micro-budget feature." }
-]
 
 function n(num: number | string | undefined | null): string {
   if (num == null) return "—"
@@ -510,7 +473,6 @@ function SettingsPage({ account }: { account: Account }) {
 }
 
 
-
 // ─═══ Main Dashboard ════
 
 // ─── All Posts (posts page) ───
@@ -590,6 +552,8 @@ export default function Dashboard() {
   const [researchOpen, setResearchOpen] = useState(false)
   const [researchState, setResearchState] = useState<"idle"|"running"|"done"|"error">("idle")
   const [researchResults, setResearchResults] = useState<any[]>([])
+  const [researchRun, setResearchRun] = useState<any | null>(null)
+  const [researchCredentials, setResearchCredentials] = useState<any[]>([])
   const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set())
   const [pendingPosts, setPendingPosts] = useState<any[]>([])
   const [showPending, setShowPending] = useState(false)
@@ -660,6 +624,41 @@ export default function Dashboard() {
 
   const handleSelectedPostInModal = useCallback((post: any) => {
     setModalPost(post)
+  }, [])
+
+  useEffect(() => {
+    fetch("/api/research/credentials").then(r => r.json()).then(d => setResearchCredentials(d.credentials || [])).catch(() => setResearchCredentials([]))
+  }, [])
+
+  const startResearch = useCallback(async () => {
+    setResearchOpen(true)
+    setResearchState("running")
+    setResearchResults([])
+    setSelectedTopics(new Set())
+    setResearchRun(null)
+    try {
+      const started = await fetch("/api/research/start", { method: "POST" }).then(r => r.json())
+      if (!started.id) throw new Error(started.error || "Research did not start")
+      setResearchRun(started)
+      const poll = async () => {
+        const status = await fetch(`/api/research/status?id=${encodeURIComponent(started.id)}`).then(r => r.json())
+        setResearchRun(status)
+        if (status.state === "done") {
+          setResearchResults(status.results || [])
+          setResearchState("done")
+          if (status.credentials) setResearchCredentials(status.credentials)
+          return
+        }
+        if (status.state === "error") {
+          setResearchState("error")
+          return
+        }
+        setTimeout(poll, 1500)
+      }
+      setTimeout(poll, 1000)
+    } catch (err) {
+      setResearchState("error")
+    }
   }, [])
 
   const navItems: { id: NavPage; icon: string; label: string }[] = [
@@ -804,6 +803,21 @@ export default function Dashboard() {
               <div style={{ fontSize: 11, fontWeight: 600, color: "#d0d0e0" }}>Hashtag Performance</div>
               <div style={{ fontSize: 9, color: "#555566" }}>View reach by hashtag</div>
             </div>
+          </div>
+          <div title="Research credential status" style={{ margin: "0 10px 8px", padding: "8px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: "#d0d0e0", marginBottom: 6 }}>Research APIs</div>
+            {(researchCredentials.length ? researchCredentials : [
+              { id: "reddit", label: "Reddit API", status: "missing", detail: "Checking Reddit API...", url: "https://www.reddit.com/prefs/apps" },
+              { id: "instagram", label: "Instagram Hashtag API", status: "missing", detail: "Checking Instagram API...", url: "https://developers.facebook.com/apps/" },
+              { id: "x", label: "X API", status: "missing", detail: "Checking X API...", url: "https://developer.x.com/en/portal/dashboard" },
+              { id: "tiktok", label: "TikTok API", status: "missing", detail: "Checking TikTok API...", url: "https://developers.tiktok.com/" },
+              { id: "youtube", label: "YouTube Data API", status: "missing", detail: "Checking YouTube Data API...", url: "https://console.cloud.google.com/apis/credentials" },
+            ]).map((c: any) => (
+              <a key={c.id || c.label} href={c.url} target="_blank" rel="noopener noreferrer" title={c.detail} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 9, color: "#7a7a8a", marginBottom: 4, textDecoration: "none" }}>
+                <span style={{ width: 7, height: 7, borderRadius: "50%", background: c.status === "working" ? "#00ff88" : "#ef4444", boxShadow: c.status === "working" ? "0 0 6px #00ff88" : "0 0 6px #ef4444", flexShrink: 0 }} />
+                <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{c.label}</span>
+              </a>
+            ))}
           </div>
           <div style={{ ...s.flex, ...s.aic, ...s.gap8, ...s.pSb, ...s.textXs, ...s.txDim, ...s.curDf, marginTop: "auto" }}>
             <span style={{ ...s.txGreen, fontSize: 13 }}>●</span> v2.4.1
@@ -1265,45 +1279,11 @@ export default function Dashboard() {
               <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 3, background: "rgba(220,38,38,0.08)", ...s.txRed }}>6</span>
             </div>
             {/* Research Button */}
-            <div onClick={() => {
-              setResearchOpen(true)
-              setResearchState("running")
-              setResearchResults([])
-              setSelectedTopics(new Set())
-              fetch("/api/write-selection").then(r => r.json()).then((writeSelection: any) => {
-                // Read used topics from the live GitHub-backed manifest, plus localStorage for this browser.
-                const localUsedTopics: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
-                const manifestUsedTopics: string[] = Array.isArray(writeSelection.used_topics) ? writeSelection.used_topics : []
-                const usedTopics = [...manifestUsedTopics, ...localUsedTopics]
-                // Filter out topics already built, posted, approved, scheduled, or sitting in the build queue.
-                const baseFreshTopics = TOPIC_SCOUT_BASE_TOPICS.filter(t => !isTopicAlreadyMade(t.topic, usedTopics))
-                const topUpTopics = baseFreshTopics.length < TOPIC_SCOUT_MIN_RESULTS
-                  ? TOPIC_SCOUT_AUTO_TOP_UP_TOPICS.filter(t => !isTopicAlreadyMade(t.topic, usedTopics))
-                  : []
-                const freshTopics = [...baseFreshTopics, ...topUpTopics].slice(0, TOPIC_SCOUT_MIN_RESULTS)
-                const results = freshTopics.length > 0
-                  ? freshTopics.map((t, i) => ({ id: `research-${Date.now()}-${i}`, auto_generated: i >= baseFreshTopics.length, ...t }))
-                  : [{ id: `research-${Date.now()}-empty`, topic: "No new Topic Scout ideas available", source: "Manifest check", confidence: 100, suggestion: "All current Topic Scout ideas have already been made or are already scheduled. Run a fresh research cycle before building more.", unavailable: true }]
-                setResearchResults(results)
-                setResearchState("done")
-              }).catch(() => {
-                const usedTopics: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
-                const fallbackTopics = [
-                  { topic: "Independent Film Budget Trends H1 2026", source: "Variety / IndieWire", confidence: 92, suggestion: "Roundup of the biggest budgeting shifts so far this year." },
-                  { topic: "AI in Pre-Production: Script Breakdown Tools", source: "TechCrunch", confidence: 85, suggestion: "How AI tools are changing indie producer budget estimates." },
-                  { topic: "Virtual Production on a Micro-Budget", source: "No Film School", confidence: 90, suggestion: "Indie films using Unreal Engine for under $50K production value." },
-                ].filter(t => !usedTopics.includes(t.topic))
-                const safeTopics = fallbackTopics.length > 0 ? fallbackTopics : [{ topic: "Check back next week", source: "Auto-generate", confidence: 50, suggestion: "All recent topics have been built. Run the research cron again for fresh topics." }]
-                setResearchResults(
-                  safeTopics.map((t: any, i: number) => ({ id: `research-${Date.now()}-${i}`, ...t }))
-                )
-                setResearchState("done")
-              })
-            }} style={{ display: "flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg,rgba(220,38,38,0.08),rgba(220,38,38,0.02))", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, ...s.pRb, cursor: "pointer", marginBottom: 4, ...s.fsn }}>
+            <div onClick={startResearch} style={{ display: "flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg,rgba(220,38,38,0.08),rgba(220,38,38,0.02))", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, ...s.pRb, cursor: "pointer", marginBottom: 4, ...s.fsn }}>
               <div style={{ width: 26, height: 26, borderRadius: 6, background: "linear-gradient(135deg,#dc2626,#881515)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, flexShrink: 0 }}>⌘</div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 12, ...s.fw6, ...s.txRed }}>Start Research This Week</div>
-                <div style={{ fontSize: 9, ...s.txMuted }}>Launch topic scout → scan 20+ sources</div>
+                <div style={{ fontSize: 12, ...s.fw6, ...s.txRed }}>Start Research</div>
+                <div style={{ fontSize: 9, ...s.txMuted }}>Scan the live source list for current film news</div>
               </div>
               <div style={{ fontSize: 12, ...s.txDim }}>▶</div>
             </div>
@@ -1344,14 +1324,17 @@ export default function Dashboard() {
             {researchState === "running" && (
               <div style={{ textAlign: "center", padding: "24px 0" }}>
                 <div style={{ fontSize: 24, marginBottom: 12, animation: "spin 1s linear infinite" }}>⟳</div>
-                <div style={{ fontSize: 13, color: "#b0b0c0", marginBottom: 6 }}>Scanning 20+ sources for trending topics...</div>
-                <div style={{ fontSize: 10, color: "#555566" }}>Analyzing film industry news, social signals, and community trends</div>
+                <div style={{ fontSize: 13, color: "#b0b0c0", marginBottom: 6 }}>Scanning {researchCredentials.length || 31} configured sources for current film-industry signals...</div>
+                <div style={{ fontSize: 10, color: "#555566" }}>Targeting 3 finance/budgeting angles + 7 current industry news trends</div>
               </div>
             )}
 
             {researchState === "done" && (
               <div>
-                <div style={{ fontSize: 11, color: "#00ff88", marginBottom: 12 }}>✓ Research complete — {researchResults.length} topics found</div>
+                <div style={{ fontSize: 11, color: "#00ff88", marginBottom: 6 }}>✓ Research complete — {researchResults.length} topics found</div>
+                {researchRun && <div style={{ fontSize: 10, color: "#7a7a8a", marginBottom: 8 }}>{researchRun.sources_scanned || 0}/{researchRun.sources_total || 0} sources scanned · {researchRun.candidate_count || 0} signals compared</div>}
+                <div style={{ fontSize: 10, color: "#ffb347", marginBottom: 8 }}>Reminder: expand the source list in the agent config, not this app — no redeploy needed.</div>
+                {researchRun?.unavailable_sources?.length > 0 && <div style={{ fontSize: 10, color: "#ef4444", marginBottom: 12 }}>Unavailable social/API sources: {researchRun.unavailable_sources.map((u: any) => u.name).join(", ")}</div>}
                 {researchResults.map((r, i) => {
                   const isSelected = selectedTopics.has(r.id)
                   return <div key={r.id} onClick={() => {
@@ -1365,11 +1348,15 @@ export default function Dashboard() {
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 }}>
                         <div style={{ flex: 1 }}>
                           <div style={{ fontSize: 13, fontWeight: 600, color: "#d0d0e0", marginBottom: 2 }}>{r.topic}</div>
-                          <div style={{ fontSize: 10, color: "#555566" }}>via {r.source}</div>
+                          <div style={{ fontSize: 10, color: "#555566" }}>via {r.source} · {r.category || "Industry News"}</div>
+                          {r.hook && <div style={{ fontSize: 11, color: "#ffb347", marginTop: 3 }}>Hook: {r.hook}</div>}
                         </div>
                         <span style={{ fontSize: 10, padding: "2px 6px", borderRadius: 3, background: r.confidence > 85 ? "rgba(0,255,136,0.1)" : r.confidence > 75 ? "rgba(255,179,71,0.1)" : "rgba(85,85,102,0.1)", color: r.confidence > 85 ? "#00ff88" : r.confidence > 75 ? "#ffb347" : "#7a7a8a", flexShrink: 0 }}>{r.confidence}%</span>
                       </div>
                       <div style={{ fontSize: 11, color: "#7a7a8a", lineHeight: 1.4 }}>{r.suggestion}</div>
+                      {r.confidence_reason && <div style={{ fontSize: 10, color: "#8a8aa0", lineHeight: 1.35, marginTop: 6, whiteSpace: "pre-wrap" }}>{r.confidence_reason}</div>}
+                      {r.duplicate_note && <div style={{ fontSize: 10, color: r.duplicate_status === "rework_allowed" ? "#ffb347" : "#555566", lineHeight: 1.35, marginTop: 4 }}>{r.duplicate_note}</div>}
+                      {r.evidence_url && <a href={r.evidence_url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} style={{ display: "inline-block", fontSize: 10, color: "#4a9eff", marginTop: 5 }}>Open evidence link ↗</a>}
                     </div>
                   </div>
                 })}
@@ -1407,7 +1394,7 @@ export default function Dashboard() {
                       fetch("/api/write-selection", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion })), build_type: buildType })
+                        body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion, hook: r.hook, confidence_reason: r.confidence_reason, evidence_url: r.evidence_url, duplicate_note: r.duplicate_note })), build_type: buildType })
                       }).then(resp => resp.json()).then(result => {
                         if (result.success) {
                           if (result.drafts?.length > 0) {

@@ -1,0 +1,125 @@
+{
+  "agent_id": "garybudgets-topics",
+  "domain": "film production, film finance, and current film industry news",
+  "concurrency": 8,
+  "paced_pause": 7,
+  "window_days": 10,
+  "max_topics": 10,
+  "query_url_template": "https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en",
+
+  "mix": {
+    "finance": 3
+  },
+
+  "dedupe": {
+    "corpus_url": "https://raw.githubusercontent.com/timothygaer/garybudgets-command-center/main/manifest.json",
+    "corpus_files": ["manifest.json"]
+  },
+
+  "output": {
+    "path": "topics.json",
+    "history_file": "scripts/research/.history.json"
+  },
+
+  "delivery": {
+    "telegram": true,
+    "summary_max_topics": 5
+  },
+
+  "sources": [
+    { "id": "variety", "name": "Variety", "category": "trade", "url": "https://variety.com/v/film/feed/" },
+    { "id": "deadline", "name": "Deadline", "category": "trade", "url": "https://deadline.com/v/film/feed/" },
+    { "id": "indiewire", "name": "IndieWire", "category": "trade", "url": "https://www.indiewire.com/feed/" },
+    { "id": "thr", "name": "The Hollywood Reporter", "category": "trade", "url": "https://www.hollywoodreporter.com/feed/" },
+    { "id": "screendaily", "name": "Screen Daily", "category": "trade", "url": "https://www.screendaily.com/45202.rss" },
+    { "id": "thewrap", "name": "TheWrap", "category": "trade", "url": "https://www.thewrap.com/feed/" },
+    { "id": "moviemaker", "name": "MovieMaker Magazine", "category": "trade", "url": "https://www.moviemaker.com/feed/" },
+    { "id": "filmmaker", "name": "Filmmaker Magazine", "category": "trade", "url": "https://filmmakermagazine.com/feed/" },
+    { "id": "nofilmschool", "name": "No Film School", "category": "tech", "url": "https://nofilmschool.com/feeds/content-types/article.rss" },
+    { "id": "filmthreat", "name": "Film Threat", "category": "trade", "url": "https://filmthreat.com/feed/" },
+    { "id": "worldofreel", "name": "World of Reel", "category": "trade", "url": "https://www.worldofreel.com/blog?format=rss" },
+    { "id": "awardswatch", "name": "AwardsWatch", "category": "trade", "url": "https://awardswatch.com/feed/" },
+    { "id": "cartoonbrew", "name": "Cartoon Brew", "category": "trade", "url": "https://www.cartoonbrew.com/feed" },
+
+    { "id": "filmla", "name": "FilmLA", "category": "finance", "url": "https://filmla.com/feed/" },
+    { "id": "wrapbook", "name": "Wrapbook", "category": "finance", "url": "https://www.wrapbook.com/blog/rss.xml" },
+
+    { "id": "sagaftra", "name": "SAG-AFTRA", "category": "guild", "url": "https://www.sagaftra.org/rss.xml" },
+
+    { "id": "gn-tax", "name": "News: film tax incentive", "category": "finance", "query": "film tax incentive" },
+    { "id": "gn-rebate", "name": "News: production rebate", "category": "finance", "query": "film production rebate" },
+    { "id": "gn-indie-fin", "name": "News: indie film financing", "category": "finance", "query": "indie film financing" },
+    { "id": "gn-prod-cost", "name": "News: production cost", "category": "finance", "query": "film production cost" },
+    { "id": "gn-budget", "name": "News: film budget", "category": "finance", "query": "film budget" },
+    { "id": "gn-insurance", "name": "News: production insurance", "category": "finance", "query": "film production insurance" },
+    { "id": "gn-boxoffice", "name": "News: box office", "category": "box-office", "query": "box office" },
+    { "id": "gn-guild", "name": "News: film crew union", "category": "guild", "query": "film crew union contract" },
+    { "id": "gn-layoffs", "name": "News: film industry layoffs", "category": "finance", "query": "film industry layoffs" },
+    { "id": "gn-ai", "name": "News: AI filmmaking", "category": "tech", "query": "AI filmmaking production" },
+    { "id": "gn-streaming", "name": "News: streaming deals", "category": "finance", "query": "streaming film acquisition deal" },
+    { "id": "gn-trending", "name": "News: film industry", "category": "trade", "query": "film industry" },
+
+    { "id": "reddit-filmmakers", "name": "Reddit r/Filmmakers", "category": "social", "url": "https://www.reddit.com/r/Filmmakers/.rss", "paced": true },
+    { "id": "reddit-indiefilm", "name": "Reddit r/indiefilm", "category": "social", "url": "https://www.reddit.com/r/indiefilm/.rss", "paced": true },
+    { "id": "reddit-filmindustryla", "name": "Reddit r/FilmIndustryLA", "category": "social", "url": "https://www.reddit.com/r/FilmIndustryLA/.rss", "paced": true }
+  ],
+
+  "rubric": {
+    "relevance_regex": "film|movie|cinema|box office|production|producer|filmmak|director|screen|festival|streaming|studio|theatr|distribut|indie|budget|crew|cast|post-production|post production|pre-production|pre production|guild|union|sag-aftra|iatse|wga|tax incentive|rebate|residual|insurance|payroll|financ|cinematograph|screenwrit|actor|actress|slate|sequel|franchise|release|premiere|award",
+
+    "finance_regex": "budget|cost|finance|financing|tax|incentive|rebate|payroll|insurance|bond|residual|distribution|box office|crew rate|union|guild|production accounting|cash flow|funding|grant|invoice|overage|gross|revenue|recoup",
+
+    "priority_regex": "budget|cost|tax|incentive|rebate|financ|insurance|completion bond|payroll|residual|union|guild|crew|layoff|shutdown|box office|slate|revenue|distribut|streaming deal|funding|grant|profit|recoup|strike|contract|rate|inflation|subsid|incentive program",
+
+    "low_signal_regex": "eyeing|circling|in talks to|to star|will star|set to star|cast in|joins cast|first look|debuts trailer|trailer:|watch:|review:|recap|ranked|best .*movies of|box office mojo|photos:|red carpet|wedding|dating|engaged|baby|snub|oscar buzz|emmy buzz|streaming now|where to watch|how to watch|everything coming to|what to watch|movies to watch|best movies|top [0-9]+ |listicle|quiz|horoscope|new movies to",
+
+    "rework_regex": "major|new |change|rising|surge|strike|deal|law|policy|shutdown|hike|increase|rule|ruling|record|cut|collapse",
+
+    "boost_terms": {
+      "tax incentive": 6,
+      "rebate": 5,
+      "budget": 5,
+      "cost": 5,
+      "layoff": 6,
+      "shutdown": 5,
+      "insurance": 4,
+      "residual": 4,
+      "union": 4,
+      "payroll": 4,
+      "indie": 4,
+      "crew": 3,
+      "box office": 3,
+      "streaming": 2,
+      "AI ": 3
+    },
+
+    "source_weights": {
+      "finance": 14,
+      "guild": 11,
+      "trade": 9,
+      "box-office": 7,
+      "tech": 5,
+      "social": 2,
+      "general": 0
+    },
+
+    "recency_points": 16,
+    "trending_points": 7,
+    "similar_threshold": 0.55,
+    "duplicate_threshold": 0.62,
+    "min_confidence": 60,
+    "max_confidence": 96,
+    "confidence_divisor": 150
+  },
+
+  "hooks": [
+    ["layoff|shutdown|cutback|slate cut|collapse", "The thing nobody budgets for: the industry contracting around you"],
+    ["budget|cost|invoice|overage|inflation", "These are the costs killing indie films right now"],
+    ["crew|union|guild|rate|strike|contract", "This is why your crew budget keeps fighting back"],
+    ["tax|incentive|rebate|subsid", "One line in the tax code moves your whole budget"],
+    ["insurance|bond|completion", "The paperwork that decides whether your film closes"],
+    ["box office|theatr|distribution|streaming", "Why films die after the premiere"],
+    ["ai|technology|tool", "The new tool producers love until the invoice shows up"],
+    ["festival|market|sales", "The festival trap most indie producers miss"]
+  ]
+}
