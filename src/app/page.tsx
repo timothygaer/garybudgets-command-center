@@ -641,7 +641,7 @@ export default function Dashboard() {
       // never block the UI on a crawl the app does not run.
       const started = await fetch("/api/research/start", { method: "POST" }).then(r => r.json())
       if (!started.results && !started.generated_at) throw new Error(started.error || "Research did not start")
-      setResearchRun(started)
+      setResearchRun({ ...started, ...(started.run || {}) })
       setResearchResults(started.results || [])
       setResearchState("done")
 
@@ -656,7 +656,7 @@ export default function Dashboard() {
           try {
             const status = await fetch("/api/research/status").then(r => r.json())
             if (status.generated_at && status.generated_at !== seen) {
-              setResearchRun(status)
+              setResearchRun({ ...status, ...(status.run || {}) })
               setResearchResults(status.results || [])
               return
             }
