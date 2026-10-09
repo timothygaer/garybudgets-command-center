@@ -95,16 +95,45 @@ function buildDiscoveryCopy(topic: any): { caption: string; hashtags: string } {
  * generic slides that never told the story. 6-slide structure is enforced by the
  * carousel build workflow: hook → education → education → education → education → CTA.
  */
+/**
+ * A brief noun phrase for the story, used where pasting the whole headline again
+ * would read like a stutter ("the GuadaLAjara programme announcement").
+ */
+function shortSubject(title: string): string {
+  const t = cleanTitle(String(title || "").trim())
+  const head = t.split(/[:—–]/)[0].trim()
+  const base = head.split(" ").length >= 3 ? head : t
+  const words = base.split(" ")
+  const cut = words.length > 8 ? words.slice(0, 8).join(" ") : base
+  return cut.length > 64 ? cut.slice(0, 64).replace(/\s+\S*$/, "") : cut
+}
+
+/**
+ * The 6-slide plan. Each slide carries THIS story's content, so the slide copy and
+ * the artwork it drives can only ever describe this story. The previous version
+ * passed six bare headings ("Deepen the topic") with no story attached at all.
+ */
 function buildSlidePrompts(title: string, topic: any) {
-  const hook = String(topic.hook || title).trim()
+  const clean = cleanTitle(String(title || "").trim())
+  const subject = shortSubject(clean)
+  const hook = String(topic.hook || clean).trim()
   const story = String(topic.why_now || topic.summary || topic.suggestion || "").trim()
+  const category = String(topic.category || "").trim().toLowerCase()
+  const angle =
+    {
+      "box-office": "what the numbers say about the market for films like this",
+      trade: "what this deal, casting or festival news signals for the industry",
+      finance: "what the money behind this story means for working filmmakers",
+      awards: "what this means for the awards race and the films in it",
+    }[category] || "what this signals for people who make films"
+
   return [
-    { slide: 1, heading: "Hook", prompt_summary: `Open with this hook: "${hook}". One short arresting line making the story's importance obvious.` },
-    { slide: 2, heading: "What happened", prompt_summary: `State the news plainly: ${story || title}. Include who, what and when — no speculation.` },
-    { slide: 3, heading: "The detail", prompt_summary: `The specifics behind "${title}" — names, numbers, dates or terms a film professional would care about.` },
-    { slide: 4, heading: "Why it matters", prompt_summary: `What "${title}" means for people who make films: production, distribution, marketing or the industry business.` },
-    { slide: 5, heading: "What to watch", prompt_summary: `What happens next with "${title}" and what to keep an eye on. Concrete and forward-looking.` },
-    { slide: 6, heading: "CTA", prompt_summary: "Close with a Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news." },
+    { slide: 1, heading: "Hook", prompt_summary: `Hook slide — the story in one line: "${hook}". Large, plain, instantly readable on a phone.` },
+    { slide: 2, heading: "What happened", prompt_summary: `Report the news in two or three plain sentences${story ? `: ${story}` : `: ${clean}.`} Cover who, what and when. No speculation.` },
+    { slide: 3, heading: "The detail", prompt_summary: `Zoom in on the specifics of ${subject}: the names, numbers, dates or terms a film professional would actually want.` },
+    { slide: 4, heading: "Why it matters", prompt_summary: `Explain ${angle}, using ${subject} as the example. Concrete, not abstract — name the practical consequence.` },
+    { slide: 5, heading: "What to watch", prompt_summary: `Say what happens next with ${subject} and what to keep an eye on. Forward-looking and specific.` },
+    { slide: 6, heading: "CTA", prompt_summary: "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news." },
   ]
 }
 
@@ -179,9 +208,15 @@ export async function POST(request: Request) {
     const skipped: string[] = []
 
     for (const topic of topics) {
-      const title = topic.topic
-      // Skip if already in manifest (exact title match)
-      if (existingTitles.has(title.toLowerCase())) {
+      // Use the clean headline — the raw feed title carries a " - Publisher"
+      // syndication suffix that was leaking into the queue title, the slug and the
+      // slide prompts that drive the artwork. Keep the raw one for traceability.
+      const title = cleanTitle(String(topic.topic || "").trim())
+      const rawTitle = String(topic.topic || "").trim()
+      // Skip if already in the manifest. Check the clean headline AND the raw feed
+      // title: existing posts were stored either way, so matching only one form let
+      // duplicates through (or skipped stories that were never actually posted).
+      if (existingTitles.has(title.toLowerCase()) || existingTitles.has(rawTitle.toLowerCase())) {
         skipped.push(title)
         continue
       }
@@ -192,6 +227,7 @@ export async function POST(request: Request) {
       const draftPost: any = {
         id: postId,
         title,
+        source_title: rawTitle || title,
         pillar: topic.topic.toLowerCase().includes("budget") || topic.topic.toLowerCase().includes("cost") || topic.topic.toLowerCase().includes("money") ? "Budget School" : "Industry Watch",
         slug: `Post_${slugify(title)}`,
         slide_count: 6,
