@@ -1,40 +1,34 @@
 // API route: check if a post has images available
 // Images are verified locally when uploaded to Drive and manifest is updated
 // This endpoint just checks the manifest for image data
-import { readFile } from "fs/promises"
-import { existsSync } from "fs"
-import { join } from "path"
-
-const SRC_PATH = join(process.cwd(), "manifest.json")
+//
+// Reads the manifest from GitHub, which is the source of truth. The local copies
+// (/tmp, and the one bundled with the deployment) both lag behind it, so checking
+// images against them made a freshly-built post look like it was still
+// "awaiting_images" — which blocks approval.
+//
+// NOTE: this route must NOT touch the filesystem. Any path built at runtime
+// (path.join with a variable, fs read of a computed path) makes Turbopack trace
+// the entire project into this serverless function — it shipped at 944 MB
+// uncompressed, over Vercel's 250 MB limit, and every deploy errored at the
+// "Deploying outputs" step. GitHub-only keeps the function tiny.
 const GITHUB_MANIFEST_API = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json"
 
-/**
- * Read the manifest from GitHub, which is the source of truth. The local copies
- * (/tmp, and the one bundled with the deployment) both lag behind it, so checking
- * images against them made a freshly-built post look like it was still
- * "awaiting_images" — which blocks approval. Read-only endpoint, no sha needed.
- */
 async function readManifest(): Promise<any | null> {
   const token = process.env.GITHUB_TOKEN
-  if (token) {
-    try {
-      const resp = await fetch(GITHUB_MANIFEST_API, {
-        headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "User-Agent": "gb" },
-        cache: "no-store",
-      })
-      if (resp.ok) {
-        const d = await resp.json()
-        const manifest = JSON.parse(Buffer.from(d.content, "base64").toString("utf-8"))
-        if (Array.isArray(manifest.posts)) return manifest
-      }
-    } catch { /* fall back to the local copies below */ }
+  if (!token) return null
+  try {
+    const resp = await fetch(GITHUB_MANIFEST_API, {
+      headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "User-Agent": "gb" },
+      cache: "no-store",
+    })
+    if (!resp.ok) return null
+    const d = await resp.json()
+    const manifest = JSON.parse(Buffer.from(d.content, "base64").toString("utf-8"))
+    return Array.isArray(manifest.posts) ? manifest : null
+  } catch {
+    return null
   }
-  for (const p of [join("/tmp", "gb-manifest.json"), SRC_PATH]) {
-    if (existsSync(p)) {
-      try { return JSON.parse(await readFile(p, "utf-8")) } catch { /* try the next one */ }
-    }
-  }
-  return null
 }
 
 export async function GET(request: Request) {
