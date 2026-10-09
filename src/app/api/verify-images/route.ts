@@ -6,7 +6,36 @@ import { existsSync } from "fs"
 import { join } from "path"
 
 const SRC_PATH = join(process.cwd(), "manifest.json")
-const WRITABLE_PATH = "/tmp/gb-manifest.json"
+const GITHUB_MANIFEST_API = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json"
+
+/**
+ * Read the manifest from GitHub, which is the source of truth. The local copies
+ * (/tmp, and the one bundled with the deployment) both lag behind it, so checking
+ * images against them made a freshly-built post look like it was still
+ * "awaiting_images" — which blocks approval. Read-only endpoint, no sha needed.
+ */
+async function readManifest(): Promise<any | null> {
+  const token = process.env.GITHUB_TOKEN
+  if (token) {
+    try {
+      const resp = await fetch(GITHUB_MANIFEST_API, {
+        headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "User-Agent": "gb" },
+        cache: "no-store",
+      })
+      if (resp.ok) {
+        const d = await resp.json()
+        const manifest = JSON.parse(Buffer.from(d.content, "base64").toString("utf-8"))
+        if (Array.isArray(manifest.posts)) return manifest
+      }
+    } catch { /* fall back to the local copies below */ }
+  }
+  for (const p of [join("/tmp", "gb-manifest.json"), SRC_PATH]) {
+    if (existsSync(p)) {
+      try { return JSON.parse(await readFile(p, "utf-8")) } catch { /* try the next one */ }
+    }
+  }
+  return null
+}
 
 export async function GET(request: Request) {
   try {
@@ -17,14 +46,10 @@ export async function GET(request: Request) {
       return Response.json({ error: "post_id required" }, { status: 400 })
     }
 
-    let manifestPath = WRITABLE_PATH
-    if (!existsSync(manifestPath)) manifestPath = SRC_PATH
-    if (!existsSync(manifestPath)) {
+    const manifest = await readManifest()
+    if (!manifest) {
       return Response.json({ error: "No manifest" }, { status: 500 })
     }
-
-    const content = await readFile(manifestPath, "utf-8")
-    const manifest = JSON.parse(content)
     const post = manifest.posts?.find((p: any) => p.id === postId)
 
     if (!post) {
