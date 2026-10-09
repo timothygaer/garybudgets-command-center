@@ -1378,7 +1378,7 @@ export default function Dashboard() {
                 </div>
                 <div style={{ display: "flex", gap: 8, justifyContent: "center", marginTop: 12 }}>
                   <div onClick={() => { setResearchOpen(false); setResearchState("idle") }} style={{ display: "inline-block", padding: "8px 24px", background: "rgba(255,255,255,0.03)", border: "1px solid #3a3a4a", borderRadius: 6, fontSize: 12, color: "#7a7a8a", cursor: "pointer" }}>Cancel</div>
-                  <div onClick={() => {
+                  <div onClick={async () => {
                     const selected = researchResults.filter(r => selectedTopics.has(r.id))
                     if (selected.length > 0) {
                       setResearchOpen(false)
@@ -1400,28 +1400,38 @@ export default function Dashboard() {
                         slide_count: 6,
                         created_at: new Date().toISOString(),
                       }))
-                      // Save selected topics to manifest (GitHub-persisted) so assistant sees them
-                      fetch("/api/write-selection", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion, hook: r.hook, confidence_reason: r.confidence_reason, evidence_url: r.evidence_url, duplicate_note: r.duplicate_note })), build_type: buildType })
-                      }).then(resp => resp.json()).then(result => {
-                        if (result.success) {
-                          if (result.drafts?.length > 0) {
-                            setPendingPosts(prev => [...prev, ...result.drafts])
-                          }
-                          setShowPending(true)
-                          setTimeout(() => window.location.reload(), 1000)
-                        }
-                      }).catch(() => {})
-                      // Show notification and reload
+                      // Optimistic feedback while the save is still in flight.
                       setPendingPosts(newPosts)
                       setShowPending(true)
                       // Mark selected topics as used so they don't reappear in future research
                       const used: string[] = JSON.parse(localStorage.getItem("gb_used_topics") || "[]")
                       selected.forEach(r => { if (!used.includes(r.topic)) used.push(r.topic) })
                       localStorage.setItem("gb_used_topics", JSON.stringify(used))
-                      setTimeout(() => window.location.reload(), 600)
+                      // Save the selection to the manifest (GitHub-persisted) so the build
+                      // queue and the assistant can see it, and WAIT for that write before
+                      // reloading. This used to reload on a 600ms timer alongside an
+                      // un-awaited fetch: the timer usually won, the queue re-fetched the
+                      // OLD manifest, and the new posts looked like they never landed —
+                      // all you saw was a stale leftover draft.
+                      try {
+                        const resp = await fetch("/api/write-selection", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ topics: selected.map(r => ({ topic: r.topic, source: r.source, confidence: r.confidence, suggestion: r.suggestion, why_now: r.why_now, hook: r.hook, confidence_reason: r.confidence_reason, evidence_url: r.evidence_url, duplicate_note: r.duplicate_note })), build_type: buildType })
+                        })
+                        const result = await resp.json()
+                        if (!resp.ok || !result.success) {
+                          throw new Error(result.error || `Save failed (HTTP ${resp.status})`)
+                        }
+                        if (result.drafts?.length > 0) setPendingPosts(prev => [...prev, ...result.drafts])
+                        if (result.skipped?.length > 0) {
+                          alert(`${result.drafts?.length || 0} post(s) added to the build queue.\n\nSkipped (already in the queue):\n- ${result.skipped.join("\n- ")}`)
+                        }
+                        window.location.reload()
+                      } catch (err: any) {
+                        // Keep the modal open so the selection is not lost and can be retried.
+                        alert(`Could not add these posts to the build queue.\n\n${err?.message || err}`)
+                      }
                     }
                   }} style={{ display: "inline-block", padding: "8px 24px", background: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 6, fontSize: 12, color: selectedTopics.size > 0 ? "#ef4444" : "#3a3a4a", cursor: selectedTopics.size > 0 ? "pointer" : "default" }}>Build {selectedTopics.size > 0 ? `${selectedTopics.size} Selected Post` : ""}{selectedTopics.size === 1 ? "" : "s"}</div>
                 </div>

@@ -1,6 +1,6 @@
 {
   "agent_id": "garybudgets-topics",
-  "domain": "film production, film finance, and current film industry news",
+  "domain": "current film industry news: releases, casting, trailers, festivals, awards, deals, studio moves, and production news",
   "concurrency": 8,
   "paced_pause": 7,
   "window_days": 10,
@@ -8,7 +8,7 @@
   "query_url_template": "https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en",
 
   "mix": {
-    "finance": 3
+    "finance": 0
   },
 
   "dedupe": {
@@ -41,6 +41,15 @@
     { "id": "awardswatch", "name": "AwardsWatch", "category": "trade", "url": "https://awardswatch.com/feed/" },
     { "id": "cartoonbrew", "name": "Cartoon Brew", "category": "trade", "url": "https://www.cartoonbrew.com/feed" },
 
+    { "id": "gn-filmnews", "name": "News: film industry news", "category": "trade", "query": "film industry news" },
+    { "id": "gn-releases", "name": "News: movie releases", "category": "trade", "query": "new movie release" },
+    { "id": "gn-trailer", "name": "News: film trailers", "category": "trade", "query": "movie trailer" },
+    { "id": "gn-casting", "name": "News: film casting", "category": "trade", "query": "film casting news" },
+    { "id": "gn-festival", "name": "News: film festivals", "category": "trade", "query": "film festival" },
+    { "id": "gn-awards", "name": "News: film awards", "category": "trade", "query": "film awards" },
+    { "id": "gn-animation", "name": "News: animation", "category": "trade", "query": "animated film" },
+    { "id": "gn-documentary", "name": "News: documentary", "category": "trade", "query": "documentary film" },
+
     { "id": "filmla", "name": "FilmLA", "category": "finance", "url": "https://filmla.com/feed/" },
     { "id": "wrapbook", "name": "Wrapbook", "category": "finance", "url": "https://www.wrapbook.com/blog/rss.xml" },
 
@@ -65,42 +74,52 @@
   ],
 
   "rubric": {
-    "relevance_regex": "film|movie|cinema|box office|production|producer|filmmak|director|screen|festival|streaming|studio|theatr|distribut|indie|budget|crew|cast|post-production|post production|pre-production|pre production|guild|union|sag-aftra|iatse|wga|tax incentive|rebate|residual|insurance|payroll|financ|cinematograph|screenwrit|actor|actress|slate|sequel|franchise|release|premiere|award",
+    "relevance_regex": "film|movie|cinema|box office|production|producer|filmmak|director|screen|festival|streaming|studio|theatr|distribut|indie|budget|crew|cast|post-production|post production|pre-production|pre production|guild|union|sag-aftra|iatse|wga|tax incentive|rebate|residual|insurance|payroll|financ|cinematograph|screenwrit|actor|actress|slate|sequel|franchise|release|premiere|award|trailer|documentary|animat|feature|miniseries|streamer",
 
     "finance_regex": "budget|cost|finance|financing|tax|incentive|rebate|payroll|insurance|bond|residual|distribution|box office|crew rate|union|guild|production accounting|cash flow|funding|grant|invoice|overage|gross|revenue|recoup",
 
-    "priority_regex": "budget|cost|tax|incentive|rebate|financ|insurance|completion bond|payroll|residual|union|guild|crew|layoff|shutdown|box office|slate|revenue|distribut|streaming deal|funding|grant|profit|recoup|strike|contract|rate|inflation|subsid|incentive program",
+    "priority_regex": "release|premiere|trailer|teaser|casting|\\bcast\\b|acquire|acquisition|\\bdeal\\b|greenlight|green-light|festival|award|\\bwins\\b|box office|opening weekend|\\brecord\\b|merger|merge|launch|announce|sequel|prequel|reboot|remake|streaming|distribution|\\brights\\b|slate|adaptation|\\bdirector\\b|signs on|\\btaps\\b|greenlit",
 
-    "low_signal_regex": "eyeing|circling|in talks to|to star|will star|set to star|cast in|joins cast|first look|debuts trailer|trailer:|watch:|review:|recap|ranked|best .*movies of|box office mojo|photos:|red carpet|wedding|dating|engaged|baby|snub|oscar buzz|emmy buzz|streaming now|where to watch|how to watch|everything coming to|what to watch|movies to watch|best movies|top [0-9]+ |listicle|quiz|horoscope|new movies to",
+    "low_signal_regex": "wedding|dating|engaged|pregnant|\\bbaby\\b|horoscope|quiz|listicle|red carpet fashion|photos:|discount code|giveaway|\\bpresale\\b",
 
     "rework_regex": "major|new |change|rising|surge|strike|deal|law|policy|shutdown|hike|increase|rule|ruling|record|cut|collapse",
 
     "boost_terms": {
-      "tax incentive": 6,
-      "rebate": 5,
-      "budget": 5,
-      "cost": 5,
-      "layoff": 6,
-      "shutdown": 5,
-      "insurance": 4,
-      "residual": 4,
-      "union": 4,
-      "payroll": 4,
+      "box office": 5,
+      "trailer": 4,
+      "premiere": 4,
+      "festival": 5,
+      "award": 4,
+      "casting": 4,
+      "deal": 4,
+      "merger": 5,
+      "acquisition": 4,
+      "release": 3,
+      "streaming": 3,
+      "sequel": 4,
+      "franchise": 4,
+      "documentary": 4,
+      "animation": 4,
+      "director": 3,
       "indie": 4,
-      "crew": 3,
-      "box office": 3,
-      "streaming": 2,
+      "tax incentive": 4,
+      "rebate": 3,
+      "budget": 3,
+      "cost": 3,
+      "layoff": 4,
+      "shutdown": 4,
+      "union": 3,
       "AI ": 3
     },
 
     "source_weights": {
-      "finance": 14,
-      "guild": 11,
-      "trade": 9,
-      "box-office": 7,
-      "tech": 5,
+      "finance": 9,
+      "guild": 8,
+      "trade": 12,
+      "box-office": 9,
+      "tech": 6,
       "social": 2,
-      "general": 0
+      "general": 1
     },
 
     "recency_points": 16,
@@ -113,13 +132,16 @@
   },
 
   "hooks": [
-    ["layoff|shutdown|cutback|slate cut|collapse", "The thing nobody budgets for: the industry contracting around you"],
-    ["budget|cost|invoice|overage|inflation", "These are the costs killing indie films right now"],
-    ["crew|union|guild|rate|strike|contract", "This is why your crew budget keeps fighting back"],
-    ["tax|incentive|rebate|subsid", "One line in the tax code moves your whole budget"],
-    ["insurance|bond|completion", "The paperwork that decides whether your film closes"],
-    ["box office|theatr|distribution|streaming", "Why films die after the premiere"],
-    ["ai|technology|tool", "The new tool producers love until the invoice shows up"],
-    ["festival|market|sales", "The festival trap most indie producers miss"]
+    ["trailer|teaser|first look", "First look: {title}"],
+    ["casting|\\bcast\\b|to star|stars in|joins the", "Casting news: {title}"],
+    ["festival|award|prize|\\bwins\\b|honou?r", "Festival & awards: {title}"],
+    ["box office|opening weekend|grosses|grossing", "Box office: {title}"],
+    ["acquire|acquisition|merger|merge|purchase|\\bsale\\b|sells|lands at", "Industry deal: {title}"],
+    ["release date|will release|sets release|creates release|to release", "Release: {title}"],
+    ["documentary|\\bdoc\\b", "Documentary: {title}"],
+    ["animat|\\banime\\b|cartoon", "Animation: {title}"],
+    ["layoff|shutdown|cutback|restructur", "Industry shake-up: {title}"],
+    ["AI|artificial intelligence|virtual production|technology", "Tech & production: {title}"],
+    ["budget|cost|tax incentive|rebate|insurance|payroll", "The business side: {title}"]
   ]
 }

@@ -21,6 +21,7 @@ export type ScoutResult = {
   confidence: number
   suggestion: string
   hook?: string
+  why_now?: string | null
   confidence_reason?: string
   duplicate_note?: string
   duplicate_status?: string
@@ -105,6 +106,7 @@ export async function getTopicScout(): Promise<ScoutPayload> {
     confidence: typeof t.confidence === "number" ? t.confidence : 0,
     suggestion: t.summary || t.hook || "",
     hook: t.hook,
+    why_now: t.why_now ?? null,
     confidence_reason: t.confidence_reason,
     duplicate_note: t.duplicate_note,
     duplicate_status: t.duplicate_status,

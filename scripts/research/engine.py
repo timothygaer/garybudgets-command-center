@@ -353,7 +353,9 @@ def score_signal(sig: dict, corpus: list[str], cfg: dict, rub: dict,
 
     finance = bool(rub["finance"].search(blob))
     score = 20.0
-    score += 18.0 if finance else 0.0
+    # A mild edge for finance-adjacent stories keeps the account's voice present
+    # without letting budget stories crowd out general film news.
+    score += 3.0 if finance else 0.0
     score += float(rub["source_weights"].get(sig["category"], 0))
 
     low = blob.lower()
@@ -361,14 +363,14 @@ def score_signal(sig: dict, corpus: list[str], cfg: dict, rub: dict,
         if term.lower() in low:
             score += float(pts)
 
-    # Business/budget angles are what this account can actually post about.
-    # Pure casting/trailer/red-carpet chatter is trending but not usable, so
-    # it only survives when a real business angle is present too.
+    # Notability: a concrete news angle (release, casting, deal, festival…) lifts a
+    # story; genuinely content-free chatter drops it. Applied independently so a
+    # story that matches both is penalised rather than rescued.
     priority_angle = bool(rub["priority"].search(blob))
     if priority_angle:
-        score += 14.0
-    elif rub["low_signal"].search(blob):
-        score -= 12.0
+        score += 6.0
+    if rub["low_signal"].search(blob):
+        score -= 15.0
 
     if age_days is not None:
         score += rub["recency_points"] * max(
@@ -394,7 +396,7 @@ def score_signal(sig: dict, corpus: list[str], cfg: dict, rub: dict,
     out = dict(sig)
     reasons = []
     if priority_angle:
-        reasons.append("carries a concrete budget/business angle")
+        reasons.append("carries a clear current film-news angle")
     trend = int(sig.get("trending_sources", 1))
     if trend > 1:
         reasons.append(f"corroborated by {trend} independent sources")
@@ -429,11 +431,14 @@ def select_topics(signals: list[dict], corpus: list[str], cfg: dict,
     scored.sort(key=lambda s: s["score"], reverse=True)
 
     mix = cfg.get("mix", {})
-    want_finance = int(mix.get("finance", 4))
+    want_finance = int(mix.get("finance", 0))
     total = int(cfg.get("max_topics", 10))
 
     picked: list[dict] = []
-    passes = [(True, want_finance), (False, total), (None, total)]
+    # A finance target of 0 means "no finance-first pass": rank purely by score so
+    # the selection reflects what is genuinely trending, not a forced quota.
+    passes = ([(None, total)] if want_finance <= 0
+              else [(True, want_finance), (False, total), (None, total)])
     for finance_pass, limit in passes:
         for s in scored:
             if len(picked) >= limit or len(picked) >= total:
@@ -452,16 +457,59 @@ def select_topics(signals: list[dict], corpus: list[str], cfg: dict,
         s["id"] = f"{cfg['agent_id']}-{int(now.timestamp())}-{i}"
         s["topic"] = s["title"][:140]
         s["hook"] = make_hook(s, cfg)
-        s["suggested_format"] = "both" if s["finance_related"] else "carousel"
+        # why_now was declared in the schema but never populated; the story's own
+        # opening line is real, story-specific and free to produce. Feeds whose
+        # summary is just the headline again get null rather than a duplicate.
+        wn = first_sentence(s.get("summary", ""))
+        if wn and wn.lower().strip("“”\"' .")[:35] == clean_title(s["title"]).lower().strip("“”\"' .")[:35]:
+            wn = None
+        s["why_now"] = wn
+        s["suggested_format"] = "both"
     return picked[:total]
 
 
+SOURCE_SUFFIX_RE = re.compile(r"\s+[-–—|]\s+[A-Z0-9][A-Za-z0-9&.'’ ]{2,28}$")
+
+
+def clean_title(title: str) -> str:
+    """Strip a trailing syndication source ("... - Cartoon Brew") from a headline."""
+    t = re.sub(r"\s+", " ", (title or "").strip())
+    stripped = SOURCE_SUFFIX_RE.sub("", t).strip()
+    return stripped or t
+
+
+def first_sentence(text: str, limit: int = 180) -> str | None:
+    """The story's own opening line — real, story-specific, never invented."""
+    t = re.sub(r"\s+", " ", (text or "").strip())
+    if not t:
+        return None
+    m = re.match(r"^(.{15,%d}?[.!?])(?:\s|$)" % limit, t)
+    if m:
+        return m.group(1).strip()
+    if len(t) <= limit:
+        return t
+    return t[:limit].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+
+
 def make_hook(sig: dict, cfg: dict) -> str:
-    blob = f"{sig['title']} {sig['summary']}"
+    """A hook that describes THIS story.
+
+    Hooks must never contradict the article. The previous implementation matched
+    the story against a fixed list of budget/business SENTENCES and returned the
+    first hit, so a preschool cartoon announcement came back as "This is why your
+    crew budget keeps fighting back". Instead we now either return the story's own
+    headline or apply a neutral category label that is bound to that headline
+    ("Casting: <headline>"), so the hook can only ever restate the story.
+
+    cfg["hooks"] entries are [regex, template] and MUST contain {title}.
+    """
+    title = clean_title(sig.get("title", ""))
     for pattern, hook in cfg.get("hooks", []):
-        if re.search(pattern, blob, re.I):
-            return hook
-    return "Why filmmakers are suddenly talking about this"
+        if "{title}" not in hook:
+            continue  # a template that cannot bind to the story is not usable
+        if re.search(pattern, title, re.I):
+            return hook.replace("{title}", title)
+    return title
 
 
 # --------------------------------------------------------------------------

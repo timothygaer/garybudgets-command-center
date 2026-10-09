@@ -225,7 +225,10 @@ export async function POST(request: Request) {
     const post = manifest.posts[postIndex]
     const origin = requestOrigin(request)
     const usableImageUrls = await getUsableImageUrls(post, origin)
-    const isReel = !!(post.video_url)
+    // Reels are identified by a real video_url OR by being a reel draft — a reel
+    // draft has build_type "reel" but no video_url until it is built, and treating
+    // it as a carousel produced a confusing "no publishable images" error.
+    const isReel = !!(post.video_url) || post.build_type === "reel"
     const usableVideoUrl = isReel ? await getUsableVideoUrl(post) : ""
     const usableCoverUrl = isReel ? (await getUsableCoverUrl(post, origin)) || usableImageUrls[0] || "" : ""
     let schedule = post.proposed_schedule || post.original_schedule
@@ -242,55 +245,77 @@ export async function POST(request: Request) {
     //   Thu 9 AM + 6 PM · Fri 12 PM + 5 PM · Sat 12 PM + 5 PM
     // (PT). First slot fills in approval order, then the second slot on the same day.
     {
-      const now = new Date()
-      const allSchedules = manifest.posts
+      // Vercel runs in UTC but every label written here is PT, so the slot maths
+      // must run on a PT clock. Comparing a UTC "now" against PT slot times was off
+      // by 7-8 hours: it skipped same-day lunch slots it should have used, pushed
+      // posts to tomorrow for no reason, and could assign a time that had already
+      // passed — which the publisher then sees as an overdue post and retries.
+      const nowUtc = new Date()
+      const nowPt = new Date(nowUtc.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }))
+
+      const allSchedules: string[] = manifest.posts
         .filter((p: any) => p.status === "approved" && (p.proposed_schedule || p.original_schedule))
-        .map((p: any) => p.proposed_schedule || p.original_schedule)
+        .map((p: any) => String(p.proposed_schedule || p.original_schedule || ""))
 
       const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
       const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-      // Research-based daily peak slots (index = getDay(): 0=Sun..6=Sat). Sundays skipped.
-      const DAY_SLOTS: Record<number, string[]> = {
-        0: [],                 // Sun — skip
-        1: ["12:00 PM", "6:00 PM"],  // Mon
-        2: ["12:00 PM", "6:00 PM"],  // Tue
-        3: ["12:00 PM", "7:00 PM"],  // Wed (best day — evening boosted)
-        4: ["9:00 AM", "6:00 PM"],   // Thu (Buffer's #1 = Thu 9 AM)
-        5: ["12:00 PM", "5:00 PM"],  // Fri
-        6: ["12:00 PM", "5:00 PM"],  // Sat
+      // Research-based daily peak slots, in PT (index = getDay(): 0=Sun..6=Sat).
+      // Sundays are skipped. Carousels perform best at lunch, reels in the evening
+      // (Buffer/Sprout/Metricool + the Gary Budgets vault research, June 2026).
+      const DAY_SLOTS: Record<number, { lunch: string; evening: string } | null> = {
+        0: null,                                     // Sun — skip
+        1: { lunch: "12:00 PM", evening: "6:00 PM" }, // Mon
+        2: { lunch: "12:00 PM", evening: "6:00 PM" }, // Tue
+        3: { lunch: "12:00 PM", evening: "7:00 PM" }, // Wed (best day — evening boosted)
+        4: { lunch: "9:00 AM", evening: "6:00 PM" },  // Thu (Buffer's #1 = Thu 9 AM)
+        5: { lunch: "12:00 PM", evening: "5:00 PM" }, // Fri
+        6: { lunch: "12:00 PM", evening: "5:00 PM" }, // Sat
       }
 
+      // Reels publish best in the evening, carousels at lunch. If the preferred slot
+      // for this post's format is taken or already past, fall back to the other one.
+      const preferred: Array<"lunch" | "evening"> = isReel ? ["evening", "lunch"] : ["lunch", "evening"]
+
       let slotFound = false
-      for (let days = 0; days < 14; days++) {
-        const check = new Date(now)
+      for (let days = 0; days < 14 && !slotFound; days++) {
+        const check = new Date(nowPt)
         check.setDate(check.getDate() + days)
         const dayOfWeek = check.getDay()
-        const daySlots = DAY_SLOTS[dayOfWeek] || []
-        if (daySlots.length === 0) continue // Sun
+        const slots = DAY_SLOTS[dayOfWeek]
+        if (!slots) continue // Sun
 
-        // Count posts already on this day (approved only)
         const dateStr = `${dayNames[dayOfWeek]}, ${monthNames[check.getMonth()]} ${check.getDate()}`
-        const dayPostCount = allSchedules.filter((s: string) => s && s.startsWith(dateStr)).length
-        if (dayPostCount >= daySlots.length) continue
 
-        // Take the first unfilled slot of the day (in approval order), skipping any
-        // whose time has already passed today.
-        const slotCandidates = daySlots.slice(dayPostCount)
-        for (const timeLabel of slotCandidates) {
-          const [h, m] = timeLabel.split(":").map((n: string) => Number(n.split(" ")[0]))
+        // Times already taken on that PT day, matched on the exact date portion so
+        // "Thu, Oct 1" can never be confused with "Thu, Oct 10".
+        const usedTimes = allSchedules.reduce<string[]>((acc, s) => {
+          const [d, t] = s.split("·")
+          if ((d || "").trim() === dateStr && t) acc.push(t.trim().replace(/\s*PT$/, "").trim())
+          return acc
+        }, [])
+
+        for (const key of preferred) {
+          const timeLabel = slots[key]
+          if (usedTimes.includes(timeLabel)) continue
+          const [clock, meridiem] = timeLabel.split(" ")
+          const [h, m] = clock.split(":").map((n: string) => Number(n))
+          const hour24 = meridiem === "PM" ? (h === 12 ? 12 : h + 12) : (h === 12 ? 0 : h)
           const slotTime = new Date(check)
-          slotTime.setHours(h, m, 0, 0)
-          if (slotTime <= now) continue
+          slotTime.setHours(hour24, m, 0, 0)
+          if (slotTime <= nowPt) continue
           schedule = `${dateStr} · ${timeLabel} PT`
           slotFound = true
           break
         }
-        if (slotFound) break
       }
 
       if (!slotFound) {
-        schedule = `${dayNames[now.getDay()]}, ${monthNames[now.getMonth()]} ${now.getDate()} · 12:00 PM PT`
+        // Nothing free in the next two weeks — use tomorrow's lunch slot rather than
+        // today's, which may already have passed on the PT clock.
+        const fallback = new Date(nowPt)
+        fallback.setDate(fallback.getDate() + 1)
+        schedule = `${dayNames[fallback.getDay()]}, ${monthNames[fallback.getMonth()]} ${fallback.getDate()} · 12:00 PM PT`
       }
 
       // Write the schedule back

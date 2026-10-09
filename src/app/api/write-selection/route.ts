@@ -19,46 +19,93 @@ function slugify(title: string): string {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").slice(0, 60)
 }
 
+function cleanTitle(title: string): string {
+  const t = String(title || "").replace(/\s+/g, " ").trim()
+  const stripped = t.replace(/\s+[-–—|]\s+[A-Z0-9][A-Za-z0-9&.'’ ]{2,28}$/, "").trim()
+  return stripped || t
+}
+
+/**
+ * Story-specific caption.
+ *
+ * Every line must be true OF THIS STORY. The previous version pasted one
+ * boilerplate "turn it into a budget question" paragraph onto every post, which
+ * is why the copy read budget-heavy next to non-budget headlines. We now lead
+ * with the story's own hook and opening line, add a category-appropriate
+ * "filmmaker's read" line, and keep the sourcing note. No claim is ever invented.
+ */
 function buildDiscoveryCopy(topic: any): { caption: string; hashtags: string } {
-  const title = String(topic.topic || "").trim()
-  const suggestion = String(topic.suggestion || "").trim()
-  const hook = String(topic.hook || "These are the hidden costs killing indie films right now").trim()
+  const title = cleanTitle(String(topic.topic || "").trim())
+  const hook = String(topic.hook || title).trim()
+  const whyNow = String(topic.why_now || "").trim()
+  const summary = String(topic.summary || topic.suggestion || "").trim()
   const confidenceReason = String(topic.confidence_reason || "").trim()
-  const evidenceUrl = String(topic.evidence_url || "").trim()
-  const lower = `${title} ${suggestion}`.toLowerCase()
+  const lower = `${title} ${summary}`.toLowerCase()
 
-  let hashtags = "#FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting #ProducerTips"
-  let angle = "budgeting decision"
-  let audience = "indie producers"
-  let practicalLens = "cash flow, production risk, schedule pressure, crew planning, and the real cost of getting a film finished"
-
-  if (lower.includes("tax") || lower.includes("incentive") || lower.includes("rebate") || lower.includes("credit")) {
-    hashtags = "#FilmTaxIncentives #FilmFinance #LineProducer #IndieFilmProduction #FilmBudgeting"
-    angle = "film tax incentive decision"
-    practicalLens = "qualified spend, refundable versus transferable credits, annual caps, audit timing, local crew depth, payroll/fringe burden, and whether the headline percentage turns into usable cash"
-  } else if (lower.includes("streaming") || lower.includes("residual") || lower.includes("distribution")) {
-    hashtags = "#StreamingResiduals #FilmDistribution #FilmFinance #IndieFilmProducers #FilmBudgeting"
-    angle = "streaming distribution decision"
-    practicalLens = "license fees, residual exposure, data transparency, bonus triggers, reporting rights, delivery costs, and the long-term value of the deal"
-  } else if (lower.includes("insurance") || lower.includes("e&o") || lower.includes("liability")) {
-    hashtags = "#FilmInsurance #ProductionInsurance #FilmFinance #LineProducer #FilmBudgeting"
-    angle = "production insurance decision"
-    practicalLens = "general liability, workers comp, equipment coverage, E&O, location requirements, rental-house requirements, and the cost of one uncovered claim"
-  } else if (lower.includes("festival")) {
-    hashtags = "#FilmFestivalStrategy #IndieFilmMarketing #FilmDistribution #IndieFilmProducers #FilmBudgeting"
-    angle = "festival strategy decision"
-    practicalLens = "submission fees, premiere status, travel costs, deliverables, sales opportunities, publicity, and whether the festival spend supports distribution"
-  } else if (lower.includes("virtual production") || lower.includes("ai") || lower.includes("pre-production")) {
-    hashtags = "#FilmTech #PreProduction #VirtualProduction #FilmFinance #FilmBudgeting"
-    angle = "production technology decision"
-    practicalLens = "software costs, crew training, testing time, hardware rentals, workflow risk, and whether the tool saves enough time to justify the line item"
+  // Category lens: describes the KIND of story, so it cannot contradict it.
+  let lens = "what this means for the people who make films"
+  let hashtags = "#FilmNews #Filmmaking #IndieFilm #FilmIndustry #MovieNews"
+  if (/trailer|teaser|first look/.test(lower)) {
+    lens = "what this first look tells us about the finished film"
+    hashtags = "#FilmNews #Trailer #MovieNews #Filmmaking #FilmIndustry"
+  } else if (/casting|stars in|to star|\bcast\b|joins the/.test(lower)) {
+    lens = "what this casting means for the production"
+    hashtags = "#FilmNews #Casting #MovieNews #Filmmaking #FilmIndustry"
+  } else if (/festival|award|prize|\bwins\b/.test(lower)) {
+    lens = "what the festival run signals for the film"
+    hashtags = "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry"
+  } else if (/box office|opening weekend|grosses|grossing/.test(lower)) {
+    lens = "what the numbers say about the market right now"
+    hashtags = "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking"
+  } else if (/acqui|merger|\bdeal\b|rights|studio|paramount|warner|disney|netflix|apple|amazon/.test(lower)) {
+    lens = "what this deal means for the people making films"
+    hashtags = "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking"
+  } else if (/release date|premiere|will release|to release|in theaters/.test(lower)) {
+    lens = "what the release plan tells us"
+    hashtags = "#FilmNews #ReleaseDate #MovieNews #FilmIndustry #Filmmaking"
+  } else if (/documentary|\bdoc\b/.test(lower)) {
+    lens = "what this documentary brings to audiences"
+    hashtags = "#Documentary #FilmNews #IndieFilm #Filmmaking #FilmIndustry"
+  } else if (/animat|anime|cartoon/.test(lower)) {
+    lens = "what this means for animation"
+    hashtags = "#Animation #FilmNews #MovieNews #Filmmaking #FilmIndustry"
+  } else if (/budget|cost|tax|incentive|rebate|insurance|payroll|financ/.test(lower)) {
+    lens = "what it means for the money side of the business"
+    hashtags = "#FilmFinance #FilmNews #IndieFilm #FilmBudgeting #FilmIndustry"
   }
 
-  const context = suggestion || `This topic matters because ${title.toLowerCase()} can change the economics of an indie film before production starts.`
-  const proof = confidenceReason || `Research confidence comes from current source monitoring and duplicate checks. Evidence: ${evidenceUrl || "source link unavailable"}`
-  const caption = `${hook}\n\n${title} is not just a headline — it is a ${angle} that can change how ${audience} plan, finance, and protect a production. ${context}\n\nBefore treating this as a trend, turn it into a budget question. What line items move? What paperwork is required? Who needs to approve it? What costs are hidden until prep, delivery, or distribution? The producers who win are not the ones who memorize buzzwords. They are the ones who translate industry changes into specific assumptions in the budget.\n\nUse this lens when you evaluate ${title.toLowerCase()}: ${practicalLens}. If those details are not written into the plan, the number on the top sheet is probably too optimistic.\n\nWhy this trend made the list:\n${proof}\n\nSave this for your next budget pass, and send it to the producer who needs to pressure-test the plan before money is committed.`
+  // Prefer the story's own opening line, then the summary. Never invent details.
+  const storyLine = whyNow || summary
+  const parts = [hook]
+  if (storyLine && storyLine.toLowerCase() !== hook.toLowerCase()) parts.push(storyLine)
+  parts.push(`The filmmaker's read: ${lens}.`)
+  if (confidenceReason) parts.push(`Why it's on the list: ${confidenceReason}`)
+  parts.push("What's your take — does this change anything for the films you're working on? Drop it in the comments.")
+  parts.push("Follow @garyfilmbudgets for daily film industry news.")
 
-  return { caption, hashtags }
+  return { caption: parts.join("\n\n"), hashtags }
+}
+
+/**
+ * Slide plan for the builder.
+ *
+ * These prompts are what the build agent expands into the burned-in slide text,
+ * so they carry the actual story: the hook, what happened, and why it matters.
+ * The old plan was six bare headings ("Deepen the topic"), which produced
+ * generic slides that never told the story. 6-slide structure is enforced by the
+ * carousel build workflow: hook → education → education → education → education → CTA.
+ */
+function buildSlidePrompts(title: string, topic: any) {
+  const hook = String(topic.hook || title).trim()
+  const story = String(topic.why_now || topic.summary || topic.suggestion || "").trim()
+  return [
+    { slide: 1, heading: "Hook", prompt_summary: `Open with this hook: "${hook}". One short arresting line making the story's importance obvious.` },
+    { slide: 2, heading: "What happened", prompt_summary: `State the news plainly: ${story || title}. Include who, what and when — no speculation.` },
+    { slide: 3, heading: "The detail", prompt_summary: `The specifics behind "${title}" — names, numbers, dates or terms a film professional would care about.` },
+    { slide: 4, heading: "Why it matters", prompt_summary: `What "${title}" means for people who make films: production, distribution, marketing or the industry business.` },
+    { slide: 5, heading: "What to watch", prompt_summary: `What happens next with "${title}" and what to keep an eye on. Concrete and forward-looking.` },
+    { slide: 6, heading: "CTA", prompt_summary: "Close with a Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news." },
+  ]
 }
 
 /** Fetch the latest manifest from GitHub and extract scout drafts */
@@ -105,12 +152,25 @@ export async function POST(request: Request) {
       return Response.json({ error: "build_type must be carousel, reel, or both" }, { status: 400 })
     }
 
-    // Read current manifest to check for already-built topics
-    if (!existsSync(SRC_PATH)) {
-      return Response.json({ error: "manifest not found" }, { status: 500 })
+    // Base the new manifest on the LATEST published manifest, not on the copy
+    // bundled with this deployment. The bundle lags GitHub (the Oracle VM commits
+    // manifest updates that later trigger a rebuild), so writing the stale bundled
+    // copy back would silently drop those updates — the same clobber failure that
+    // kept eating VM changes. GitHub is the source of truth; local is the fallback.
+    let manifest: any = null
+    try {
+      const raw = await fetch(
+        "https://raw.githubusercontent.com/timothygaer/garybudgets-command-center/main/manifest.json",
+        { cache: "no-store" }
+      )
+      if (raw.ok) manifest = await raw.json()
+    } catch { /* fall through to the bundled copy */ }
+    if (!manifest || !Array.isArray(manifest.posts)) {
+      if (!existsSync(SRC_PATH)) {
+        return Response.json({ error: "manifest not found" }, { status: 500 })
+      }
+      manifest = JSON.parse(await readFile(SRC_PATH, "utf-8"))
     }
-    const manifestContent = await readFile(SRC_PATH, "utf-8")
-    const manifest = JSON.parse(manifestContent)
 
     // Get existing titles to avoid duplicates
     const existingTitles = new Set((manifest.posts || []).map((p: any) => p.title.toLowerCase()))
@@ -143,14 +203,7 @@ export async function POST(request: Request) {
         proposed_schedule: null,
         caption: discoveryCopy.caption,
         hashtags: discoveryCopy.hashtags,
-        slides: [
-          { slide: 1, heading: "Hook", prompt_summary: "Attention-grabbing hook related to: " + title },
-          { slide: 2, heading: "Educational 1", prompt_summary: "Deepen the topic" },
-          { slide: 3, heading: "Educational 2", prompt_summary: "More specifics" },
-          { slide: 4, heading: "Educational 3", prompt_summary: "Pitfalls and watch-outs" },
-          { slide: 5, heading: "Educational 4", prompt_summary: "Actionable advice" },
-          { slide: 6, heading: "CTA", prompt_summary: "Gary Budgets call to action" },
-        ],
+        slides: buildSlidePrompts(title, topic),
         status: "ready",
         has_images: false,
         image_file_names: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
