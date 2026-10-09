@@ -637,25 +637,34 @@ export default function Dashboard() {
     setSelectedTopics(new Set())
     setResearchRun(null)
     try {
+      // The agent has already published its latest results, so show them now —
+      // never block the UI on a crawl the app does not run.
       const started = await fetch("/api/research/start", { method: "POST" }).then(r => r.json())
-      if (!started.id) throw new Error(started.error || "Research did not start")
+      if (!started.results && !started.generated_at) throw new Error(started.error || "Research did not start")
       setResearchRun(started)
-      const poll = async () => {
-        const status = await fetch(`/api/research/status?id=${encodeURIComponent(started.id)}`).then(r => r.json())
-        setResearchRun(status)
-        if (status.state === "done") {
-          setResearchResults(status.results || [])
-          setResearchState("done")
-          if (status.credentials) setResearchCredentials(status.credentials)
-          return
+      setResearchResults(started.results || [])
+      setResearchState("done")
+
+      // If a refresh was queued the agent is scanning right now and will
+      // publish shortly. Watch for it, but with a HARD deadline so this can
+      // never spin forever the way the old state-polling loop did.
+      if (started.queued) {
+        const seen = started.generated_at
+        const deadline = Date.now() + 6 * 60 * 1000
+        const watch = async () => {
+          if (Date.now() > deadline) return
+          try {
+            const status = await fetch("/api/research/status").then(r => r.json())
+            if (status.generated_at && status.generated_at !== seen) {
+              setResearchRun(status)
+              setResearchResults(status.results || [])
+              return
+            }
+          } catch {}
+          if (Date.now() < deadline) setTimeout(watch, 20000)
         }
-        if (status.state === "error") {
-          setResearchState("error")
-          return
-        }
-        setTimeout(poll, 1500)
+        setTimeout(watch, 20000)
       }
-      setTimeout(poll, 1000)
     } catch (err) {
       setResearchState("error")
     }
@@ -1333,6 +1342,7 @@ export default function Dashboard() {
               <div>
                 <div style={{ fontSize: 11, color: "#00ff88", marginBottom: 6 }}>✓ Research complete — {researchResults.length} topics found</div>
                 {researchRun && <div style={{ fontSize: 10, color: "#7a7a8a", marginBottom: 8 }}>{researchRun.sources_scanned || 0}/{researchRun.sources_total || 0} sources scanned · {researchRun.candidate_count || 0} signals compared</div>}
+                {researchRun?.queued && <div style={{ fontSize: 10, color: "#f59e0b", marginBottom: 8 }}>🔄 Refresh queued — the agent is scanning now; fresh topics appear here in about 5 minutes.</div>}
                 <div style={{ fontSize: 10, color: "#ffb347", marginBottom: 8 }}>Reminder: expand the source list in the agent config, not this app — no redeploy needed.</div>
                 {researchRun?.unavailable_sources?.length > 0 && <div style={{ fontSize: 10, color: "#ef4444", marginBottom: 12 }}>Unavailable social/API sources: {researchRun.unavailable_sources.map((u: any) => u.name).join(", ")}</div>}
                 {researchResults.map((r, i) => {
