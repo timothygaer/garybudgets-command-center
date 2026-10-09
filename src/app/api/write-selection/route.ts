@@ -182,18 +182,33 @@ export async function POST(request: Request) {
     }
 
     // Base the new manifest on the LATEST published manifest, not on the copy
-    // bundled with this deployment. The bundle lags GitHub (the Oracle VM commits
-    // manifest updates that later trigger a rebuild), so writing the stale bundled
-    // copy back would silently drop those updates — the same clobber failure that
-    // kept eating VM changes. GitHub is the source of truth; local is the fallback.
+    // bundled with this deployment — the bundle lags GitHub (the Oracle VM commits
+    // manifest updates) and writing it back silently drops those updates.
+    //
+    // Read it from the GitHub API, NOT raw.githubusercontent.com: raw is CDN-cached
+    // for minutes, so it can hand back the revision from BEFORE a delete while the
+    // sha fetched separately is current. The PUT then succeeds and resurrects
+    // deleted posts while dropping everything added since. One authoritative read,
+    // and keep the exact sha of the revision it returned.
+    const ghToken = process.env.GITHUB_TOKEN
     let manifest: any = null
-    try {
-      const raw = await fetch(
-        "https://raw.githubusercontent.com/timothygaer/garybudgets-command-center/main/manifest.json",
-        { cache: "no-store" }
-      )
-      if (raw.ok) manifest = await raw.json()
-    } catch { /* fall through to the bundled copy */ }
+    let baseSha: string | undefined
+    if (ghToken) {
+      try {
+        const ghResp = await fetch(
+          "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json",
+          {
+            headers: { Authorization: `Bearer ${ghToken}`, Accept: "application/vnd.github+json", "User-Agent": "garybudgets command center" },
+            cache: "no-store",
+          }
+        )
+        if (ghResp.ok) {
+          const fileData = await ghResp.json()
+          const parsed = JSON.parse(Buffer.from(fileData.content, "base64").toString("utf-8"))
+          if (Array.isArray(parsed.posts)) { manifest = parsed; baseSha = fileData.sha }
+        }
+      } catch { /* fall through to the bundled copy */ }
+    }
     if (!manifest || !Array.isArray(manifest.posts)) {
       if (!existsSync(SRC_PATH)) {
         return Response.json({ error: "manifest not found" }, { status: 500 })
@@ -288,35 +303,46 @@ export async function POST(request: Request) {
       }
     }
 
-    // Persist to GitHub so it survives Vercel cold-starts
-    const token = process.env.GITHUB_TOKEN
+    // Persist to GitHub so it survives Vercel cold-starts. baseSha is the exact
+    // revision this manifest was built on: if the live manifest moved under us,
+    // GitHub refuses the PUT instead of letting us overwrite whatever landed in
+    // the meantime (the clobber that kept eating VM and delete updates).
     let githubPersisted = false
-    if (token) {
+    if (ghToken && baseSha) {
       const url = "https://api.github.com/repos/timothygaer/garybudgets-command-center/contents/manifest.json"
       const headers: Record<string, string> = {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${ghToken}`,
         Accept: "application/vnd.github+json",
-        "User-Agent": "garybudgets command-center",
+        "User-Agent": "garybudgets command center",
       }
       try {
-        const getResp = await fetch(url, { headers })
-        if (getResp.ok) {
-          const fileData = await getResp.json()
-          const newContent = JSON.stringify(manifest, null, 2) + "\n"
-          const putResp = await fetch(url, {
-            method: "PUT",
-            headers: { ...headers, "Content-Type": "application/json" },
-            body: JSON.stringify({
-              message: `topic scout: ${addedDrafts.map(d => d.title).join(", ")} (${addedDrafts.length} drafts)`,
-              content: Buffer.from(newContent).toString("base64"),
-              sha: fileData.sha,
-            }),
-          })
-          githubPersisted = putResp.ok
+        const newContent = JSON.stringify(manifest, null, 2) + "\n"
+        const putResp = await fetch(url, {
+          method: "PUT",
+          headers: { ...headers, "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: `topic scout: ${addedDrafts.map(d => d.title).join(", ")} (${addedDrafts.length} drafts)`,
+            content: Buffer.from(newContent).toString("base64"),
+            sha: baseSha,
+          }),
+        })
+        githubPersisted = putResp.ok
+        if (!putResp.ok) {
+          console.log(`write-selection: manifest PUT rejected (${putResp.status}) - stale sha or bad token`)
         }
-      } catch {
-        // Fallback — just save locally
+      } catch (err: any) {
+        console.log(`write-selection: manifest PUT threw - ${err.message}`)
       }
+    }
+
+    // Never report success for posts that exist only in this response: the UI shows
+    // them as queued, and the user then finds nothing in the queue. A declined sha
+    // (someone else wrote first) needs a human-visible failure, not a silent drop.
+    if (addedDrafts.length > 0 && !githubPersisted) {
+      return Response.json(
+        { error: "The build queue could not be saved, so nothing was added. Please retry." },
+        { status: 502 }
+      )
     }
 
     return Response.json({
