@@ -4783,6 +4783,77 @@
       "posted_at": "2026-09-03T16:00:53+0000",
       "instagram_url": "https://www.instagram.com/p/Dc1MRD8G0wX/",
       "instagram_media_id": "18026457434686008"
+    },
+    {
+      "id": "scout-1791597560613-1",
+      "title": "‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson",
+      "source_title": "‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Post_the-exorcist-martyrs-trailer-radically-reboots-franchise-wit",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "First look: ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson\n\n‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson The Hollywood Reporter ‘The Exorcist: Martyrs’ Trailer: Scarlett Johansson Tracks A Demonic Killer In Mike Flanagan’s Take On Horror Classic Deadline ‘The Exorcist: Martyrs’ Trailer: Scarlett Johansson Hunts A Satanic Serial Killer In Mike Flanagan’s “Vicious” New Horror Film The Playlist\n\nThe filmmaker's read: what this first look tells us about the finished film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 6 independent sources; published 1h ago; News: film trailers is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmNews #Trailer #MovieNews #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"First look: ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson The Hollywood Reporter ‘The Exorcist: Martyrs’ Trailer: Scarlett Johansson Tracks A Demonic Killer In Mike Flanagan’s Take On Horror Classic Deadline ‘The Exorcist: Martyrs’ Trailer: Scarlett Johansson Hunts A Satanic Serial Killer In Mike Flanagan’s “Vicious” New Horror Film The Playlist Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this deal, casting or festival news signals for the industry, using ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [
+        "/images/scout-1791597560613-1/1.png",
+        "/images/scout-1791597560613-1/2.png",
+        "/images/scout-1791597560613-1/3.png",
+        "/images/scout-1791597560613-1/4.png",
+        "/images/scout-1791597560613-1/5.png",
+        "/images/scout-1791597560613-1/6.png"
+      ],
+      "created_at": "2026-10-10T01:59:20.614Z",
+      "source": "Topic Scout",
+      "suggestion": "‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson The Hollywood Reporter ‘The Exorcist: Martyrs’ Trailer: Scarlett Johansson Tracks A Demonic Killer In Mike Flanagan’s Take On Horror Classic Deadline ‘The Exorcist: Martyrs’ Trailer: Scarlett Johansson Hunts A Satanic Serial Killer In Mike Flanagan’s “Vicious” New Horror Film The Playlist",
+      "source_name": "News: film trailers",
+      "hook": "First look: ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 6 independent sources; published 1h ago; News: film trailers is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQb041b2VyWFpocExaY2FfQWx0TkdCQUdRVDFoNmdjSHF4QnY5WjdENGdkbm91WDZhbHp0cEpSODZxMGtuQ052d3hqZEJITTk0RG9LOTV2MjlwZU84VkI0MmRvX2g0MVVnUWJvWmpQYnE2M3M3cnBmdjdJTzJNcTg2d0R5WEdSc25SRy1HVjlkQzUwajVyZmJUU245cGswWmJCcDdPcDRPYlhYU2s?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
     }
   ]
 }
