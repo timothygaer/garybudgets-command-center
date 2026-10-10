@@ -4799,37 +4799,43 @@
       "slides": [
         {
           "slide": 1,
-          "heading": "Hook",
+          "heading": "MIKE FLANAGAN JUST REBOOTED THE EXORCIST",
+          "text": "Scarlett Johansson plays an NYPD detective hunting a satanic killer. The trailer debuted at New York Comic-Con. In theaters March 12, 2027.",
           "prompt_summary": "Hook slide — the story in one line: \"First look: ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson\". Large, plain, instantly readable on a phone."
         },
         {
           "slide": 2,
-          "heading": "What happened",
+          "heading": "WHAT HAPPENED",
+          "text": "Universal and Blumhouse released the first trailer for The Exorcist: Martyrs. It debuted at New York Comic-Con and played in theaters before Other Mommy. Mike Flanagan wrote and directed, his first film in the franchise.",
           "prompt_summary": "Report the news in two or three plain sentences: ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson The Hollywood Reporter ‘The Exorcist: Martyrs’ Trailer: Scarlett Johansson Tracks A Demonic Killer In Mike Flanagan’s Take On Horror Classic Deadline ‘The Exorcist: Martyrs’ Trailer: Scarlett Johansson Hunts A Satanic Serial Killer In Mike Flanagan’s “Vicious” New Horror Film The Playlist Cover who, what and when. No speculation."
         },
         {
           "slide": 3,
-          "heading": "The detail",
+          "heading": "THE DETAILS THAT MATTER",
+          "text": "It is the seventh film in The Exorcist franchise, after 2023's The Exorcist: Believer. Scarlett Johansson plays Detective Julie Miller. Chiwetel Ejiofor plays Father William. Diane Lane, Laurence Fishburne and John Leguizamo also star. It shot in New York City and wrapped in June.",
           "prompt_summary": "Zoom in on the specifics of ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With: the names, numbers, dates or terms a film professional would actually want."
         },
         {
           "slide": 4,
-          "heading": "Why it matters",
+          "heading": "WHY THIS MATTERS FOR WORKING FILMMAKERS",
+          "text": "Studios lean on known IP because a built-in audience lowers marketing risk. The planned sequel, The Exorcist: Deceiver, was cancelled in 2024 after Believer flopped. One director rebooting a franchise resets the whole slate around it.",
           "prompt_summary": "Explain what this signals for people who make films, using ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With as the example. Concrete, not abstract — name the practical consequence."
         },
         {
           "slide": 5,
-          "heading": "What to watch",
+          "heading": "WHAT TO WATCH NEXT",
+          "text": "Release date: March 12, 2027, from Universal Pictures. Flanagan is also writing DC's Clayface, his first comic-book project. His Carrie adaptation just landed on Prime Video.",
           "prompt_summary": "Say what happens next with ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With and what to keep an eye on. Forward-looking and specific."
         },
         {
           "slide": 6,
-          "heading": "CTA",
+          "heading": "KNOW THE NUMBERS BEHIND THE FILM",
+          "text": "Follow @garyfilmbudgets for daily film industry news. Build your next production budget at garybudgets.com",
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -4853,7 +4859,16 @@
       "hook": "First look: ‘The Exorcist: Martyrs’ Trailer Radically Reboots Franchise With Scarlett Johansson",
       "confidence_reason": "carries a clear current film-news angle; corroborated by 6 independent sources; published 1h ago; News: film trailers is a trade source.",
       "evidence_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQb041b2VyWFpocExaY2FfQWx0TkdCQUdRVDFoNmdjSHF4QnY5WjdENGdkbm91WDZhbHp0cEpSODZxMGtuQ052d3hqZEJITTk0RG9LOTV2MjlwZU84VkI0MmRvX2g0MVVnUWJvWmpQYnE2M3M3cnBmdjdJTzJNcTg2d0R5WEdSc25SRy1HVjlkQzUwajVyZmJUU245cGswWmJCcDdPcDRPYlhYU2s?oc=5",
-      "duplicate_note": "No close match in the existing-post corpus."
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "image_file_ids": [
+        "scout-1791597991717-1/1.png",
+        "scout-1791597991717-1/2.png",
+        "scout-1791597991717-1/3.png",
+        "scout-1791597991717-1/4.png",
+        "scout-1791597991717-1/5.png",
+        "scout-1791597991717-1/6.png"
+      ],
+      "images_built_at": "2026-10-10T02:23:48Z"
     },
     {
       "id": "scout-1791597991717-1-reel",
@@ -5071,37 +5086,43 @@
       "slides": [
         {
           "slide": 1,
-          "heading": "Hook",
+          "heading": "THE WARNER BROS AND PARAMOUNT DEAL IS OFFICIAL",
+          "text": "Paramount closed its takeover of Warner Bros. Discovery on Tuesday. David Ellison now runs the combined company. The Burbank water tower already reads Skydance Corporation.",
           "prompt_summary": "Hook slide — the story in one line: \"Industry deal: Skydance: How Paramount-Warner Bros merger will change the way we watch movies and the news\". Large, plain, instantly readable on a phone."
         },
         {
           "slide": 2,
-          "heading": "What happened",
+          "heading": "WHAT HAPPENED",
+          "text": "Paramount closed its $31.0167-a-share takeover of Warner Bros. Discovery on Tuesday. David Ellison stays on as chief executive of the combined company. The Warner Bros. water tower in Burbank was repainted: A Skydance Corporation. DC Comics now reports into Skydance's products and publishing division.",
           "prompt_summary": "Report the news in two or three plain sentences: Skydance: How Paramount-Warner Bros merger will change the way we watch movies and the news Firstpost Cover who, what and when. No speculation."
         },
         {
           "slide": 3,
-          "heading": "The detail",
+          "heading": "THE NUMBERS BEHIND THE DEAL",
+          "text": "Deal price: $31.0167 a share. Warner Bros. Discovery's $33.1B debt is now assumed by Skydance, which carries about $80B in total. WBD went from a $2.1B loss in 2022 to a $1.4B profit in 2025. David Zaslav's exit package: $606.1M.",
           "prompt_summary": "Zoom in on the specifics of Skydance: How Paramount-Warner Bros merger will change the: the names, numbers, dates or terms a film professional would actually want."
         },
         {
           "slide": 4,
-          "heading": "Why it matters",
+          "heading": "WHY IT MATTERS FOR YOUR PROJECT",
+          "text": "One fewer buyer: Paramount, Warner Bros. and DC now answer to a single owner. Fewer gates means more competition for the same slots. Debt drives discipline: expect tighter slates and harder pitches.",
           "prompt_summary": "Explain what this signals for people who make films, using Skydance: How Paramount-Warner Bros merger will change the as the example. Concrete, not abstract — name the practical consequence."
         },
         {
           "slide": 5,
-          "heading": "What to watch",
+          "heading": "WHAT TO WATCH NEXT",
+          "text": "Who replaces Pam Abdy and Michael De Luca atop the film group. Whether the $80B debt load forces cuts to the release slate. Netflix is cutting 5 percent of staff too. The squeeze is industry wide.",
           "prompt_summary": "Say what happens next with Skydance: How Paramount-Warner Bros merger will change the and what to keep an eye on. Forward-looking and specific."
         },
         {
           "slide": 6,
-          "heading": "CTA",
+          "heading": "KNOW THE MONEY, NOT JUST THE MOVIES",
+          "text": "Follow @garyfilmbudgets for daily film industry news. Build your next production budget at garybudgets.com",
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -5125,7 +5146,16 @@
       "hook": "Industry deal: Skydance: How Paramount-Warner Bros merger will change the way we watch movies and the news",
       "confidence_reason": "carries a clear current film-news angle; corroborated by 6 independent sources; published 3d ago; News: streaming deals is a finance source.",
       "evidence_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxORnBWM3o1dUZkQklLWDNHY3hJVW10TkRLbEF1X2VHSmlvYjBocXlrY1pwbk9QVVEzQll0SzNFU3MwUlo4VTlSLVJiajMxREQ5STA3cjlwejdWU3lyeWVKSXNMOEs0SnhKQ2NTWnpiNVJxSExPZkJBOHpXVnp3UVJjVTZlMWtHdlctNnNjc1p4Ti0tVWFSc21HZjhqM0pBc3VvVVg3b3pYMGFWNWJMMWcwZFYtVlhDSkJPd3BTR3dhYWY2MGJLNXpGUnNXZ3J4ZmxzWldpLXNZT3PSAd4BQVVfeXFMUFhZQjVwQnhPelBXbDlKSVNmOTBoc0RuNzNvYU4wZnYwWE5rLUFCY0RUS08tUVdIWFEza3BTZHl0M21FX2RUSzJyMmt2R0ZZNUIwVDhKNXNZZUZIbVlSWk1XT2ozaURGUzZmT1c5LWJRZm95VTV2SWl1b1AzYnBYTXhxXzdLUUJyQVJDZ210bFJOLS00MHFta1RJVWRZa3ZmSUNKOGN6U19RUWhUN3REUXVaemg1ZkV3Z0hkSFVFM0NObVNOX3JDZ3JobHNqaWFuWEgxSlVaZU95NVN0TFhn?oc=5",
-      "duplicate_note": "Similar to existing post “Skydance: How Paramount-Warner Bros merger will change the way we watch movies and the news - Firstpost” (match 100%) but carries a current change/news angle, so it is allowed as a rework."
+      "duplicate_note": "Similar to existing post “Skydance: How Paramount-Warner Bros merger will change the way we watch movies and the news - Firstpost” (match 100%) but carries a current change/news angle, so it is allowed as a rework.",
+      "image_file_ids": [
+        "scout-1791597991718-3/1.png",
+        "scout-1791597991718-3/2.png",
+        "scout-1791597991718-3/3.png",
+        "scout-1791597991718-3/4.png",
+        "scout-1791597991718-3/5.png",
+        "scout-1791597991718-3/6.png"
+      ],
+      "images_built_at": "2026-10-10T02:23:48Z"
     },
     {
       "id": "scout-1791597991718-3-reel",
