@@ -229,7 +229,9 @@ function QueueTab() {
   const getDisplayStatus = (item: any) => {
     if (item.status === "posted") return "posted"
     if (item.status === "approved") return "approved"
-    const hasImages = item.has_images === true || (Array.isArray(item.slidePreviews) && item.slidePreviews.some((s: any) => s.file_id || s.image_url))
+    // has_images comes from the API, which only reports true for a real build (stored flag
+    // or file ids). A slide image_url alone proves nothing — placeholders live there.
+    const hasImages = item.has_images === true || (Array.isArray(item.slidePreviews) && item.slidePreviews.some((s: any) => !!s.file_id))
     if (hasImages && (item.status === "draft" || item.status === "ready")) return "ready"
     if (!hasImages && (item.status === "draft" || item.status === "awaiting_images")) return "awaiting_images"
     return item.status || "draft"

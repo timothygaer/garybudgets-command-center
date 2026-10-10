@@ -68,7 +68,9 @@ export async function GET() {
         file_id: post.image_file_ids?.[i] || "",
       }))
 
-      const hasPublicImages = urls.some((url: any) => typeof url === "string" && url.length > 0)
+      // Proof of a real build is an explicit signal: the stored flag, or actual file ids.
+      // Bare image_urls are NOT proof — drafts carry placeholder paths.
+      const storedHasImages = post.has_images === true
       const hasDriveImages = Array.isArray(post.image_file_ids) && post.image_file_ids.some((id: any) => typeof id === "string" && id.length > 0)
 
       return {
@@ -79,7 +81,7 @@ export async function GET() {
         image_file_names: undefined,
         drive_assets_folder_id: undefined,
         drive_post_folder_id: undefined,
-        has_images: hasPublicImages || hasDriveImages,
+        has_images: storedHasImages || hasDriveImages,
       }
     })
 

@@ -258,14 +258,9 @@ export async function POST(request: Request) {
         status: "ready",
         has_images: false,
         image_file_names: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
-        image_urls: [
-          `/images/${postId}/1.png`,
-          `/images/${postId}/2.png`,
-          `/images/${postId}/3.png`,
-          `/images/${postId}/4.png`,
-          `/images/${postId}/5.png`,
-          `/images/${postId}/6.png`,
-        ],
+        // Deliberately empty until the carousel is actually built. Pre-seeded placeholder
+        // paths here made unbuilt drafts report has_images=true and render broken slides.
+        image_urls: [],
         created_at: new Date().toISOString(),
         source: "Topic Scout",
         suggestion: topic.suggestion || "",
