@@ -62,7 +62,14 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-22-01/6.png"
+      ],
       "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
       "posted_at": "2026-06-24T06:11:00+0000",
       "instagram_url": "https://www.instagram.com/p/DZ9Zx79FkQx/",
@@ -74,7 +81,8 @@
         "https://files.catbox.moe/6nau33.png",
         "https://files.catbox.moe/3uate0.png",
         "https://files.catbox.moe/345ajq.png"
-      ]
+      ],
+      "has_images": true
     },
     {
       "id": "GB-2026-06-30-01",
@@ -130,12 +138,20 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-30-01/6.png"
+      ],
       "drive_order_source": "Pending upload — rename as 1.png through 6.png",
       "approved_at": "2026-06-26T11:00:00+0000",
       "posted_at": "2026-06-26T17:53:54+0000",
       "instagram_url": "https://www.instagram.com/p/DaDuWf7GhVH/",
-      "instagram_media_id": "18088496375537940"
+      "instagram_media_id": "18088496375537940",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-02-02",
@@ -198,12 +214,20 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-02-02/6.png"
+      ],
       "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo",
       "approved_at": "2026-06-29T00:05:49.029Z",
       "posted_at": "2026-06-29T06:00:50+0000",
       "instagram_media_id": "18400439746086318",
-      "instagram_url": "https://www.instagram.com/p/DaKLIdnlMes/"
+      "instagram_url": "https://www.instagram.com/p/DaKLIdnlMes/",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-03-03",
@@ -266,12 +290,20 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-03/6.png"
+      ],
       "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo",
       "approved_at": "2026-06-26T11:00:00+0000",
       "posted_at": "2026-06-30T06:00:49+0000",
       "instagram_media_id": "18076836989312153",
-      "instagram_url": "https://www.instagram.com/p/DaMv7LglMNA/"
+      "instagram_url": "https://www.instagram.com/p/DaMv7LglMNA/",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-06-04",
@@ -334,11 +366,19 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-04/6.png"
+      ],
       "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28, uploaded to Drive + repo",
       "approved_at": "2026-06-26T11:00:00+0000",
       "posted_at": "2026-07-06T16:00:00+0000",
-      "instagram_url": "https://www.instagram.com/p/18132073810609790/"
+      "instagram_url": "https://www.instagram.com/p/18132073810609790/",
+      "has_images": true
     },
     {
       "id": "GB-2026-06-23-02",
@@ -399,7 +439,14 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-23-02/6.png"
+      ],
       "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
       "approved_at": "2026-06-24T07:00:00+0000",
       "posted_at": "2026-06-24T16:19:08+0000",
@@ -412,7 +459,8 @@
         "https://files.catbox.moe/22mex7.png",
         "https://files.catbox.moe/5mzgkl.png",
         "https://files.catbox.moe/72idz4.png"
-      ]
+      ],
+      "has_images": true
     },
     {
       "id": "GB-2026-06-24-03",
@@ -473,7 +521,14 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-24-03/6.png"
+      ],
       "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
       "approved_at": "2026-06-24T07:00:00+0000",
       "posted_at": "2026-06-26T17:41:26+0000",
@@ -486,7 +541,8 @@
         "https://files.catbox.moe/bm8zuu.png",
         "https://files.catbox.moe/1i1x11.png",
         "https://files.catbox.moe/pd31it.png"
-      ]
+      ],
+      "has_images": true
     },
     {
       "id": "GB-2026-06-25-04",
@@ -547,7 +603,14 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-25-04/6.png"
+      ],
       "drive_order_source": "Google Drive numeric filenames 1.png-6.png",
       "approved_at": "2026-06-24T07:00:00+0000",
       "posted_at": "2026-06-26T17:42:47+0000",
@@ -560,7 +623,8 @@
         "https://files.catbox.moe/4cy84g.png",
         "https://files.catbox.moe/3kw5jd.png",
         "https://files.catbox.moe/5qu9ur.png"
-      ]
+      ],
+      "has_images": true
     },
     {
       "id": "GB-2026-06-29-05",
@@ -623,7 +687,14 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-05/6.png"
+      ],
       "drive_order_source": "AI generated via chatgpt-imagegen on Jun 28",
       "verified_sources": {
         "vertical_revenue_7B": "IndieWire, June 2025 - $7B vertical drama revenue",
@@ -637,7 +708,8 @@
       "approved_at": null,
       "posted_at": "2026-07-12T18:16:10+0000",
       "instagram_url": "",
-      "instagram_media_id": "18106162772010881"
+      "instagram_media_id": "18106162772010881",
+      "has_images": true
     },
     {
       "id": "GB-2026-06-29-06",
@@ -663,7 +735,9 @@
       "image_file_names": [
         "1.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-06-29-06/1.png"
+      ],
       "drive_order_source": "Movie watchlist card generated and uploaded Jun 28; one-slide post.",
       "source_art_credit": "Fandango/Universal presale poster",
       "source_art_url": "https://images.fandango.com/ImageRenderer/0/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/244409/minionsmonsters_presale.jpg",
@@ -673,7 +747,8 @@
       "approved_at": "2026-06-29T00:45:44.740Z",
       "posted_at": "2026-07-12T18:16:45+0000",
       "instagram_url": "",
-      "instagram_media_id": "18159028261477803"
+      "instagram_media_id": "18159028261477803",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-06-07",
@@ -699,7 +774,9 @@
       "image_file_names": [
         "1.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-07/1.png"
+      ],
       "drive_order_source": "Movie watchlist card generated and uploaded Jun 28; one-slide post.",
       "source_art_credit": "Official poster via Wikipedia",
       "source_art_url": "https://upload.wikimedia.org/wikipedia/en/a/a4/Evil_Dead_Burn_poster.jpeg",
@@ -708,7 +785,8 @@
       "drive_post_folder_id": "1ruY410vfndFBogwSQqGakFO3nIneEHtP",
       "approved_at": "2026-06-29T00:44:32.179Z",
       "posted_at": "2026-07-06T10:00:00+0000",
-      "instagram_url": "https://www.instagram.com/p/18085364510639675/"
+      "instagram_url": "https://www.instagram.com/p/18085364510639675/",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-13-08",
@@ -734,7 +812,9 @@
       "image_file_names": [
         "1.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-13-08/1.png"
+      ],
       "drive_order_source": "Movie watchlist card generated and uploaded Jun 28; one-slide post.",
       "source_art_credit": "Official Universal / OdysseyMovie.com promo art",
       "source_art_url": "https://dx35vtwkllhj9.cloudfront.net/universalstudios/the-odyssey/images/regions/us/share.jpg",
@@ -746,7 +826,8 @@
       "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
       "posted_at": "2026-07-16T02:00:17+0000",
       "instagram_url": "https://www.instagram.com/p/Da1hHTyGq8J/",
-      "instagram_media_id": "18408921559152854"
+      "instagram_media_id": "18408921559152854",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-20-09",
@@ -772,7 +853,9 @@
       "image_file_names": [
         "1.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-20-09/1.png"
+      ],
       "drive_order_source": "Movie watchlist card generated and uploaded Jun 28; one-slide post.",
       "source_art_credit": "Detroit Free Press coverage of official poster",
       "source_art_url": "https://www.freep.com/gcdn/authoring/authoring-images/2026/06/08/PDTF/90455729007-motor-city-poster-4-x-5.jpg?crop=1078,607,x0,y0&width=1078&height=607&format=pjpg&auto=webp",
@@ -782,7 +865,8 @@
       "approved_at": "2026-06-29T00:44:19.435Z",
       "posted_at": "2026-07-20T14:00:18+0000",
       "instagram_url": "https://www.instagram.com/p/DbBGsZPm9A2/",
-      "instagram_media_id": "18014779676868725"
+      "instagram_media_id": "18014779676868725",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-27-10",
@@ -808,7 +892,9 @@
       "image_file_names": [
         "1.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-27-10/1.png"
+      ],
       "drive_order_source": "Movie watchlist card generated and uploaded Jun 28; one-slide post.",
       "source_art_credit": "Marvel official poster art",
       "source_art_url": "https://cdn.marvel.com/content/1x/spidermanbrandnewday_online_1080x1350_hoodie_02.webp",
@@ -818,7 +904,8 @@
       "approved_at": "2026-06-29T00:45:23.994Z",
       "posted_at": "2026-07-27T14:00:19+0000",
       "instagram_url": "https://www.instagram.com/p/DbTIQjXm7gM/",
-      "instagram_media_id": "18109936390968165"
+      "instagram_media_id": "18109936390968165",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-06-11",
@@ -872,7 +959,13 @@
         "4.png",
         "5.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-06-11/5.png"
+      ],
       "drive_order_source": "User-provided regenerated 5-slide Evil Dead carousel uploaded from Desktop on Jun 28; replaces prior 6-slide version.",
       "source_art_credit": "TMDb promotional poster images for films 1-5; official Evil Dead Burn poster via Wikipedia.",
       "drive_post_folder_id": "1M0WMn0WFy3srlO4vd3LRydtnej2M3xnM",
@@ -888,7 +981,8 @@
       "design_notes": "User-approved ChatGPT-generated cinematic Evil Dead carousel. No slide numbers. Five-slide structure: hook, three two-film rundown slides, Army of Darkness closer.",
       "approved_at": null,
       "posted_at": "2026-07-06T10:00:00+0000",
-      "instagram_url": "https://www.instagram.com/p/18124036339600015/"
+      "instagram_url": "https://www.instagram.com/p/18124036339600015/",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-03-12",
@@ -933,7 +1027,14 @@
         }
       ],
       "status": "posted",
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-03-12/6.png"
+      ],
       "image_file_ids": [],
       "image_file_names": [
         "1.png",
@@ -1037,7 +1138,8 @@
         }
       },
       "posted_at": "2026-07-03T09:00:00+0000",
-      "instagram_url": "https://www.instagram.com/p/17870264124652736/"
+      "instagram_url": "https://www.instagram.com/p/17870264124652736/",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-07-13",
@@ -1082,7 +1184,14 @@
         }
       ],
       "status": "posted",
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-07-13/6.png"
+      ],
       "image_file_ids": [],
       "image_file_names": [
         "1.png",
@@ -1156,7 +1265,8 @@
         }
       },
       "posted_at": "2026-07-07T06:00:00+0000",
-      "instagram_url": "https://www.instagram.com/p/18011499560731703/"
+      "instagram_url": "https://www.instagram.com/p/18011499560731703/",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-08-14",
@@ -1201,7 +1311,14 @@
         }
       ],
       "status": "posted",
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-08-14/6.png"
+      ],
       "image_file_ids": [
         "",
         "",
@@ -1286,7 +1403,8 @@
       "approved_at": "2026-07-17T00:40:38.883Z",
       "posted_at": "2026-07-17T03:00:50+0000",
       "instagram_url": "https://www.instagram.com/p/Da4M15klPm9/",
-      "instagram_media_id": "18346682875174869"
+      "instagram_media_id": "18346682875174869",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-09-15",
@@ -1331,7 +1449,14 @@
         }
       ],
       "status": "posted",
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-09-15/6.png"
+      ],
       "image_file_ids": [
         "",
         "",
@@ -1416,7 +1541,8 @@
       "approved_at": "2026-07-17T05:47:58.142Z",
       "posted_at": "2026-07-17T16:00:53+0000",
       "instagram_url": "https://www.instagram.com/p/Da5mG8nm5nW/",
-      "instagram_media_id": "18085924508171852"
+      "instagram_media_id": "18085924508171852",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-15-17",
@@ -1461,7 +1587,14 @@
         }
       ],
       "status": "posted",
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-15-17/6.png"
+      ],
       "image_file_ids": [
         "",
         "",
@@ -1516,7 +1649,8 @@
       "reschedule_reason": "Approved post was past scheduled time but not found on Instagram; moved to first available slot this week.",
       "posted_at": "2026-07-15T23:01:32+0000",
       "instagram_url": "https://www.instagram.com/p/Da1MqQyAVBt/",
-      "instagram_media_id": "18112905482312581"
+      "instagram_media_id": "18112905482312581",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-16-18",
@@ -1561,7 +1695,14 @@
         }
       ],
       "status": "posted",
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-16-18/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-16-18/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-16-18/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-16-18/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-16-18/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-16-18/6.png"
+      ],
       "image_file_ids": [
         "",
         "",
@@ -1588,7 +1729,8 @@
       "approved_at": "2026-07-16T01:07:17.984Z",
       "posted_at": "2026-07-16T23:00:46+0000",
       "instagram_url": "https://www.instagram.com/p/Da3xXjqgZH8/",
-      "instagram_media_id": "17888124525600879"
+      "instagram_media_id": "17888124525600879",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-18-19",
@@ -1648,12 +1790,20 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-19/6.png"
+      ],
       "drive_order_source": "Corrected cinematic ChatGPT image generation one slide at a time on 2026-07-16; repo/CDN images, no Drive upload yet",
       "approved_at": "2026-07-16T22:13:13.549Z",
       "posted_at": "2026-07-18T16:01:03+0000",
       "instagram_url": "https://www.instagram.com/p/Da8K7HCm7Un/",
-      "instagram_media_id": "17940840156267348"
+      "instagram_media_id": "17940840156267348",
+      "has_images": true
     },
     {
       "id": "GB-2026-07-18-20",
@@ -1713,12 +1863,20 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/1.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/2.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/3.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/4.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/5.png",
+        "https://garybudgets-command-center.vercel.app/images/GB-2026-07-18-20/6.png"
+      ],
       "drive_order_source": "Corrected cinematic ChatGPT image generation one slide at a time on 2026-07-16; repo/CDN images, no Drive upload yet",
       "approved_at": "2026-07-16T22:59:30.252Z",
       "posted_at": "2026-07-18T19:00:54+0000",
       "instagram_url": "https://www.instagram.com/p/Da8fgW7ma8M/",
-      "instagram_media_id": "18116543158927869"
+      "instagram_media_id": "18116543158927869",
+      "has_images": true
     },
     {
       "id": "scout-1784259331-0",
