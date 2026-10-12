@@ -4973,50 +4973,56 @@
     },
     {
       "id": "scout-1791597991718-2",
-      "title": "Mike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer",
+      "title": "‘The Exorcist: Martyrs’: Inside the $400 Million Bet Behind the Trailer",
       "source_title": "Mike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer - Bloody Disgusting",
       "pillar": "Industry Watch",
-      "slug": "Post_mike-flanagan-s-the-exorcist-martyrs-releases-frightening-fu",
+      "slug": "Post_the-exorcist-martyrs-400-million-bet-full-trailer",
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
       "proposed_schedule": null,
-      "caption": "First look: Mike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer\n\nMike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer Bloody Disgusting\n\nThe filmmaker's read: what this first look tells us about the finished film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 1h ago; News: film trailers is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
-      "hashtags": "#FilmNews #Trailer #MovieNews #Filmmaking #FilmIndustry",
+      "caption": "Inside the $400 million bet on The Exorcist.\n\nUniversal paid $400M for a new Exorcist trilogy in 2021 and launched it with Believer in 2023. Mike Flanagan's Martyrs is not a sequel to that film — it is a reset, and he wrote, directed and edited it himself.\n\nWhat the trailer shows: Detective Julie Miller ends the killing spree of satanic Father Sunday. Thirteen years later a new killer writes her name in blood inside a church crypt.\n\nIn theaters March 12, 2027 from Universal Pictures.\n\nSlide through for the plot, the money, and what the deal structure means for working filmmakers.",
+      "hashtags": "#FilmNews #TheExorcist #MikeFlanagan #Blumhouse #FilmIndustry",
       "slides": [
         {
           "slide": 1,
-          "heading": "Hook",
-          "prompt_summary": "Hook slide — the story in one line: \"First look: Mike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer\". Large, plain, instantly readable on a phone."
+          "heading": "A $400 MILLION BET ON HORROR",
+          "text": "Universal paid $400 million for a new Exorcist trilogy in 2021. Mike Flanagan's reboot is the third swing at making it pay. In theaters March 12, 2027.",
+          "prompt_summary": "Hook slide — open on the money, not the monster."
         },
         {
           "slide": 2,
-          "heading": "What happened",
-          "prompt_summary": "Report the news in two or three plain sentences: Mike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer Bloody Disgusting Cover who, what and when. No speculation."
+          "heading": "WHAT HAPPENED",
+          "text": "The first trailer for The Exorcist: Martyrs premiered at New York Comic-Con, unveiled by Mike Flanagan and star Chiwetel Ejiofor. It reaches theaters March 12, 2027 from Universal Pictures. Blumhouse and Morgan Creek produced it. It is the seventh film in the franchise.",
+          "prompt_summary": "The news beat: where it premiered and when it lands."
         },
         {
           "slide": 3,
-          "heading": "The detail",
-          "prompt_summary": "Zoom in on the specifics of Mike Flanagan’s ‘The Exorcist: the names, numbers, dates or terms a film professional would actually want."
+          "heading": "WHAT THE MOVIE IS ACTUALLY ABOUT",
+          "text": "Detective Julie Miller ends the killing spree of satanic Father Sunday. Thirteen years later a new killer writes her name in blood on a church crypt wall. She works the case with Father William, a former prison chaplain. The evil links killers from H.H. Holmes to the Zodiac.",
+          "prompt_summary": "Plot walkthrough — what audiences will actually see."
         },
         {
           "slide": 4,
-          "heading": "Why it matters",
-          "prompt_summary": "Explain what this signals for people who make films, using Mike Flanagan’s ‘The Exorcist as the example. Concrete, not abstract — name the practical consequence."
+          "heading": "THE $400 MILLION BET",
+          "text": "Universal bought a new Exorcist trilogy for $400 million in 2021. It launched with The Exorcist: Believer in 2023, which flopped. Flanagan's Martyrs is not a sequel to it. One director now carries the whole investment.",
+          "prompt_summary": "The franchise economics: $400M, a flop, and one director's reset."
         },
         {
           "slide": 5,
-          "heading": "What to watch",
-          "prompt_summary": "Say what happens next with Mike Flanagan’s ‘The Exorcist and what to keep an eye on. Forward-looking and specific."
+          "heading": "WHY THIS MATTERS FOR WORKING FILMMAKERS",
+          "text": "Flanagan wrote, directed and edited it himself, so one filmmaker holds the vision. It is his fourth Blumhouse film with the same producer, Trevor Macy. Studio money follows proven relationships as much as the script.",
+          "prompt_summary": "What the deal structure teaches working filmmakers."
         },
         {
           "slide": 6,
-          "heading": "CTA",
-          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+          "heading": "THE HORROR IS IN THE BUDGET",
+          "text": "Follow @garyfilmbudgets for daily film industry news. Build your next production budget at garybudgets.com.",
+          "prompt_summary": "CTA slide."
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
         "1.png",
         "2.png",
@@ -5025,15 +5031,34 @@
         "5.png",
         "6.png"
       ],
-      "image_urls": [],
+      "image_urls": [
+        "/images/scout-1791597991718-2/1.png",
+        "/images/scout-1791597991718-2/2.png",
+        "/images/scout-1791597991718-2/3.png",
+        "/images/scout-1791597991718-2/4.png",
+        "/images/scout-1791597991718-2/5.png",
+        "/images/scout-1791597991718-2/6.png"
+      ],
       "created_at": "2026-10-10T02:06:31.718Z",
       "source": "Topic Scout",
       "suggestion": "Mike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer Bloody Disgusting",
       "source_name": "News: film trailers",
-      "hook": "First look: Mike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer",
+      "hook": "The $400 million Exorcist bet: what the full trailer reveals",
       "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 1h ago; News: film trailers is a trade source.",
       "evidence_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOU00zc3E3YngtNExJYUpGY2k3MTVDa09pc3U4REVKa2pmQWt4SGNuYVp2eUZlRVUyRmxOQk9pQzlGRloyU0NiUm9TRTRRTm5ia2tDVk1hbEg1ZUtGVno5UG9sTWVtdHZBY3Y4Z0RpUHNVV2g4anBRb3FnUWw0MHpRd2xPQ0VzXzEzLWp6NVNuN1lEak5vdXhOc0dXSThIQ3g5N2Z3dHU2N1ZCZnBPRE11SQ?oc=5",
-      "duplicate_note": "No close match in the existing-post corpus."
+      "duplicate_note": "Same story as the published carousel scout-1791597991717-1 — rebuilt as a distinct angle (the $400M franchise economics + the plot), not a repeat.",
+      "approved_at": null,
+      "stuck": false,
+      "skipped": false,
+      "image_file_ids": [
+        "scout-1791597991718-2/1.png",
+        "scout-1791597991718-2/2.png",
+        "scout-1791597991718-2/3.png",
+        "scout-1791597991718-2/4.png",
+        "scout-1791597991718-2/5.png",
+        "scout-1791597991718-2/6.png"
+      ],
+      "images_built_at": "2026-10-12T15:03:54Z"
     },
     {
       "id": "scout-1791597991718-2-reel",
