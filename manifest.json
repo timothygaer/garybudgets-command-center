@@ -5304,6 +5304,522 @@
       "duplicate_note": "Similar to existing post “The 65 Movies That Have Made More Than $1 Billion At The Global Box Office” (match 100%) but carries a current change/news angle, so it is allowed as a rework.",
       "video_url": null,
       "cover_url": null
+    },
+    {
+      "id": "scout-1791844892010-2",
+      "title": "”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer",
+      "source_title": "”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer",
+      "pillar": "Industry Watch",
+      "slug": "Post_james-gray-films-are-a-safe-investment-says-paper-tiger-prod",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer\n\nRodrigo Teixeira and fellow producers behind 'Fjord,' 'Everybody Digs Bill Evans' and 'The End of It' swapped lessons at a BFI London Film Festival industry session held in…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; The Hollywood Reporter is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Rodrigo Teixeira and fellow producers behind 'Fjord,' 'Everybody Digs Bill Evans' and 'The End of It' swapped lessons at a BFI London Film Festival industry session held in… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ”James Gray Films Are a Safe Investment,” Says: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using ”James Gray Films Are a Safe Investment,” Says as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ”James Gray Films Are a Safe Investment,” Says and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-12T22:41:32.011Z",
+      "source": "Topic Scout",
+      "suggestion": "Rodrigo Teixeira and fellow producers behind 'Fjord,' 'Everybody Digs Bill Evans' and 'The End of It' swapped lessons at a BFI London Film Festival industry session held in association with The Hollywood Reporter.",
+      "source_name": "The Hollywood Reporter",
+      "hook": "”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; The Hollywood Reporter is a trade source.",
+      "evidence_url": "https://www.hollywoodreporter.com/movies/movie-news/james-gray-films-safe-investment-paper-tiger-producer-1236728024/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1791844892010-2-reel",
+      "title": "”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer (Reel)",
+      "source_title": "”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer",
+      "pillar": "Industry Watch",
+      "slug": "Reel_james-gray-films-are-a-safe-investment-says-paper-tiger-prod",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: ”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer\n\nRodrigo Teixeira and fellow producers behind 'Fjord,' 'Everybody Digs Bill Evans' and 'The End of It' swapped lessons at a BFI London Film Festival industry session held in…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; The Hollywood Reporter is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Rodrigo Teixeira and fellow producers behind 'Fjord,' 'Everybody Digs Bill Evans' and 'The End of It' swapped lessons at a BFI London Film Festival industry session held in… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ”James Gray Films Are a Safe Investment,” Says: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using ”James Gray Films Are a Safe Investment,” Says as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ”James Gray Films Are a Safe Investment,” Says and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-10-12T22:41:32.011Z",
+      "source": "Topic Scout",
+      "suggestion": "Rodrigo Teixeira and fellow producers behind 'Fjord,' 'Everybody Digs Bill Evans' and 'The End of It' swapped lessons at a BFI London Film Festival industry session held in association with The Hollywood Reporter.",
+      "source_name": "The Hollywood Reporter",
+      "hook": "”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; The Hollywood Reporter is a trade source.",
+      "evidence_url": "https://www.hollywoodreporter.com/movies/movie-news/james-gray-films-safe-investment-paper-tiger-producer-1236728024/",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1791844892011-3",
+      "title": "RJ Mitte, ‘Breaking Bad’ Star, Dies at 34",
+      "source_title": "RJ Mitte, ‘Breaking Bad’ Star, Dies at 34",
+      "pillar": "Industry Watch",
+      "slug": "Post_rj-mitte-breaking-bad-star-dies-at-34",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "RJ Mitte, ‘Breaking Bad’ Star, Dies at 34\n\nThe actor and disability rights activist is best known for playing Walter White Jr.\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; TheWrap is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"RJ Mitte, ‘Breaking Bad’ Star, Dies at 34\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: The actor and disability rights activist is best known for playing Walter White Jr. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of RJ Mitte, ‘Breaking Bad’ Star, Dies at 34: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using RJ Mitte, ‘Breaking Bad’ Star, Dies at 34 as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with RJ Mitte, ‘Breaking Bad’ Star, Dies at 34 and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-12T22:41:32.011Z",
+      "source": "Topic Scout",
+      "suggestion": "The actor and disability rights activist is best known for playing Walter White Jr. on the acclaimed crime drama The post RJ Mitte, ‘Breaking Bad’ Star, Dies at 34 appeared first on TheWrap .",
+      "source_name": "TheWrap",
+      "hook": "RJ Mitte, ‘Breaking Bad’ Star, Dies at 34",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; TheWrap is a trade source.",
+      "evidence_url": "https://www.thewrap.com/creative-content/tv-shows/rj-mitte-breaking-bad-dies-at-34/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1791844892011-3-reel",
+      "title": "RJ Mitte, ‘Breaking Bad’ Star, Dies at 34 (Reel)",
+      "source_title": "RJ Mitte, ‘Breaking Bad’ Star, Dies at 34",
+      "pillar": "Industry Watch",
+      "slug": "Reel_rj-mitte-breaking-bad-star-dies-at-34",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: RJ Mitte, ‘Breaking Bad’ Star, Dies at 34\n\nThe actor and disability rights activist is best known for playing Walter White Jr.\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; TheWrap is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"RJ Mitte, ‘Breaking Bad’ Star, Dies at 34\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: The actor and disability rights activist is best known for playing Walter White Jr. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of RJ Mitte, ‘Breaking Bad’ Star, Dies at 34: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using RJ Mitte, ‘Breaking Bad’ Star, Dies at 34 as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with RJ Mitte, ‘Breaking Bad’ Star, Dies at 34 and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-10-12T22:41:32.011Z",
+      "source": "Topic Scout",
+      "suggestion": "The actor and disability rights activist is best known for playing Walter White Jr. on the acclaimed crime drama The post RJ Mitte, ‘Breaking Bad’ Star, Dies at 34 appeared first on TheWrap .",
+      "source_name": "TheWrap",
+      "hook": "RJ Mitte, ‘Breaking Bad’ Star, Dies at 34",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; TheWrap is a trade source.",
+      "evidence_url": "https://www.thewrap.com/creative-content/tv-shows/rj-mitte-breaking-bad-dies-at-34/",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1791844892011-4",
+      "title": "Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office",
+      "source_title": "Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office - BBC",
+      "pillar": "Industry Watch",
+      "slug": "Post_tom-cruise-film-digger-forecast-to-lose-245m-as-the-social-r",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Box office: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office\n\nTom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office BBC Digger on course for $245m loss after box office collapse The Guardian Tom Cruise's 'Digger' tanks, leaving studio with $250 mn hole Yahoo\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 8h ago; News: box office is a box-office source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Box office: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office BBC Digger on course for $245m loss after box office collapse The Guardian Tom Cruise's 'Digger' tanks, leaving studio with $250 mn hole Yahoo Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Tom Cruise film Digger forecast to lose $245m: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Tom Cruise film Digger forecast to lose $245m as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Tom Cruise film Digger forecast to lose $245m and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-12T22:41:32.011Z",
+      "source": "Topic Scout",
+      "suggestion": "Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office BBC Digger on course for $245m loss after box office collapse The Guardian Tom Cruise's 'Digger' tanks, leaving studio with $250 mn hole Yahoo",
+      "source_name": "News: box office",
+      "hook": "Box office: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 8h ago; News: box office is a box-office source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBuUnM5eUxHVks5Y1gyc05TRnU0Rk5uSWJLYzFsRUs3aHpYckN3SGNKbllicERhdUh5YkE1OFhlTnVHVHFRTDNyRDY4NHpvQWVUcTZ3WEJQOWpqRjQ?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1791844892011-4-reel",
+      "title": "Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office (Reel)",
+      "source_title": "Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office - BBC",
+      "pillar": "Industry Watch",
+      "slug": "Reel_tom-cruise-film-digger-forecast-to-lose-245m-as-the-social-r",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Box office: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office\n\nTom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office BBC Digger on course for $245m loss after box office collapse The Guardian Tom Cruise's 'Digger' tanks, leaving studio with $250 mn hole Yahoo\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 8h ago; News: box office is a box-office source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Box office: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office BBC Digger on course for $245m loss after box office collapse The Guardian Tom Cruise's 'Digger' tanks, leaving studio with $250 mn hole Yahoo Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Tom Cruise film Digger forecast to lose $245m: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Tom Cruise film Digger forecast to lose $245m as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Tom Cruise film Digger forecast to lose $245m and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-10-12T22:41:32.011Z",
+      "source": "Topic Scout",
+      "suggestion": "Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office BBC Digger on course for $245m loss after box office collapse The Guardian Tom Cruise's 'Digger' tanks, leaving studio with $250 mn hole Yahoo",
+      "source_name": "News: box office",
+      "hook": "Box office: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 8h ago; News: box office is a box-office source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBuUnM5eUxHVks5Y1gyc05TRnU0Rk5uSWJLYzFsRUs3aHpYckN3SGNKbllicERhdUh5YkE1OFhlTnVHVHFRTDNyRDY4NHpvQWVUcTZ3WEJQOWpqRjQ?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1791844892011-5",
+      "title": "Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com",
+      "source_title": "Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com",
+      "pillar": "Industry Watch",
+      "slug": "Post_marvel-s-visionquest-premieres-at-the-london-film-festival-w",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com\n\nMarvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 2h ago; News: film festivals is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Marvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Marvel’s “VisionQuest” Premieres At The London Film Festival: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Marvel’s “VisionQuest” Premieres At The London Film Festival as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Marvel’s “VisionQuest” Premieres At The London Film Festival and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-12T22:41:32.011Z",
+      "source": "Topic Scout",
+      "suggestion": "Marvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com",
+      "source_name": "News: film festivals",
+      "hook": "Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 2h ago; News: film festivals is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRk9HV0kxYWpTYllIemJiY2VwOHk4VUZGekk0SjlsU2dCaUdkWHk5Z28tcW5sT01NUDdNb1RXM0hQZnpLZ01tS3N3eDJleGlwa1ljYUMwWEdkaVRKejJKbVNKNTBMVDY3ZGp2ZGEyeGNDNGFuQ2hlOXJDdzBPWnZ0WlBoUlplbzRreVlhRjcxRU5hdw?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1791844892011-5-reel",
+      "title": "Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com (Reel)",
+      "source_title": "Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com",
+      "pillar": "Industry Watch",
+      "slug": "Reel_marvel-s-visionquest-premieres-at-the-london-film-festival-w",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com\n\nMarvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 2h ago; News: film festivals is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Marvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Marvel’s “VisionQuest” Premieres At The London Film Festival: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Marvel’s “VisionQuest” Premieres At The London Film Festival as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Marvel’s “VisionQuest” Premieres At The London Film Festival and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-10-12T22:41:32.011Z",
+      "source": "Topic Scout",
+      "suggestion": "Marvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com",
+      "source_name": "News: film festivals",
+      "hook": "Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 2h ago; News: film festivals is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRk9HV0kxYWpTYllIemJiY2VwOHk4VUZGekk0SjlsU2dCaUdkWHk5Z28tcW5sT01NUDdNb1RXM0hQZnpLZ01tS3N3eDJleGlwa1ljYUMwWEdkaVRKejJKbVNKNTBMVDY3ZGp2ZGEyeGNDNGFuQ2hlOXJDdzBPWnZ0WlBoUlplbzRreVlhRjcxRU5hdw?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
     }
   ]
 }
