@@ -1,8 +1,8 @@
 {
   "_rule": "No song repeats within 10 consecutive reels (2-week window). pick_track.py selects the least-recently-used track for the requested mood. Usage is appended by the picker and committed with each reel.",
   "_sources": {
-    "motionarray": "User's paid Motion Array sub — 30 tracks (ma-<mood>-NN.mp3) downloaded manually to Drive 'Gary Budgets > Reel Music'. NEVER automate downloads (ToS).",
-    "jamendo": "Free Jamendo API client_id (user registers at api.jamendo.com — sheet 'Gary Budgets — TikTok & Music Launch Checklist' step 3). CC-BY tracks need caption credit.",
+    "motionarray": "User's paid Motion Array sub \u2014 30 tracks (ma-<mood>-NN.mp3) downloaded manually to Drive 'Gary Budgets > Reel Music'. NEVER automate downloads (ToS).",
+    "jamendo": "Free Jamendo API client_id (user registers at api.jamendo.com \u2014 sheet 'Gary Budgets \u2014 TikTok & Music Launch Checklist' step 3). CC-BY tracks need caption credit.",
     "youtube": "No-copyright tracks via yt-dlp (fallback)."
   },
   "tracks": [
@@ -11,8 +11,35 @@
       "source": "youtube",
       "file": "public/reels/audio/music-licensing-traps-bed.m4a",
       "mood": "dark_cinematic",
-      "credit": "Soundridemusic — Dark Cinematic Trailer (no copyright)",
+      "credit": "Soundridemusic \u2014 Dark Cinematic Trailer (no copyright)",
       "last_used_reel": 0
+    },
+    {
+      "id": "arch-exorcist-teaser-impending-doom",
+      "source": "internet_archive",
+      "file": "public/reels/audio/bed-exorcist-teaser-impending-doom.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Phantasm Nocturnes \u2014 \"Impending Doom\" (Internet Archive / SPNet, CC BY-SA 3.0)",
+      "last_used_reel": 0,
+      "attribution_required": true
+    },
+    {
+      "id": "arch-exorcist-trailer-glass-darkly",
+      "source": "internet_archive",
+      "file": "public/reels/audio/bed-exorcist-trailer-glass-darkly.mp3",
+      "mood": "tension",
+      "credit": "Doc & Lena Selyanina \u2014 \"Through A Glass Darkly\" (Internet Archive / FMA, CC BY 3.0)",
+      "last_used_reel": 0,
+      "attribution_required": true
+    },
+    {
+      "id": "arch-skydance-merger-the-office",
+      "source": "internet_archive",
+      "file": "public/reels/audio/bed-skydance-merger-the-office.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Dj Hollow Life \u2014 \"The Office\", from The Haunted Mansion (Internet Archive / FMA, CC BY 3.0)",
+      "last_used_reel": 0,
+      "attribution_required": true
     }
   ],
   "usage_log": []

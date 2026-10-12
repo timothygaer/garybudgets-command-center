@@ -1,0 +1,40 @@
+{
+ "slug": "scout-1791597991718-3",
+ "title": "What a $110 billion merger means for film work",
+ "music": "public/reels/audio/reel-718-3-the-office-cut.mp3",
+ "music_volume": 0.32,
+ "out_video": "public/reels/scout-1791597991718-3.mp4",
+ "out_montage": "public/reels/scout-1791597991718-3-montage.jpg",
+ "scenes": [
+  {
+   "img": "public/reels/bg/scout-1791597991718-3/01.jpg",
+   "duration": 4.5,
+   "motion": "zoom_in"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991718-3/02.jpg",
+   "duration": 5.0,
+   "motion": "pan_up"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991718-3/03.jpg",
+   "duration": 5.0,
+   "motion": "zoom_out"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991718-3/04.jpg",
+   "duration": 5.0,
+   "motion": "pan_down"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991718-3/05.jpg",
+   "duration": 5.0,
+   "motion": "zoom_in"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991718-3/06.jpg",
+   "duration": 4.5,
+   "motion": "zoom_in"
+  }
+ ]
+}

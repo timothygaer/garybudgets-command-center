@@ -1,0 +1,40 @@
+{
+ "slug": "scout-1791597991717-1",
+ "title": "The Exorcist: Martyrs \u2014 the trailer is here",
+ "music": "public/reels/audio/reel-717-death-valley-waltz-cut.mp3",
+ "music_volume": 0.32,
+ "out_video": "public/reels/scout-1791597991717-1.mp4",
+ "out_montage": "public/reels/scout-1791597991717-1-montage.jpg",
+ "scenes": [
+  {
+   "img": "public/reels/bg/scout-1791597991717-1/01.jpg",
+   "duration": 4.5,
+   "motion": "zoom_in"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991717-1/02.jpg",
+   "duration": 5.0,
+   "motion": "pan_up"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991717-1/03.jpg",
+   "duration": 5.0,
+   "motion": "zoom_out"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991717-1/04.jpg",
+   "duration": 5.0,
+   "motion": "pan_down"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991717-1/05.jpg",
+   "duration": 5.0,
+   "motion": "zoom_in"
+  },
+  {
+   "img": "public/reels/bg/scout-1791597991717-1/06.jpg",
+   "duration": 4.5,
+   "motion": "zoom_in"
+  }
+ ]
+}
