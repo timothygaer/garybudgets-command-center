@@ -5175,6 +5175,135 @@
       "stuck": false,
       "skipped": false,
       "approved_at": "2026-10-12T21:53:24.900Z"
+    },
+    {
+      "id": "scout-1791844872235-1",
+      "title": "The 65 Movies That Have Made More Than $1 Billion At The Global Box Office",
+      "source_title": "The 65 Movies That Have Made More Than $1 Billion At The Global Box Office",
+      "pillar": "Industry Watch",
+      "slug": "Post_the-65-movies-that-have-made-more-than-1-billion-at-the-glob",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office\n\nSony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the…\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 7 independent sources; published 7h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Sony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of The 65 Movies That Have Made More Than: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using The 65 Movies That Have Made More Than as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with The 65 Movies That Have Made More Than and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-12T22:41:12.236Z",
+      "source": "Topic Scout",
+      "suggestion": "Sony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the milestone, behind 2019’s Avengers: Endgame. Christopher Nolan’s epic, The Odyssey, also sailed into the billion-dollar threshold, making this a great year for Universal releases. […]",
+      "source_name": "Deadline",
+      "hook": "Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 7 independent sources; published 7h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/gallery/highest-grossing-movies-all-time/",
+      "duplicate_note": "Similar to existing post “The 65 Movies That Have Made More Than $1 Billion At The Global Box Office” (match 100%) but carries a current change/news angle, so it is allowed as a rework."
+    },
+    {
+      "id": "scout-1791844872235-1-reel",
+      "title": "The 65 Movies That Have Made More Than $1 Billion At The Global Box Office (Reel)",
+      "source_title": "The 65 Movies That Have Made More Than $1 Billion At The Global Box Office",
+      "pillar": "Industry Watch",
+      "slug": "Reel_the-65-movies-that-have-made-more-than-1-billion-at-the-glob",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office\n\nSony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the…\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 7 independent sources; published 7h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Sony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of The 65 Movies That Have Made More Than: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using The 65 Movies That Have Made More Than as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with The 65 Movies That Have Made More Than and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-10-12T22:41:12.236Z",
+      "source": "Topic Scout",
+      "suggestion": "Sony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the milestone, behind 2019’s Avengers: Endgame. Christopher Nolan’s epic, The Odyssey, also sailed into the billion-dollar threshold, making this a great year for Universal releases. […]",
+      "source_name": "Deadline",
+      "hook": "Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 7 independent sources; published 7h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/gallery/highest-grossing-movies-all-time/",
+      "duplicate_note": "Similar to existing post “The 65 Movies That Have Made More Than $1 Billion At The Global Box Office” (match 100%) but carries a current change/news angle, so it is allowed as a rework.",
+      "video_url": null,
+      "cover_url": null
     }
   ]
 }
