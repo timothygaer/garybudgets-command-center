@@ -4853,7 +4853,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Mon, Oct 12 · 6:00 PM PT",
       "caption": "Inside the $400 million bet on The Exorcist.\n\nUniversal paid $400M for a new Exorcist trilogy in 2021 and launched it with Believer in 2023. Mike Flanagan's Martyrs is not a sequel to that film — it is a reset, and he wrote, directed and edited it himself.\n\nWhat the trailer shows: Detective Julie Miller ends the killing spree of satanic Father Sunday. Thirteen years later a new killer writes her name in blood inside a church crypt.\n\nIn theaters March 12, 2027 from Universal Pictures.\n\nSlide through for the plot, the money, and what the deal structure means for working filmmakers.",
       "hashtags": "#FilmNews #TheExorcist #MikeFlanagan #Blumhouse #FilmIndustry",
       "slides": [
@@ -4894,7 +4894,7 @@
           "prompt_summary": "CTA slide."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -4905,12 +4905,12 @@
         "6.png"
       ],
       "image_urls": [
-        "/images/scout-1791597991718-2/1.png",
-        "/images/scout-1791597991718-2/2.png",
-        "/images/scout-1791597991718-2/3.png",
-        "/images/scout-1791597991718-2/4.png",
-        "/images/scout-1791597991718-2/5.png",
-        "/images/scout-1791597991718-2/6.png"
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-2/1.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-2/2.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-2/3.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-2/4.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-2/5.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-2/6.png"
       ],
       "created_at": "2026-10-10T02:06:31.718Z",
       "source": "Topic Scout",
@@ -4920,7 +4920,7 @@
       "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 1h ago; News: film trailers is a trade source.",
       "evidence_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOU00zc3E3YngtNExJYUpGY2k3MTVDa09pc3U4REVKa2pmQWt4SGNuYVp2eUZlRVUyRmxOQk9pQzlGRloyU0NiUm9TRTRRTm5ia2tDVk1hbEg1ZUtGVno5UG9sTWVtdHZBY3Y4Z0RpUHNVV2g4anBRb3FnUWw0MHpRd2xPQ0VzXzEzLWp6NVNuN1lEak5vdXhOc0dXSThIQ3g5N2Z3dHU2N1ZCZnBPRE11SQ?oc=5",
       "duplicate_note": "Same story as the published carousel scout-1791597991717-1 — rebuilt as a distinct angle (the $400M franchise economics + the plot), not a repeat.",
-      "approved_at": null,
+      "approved_at": "2026-10-12T16:40:07.146Z",
       "stuck": false,
       "skipped": false,
       "image_file_ids": [
