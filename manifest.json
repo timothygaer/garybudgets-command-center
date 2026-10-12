@@ -5109,7 +5109,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Mon, Oct 12 · 12:00 PM PT",
       "caption": "Industry deal: Skydance: How Paramount-Warner Bros merger will change the way we watch movies and the news\n\nSkydance: How Paramount-Warner Bros merger will change the way we watch movies and the news Firstpost\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 6 independent sources; published 3d ago; News: streaming deals is a finance source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
       "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
       "slides": [
@@ -5150,7 +5150,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -5161,12 +5161,12 @@
         "6.png"
       ],
       "image_urls": [
-        "/images/scout-1791597991718-3/1.png",
-        "/images/scout-1791597991718-3/2.png",
-        "/images/scout-1791597991718-3/3.png",
-        "/images/scout-1791597991718-3/4.png",
-        "/images/scout-1791597991718-3/5.png",
-        "/images/scout-1791597991718-3/6.png"
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-3/1.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-3/2.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-3/3.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-3/4.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-3/5.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791597991718-3/6.png"
       ],
       "created_at": "2026-10-10T02:06:31.718Z",
       "source": "Topic Scout",
@@ -5184,7 +5184,10 @@
         "scout-1791597991718-3/5.png",
         "scout-1791597991718-3/6.png"
       ],
-      "images_built_at": "2026-10-10T02:23:48Z"
+      "images_built_at": "2026-10-10T02:23:48Z",
+      "approved_at": "2026-10-12T14:54:48.507Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791597991718-3-reel",
