@@ -5110,7 +5110,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Tue, Oct 13 · 12:00 PM PT",
       "caption": "REEL: Industry deal: Skydance: How Paramount-Warner Bros merger will change the way we watch movies and the news\n\nSkydance: How Paramount-Warner Bros merger will change the way we watch movies and the news Firstpost\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 6 independent sources; published 3d ago; News: streaming deals is a finance source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
       "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
       "slides": [
@@ -5145,7 +5145,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -5166,9 +5166,12 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791597991718-3.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791597991718-3-cover.jpg",
       "media_type": "reel",
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/scout-1791597991718-3-cover.jpg"
+      ],
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "approved_at": "2026-10-12T21:53:24.900Z"
     }
   ]
 }
