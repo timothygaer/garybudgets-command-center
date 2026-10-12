@@ -4949,7 +4949,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Wed, Oct 14 · 7:00 PM PT",
       "caption": "REEL: First look: Mike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer\n\nMike Flanagan’s ‘The Exorcist: Martyrs’ Releases Frightening Full Trailer Bloody Disgusting\n\nThe filmmaker's read: what this first look tells us about the finished film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 1h ago; News: film trailers is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
       "hashtags": "#FilmNews #Trailer #MovieNews #Filmmaking #FilmIndustry",
       "slides": [
@@ -4984,7 +4984,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "draft",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -5005,9 +5005,12 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791597991718-2.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791597991718-2-cover.jpg",
       "media_type": "reel",
-      "image_urls": [],
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/scout-1791597991718-2-cover.jpg"
+      ],
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "approved_at": "2026-10-12T21:53:46.752Z"
     },
     {
       "id": "scout-1791597991718-3",
