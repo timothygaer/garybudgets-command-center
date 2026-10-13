@@ -5496,7 +5496,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Thu, Oct 15 · 6:00 PM PT",
       "caption": "RJ Mitte, who played Walter White Jr. on Breaking Bad and became one of the most visible disability-rights advocates in the industry, has died at 34. His reps confirmed he died in Brownsville, Texas; no cause of death has been given. Mitte was born in Jackson, Mississippi in 1992 and joined Breaking Bad for all five seasons — a character who, like him, lived with cerebral palsy. The role opened a platform he used deliberately: ambassador for United Cerebral Palsy and Shriners Children's, president of The Mitte Foundation, and a constant advocate for honest, authentic casting. He kept working too — Triumph in 2021, Love Me Dead in 2024, Westhampton in 2025. Rest in peace. If you have a story about his work or his advocacy, share it in the comments. More on the business of this industry at garybudgets.com.",
       "hashtags": "#RJMitte #BreakingBad #disabilityrights #filmmaking #garybudgets",
       "slides": [
@@ -5537,7 +5537,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -5571,7 +5571,10 @@
         "scout-1791844892011-3/5.png",
         "scout-1791844892011-3/6.png"
       ],
-      "images_built_at": "2026-10-13T00:25:31Z"
+      "images_built_at": "2026-10-13T00:25:31Z",
+      "approved_at": "2026-10-13T03:11:44.636Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791844892011-3-reel",
