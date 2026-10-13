@@ -5650,7 +5650,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Fri, Oct 16 · 12:00 PM PT",
       "caption": "Tom Cruise's Digger is on track to lose around $245 million — one of the biggest theatrical losses in Hollywood history. The numbers are brutal and simple: roughly $280 million to make and market, a second weekend that fell about 60%, and about $35 million in worldwide ticket sales so far. Here's what that teaches anyone who budgets a film: a nine-figure budget has to earn roughly double before the studio sees a dollar of profit. That math doesn't care about star power. Digger joins a club nobody wants to be in — Cutthroat Island, John Carter, The Marvels, Amsterdam — films that weren't marketing failures so much as budget failures. The fix is boring and effective: budget to the floor, hedge with pre-sales and incentives, and test the concept before you spend the marketing money. Save this for your next budget meeting, and tell me in the comments which flop you'd have greenlit anyway. More at garybudgets.com.",
       "hashtags": "#filmbudget #boxoffice #filmbusiness #filmmaking #garybudgets",
       "slides": [
@@ -5691,7 +5691,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -5725,7 +5725,10 @@
         "scout-1791844892011-4/5.png",
         "scout-1791844892011-4/6.png"
       ],
-      "images_built_at": "2026-10-13T00:25:31Z"
+      "images_built_at": "2026-10-13T00:25:31Z",
+      "approved_at": "2026-10-13T03:11:51.839Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791844892011-4-reel",
