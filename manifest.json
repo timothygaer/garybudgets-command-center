@@ -5342,7 +5342,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Thu, Oct 15 · 9:00 AM PT",
       "caption": "At a London festival masterclass this week, producer Rodrigo Teixeira called James Gray's films \"a safe investment\" — while the two are already developing their fourth movie together. It's a fascinating claim about a filmmaker whose pictures have never turned a theatrical profit. Paper Tiger, Gray's Cannes contender, cost around $15M to make. This is the part of film finance most people never see: for a producer, \"safe\" is a structural question. Foreign pre-sales, tax incentives and a modest budget can protect a project long before a single ticket is sold — even when the box office never returns the money. The lesson isn't that prestige is safe or unsafe. It's that every deal needs its own break-even model, and the record on the poster is not the model. Comment with the last film you backed — would you call it safe? More at garybudgets.com.",
       "hashtags": "#filmbudget #filmmaking #indiefilm #filmbusiness #garybudgets",
       "slides": [
@@ -5383,7 +5383,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -5417,7 +5417,10 @@
         "scout-1791844892010-2/5.png",
         "scout-1791844892010-2/6.png"
       ],
-      "images_built_at": "2026-10-13T00:25:31Z"
+      "images_built_at": "2026-10-13T00:25:31Z",
+      "approved_at": "2026-10-13T03:11:24.319Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791844892010-2-reel",
