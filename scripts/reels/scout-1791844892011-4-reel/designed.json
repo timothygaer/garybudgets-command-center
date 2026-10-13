@@ -1,0 +1,40 @@
+{
+ "slug": "scout-1791844892011-4-reel",
+ "title": "A $280M movie that will lose $245M",
+ "music": "public/reels/audio/reel-4-digger-bride-of-frankenstone-cut.mp3",
+ "music_volume": 0.32,
+ "out_video": "public/reels/scout-1791844892011-4-reel.mp4",
+ "out_montage": "public/reels/scout-1791844892011-4-reel-montage.jpg",
+ "scenes": [
+  {
+   "img": "public/reels/bg/scout-1791844892011-4-reel/01.jpg",
+   "duration": 4.5,
+   "motion": "zoom_in"
+  },
+  {
+   "img": "public/reels/bg/scout-1791844892011-4-reel/02.jpg",
+   "duration": 4.5,
+   "motion": "zoom_out"
+  },
+  {
+   "img": "public/reels/bg/scout-1791844892011-4-reel/03.jpg",
+   "duration": 4.5,
+   "motion": "pan_left"
+  },
+  {
+   "img": "public/reels/bg/scout-1791844892011-4-reel/04.jpg",
+   "duration": 4.7,
+   "motion": "pan_right"
+  },
+  {
+   "img": "public/reels/bg/scout-1791844892011-4-reel/05.jpg",
+   "duration": 4.5,
+   "motion": "pan_up"
+  },
+  {
+   "img": "public/reels/bg/scout-1791844892011-4-reel/06.jpg",
+   "duration": 4.3,
+   "motion": "zoom_in"
+  }
+ ]
+}

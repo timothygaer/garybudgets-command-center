@@ -40,7 +40,88 @@
       "credit": "Dj Hollow Life \u2014 \"The Office\", from The Haunted Mansion (Internet Archive / FMA, CC BY 3.0)",
       "last_used_reel": 0,
       "attribution_required": true
+    },
+    {
+      "id": "arch-graycelluloid-train-sequence",
+      "source": "internet_archive",
+      "file": "public/reels/audio/reel-1-65movies-graycelluloid-train-sequence-cut.mp3",
+      "mood": "dark_cinematic",
+      "credit": "DJ_Iterate (Thomas Park) \u2014 \"Train Sequence\", from Gray Celluloid (Internet Archive / treetrunk, Public Domain Mark 1.0)",
+      "item": "https://archive.org/details/GrayCelluloid",
+      "license": "PD Mark 1.0",
+      "reel": "scout-1791844872235-1-reel",
+      "last_used_reel": 101
+    },
+    {
+      "id": "arch-darkness-arrive-intro",
+      "source": "internet_archive",
+      "file": "public/reels/audio/reel-2-papertiger-darkness-arrive-cut.mp3",
+      "mood": "tension",
+      "credit": "Mad God \u2014 \"Intro\", from Darkness Arrive (Internet Archive / Genetic Trance, CC0 1.0)",
+      "item": "https://archive.org/details/gt561SteamFlow-DarknessArrive",
+      "license": "CC0 1.0",
+      "reel": "scout-1791844892010-2-reel",
+      "last_used_reel": 102
+    },
+    {
+      "id": "arch-midnight-noir-1",
+      "source": "internet_archive",
+      "file": "public/reels/audio/reel-3-rjmitte-midnight-noir-cut.mp3",
+      "mood": "emotional",
+      "credit": "Thomas Park \u2014 \"Midnight Noir 1\" (Internet Archive / treetrunk, Public Domain Mark 1.0)",
+      "item": "https://archive.org/details/MidnightNoir",
+      "license": "PD Mark 1.0",
+      "reel": "scout-1791844892011-3-reel",
+      "last_used_reel": 103
+    },
+    {
+      "id": "arch-bride-of-frankenstone-1",
+      "source": "internet_archive",
+      "file": "public/reels/audio/reel-4-digger-bride-of-frankenstone-cut.mp3",
+      "mood": "dark_cinematic",
+      "credit": "DJ Frankenstone \u2014 \"Bride 1\", from Bride Of Frankenstone (Internet Archive / treetrunk, Public Domain Mark 1.0)",
+      "item": "https://archive.org/details/BrideOfFrankenstone",
+      "license": "PD Mark 1.0",
+      "reel": "scout-1791844892011-4-reel",
+      "last_used_reel": 104
+    },
+    {
+      "id": "arch-her-face-from-the-tombstone",
+      "source": "internet_archive",
+      "file": "public/reels/audio/reel-5-visionquest-her-face-from-the-tombstone-cut.mp3",
+      "mood": "tension",
+      "credit": "Steam Flow \u2014 \"Her Face From The Tombstone\" (Internet Archive / Genetic Trance, CC0 1.0)",
+      "item": "https://archive.org/details/gt421SteamFlow-HerFaceFromTheTombstone",
+      "license": "CC0 1.0",
+      "reel": "scout-1791844892011-5-reel",
+      "last_used_reel": 105
     }
   ],
-  "usage_log": []
+  "usage_log": [
+    {
+      "track": "arch-graycelluloid-train-sequence",
+      "reel": 101,
+      "reel_slug": "scout-1791844872235-1"
+    },
+    {
+      "track": "arch-darkness-arrive-intro",
+      "reel": 102,
+      "reel_slug": "scout-1791844892010-2"
+    },
+    {
+      "track": "arch-midnight-noir-1",
+      "reel": 103,
+      "reel_slug": "scout-1791844892011-3"
+    },
+    {
+      "track": "arch-bride-of-frankenstone-1",
+      "reel": 104,
+      "reel_slug": "scout-1791844892011-4"
+    },
+    {
+      "track": "arch-her-face-from-the-tombstone",
+      "reel": 105,
+      "reel_slug": "scout-1791844892011-5"
+    }
+  ]
 }

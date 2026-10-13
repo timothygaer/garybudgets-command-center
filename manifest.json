@@ -5278,7 +5278,7 @@
       "build_type": "reel",
       "original_schedule": null,
       "proposed_schedule": null,
-      "caption": "REEL: Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office\n\nSony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the…\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 7 independent sources; published 7h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "caption": "REEL: Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office\n\nSony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the…\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 7 independent sources; published 7h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.\n\nMusic: DJ_Iterate (Thomas Park) — \"Train Sequence\", from Gray Celluloid. Public Domain Mark 1.0, via Internet Archive.",
       "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
       "slides": [
         {
@@ -5313,14 +5313,14 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
+        "01.jpg",
+        "02.jpg",
+        "03.jpg",
+        "04.jpg",
+        "05.jpg",
+        "06.jpg"
       ],
       "created_at": "2026-10-12T22:41:12.236Z",
       "source": "Topic Scout",
@@ -5330,8 +5330,10 @@
       "confidence_reason": "carries a clear current film-news angle; corroborated by 7 independent sources; published 7h ago; Deadline is a trade source.",
       "evidence_url": "https://deadline.com/gallery/highest-grossing-movies-all-time/",
       "duplicate_note": "Similar to existing post “The 65 Movies That Have Made More Than $1 Billion At The Global Box Office” (match 100%) but carries a current change/news angle, so it is allowed as a rework.",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844872235-1-reel.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844872235-1-reel-cover.jpg",
+      "media_type": "reel",
+      "image_urls": []
     },
     {
       "id": "scout-1791844892010-2",
@@ -5432,7 +5434,7 @@
       "build_type": "reel",
       "original_schedule": null,
       "proposed_schedule": null,
-      "caption": "REEL: ”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer\n\nRodrigo Teixeira and fellow producers behind 'Fjord,' 'Everybody Digs Bill Evans' and 'The End of It' swapped lessons at a BFI London Film Festival industry session held in…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; The Hollywood Reporter is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "caption": "REEL: ”James Gray Films Are a Safe Investment,” Says ‘Paper Tiger’ Producer\n\nRodrigo Teixeira and fellow producers behind 'Fjord,' 'Everybody Digs Bill Evans' and 'The End of It' swapped lessons at a BFI London Film Festival industry session held in…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; The Hollywood Reporter is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.\n\nMusic: Mad God — \"Intro\", from Darkness Arrive. CC0 1.0, via Internet Archive.",
       "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
       "slides": [
         {
@@ -5467,14 +5469,14 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
+        "01.jpg",
+        "02.jpg",
+        "03.jpg",
+        "04.jpg",
+        "05.jpg",
+        "06.jpg"
       ],
       "created_at": "2026-10-12T22:41:32.011Z",
       "source": "Topic Scout",
@@ -5484,8 +5486,10 @@
       "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; The Hollywood Reporter is a trade source.",
       "evidence_url": "https://www.hollywoodreporter.com/movies/movie-news/james-gray-films-safe-investment-paper-tiger-producer-1236728024/",
       "duplicate_note": "No close match in the existing-post corpus.",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892010-2-reel.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892010-2-reel-cover.jpg",
+      "media_type": "reel",
+      "image_urls": []
     },
     {
       "id": "scout-1791844892011-3",
@@ -5586,7 +5590,7 @@
       "build_type": "reel",
       "original_schedule": null,
       "proposed_schedule": null,
-      "caption": "REEL: RJ Mitte, ‘Breaking Bad’ Star, Dies at 34\n\nThe actor and disability rights activist is best known for playing Walter White Jr.\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; TheWrap is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "caption": "REEL: RJ Mitte, ‘Breaking Bad’ Star, Dies at 34\n\nThe actor and disability rights activist is best known for playing Walter White Jr.\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; TheWrap is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.\n\nMusic: Thomas Park — \"Midnight Noir 1\". Public Domain Mark 1.0, via Internet Archive.",
       "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
       "slides": [
         {
@@ -5621,14 +5625,14 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
+        "01.jpg",
+        "02.jpg",
+        "03.jpg",
+        "04.jpg",
+        "05.jpg",
+        "06.jpg"
       ],
       "created_at": "2026-10-12T22:41:32.011Z",
       "source": "Topic Scout",
@@ -5638,8 +5642,10 @@
       "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; TheWrap is a trade source.",
       "evidence_url": "https://www.thewrap.com/creative-content/tv-shows/rj-mitte-breaking-bad-dies-at-34/",
       "duplicate_note": "No close match in the existing-post corpus.",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-3-reel.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-3-reel-cover.jpg",
+      "media_type": "reel",
+      "image_urls": []
     },
     {
       "id": "scout-1791844892011-4",
@@ -5740,7 +5746,7 @@
       "build_type": "reel",
       "original_schedule": null,
       "proposed_schedule": null,
-      "caption": "REEL: Box office: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office\n\nTom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office BBC Digger on course for $245m loss after box office collapse The Guardian Tom Cruise's 'Digger' tanks, leaving studio with $250 mn hole Yahoo\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 8h ago; News: box office is a box-office source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "caption": "REEL: Box office: Tom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office\n\nTom Cruise film Digger forecast to lose $245m as The Social Recknoning also struggles at box office BBC Digger on course for $245m loss after box office collapse The Guardian Tom Cruise's 'Digger' tanks, leaving studio with $250 mn hole Yahoo\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 8h ago; News: box office is a box-office source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.\n\nMusic: DJ Frankenstone — \"Bride 1\", from Bride Of Frankenstone. Public Domain Mark 1.0, via Internet Archive.",
       "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
       "slides": [
         {
@@ -5775,14 +5781,14 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
+        "01.jpg",
+        "02.jpg",
+        "03.jpg",
+        "04.jpg",
+        "05.jpg",
+        "06.jpg"
       ],
       "created_at": "2026-10-12T22:41:32.011Z",
       "source": "Topic Scout",
@@ -5792,8 +5798,10 @@
       "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 8h ago; News: box office is a box-office source.",
       "evidence_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBuUnM5eUxHVks5Y1gyc05TRnU0Rk5uSWJLYzFsRUs3aHpYckN3SGNKbllicERhdUh5YkE1OFhlTnVHVHFRTDNyRDY4NHpvQWVUcTZ3WEJQOWpqRjQ?oc=5",
       "duplicate_note": "No close match in the existing-post corpus.",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-4-reel.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-4-reel-cover.jpg",
+      "media_type": "reel",
+      "image_urls": []
     },
     {
       "id": "scout-1791844892011-5",
@@ -5894,7 +5902,7 @@
       "build_type": "reel",
       "original_schedule": null,
       "proposed_schedule": null,
-      "caption": "REEL: Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com\n\nMarvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 2h ago; News: film festivals is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "caption": "REEL: Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com\n\nMarvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 2h ago; News: film festivals is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.\n\nMusic: Steam Flow — \"Her Face From The Tombstone\". CC0 1.0, via Internet Archive.",
       "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
       "slides": [
         {
@@ -5929,14 +5937,14 @@
         }
       ],
       "status": "ready",
-      "has_images": false,
+      "has_images": true,
       "image_file_names": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
+        "01.jpg",
+        "02.jpg",
+        "03.jpg",
+        "04.jpg",
+        "05.jpg",
+        "06.jpg"
       ],
       "created_at": "2026-10-12T22:41:32.011Z",
       "source": "Topic Scout",
@@ -5946,8 +5954,11 @@
       "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 2h ago; News: film festivals is a trade source.",
       "evidence_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRk9HV0kxYWpTYllIemJiY2VwOHk4VUZGekk0SjlsU2dCaUdkWHk5Z28tcW5sT01NUDdNb1RXM0hQZnpLZ01tS3N3eDJleGlwa1ljYUMwWEdkaVRKejJKbVNKNTBMVDY3ZGp2ZGEyeGNDNGFuQ2hlOXJDdzBPWnZ0WlBoUlplbzRreVlhRjcxRU5hdw?oc=5",
       "duplicate_note": "No close match in the existing-post corpus.",
-      "video_url": null,
-      "cover_url": null
+      "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-5-reel.mp4",
+      "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-5-reel-cover.jpg",
+      "media_type": "reel",
+      "image_urls": []
     }
-  ]
+  ],
+  "updated_at": "2026-10-13T05:01:44.519523Z"
 }
