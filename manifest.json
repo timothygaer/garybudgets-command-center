@@ -5188,7 +5188,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Wed, Oct 14 · 12:00 PM PT",
       "caption": "Only 65 films in history have crossed $1 billion at the global box office — and in 2026 alone, five more joined the club. But here's the part nobody puts in the headline: $1 billion in ticket sales does not mean $1 billion in the bank. Theaters keep roughly half of every ticket sold. Marketing and prints (P&A) are a separate line item that often adds another 50-100% on top of the production budget. That's why a film can gross nine figures and still be a write-off — and why the smartest people in this business budget backwards, from break-even, not from the milestone. Save this if you're putting together a film budget this year, and drop a comment with the number you're targeting. Full breakdown and free templates at garybudgets.com.",
       "hashtags": "#filmbudget #boxoffice #indiefilm #filmmaking #garybudgets",
       "slides": [
@@ -5229,7 +5229,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -5263,7 +5263,10 @@
         "scout-1791844872235-1/5.png",
         "scout-1791844872235-1/6.png"
       ],
-      "images_built_at": "2026-10-13T00:25:31Z"
+      "images_built_at": "2026-10-13T00:25:31Z",
+      "approved_at": "2026-10-13T03:11:07.038Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791844872235-1-reel",
