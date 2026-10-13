@@ -5921,7 +5921,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Tue, Oct 20 · 6:00 PM PT",
       "caption": "REEL: Festival & awards: Marvel’s “VisionQuest” Premieres At The London Film Festival - whatsondisneyplus.com\n\nMarvel’s “VisionQuest” Premieres At The London Film Festival whatsondisneyplus.com\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 2h ago; News: film festivals is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.\n\nMusic: Steam Flow — \"Her Face From The Tombstone\". CC0 1.0, via Internet Archive.",
       "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
       "slides": [
@@ -5956,7 +5956,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "01.jpg",
@@ -5977,7 +5977,12 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-5-reel.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-5-reel-cover.jpg",
       "media_type": "reel",
-      "image_urls": []
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-5-reel-cover.jpg"
+      ],
+      "approved_at": "2026-10-13T16:41:24.951Z",
+      "stuck": false,
+      "skipped": false
     }
   ],
   "updated_at": "2026-10-13T05:01:44.519523Z"
