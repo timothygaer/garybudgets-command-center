@@ -5277,7 +5277,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Sat, Oct 17 · 5:00 PM PT",
       "caption": "REEL: Box office: The 65 Movies That Have Made More Than $1 Billion At The Global Box Office\n\nSony and Marvel’s Spider-Man: Brand New Day crossed the $1 billion mark at the global box office in five days this year, becoming the second-fastest film in history to hit the…\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 7 independent sources; published 7h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.\n\nMusic: DJ_Iterate (Thomas Park) — \"Train Sequence\", from Gray Celluloid. Public Domain Mark 1.0, via Internet Archive.",
       "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
       "slides": [
@@ -5312,7 +5312,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "01.jpg",
@@ -5333,7 +5333,12 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844872235-1-reel.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844872235-1-reel-cover.jpg",
       "media_type": "reel",
-      "image_urls": []
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/scout-1791844872235-1-reel-cover.jpg"
+      ],
+      "approved_at": "2026-10-13T16:40:56.082Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791844892010-2",
