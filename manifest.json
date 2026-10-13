@@ -5594,7 +5594,7 @@
       "slide_count": 6,
       "build_type": "reel",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Sat, Oct 17 · 12:00 PM PT",
       "caption": "REEL: RJ Mitte, ‘Breaking Bad’ Star, Dies at 34\n\nThe actor and disability rights activist is best known for playing Walter White Jr.\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; TheWrap is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.\n\nMusic: Thomas Park — \"Midnight Noir 1\". Public Domain Mark 1.0, via Internet Archive.",
       "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
       "slides": [
@@ -5629,7 +5629,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "01.jpg",
@@ -5650,7 +5650,12 @@
       "video_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-3-reel.mp4",
       "cover_url": "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-3-reel-cover.jpg",
       "media_type": "reel",
-      "image_urls": []
+      "image_urls": [
+        "https://garybudgets-command-center.vercel.app/reels/scout-1791844892011-3-reel-cover.jpg"
+      ],
+      "approved_at": "2026-10-13T16:41:10.012Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791844892011-4",
