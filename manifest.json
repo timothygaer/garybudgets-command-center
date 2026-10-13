@@ -5804,7 +5804,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Fri, Oct 16 · 5:00 PM PT",
       "caption": "Marvel just premiered the first two episodes of VisionQuest at the BFI IMAX as part of the BFI London Film Festival — a 97-minute screening on October 12, two days before the Disney+ launch on October 14. Paul Bettany is back as Vision in both android and human form, James Spader returns as Ultron, and the eight-episode series runs weekly through December 2. This is the playbook in miniature: a streaming show borrowing the prestige of a film festival, in a cinema that signals \"this matters\" to a paying audience. One screening generates weeks of coverage for a fraction of a global ad campaign — and the weekly release schedule stretches subscriber retention across eight weeks. For indie filmmakers, the idea scales down: one well-shot event screening, festival partnerships instead of ad buys, and a release cadence that builds habit. Save this if you're planning a launch, and comment with your own release strategy. More at garybudgets.com.",
       "hashtags": "#filmmarketing #streaming #filmmaking #indiefilm #garybudgets",
       "slides": [
@@ -5845,7 +5845,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -5879,7 +5879,10 @@
         "scout-1791844892011-5/5.png",
         "scout-1791844892011-5/6.png"
       ],
-      "images_built_at": "2026-10-13T00:25:31Z"
+      "images_built_at": "2026-10-13T00:25:31Z",
+      "approved_at": "2026-10-13T03:12:05.626Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791844892011-5-reel",
