@@ -5983,6 +5983,393 @@
       "approved_at": "2026-10-13T16:41:24.951Z",
       "stuck": false,
       "skipped": false
+    },
+    {
+      "id": "scout-1791909791124-1",
+      "title": "Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears",
+      "source_title": "Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears",
+      "pillar": "Industry Watch",
+      "slug": "Post_open-to-ai-hollywood-is-embracing-artificial-intelligence-to",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Tech & production: Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears\n\nManhattan Beach Studios in Southern California is a pinnacle of revolutionary technology, home to both the “volume” screens where Jon Favreau filmed the “Mandalorian” franchise…\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Variety is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Tech & production: Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Manhattan Beach Studios in Southern California is a pinnacle of revolutionary technology, home to both the “volume” screens where Jon Favreau filmed the “Mandalorian” franchise… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Open to AI: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Open to AI as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Open to AI and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-13T16:43:11.124Z",
+      "source": "Topic Scout",
+      "suggestion": "Manhattan Beach Studios in Southern California is a pinnacle of revolutionary technology, home to both the “volume” screens where Jon Favreau filmed the “Mandalorian” franchise and Lightstorm Entertainment, where James Cameron has spent years bringing the Na’vi to life. Tucked away at Stage 21 lies Innovative Dreams, an AI offshoot of director Jon Erwin’s Entertainment […]",
+      "source_name": "Variety",
+      "hook": "Tech & production: Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Variety is a trade source.",
+      "evidence_url": "https://variety.com/2026/digital/features/ai-hollywood-embraces-artificial-intelligence-1236909213/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1791909791124-1-reel",
+      "title": "Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears (Reel)",
+      "source_title": "Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears",
+      "pillar": "Industry Watch",
+      "slug": "Reel_open-to-ai-hollywood-is-embracing-artificial-intelligence-to",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Tech & production: Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears\n\nManhattan Beach Studios in Southern California is a pinnacle of revolutionary technology, home to both the “volume” screens where Jon Favreau filmed the “Mandalorian” franchise…\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Variety is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Tech & production: Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Manhattan Beach Studios in Southern California is a pinnacle of revolutionary technology, home to both the “volume” screens where Jon Favreau filmed the “Mandalorian” franchise… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Open to AI: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Open to AI as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Open to AI and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-10-13T16:43:11.124Z",
+      "source": "Topic Scout",
+      "suggestion": "Manhattan Beach Studios in Southern California is a pinnacle of revolutionary technology, home to both the “volume” screens where Jon Favreau filmed the “Mandalorian” franchise and Lightstorm Entertainment, where James Cameron has spent years bringing the Na’vi to life. Tucked away at Stage 21 lies Innovative Dreams, an AI offshoot of director Jon Erwin’s Entertainment […]",
+      "source_name": "Variety",
+      "hook": "Tech & production: Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Variety is a trade source.",
+      "evidence_url": "https://variety.com/2026/digital/features/ai-hollywood-embraces-artificial-intelligence-1236909213/",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1791909791124-2",
+      "title": "IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’",
+      "source_title": "IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’",
+      "pillar": "Industry Watch",
+      "slug": "Post_idfa-announces-competition-lineups-adds-musk-and-elizabeth-h",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Documentary: IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’\n\nThe 39th edition of International Documentary Festival Amsterdam (IDFA) will open with White Tiger Column, a film set in one of the deadliest corners of the world.\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 3h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Documentary: IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: The 39th edition of International Documentary Festival Amsterdam (IDFA) will open with White Tiger Column, a film set in one of the deadliest corners of the world. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-13T16:43:11.125Z",
+      "source": "Topic Scout",
+      "suggestion": "The 39th edition of International Documentary Festival Amsterdam (IDFA) will open with White Tiger Column, a film set in one of the deadliest corners of the world. The feature directed by Robert Mentov, Dwight Jantzi, and Bryan Dickie closely follows “a group of recruits through 45 days of training with Myanmar’s resistance movement,” according to […]",
+      "source_name": "Deadline",
+      "hook": "Documentary: IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 3h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/10/idfa-2026-competition-lineups-you-can-see-everything-musk-1237155402/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1791909791124-2-reel",
+      "title": "IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’ (Reel)",
+      "source_title": "IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’",
+      "pillar": "Industry Watch",
+      "slug": "Reel_idfa-announces-competition-lineups-adds-musk-and-elizabeth-h",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Documentary: IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’\n\nThe 39th edition of International Documentary Festival Amsterdam (IDFA) will open with White Tiger Column, a film set in one of the deadliest corners of the world.\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 3h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Documentary: IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: The 39th edition of International Documentary Festival Amsterdam (IDFA) will open with White Tiger Column, a film set in one of the deadliest corners of the world. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-10-13T16:43:11.125Z",
+      "source": "Topic Scout",
+      "suggestion": "The 39th edition of International Documentary Festival Amsterdam (IDFA) will open with White Tiger Column, a film set in one of the deadliest corners of the world. The feature directed by Robert Mentov, Dwight Jantzi, and Bryan Dickie closely follows “a group of recruits through 45 days of training with Myanmar’s resistance movement,” according to […]",
+      "source_name": "Deadline",
+      "hook": "Documentary: IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 3h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/10/idfa-2026-competition-lineups-you-can-see-everything-musk-1237155402/",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1791909791125-3",
+      "title": "Oleh Sentsov to head the jury of Kyiv’s Molodist film festival",
+      "source_title": "Oleh Sentsov to head the jury of Kyiv’s Molodist film festival - Screen Daily",
+      "pillar": "Industry Watch",
+      "slug": "Post_oleh-sentsov-to-head-the-jury-of-kyiv-s-molodist-film-festiv",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: Oleh Sentsov to head the jury of Kyiv’s Molodist film festival\n\nOleh Sentsov to head the jury of Kyiv’s Molodist film festival Screen Daily\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; News: film industry news is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Oleh Sentsov to head the jury of Kyiv’s Molodist film festival\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Oleh Sentsov to head the jury of Kyiv’s Molodist film festival Screen Daily Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Oleh Sentsov to head the jury of Kyiv’s: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Oleh Sentsov to head the jury of Kyiv’s as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Oleh Sentsov to head the jury of Kyiv’s and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-13T16:43:11.125Z",
+      "source": "Topic Scout",
+      "suggestion": "Oleh Sentsov to head the jury of Kyiv’s Molodist film festival Screen Daily",
+      "source_name": "News: film industry news",
+      "hook": "Festival & awards: Oleh Sentsov to head the jury of Kyiv’s Molodist film festival",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; News: film industry news is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYWdwNzhoQUw1VUFwMExWS1FwVkVNRkpGOEdlQjZ0T2NjYmNoSkNCX3FuVklteWNXdWhRNk96MnlFTFdaV2FaYTNEZmZzY0RUd1M1Z0tTS2d0TWowR2QxVWxwd0VlaE84YzdpWm1FajBZbVJrYU50NmtqcW5mNzBzWXJ0QTczTFgtS0MtZ25ETDJkVFpKTi16cWotM0phYUg4ZDVMUVFYZ3NCZzM1eXFB?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1791909791125-3-reel",
+      "title": "Oleh Sentsov to head the jury of Kyiv’s Molodist film festival (Reel)",
+      "source_title": "Oleh Sentsov to head the jury of Kyiv’s Molodist film festival - Screen Daily",
+      "pillar": "Industry Watch",
+      "slug": "Reel_oleh-sentsov-to-head-the-jury-of-kyiv-s-molodist-film-festiv",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Festival & awards: Oleh Sentsov to head the jury of Kyiv’s Molodist film festival\n\nOleh Sentsov to head the jury of Kyiv’s Molodist film festival Screen Daily\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; News: film industry news is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Oleh Sentsov to head the jury of Kyiv’s Molodist film festival\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Oleh Sentsov to head the jury of Kyiv’s Molodist film festival Screen Daily Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Oleh Sentsov to head the jury of Kyiv’s: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Oleh Sentsov to head the jury of Kyiv’s as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Oleh Sentsov to head the jury of Kyiv’s and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-10-13T16:43:11.125Z",
+      "source": "Topic Scout",
+      "suggestion": "Oleh Sentsov to head the jury of Kyiv’s Molodist film festival Screen Daily",
+      "source_name": "News: film industry news",
+      "hook": "Festival & awards: Oleh Sentsov to head the jury of Kyiv’s Molodist film festival",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 1h ago; News: film industry news is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYWdwNzhoQUw1VUFwMExWS1FwVkVNRkpGOEdlQjZ0T2NjYmNoSkNCX3FuVklteWNXdWhRNk96MnlFTFdaV2FaYTNEZmZzY0RUd1M1Z0tTS2d0TWowR2QxVWxwd0VlaE84YzdpWm1FajBZbVJrYU50NmtqcW5mNzBzWXJ0QTczTFgtS0MtZ25ETDJkVFpKTi16cWotM0phYUg4ZDVMUVFYZ3NCZzM1eXFB?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
     }
   ],
   "updated_at": "2026-10-13T05:01:44.519523Z"
