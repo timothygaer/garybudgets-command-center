@@ -307,16 +307,45 @@ function tokenExpiryFromCreated(createdStr: string) {
 }
 function MaintenanceTab() {
   const [activeSub, setActiveSub] = useState("status")
+  const [topicScoutData, setTopicScoutData] = useState<any>(null)
+  
+  // Fetch live topic scout data
+  useEffect(() => {
+    fetch("/api/topics")
+      .then(r => r.json())
+      .then(setTopicScoutData)
+      .catch(() => {})
+  }, [])
+  
   const tokenInfo = tokenExpiryFromCreated(TOKEN_CREATED_ISO)
   const ptNow = new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
+  
+  // Format topic scout last run date
+  const topicAuditDate = topicScoutData?.generated_at
+    ? (() => {
+        const d = new Date(topicScoutData.generated_at)
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+      })()
+    : "Checking..."
+    
+  const topicReminderDate = topicScoutData?.generated_at
+    ? (() => {
+        const d = new Date(topicScoutData.generated_at)
+        const hoursSince = Math.round((Date.now() - d.getTime()) / (1000 * 60 * 60))
+        if (hoursSince < 4) return `${hoursSince}h ago`
+        if (hoursSince < 48) return `${Math.round(hoursSince/24)}d ago`
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+      })()
+    : "Checking..."
+    
   const items = [
     { label: "Instagram Token", value: tokenInfo.daysLeft + " Days", color: tokenInfo.daysLeft < 7 ? "#ef4444" : tokenInfo.daysLeft < 14 ? "#f59e0b" : "#00ff88", bg: tokenInfo.daysLeft < 7 ? "rgba(239,68,68,0.12)" : tokenInfo.daysLeft < 14 ? "rgba(251,191,36,0.12)" : "rgba(0,255,136,0.12)" },
     { label: "GitHub Sync", value: "Synced", color: "#00ff88", bg: "rgba(0,255,136,0.12)" },
-    { label: "Topic Scout Audit", value: "Jul 31", color: "#ffb347", bg: "rgba(255,179,71,0.12)" },
+    { label: "Topic Scout Audit", value: topicAuditDate, color: topicScoutData?.stale ? "#f59e0b" : "#00ff88", bg: topicScoutData?.stale ? "rgba(251,191,36,0.12)" : "rgba(0,255,136,0.12)" },
     { label: "Vercel Deploy", value: "Live", color: "#00ff88", bg: "rgba(0,255,136,0.12)" },
     { label: "Auto-Poster Cron", value: "Active", color: "#00ff88", bg: "rgba(0,255,136,0.12)" },
     { label: "Schedule Reconciler", value: "Every 15m", color: "#00ff88", bg: "rgba(0,255,136,0.12)" },
-    { label: "Topic Scout Reminder", value: "Jul 21", color: "#00ff88", bg: "rgba(0,255,136,0.12)" },
+    { label: "Topic Scout Reminder", value: topicReminderDate, color: topicScoutData?.stale ? "#f59e0b" : "#00ff88", bg: topicScoutData?.stale ? "rgba(251,191,36,0.12)" : "rgba(0,255,136,0.12)" },
   ]
   return <div className="space-y-2">
     {items.map((item, i) => (
