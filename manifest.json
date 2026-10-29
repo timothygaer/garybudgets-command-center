@@ -6030,39 +6030,33 @@
       "slides": [
         {
           "slide": 1,
-          "heading": "Slide 1",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 1 - cinematic film industry imagery"
+          "heading": "HOLLYWOOD IS GOING OPEN TO AI.",
+          "text": "Three-quarters through 2026, AI is no longer Hollywood's ultimate bad word. Jon Erwin's Innovative Dreams studio uses AI artists inside LED volume stages to weave generative AI into productions. Steven Soderbergh used 10 minutes of AI in his Lennon doc \u2014 and said the version with AI material is better. The debate isn't whether to use it anymore. It's how to use it right."
         },
         {
           "slide": 2,
-          "heading": "Slide 2",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 2 - cinematic film industry imagery"
+          "heading": "AI CUTS PRODUCTION COSTS BY UP TO 30%.",
+          "text": "Morgan Stanley estimates generative AI could slash film and TV production costs by up to 30%. Acme Studios lowered Doug Liman's 'Bitcoin' from $200M to $70M using AI-generated backgrounds. Below-the-line costs dropped from $130M to $35M."
         },
         {
           "slide": 3,
-          "heading": "Slide 3",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 3 - cinematic film industry imagery"
+          "heading": "THE TOOLS THAT ARE CHANGING FILMMAKING.",
+          "text": "Wonder Dynamics automates motion capture and compositing. Autodesk Flow Studio lets creators generate, rig, style, and direct AI characters. Some animation studios went from 30 seconds to 3.5 minutes of finished work per day."
         },
         {
           "slide": 4,
-          "heading": "Slide 4",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 4 - cinematic film industry imagery"
+          "heading": "THE PUSHBACK IS REAL.",
+          "text": "The Academy disqualified synthetic performers and AI-written scripts from awards. Cannes issued a blanket ban on AI-generated productions. The WGA ended its Urbanworld sponsorship after the festival accepted AI films."
         },
         {
           "slide": 5,
-          "heading": "Slide 5",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 5 - cinematic film industry imagery"
+          "heading": "THE INDUSTRY'S DIVIDED.",
+          "text": "Jeffrey Katzenberg wrote a 2,377-word essay: 'to resist technology is to risk irrelevance.' George Lucas said bluntly 'There's nothing you can do about it.' Meanwhile audiences revolt against undisclosed AI use."
         },
         {
           "slide": 6,
-          "heading": "Slide 6",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 6 - cinematic film industry imagery"
+          "heading": "START PRODUCING SMARTER.",
+          "text": "AI is just one tool. Build your full budget at garybudgets.com"
         }
       ],
       "status": "ready",
@@ -6076,12 +6070,12 @@
         "6.png"
       ],
       "image_urls": [
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-1/1.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-1/2.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-1/3.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-1/4.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-1/5.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-1/6.png"
+        "/images/scout-1791909791124-1/1.png",
+        "/images/scout-1791909791124-1/2.png",
+        "/images/scout-1791909791124-1/3.png",
+        "/images/scout-1791909791124-1/4.png",
+        "/images/scout-1791909791124-1/5.png",
+        "/images/scout-1791909791124-1/6.png"
       ],
       "created_at": "2026-10-13T16:43:11.124Z",
       "source": "Topic Scout",
@@ -6092,14 +6086,14 @@
       "evidence_url": "https://variety.com/2026/digital/features/ai-hollywood-embraces-artificial-intelligence-1236909213/",
       "duplicate_note": "No close match in the existing-post corpus.",
       "image_file_ids": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
+        "scout-1791909791124-1_1",
+        "scout-1791909791124-1_2",
+        "scout-1791909791124-1_3",
+        "scout-1791909791124-1_4",
+        "scout-1791909791124-1_5",
+        "scout-1791909791124-1_6"
       ],
-      "images_built_at": "2026-10-28T12:00:00Z"
+      "images_built_at": "2026-10-29T00:00:00Z"
     },
     {
       "id": "scout-1791909791124-1-reel",
@@ -6181,39 +6175,33 @@
       "slides": [
         {
           "slide": 1,
-          "heading": "Slide 1",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 1 - cinematic film industry imagery"
+          "heading": "IDFA 2026 ANNOUNCES COMPETITION LINEUPS.",
+          "text": "The International Documentary Film Festival Amsterdam unveiled its 39th edition with 253 titles from 80 countries. It added two major docs: Nathan Fielder and Lance Oppenheim's 'You Can See Everything' about Elizabeth Holmes, and Alex Gibney's 'Musk'."
         },
         {
           "slide": 2,
-          "heading": "Slide 2",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 2 - cinematic film industry imagery"
+          "heading": "THE 'MUSK' DOCUMENTARY.",
+          "text": "Alex Gibney's film offers an unflattering examination of the world's richest man. It joins a growing wave of documentary scrutiny of tech billionaires. The film was announced as a major addition to IDFA's competition lineup."
         },
         {
           "slide": 3,
-          "heading": "Slide 3",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 3 - cinematic film industry imagery"
+          "heading": "'YOU CAN SEE EVERYTHING' \u2014 THE THERANOS DOC.",
+          "text": "Nathan Fielder and Lance Oppenheim's film about Theranos founder Elizabeth Holmes created a sensation when it premiered at Telluride. It explores how Holmes built a $9B company with technology that didn't work."
         },
         {
           "slide": 4,
-          "heading": "Slide 4",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 4 - cinematic film industry imagery"
+          "heading": "THE COMPETITION LINEUP.",
+          "text": "Features: 'Lyrical Vengeance' by Wendelien van Oldenborgh, 'My Own Personal Gulag' by Lina Gorbaneva, 'White Tiger Column' by Robert Mentov, 'Women and War' by Elwira Niewiera, and 'Mangabangabaka' by Micha\u00ebl Andrianaly."
         },
         {
           "slide": 5,
-          "heading": "Slide 5",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 5 - cinematic film industry imagery"
+          "heading": "WHY DOCUMENTARY MATTERS NOW.",
+          "text": "From tech billionaires to healthcare fraud, documentaries are holding power to account. IDFA, the world's largest documentary film festival, continues to be the place where the most important non-fiction work premieres."
         },
         {
           "slide": 6,
-          "heading": "Slide 6",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 6 - cinematic film industry imagery"
+          "heading": "START PRODUCING SMARTER.",
+          "text": "Documentary is just one genre. Build your full budget at garybudgets.com"
         }
       ],
       "status": "ready",
@@ -6227,12 +6215,12 @@
         "6.png"
       ],
       "image_urls": [
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/1.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/2.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/3.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/4.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/5.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/6.png"
+        "/images/scout-1791909791124-2/1.png",
+        "/images/scout-1791909791124-2/2.png",
+        "/images/scout-1791909791124-2/3.png",
+        "/images/scout-1791909791124-2/4.png",
+        "/images/scout-1791909791124-2/5.png",
+        "/images/scout-1791909791124-2/6.png"
       ],
       "created_at": "2026-10-13T16:43:11.125Z",
       "source": "Topic Scout",
@@ -6243,14 +6231,14 @@
       "evidence_url": "https://deadline.com/2026/10/idfa-2026-competition-lineups-you-can-see-everything-musk-1237155402/",
       "duplicate_note": "No close match in the existing-post corpus.",
       "image_file_ids": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
+        "scout-1791909791124-2_1",
+        "scout-1791909791124-2_2",
+        "scout-1791909791124-2_3",
+        "scout-1791909791124-2_4",
+        "scout-1791909791124-2_5",
+        "scout-1791909791124-2_6"
       ],
-      "images_built_at": "2026-10-28T12:00:00Z"
+      "images_built_at": "2026-10-29T00:00:00Z"
     },
     {
       "id": "scout-1791909791124-2-reel",
@@ -6332,39 +6320,33 @@
       "slides": [
         {
           "slide": 1,
-          "heading": "Slide 1",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 1 - cinematic film industry imagery"
+          "heading": "OLEH SENTSOV TO HEAD MOLODIST JURY.",
+          "text": "The Ukrainian film director, screenwriter, writer, and former Kremlin political prisoner will chair the international competition jury at Kyiv's 55th Molodist Film Festival (Oct 24-Nov 1). He is also a serviceman in the Armed Forces of Ukraine."
         },
         {
           "slide": 2,
-          "heading": "Slide 2",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 2 - cinematic film industry imagery"
+          "heading": "WHO IS OLEH SENTSOV?",
+          "text": "Sentsov was imprisoned in Russia from 2012 to 2019 after being falsely accused of terrorist activities. He was one of the most famous political prisoners held by the Kremlin. After his release in a prisoner exchange, he returned to Ukraine and continues filmmaking."
         },
         {
           "slide": 3,
-          "heading": "Slide 3",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 3 - cinematic film industry imagery"
+          "heading": "MOLODIST \u2014 KYIV'S INTERNATIONAL FILM FESTIVAL.",
+          "text": "The 55th edition runs from October 24 to November 1, 2026. It assesses student films, shorts, and feature-length debuts from around the world. The festival's top award is the Scythian Deer statuette."
         },
         {
           "slide": 4,
-          "heading": "Slide 4",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 4 - cinematic film industry imagery"
+          "heading": "THE JURY PANEL.",
+          "text": "Beyond Sentsov, the international jury includes: Matthijs Wouter Knol (Netherlands), CEO and executive director of the European Film Academy; Iranian filmmaker Mahnaz Mohammadi; Ukrainian theater director Yevhen Lavrenchuk; and Latvian film scholar Anita Uzulniece."
         },
         {
           "slide": 5,
-          "heading": "Slide 5",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 5 - cinematic film industry imagery"
+          "heading": "A FESTIVAL AT A CRITICAL TIME.",
+          "text": "Kyiv's historic center was hit by a K5 cluster warhead during the Oct 22 overnight attack. That the festival proceeds with a Russian-born political prisoner heading its jury is itself a powerful statement about Ukrainian resilience and artistic freedom."
         },
         {
           "slide": 6,
-          "heading": "Slide 6",
-          "text": "Cinematic imagery about the topic",
-          "prompt_summary": "Slide 6 - cinematic film industry imagery"
+          "heading": "START PRODUCING SMARTER.",
+          "text": "Every film tells a story. Make yours at garybudgets.com"
         }
       ],
       "status": "ready",
@@ -6378,12 +6360,12 @@
         "6.png"
       ],
       "image_urls": [
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791125-3/1.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791125-3/2.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791125-3/3.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791125-3/4.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791125-3/5.png",
-        "https://garybudgets-command-center.vercel.app/images/scout-1791909791125-3/6.png"
+        "/images/scout-1791909791125-3/1.png",
+        "/images/scout-1791909791125-3/2.png",
+        "/images/scout-1791909791125-3/3.png",
+        "/images/scout-1791909791125-3/4.png",
+        "/images/scout-1791909791125-3/5.png",
+        "/images/scout-1791909791125-3/6.png"
       ],
       "created_at": "2026-10-13T16:43:11.125Z",
       "source": "Topic Scout",
@@ -6394,14 +6376,14 @@
       "evidence_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYWdwNzhoQUw1VUFwMExWS1FwVkVNRkpGOEdlQjZ0T2NjYmNoSkNCX3FuVklteWNXdWhRNk96MnlFTFdaV2FaYTNEZmZzY0RUd1M1Z0tTS2d0TWowR2QxVWxwd0VlaE84YzdpWm1FajBZbVJrYU50NmtqcW5mNzBzWXJ0QTczTFgtS0MtZ25ETDJkVFpKTi16cWotM0phYUg4ZDVMUVFYZ3NCZzM1eXFB?oc=5",
       "duplicate_note": "No close match in the existing-post corpus.",
       "image_file_ids": [
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png"
+        "scout-1791909791125-3_1",
+        "scout-1791909791125-3_2",
+        "scout-1791909791125-3_3",
+        "scout-1791909791125-3_4",
+        "scout-1791909791125-3_5",
+        "scout-1791909791125-3_6"
       ],
-      "images_built_at": "2026-10-28T12:00:00Z"
+      "images_built_at": "2026-10-29T00:00:00Z"
     },
     {
       "id": "scout-1791909791125-3-reel",

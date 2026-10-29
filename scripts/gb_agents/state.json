@@ -1,27 +1,18 @@
 {
-  "generated_at": "2026-08-18T04:11:02.542733Z",
+  "generated_at": "2026-10-29T20:10:24.659492Z",
   "jobs": [
     {
-      "id": "scout-1786906441935-1-reel",
-      "title": "Equipment Rental vs Purchase: The Break-Even Decision (Reel)",
+      "id": "scout-1791909791124-1",
+      "title": "Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears",
       "status": "ready",
-      "media_type": "reel",
-      "route": "ReelAgent",
-      "has_images": false,
-      "aspect": "9:16"
-    },
-    {
-      "id": "scout-1786906441936-2",
-      "title": "Permit Costs: LA vs Atlanta vs NYC",
-      "status": "draft",
       "media_type": "carousel",
       "route": "CarouselAgent",
       "has_images": true,
       "aspect": "4:5"
     },
     {
-      "id": "scout-1786906441936-2-reel",
-      "title": "Permit Costs: LA vs Atlanta vs NYC (Reel)",
+      "id": "scout-1791909791124-1-reel",
+      "title": "Open to AI: Hollywood Is Embracing Artificial Intelligence Tools Despite Doomsday Fears (Reel)",
       "status": "ready",
       "media_type": "reel",
       "route": "ReelAgent",
@@ -29,26 +20,17 @@
       "aspect": "9:16"
     },
     {
-      "id": "scout-1786906441936-3-reel",
-      "title": "Stunt & Special Skills Budget Lines (Reel)",
+      "id": "scout-1791909791124-2",
+      "title": "IDFA Announces Competition Lineups, Adds \u2018Musk\u2019 And Elizabeth Holmes Documentary \u2018You Can See Everything\u2019",
       "status": "ready",
-      "media_type": "reel",
-      "route": "ReelAgent",
-      "has_images": false,
-      "aspect": "9:16"
-    },
-    {
-      "id": "scout-1786906441936-4",
-      "title": "DIT & Data Management: The Invisible Post Cost",
-      "status": "draft",
       "media_type": "carousel",
       "route": "CarouselAgent",
       "has_images": true,
       "aspect": "4:5"
     },
     {
-      "id": "scout-1786906441936-4-reel",
-      "title": "DIT & Data Management: The Invisible Post Cost (Reel)",
+      "id": "scout-1791909791124-2-reel",
+      "title": "IDFA Announces Competition Lineups, Adds \u2018Musk\u2019 And Elizabeth Holmes Documentary \u2018You Can See Everything\u2019 (Reel)",
       "status": "ready",
       "media_type": "reel",
       "route": "ReelAgent",
@@ -56,46 +38,94 @@
       "aspect": "9:16"
     },
     {
-      "id": "scout-1786906441945-5",
-      "title": "Sound Design Budget: Why Silence Isn't Free",
-      "status": "draft",
+      "id": "scout-1791909791125-3",
+      "title": "Oleh Sentsov to head the jury of Kyiv\u2019s Molodist film festival",
+      "status": "ready",
       "media_type": "carousel",
       "route": "CarouselAgent",
       "has_images": true,
       "aspect": "4:5"
     },
     {
-      "id": "scout-1786906441945-5-reel",
-      "title": "Sound Design Budget: Why Silence Isn't Free (Reel)",
+      "id": "scout-1791909791125-3-reel",
+      "title": "Oleh Sentsov to head the jury of Kyiv\u2019s Molodist film festival (Reel)",
       "status": "ready",
       "media_type": "reel",
       "route": "ReelAgent",
       "has_images": false,
       "aspect": "9:16"
+    },
+    {
+      "id": "scout-1793232242096-1",
+      "title": "\u2018The Invite\u2019 to Receive Vanguard Award at Palm Springs International Film Festival",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242096-1 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242097-2",
+      "title": "Skydance Sets Finance Leadership Team Following Paramount-Warner Bros. Merger",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242097-2 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242097-3",
+      "title": "\u2018The Invite\u2019 stars Olivia Wilde, Seth Rogen, Pen\u00e9lope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242097-3 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242097-4",
+      "title": "Inaugural West Hollywood Human Rights Film Festival To Showcase Oscar-Contending Documentaries, 20th Anniversary Screening Of \u2018Blood Diamond",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242097-4 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242097-5",
+      "title": "The Best Horror Movies of the 21st Century, and the Best of 2026",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242097-5 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242098-6",
+      "title": "Emma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix\u2019s \u2018Pride and Prejudice\u2019 Adaptation",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242098-6 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242098-7",
+      "title": "2027 Sundance Film Festival Reveals Legacy Programming: \u2018Real Women Have Curves,\u2019 \u2018Swoon,\u2019 \u2018Better Tomorrow,\u2019 \u2018Y tu mam\u00e1 tambi\u00e9n\u2019 and More -",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242098-7 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242098-8",
+      "title": "Peter Medak, director of \u2018The Changeling\u2019 and \u2018The Krays\u2019, dies at 88",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242098-8 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242098-9",
+      "title": "Variety\u2019s 10 Actors to Watch Detail Tapping Into Dark Characters and Gaining Confidence at Newport Beach Film Festival",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242098-9 has no media_type, no video_url, and no inferable assets'"
+    },
+    {
+      "id": "scout-1793232242098-10",
+      "title": "Peter Farrelly\u2019s \u2018I Play Rocky\u2019 To Open Cairo International Film Festival",
+      "status": "ready",
+      "route": "ERROR",
+      "reason": "'post scout-1793232242098-10 has no media_type, no video_url, and no inferable assets'"
     }
   ],
-  "note": "READ ONLY \u2014 orchestrator never approves/schedules/posts. Posts here are Ready-for-user-approval at most.",
-  "agents": {
-    "Router": {
-      "status": "working",
-      "post_id": "",
-      "phase": "route",
-      "detail": "routing queue",
-      "updated_at": "2026-08-18T05:44:26.688361Z"
-    },
-    "Carousel": {
-      "status": "working",
-      "post_id": "scout-X-1",
-      "phase": "generate",
-      "detail": "Slide 2/6 done",
-      "updated_at": "2026-08-18T05:44:26.689091Z"
-    },
-    "Verifier": {
-      "status": "done",
-      "post_id": "scout-X-1",
-      "phase": "verify",
-      "detail": "PASS all slides",
-      "updated_at": "2026-08-18T05:44:26.689327Z"
-    }
-  }
+  "agents": {},
+  "note": "READ ONLY \u2014 orchestrator never approves/schedules/posts. Posts here are Ready-for-user-approval at most."
 }
