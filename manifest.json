@@ -6401,6 +6401,646 @@
       "duplicate_note": "No close match in the existing-post corpus.",
       "video_url": null,
       "cover_url": null
+    },
+    {
+      "id": "scout-1793232242096-1",
+      "title": "‘The Invite’ to Receive Vanguard Award at Palm Springs International Film Festival",
+      "source_title": "‘The Invite’ to Receive Vanguard Award at Palm Springs International Film Festival - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Post_the-invite-to-receive-vanguard-award-at-palm-springs-interna",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: ‘The Invite’ to Receive Vanguard Award at Palm Springs International Film Festival\n\n‘The Invite’ to Receive Vanguard Award at Palm Springs International Film Festival The Hollywood Reporter\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 8 independent sources; published 3h ago; News: film festivals is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: ‘The Invite’ to Receive Vanguard Award at Palm Springs International Film Festival\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: ‘The Invite’ to Receive Vanguard Award at Palm Springs International Film Festival The Hollywood Reporter Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ‘The Invite’ to Receive Vanguard Award at Palm: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using ‘The Invite’ to Receive Vanguard Award at Palm as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ‘The Invite’ to Receive Vanguard Award at Palm and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.097Z",
+      "source": "Topic Scout",
+      "suggestion": "‘The Invite’ to Receive Vanguard Award at Palm Springs International Film Festival The Hollywood Reporter",
+      "source_name": "News: film festivals",
+      "hook": "Festival & awards: ‘The Invite’ to Receive Vanguard Award at Palm Springs International Film Festival",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 8 independent sources; published 3h ago; News: film festivals is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSUpuMm43RUhTQ1Vlb3NEVFBvZFQyLUk4dWxza3ZyN1pYd21hYWthM1RQanQzLUgzSjgwclJvd1l3TGZjR2hTX2oydFNGRmk5anZJcUFma0p4WmFWLVlLQjlfWThqV3QxRk5rZU5yejhCZ2xWU1I4YUdYZ2g0STZSRlpMNUg0MTRtcVlTQUhoZjlMbzBfMzNaN1BjSlBUNEVLUzBDaUVwM1BHWlFELVlwa0FR?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1793232242097-2",
+      "title": "Skydance Sets Finance Leadership Team Following Paramount-Warner Bros. Merger",
+      "source_title": "Skydance Sets Finance Leadership Team Following Paramount-Warner Bros. Merger",
+      "pillar": "Industry Watch",
+      "slug": "Post_skydance-sets-finance-leadership-team-following-paramount-wa",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Industry deal: Skydance Sets Finance Leadership Team Following Paramount-Warner Bros. Merger\n\nSkydance Corp., the new company formed from David Ellison’s massive Paramount-Warner Bros.\n\nThe filmmaker's read: what this deal means for the people making films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 3h ago; Variety is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmIndustry #FilmNews #StudioNews #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Industry deal: Skydance Sets Finance Leadership Team Following Paramount-Warner Bros. Merger\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Skydance Corp., the new company formed from David Ellison’s massive Paramount-Warner Bros. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Skydance Sets Finance Leadership Team Following: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Skydance Sets Finance Leadership Team Following as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Skydance Sets Finance Leadership Team Following and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.097Z",
+      "source": "Topic Scout",
+      "suggestion": "Skydance Corp., the new company formed from David Ellison’s massive Paramount-Warner Bros. Discovery merger, has established the leadership team overseeing financial operations across the business. Ellison and Ynon Kreiz, co-CEO of Skydance, previously announced the senior leadership team for the new company (a day before the deal officially closed). Since then, different business units and […]",
+      "source_name": "Variety",
+      "hook": "Industry deal: Skydance Sets Finance Leadership Team Following Paramount-Warner Bros. Merger",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 3h ago; Variety is a trade source.",
+      "evidence_url": "https://variety.com/2026/film/news/skydance-finance-leadership-appointments-paramount-warner-bros-1236933430/",
+      "duplicate_note": "Similar to existing post “Skydance: How Paramount-Warner Bros merger will change the way we watch movies and the news” (match 71%) but carries a current change/news angle, so it is allowed as a rework."
+    },
+    {
+      "id": "scout-1793232242097-3",
+      "title": "‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards",
+      "source_title": "‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards - Gold Derby",
+      "pillar": "Industry Watch",
+      "slug": "Post_the-invite-stars-olivia-wilde-seth-rogen-pen-lope-cruz-and-e",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: ‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards\n\n‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards Gold Derby\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 6 independent sources; published 3h ago; News: film awards is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: ‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: ‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards Gold Derby Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using ‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.097Z",
+      "source": "Topic Scout",
+      "suggestion": "‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards Gold Derby",
+      "source_name": "News: film awards",
+      "hook": "Festival & awards: ‘The Invite’ stars Olivia Wilde, Seth Rogen, Penélope Cruz and Edward Norton set for Vanguard Award at Palm Springs Film Awards",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 6 independent sources; published 3h ago; News: film awards is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNX2RDa3V1NVhoejNsdWx2ZG1DV3o5LXdaUFFMR2JDWE5CeGtST2Rvb2I1X2RJRWo5VUNqd2lSN1licHVnaTZ0czNIQkpwSWxITXl3TDJiOUNBcXJnZzg5YWtIbUpocDVCNkdPWGEzSkhHWjFIdWNIMGgtVWNkaF9IcjVMQjBhTHNDYWxFakpjWEY?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1793232242097-4",
+      "title": "Inaugural West Hollywood Human Rights Film Festival To Showcase Oscar-Contending Documentaries, 20th Anniversary Screening Of ‘Blood Diamond",
+      "source_title": "Inaugural West Hollywood Human Rights Film Festival To Showcase Oscar-Contending Documentaries, 20th Anniversary Screening Of ‘Blood Diamond",
+      "pillar": "Industry Watch",
+      "slug": "Post_inaugural-west-hollywood-human-rights-film-festival-to-showc",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: Inaugural West Hollywood Human Rights Film Festival To Showcase Oscar-Contending Documentaries, 20th Anniversary Screening Of ‘Blood Diamond’\n\nEXCLUSIVE: The inaugural West Hollywood Human Rights Film Festival is set to unfold November 20 and 21, a cinematic showcase of “award-winning documentaries on global human…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 0h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Inaugural West Hollywood Human Rights Film Festival To Showcase Oscar-Contending Documentaries, 20th Anniversary Screening Of ‘Blood Diamond’\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: EXCLUSIVE: The inaugural West Hollywood Human Rights Film Festival is set to unfold November 20 and 21, a cinematic showcase of “award-winning documentaries on global human… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Inaugural West Hollywood Human Rights Film Festival To: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Inaugural West Hollywood Human Rights Film Festival To as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Inaugural West Hollywood Human Rights Film Festival To and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.097Z",
+      "source": "Topic Scout",
+      "suggestion": "EXCLUSIVE: The inaugural West Hollywood Human Rights Film Festival is set to unfold November 20 and 21, a cinematic showcase of “award-winning documentaries on global human rights, social justice and civil liberties.” In addition to Oscar-contending nonfiction features and shorts, the new festival will highlight one important narrative feature – a 20th anniversary screening of […]",
+      "source_name": "Deadline",
+      "hook": "Festival & awards: Inaugural West Hollywood Human Rights Film Festival To Showcase Oscar-Contending Documentaries, 20th Anniversary Screening Of ‘Blood Diamond’",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 0h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/10/inaugural-west-hollywood-human-rights-film-festival-lineup-1237207415/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1793232242097-5",
+      "title": "The Best Horror Movies of the 21st Century, and the Best of 2026",
+      "source_title": "The Best Horror Movies of the 21st Century, and the Best of 2026",
+      "pillar": "Industry Watch",
+      "slug": "Post_the-best-horror-movies-of-the-21st-century-and-the-best-of-2",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "The Best Horror Movies of the 21st Century, and the Best of 2026\n\nHalloween is on Saturday, and horror movies keep thriving at the box office.\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 0h ago; World of Reel is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"The Best Horror Movies of the 21st Century, and the Best of 2026\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Halloween is on Saturday, and horror movies keep thriving at the box office. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of The Best Horror Movies of the 21st Century,: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using The Best Horror Movies of the 21st Century, as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with The Best Horror Movies of the 21st Century, and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.098Z",
+      "source": "Topic Scout",
+      "suggestion": "Halloween is on Saturday, and horror movies keep thriving at the box office. Beyond commercial success, arthouse horror remains at the forefront of American cinema.",
+      "source_name": "World of Reel",
+      "hook": "The Best Horror Movies of the 21st Century, and the Best of 2026",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 0h ago; World of Reel is a trade source.",
+      "evidence_url": "https://www.worldofreel.com/blog/2025/10/29/the-best-horror-movies-of-the-21st-century",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1793232242098-6",
+      "title": "Emma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix’s ‘Pride and Prejudice’ Adaptation",
+      "source_title": "Emma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix’s ‘Pride and Prejudice’ Adaptation - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Post_emma-corrin-jack-lowden-and-olivia-colman-star-in-trailer-fo",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "First look: Emma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix’s ‘Pride and Prejudice’ Adaptation\n\nEmma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix’s ‘Pride and Prejudice’ Adaptation The Hollywood Reporter\n\nThe filmmaker's read: what this first look tells us about the finished film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 4h ago; News: film trailers is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmNews #Trailer #MovieNews #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"First look: Emma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix’s ‘Pride and Prejudice’ Adaptation\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Emma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix’s ‘Pride and Prejudice’ Adaptation The Hollywood Reporter Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Emma Corrin, Jack Lowden and Olivia Colman Star: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Emma Corrin, Jack Lowden and Olivia Colman Star as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Emma Corrin, Jack Lowden and Olivia Colman Star and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.098Z",
+      "source": "Topic Scout",
+      "suggestion": "Emma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix’s ‘Pride and Prejudice’ Adaptation The Hollywood Reporter",
+      "source_name": "News: film trailers",
+      "hook": "First look: Emma Corrin, Jack Lowden and Olivia Colman Star in Trailer for Netflix’s ‘Pride and Prejudice’ Adaptation",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 4h ago; News: film trailers is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOaVFxTVlTcHV1eDRhd25fa2pqY2xKOEV5Sm03RlEzTGdKdlVxTXhmMDRZeXRNQ3Jjb0F0dG1LV3JvQnNRc0JJU2dCSUdkMm5nVk15VnFmR1hwbUdaS21ybVEzTmh0TVFfRzlSRU9lbTV2Ymg3R3VkX2M2NGtRY3A2UVNVdzNxNzlvVnZMWVdlVlFhSzZQSC1XTkdTTWVzRzAxSGI5OGxnUDdaa1ljRV9IRERpZDhpUQ?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1793232242098-7",
+      "title": "2027 Sundance Film Festival Reveals Legacy Programming: ‘Real Women Have Curves,’ ‘Swoon,’ ‘Better Tomorrow,’ ‘Y tu mamá también’ and More -",
+      "source_title": "2027 Sundance Film Festival Reveals Legacy Programming: ‘Real Women Have Curves,’ ‘Swoon,’ ‘Better Tomorrow,’ ‘Y tu mamá también’ and More -",
+      "pillar": "Industry Watch",
+      "slug": "Post_2027-sundance-film-festival-reveals-legacy-programming-real-",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: 2027 Sundance Film Festival Reveals Legacy Programming: ‘Real Women Have Curves,’ ‘Swoon,’ ‘Better Tomorrow,’ ‘Y tu mamá también’ and More\n\n2027 Sundance Film Festival Reveals Legacy Programming: ‘Real Women Have Curves,’ ‘Swoon,’ ‘Better Tomorrow,’ ‘Y tu mamá también’ and More Awards Watch\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 4h ago; News: film festivals is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: 2027 Sundance Film Festival Reveals Legacy Programming: ‘Real Women Have Curves,’ ‘Swoon,’ ‘Better Tomorrow,’ ‘Y tu mamá también’ and More\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: 2027 Sundance Film Festival Reveals Legacy Programming: ‘Real Women Have Curves,’ ‘Swoon,’ ‘Better Tomorrow,’ ‘Y tu mamá también’ and More Awards Watch Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of 2027 Sundance Film Festival Reveals Legacy Programming: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using 2027 Sundance Film Festival Reveals Legacy Programming as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with 2027 Sundance Film Festival Reveals Legacy Programming and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.098Z",
+      "source": "Topic Scout",
+      "suggestion": "2027 Sundance Film Festival Reveals Legacy Programming: ‘Real Women Have Curves,’ ‘Swoon,’ ‘Better Tomorrow,’ ‘Y tu mamá también’ and More Awards Watch",
+      "source_name": "News: film festivals",
+      "hook": "Festival & awards: 2027 Sundance Film Festival Reveals Legacy Programming: ‘Real Women Have Curves,’ ‘Swoon,’ ‘Better Tomorrow,’ ‘Y tu mamá también’ and More",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 4h ago; News: film festivals is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVFBteDY3RmdUTWtPYXE0ZzExekpFbjMzMC04bENmTDdIRms2ODRvLURsa29CWlRmZmdDcmRibjlnc2VUTndFOE00VTBjeWU0cG5Vd3VDNVZacGtleHhkY0JCVUdEcl82cFlUdTRMQWQ2Nkh6NU9EeUNxRUcyRDFka3VTVzRxYlZ4elJjc21DWlBxc2hJVzhfY04wVS1qQ0JFdEVJWmdINVFRc2ZzTS1qUXJ2RGNlRXZxcF8zLXMwRW1tZ3NoVWVlaURmV2VCSkdDY1l2SncyMWxRR0FoQ3FUeXBqM19sUQ?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1793232242098-8",
+      "title": "Peter Medak, director of ‘The Changeling’ and ‘The Krays’, dies at 88",
+      "source_title": "Peter Medak, director of ‘The Changeling’ and ‘The Krays’, dies at 88 - Screen Daily",
+      "pillar": "Industry Watch",
+      "slug": "Post_peter-medak-director-of-the-changeling-and-the-krays-dies-at",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Peter Medak, director of ‘The Changeling’ and ‘The Krays’, dies at 88\n\nPeter Medak, director of ‘The Changeling’ and ‘The Krays’, dies at 88 Screen Daily\n\nThe filmmaker's read: what this means for the people who make films.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 0h ago; News: film industry news is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmNews #Filmmaking #IndieFilm #FilmIndustry #MovieNews",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Peter Medak, director of ‘The Changeling’ and ‘The Krays’, dies at 88\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Peter Medak, director of ‘The Changeling’ and ‘The Krays’, dies at 88 Screen Daily Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Peter Medak, director of ‘The Changeling’ and ‘The: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Peter Medak, director of ‘The Changeling’ and ‘The as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Peter Medak, director of ‘The Changeling’ and ‘The and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.098Z",
+      "source": "Topic Scout",
+      "suggestion": "Peter Medak, director of ‘The Changeling’ and ‘The Krays’, dies at 88 Screen Daily",
+      "source_name": "News: film industry news",
+      "hook": "Peter Medak, director of ‘The Changeling’ and ‘The Krays’, dies at 88",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 0h ago; News: film industry news is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdGhpYTlaOWJUZTFVaEpnVUgzbjNIaHVsVE9uVWZRcGNlWTh5Q2ZrRGRnNm5XRFcwX2w5dEpSeXQyclItU1YxWmlmcWdxQnVubk1IWFVESHFRT1hxb29QbGJXQ0Qyd1NvVmlpRmJiXzlqbUstdWpzeUoxa0dpRFd3NlBPYU55UldDLXVWaU5IaDF2LWQ1NUxMMllRR2NpbGh6QzBUa3ItTTd0cVU5ZWxjaWxn?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1793232242098-9",
+      "title": "Variety’s 10 Actors to Watch Detail Tapping Into Dark Characters and Gaining Confidence at Newport Beach Film Festival",
+      "source_title": "Variety’s 10 Actors to Watch Detail Tapping Into Dark Characters and Gaining Confidence at Newport Beach Film Festival",
+      "pillar": "Industry Watch",
+      "slug": "Post_variety-s-10-actors-to-watch-detail-tapping-into-dark-charac",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: Variety’s 10 Actors to Watch Detail Tapping Into Dark Characters and Gaining Confidence at Newport Beach Film Festival\n\nGet used to seeing these faces this awards season.\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 3h ago; Variety is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Variety’s 10 Actors to Watch Detail Tapping Into Dark Characters and Gaining Confidence at Newport Beach Film Festival\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Get used to seeing these faces this awards season. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Variety’s 10 Actors to Watch Detail Tapping Into: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Variety’s 10 Actors to Watch Detail Tapping Into as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Variety’s 10 Actors to Watch Detail Tapping Into and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.098Z",
+      "source": "Topic Scout",
+      "suggestion": "Get used to seeing these faces this awards season. Variety’s 2026 10 Actors to Watch took the stage in Newport Beach, California, for a conversation about performance, craft and process on October 18. Variety moderated this conversation in partnership with Newport Beach Film Festival. The panel kicked off at the Balboa Bay Resort, highlighting this […]",
+      "source_name": "Variety",
+      "hook": "Festival & awards: Variety’s 10 Actors to Watch Detail Tapping Into Dark Characters and Gaining Confidence at Newport Beach Film Festival",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 3h ago; Variety is a trade source.",
+      "evidence_url": "https://variety.com/2026/awards/fashion/10-actors-to-watch-panel-newport-beach-film-festival-video-1236932443/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1793232242098-10",
+      "title": "Peter Farrelly’s ‘I Play Rocky’ To Open Cairo International Film Festival",
+      "source_title": "Peter Farrelly’s ‘I Play Rocky’ To Open Cairo International Film Festival",
+      "pillar": "Industry Watch",
+      "slug": "Post_peter-farrelly-s-i-play-rocky-to-open-cairo-international-fi",
+      "slide_count": 6,
+      "build_type": "carousel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: Peter Farrelly’s ‘I Play Rocky’ To Open Cairo International Film Festival\n\nPeter Farrelly’s I Play Rocky, chronicling the making of the 1976 classic Rocky, is set to open the Cairo International Film Festival’s 47th edition in November.\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Peter Farrelly’s ‘I Play Rocky’ To Open Cairo International Film Festival\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Peter Farrelly’s I Play Rocky, chronicling the making of the 1976 classic Rocky, is set to open the Cairo International Film Festival’s 47th edition in November. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Peter Farrelly’s ‘I Play Rocky’ To Open Cairo: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Peter Farrelly’s ‘I Play Rocky’ To Open Cairo as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Peter Farrelly’s ‘I Play Rocky’ To Open Cairo and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-10-29T00:04:02.098Z",
+      "source": "Topic Scout",
+      "suggestion": "Peter Farrelly’s I Play Rocky, chronicling the making of the 1976 classic Rocky, is set to open the Cairo International Film Festival’s 47th edition in November. In a timely connection, the choice of film ties in with the fact that Cairo, which is Egypt’s oldest film festival, also is marking the 50th anniversary of its […]",
+      "source_name": "Deadline",
+      "hook": "Festival & awards: Peter Farrelly’s ‘I Play Rocky’ To Open Cairo International Film Festival",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/10/play-rocky-open-cairo-film-festival-1237207371/",
+      "duplicate_note": "No close match in the existing-post corpus."
     }
   ],
   "updated_at": "2026-10-13T05:01:44.519523Z"
