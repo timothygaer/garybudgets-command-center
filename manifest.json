@@ -6172,7 +6172,7 @@
       "slide_count": 6,
       "build_type": "both",
       "original_schedule": null,
-      "proposed_schedule": null,
+      "proposed_schedule": "Mon, Nov 2 · 12:00 PM PT",
       "caption": "Documentary: IDFA Announces Competition Lineups, Adds ‘Musk’ And Elizabeth Holmes Documentary ‘You Can See Everything’\n\nThe 39th edition of International Documentary Festival Amsterdam (IDFA) will open with White Tiger Column, a film set in one of the deadliest corners of the world.\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 3h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
       "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
       "slides": [
@@ -6207,7 +6207,7 @@
           "text": "Documentary is just one genre. Build your full budget at garybudgets.com"
         }
       ],
-      "status": "ready",
+      "status": "approved",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -6218,12 +6218,12 @@
         "6.png"
       ],
       "image_urls": [
-        "/images/scout-1791909791124-2/1.png",
-        "/images/scout-1791909791124-2/2.png",
-        "/images/scout-1791909791124-2/3.png",
-        "/images/scout-1791909791124-2/4.png",
-        "/images/scout-1791909791124-2/5.png",
-        "/images/scout-1791909791124-2/6.png"
+        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/1.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/2.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/3.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/4.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/5.png",
+        "https://garybudgets-command-center.vercel.app/images/scout-1791909791124-2/6.png"
       ],
       "created_at": "2026-10-13T16:43:11.125Z",
       "source": "Topic Scout",
@@ -6241,7 +6241,10 @@
         "scout-1791909791124-2_5",
         "scout-1791909791124-2_6"
       ],
-      "images_built_at": "2026-10-29T00:00:00Z"
+      "images_built_at": "2026-10-29T00:00:00Z",
+      "approved_at": "2026-10-31T02:12:11.917Z",
+      "stuck": false,
+      "skipped": false
     },
     {
       "id": "scout-1791909791124-2-reel",
