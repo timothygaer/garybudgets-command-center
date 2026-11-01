@@ -6059,7 +6059,7 @@
           "text": "AI is just one tool. Build your full budget at garybudgets.com"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -6096,7 +6096,10 @@
       "images_built_at": "2026-10-29T00:00:00Z",
       "approved_at": "2026-10-31T02:12:02.087Z",
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "posted_at": "2026-11-01T00:00:58+0000",
+      "instagram_url": "https://www.instagram.com/p/DfLZT3tmUz8/",
+      "instagram_media_id": "18643056169004684"
     },
     {
       "id": "scout-1791909791124-1-reel",
