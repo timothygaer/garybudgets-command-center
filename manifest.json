@@ -6210,7 +6210,7 @@
           "text": "Documentary is just one genre. Build your full budget at garybudgets.com"
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": true,
       "image_file_names": [
         "1.png",
@@ -6247,7 +6247,10 @@
       "images_built_at": "2026-10-29T00:00:00Z",
       "approved_at": "2026-10-31T02:12:11.917Z",
       "stuck": false,
-      "skipped": false
+      "skipped": false,
+      "posted_at": "2026-11-02T20:00:56+0000",
+      "instagram_url": "https://www.instagram.com/p/DfQHbpegYZZ/",
+      "instagram_media_id": "18098816240123512"
     },
     {
       "id": "scout-1791909791124-2-reel",
