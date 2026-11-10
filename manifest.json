@@ -7107,6 +7107,1296 @@
       "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Deadline is a trade source.",
       "evidence_url": "https://deadline.com/2026/10/play-rocky-open-cairo-film-festival-1237207371/",
       "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1794353461571-1",
+      "title": "Is The New York Times Buying Letterboxd?",
+      "source_title": "Is The New York Times Buying Letterboxd?",
+      "pillar": "Industry Watch",
+      "slug": "Post_is-the-new-york-times-buying-letterboxd",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Is The New York Times Buying Letterboxd?\n\nAccording to The New York Times , they have entered into exclusive discussions to purchase Letterboxd.\n\nThe filmmaker's read: what this means for the people who make films.\n\nWhy it's on the list: corroborated by 10 independent sources; published 4d ago; No Film School is a tech source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmNews #Filmmaking #IndieFilm #FilmIndustry #MovieNews",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Is The New York Times Buying Letterboxd?\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: According to The New York Times , they have entered into exclusive discussions to purchase Letterboxd. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Is The New York Times Buying Letterboxd?: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Is The New York Times Buying Letterboxd? as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Is The New York Times Buying Letterboxd? and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "According to The New York Times , they have entered into exclusive discussions to purchase Letterboxd. If it goes through, the transaction would give The New York Times another feather in its cap for apps people use daily and bring tech and cinema together in new ways. There has been a lot of interest in Letterboxd and its growing subscriber base. Will the New York Times improve the app or make it",
+      "source_name": "No Film School",
+      "hook": "Is The New York Times Buying Letterboxd?",
+      "confidence_reason": "corroborated by 10 independent sources; published 4d ago; No Film School is a tech source.",
+      "evidence_url": "https://nofilmschool.com/the-new-york-times-buying-letterboxd",
+      "duplicate_note": "Similar to existing post “Is The New York Times Buying Letterboxd?” (match 100%) but carries a current change/news angle, so it is allowed as a rework."
+    },
+    {
+      "id": "scout-1794353461571-1-reel",
+      "title": "Is The New York Times Buying Letterboxd? (Reel)",
+      "source_title": "Is The New York Times Buying Letterboxd?",
+      "pillar": "Industry Watch",
+      "slug": "Reel_is-the-new-york-times-buying-letterboxd",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Is The New York Times Buying Letterboxd?\n\nAccording to The New York Times , they have entered into exclusive discussions to purchase Letterboxd.\n\nThe filmmaker's read: what this means for the people who make films.\n\nWhy it's on the list: corroborated by 10 independent sources; published 4d ago; No Film School is a tech source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmNews #Filmmaking #IndieFilm #FilmIndustry #MovieNews",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Is The New York Times Buying Letterboxd?\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: According to The New York Times , they have entered into exclusive discussions to purchase Letterboxd. Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Is The New York Times Buying Letterboxd?: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Is The New York Times Buying Letterboxd? as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Is The New York Times Buying Letterboxd? and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "According to The New York Times , they have entered into exclusive discussions to purchase Letterboxd. If it goes through, the transaction would give The New York Times another feather in its cap for apps people use daily and bring tech and cinema together in new ways. There has been a lot of interest in Letterboxd and its growing subscriber base. Will the New York Times improve the app or make it",
+      "source_name": "No Film School",
+      "hook": "Is The New York Times Buying Letterboxd?",
+      "confidence_reason": "corroborated by 10 independent sources; published 4d ago; No Film School is a tech source.",
+      "evidence_url": "https://nofilmschool.com/the-new-york-times-buying-letterboxd",
+      "duplicate_note": "Similar to existing post “Is The New York Times Buying Letterboxd?” (match 100%) but carries a current change/news angle, so it is allowed as a rework.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461573-2",
+      "title": "‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously",
+      "source_title": "‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Post_long-long-night-director-youm-kyu-bock-on-creating-animation",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Animation: ‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously\n\n‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously The Hollywood Reporter\n\nThe filmmaker's read: what this means for animation.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 6 independent sources; published 1h ago; News: animation is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#Animation #FilmNews #MovieNews #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Animation: ‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: ‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously The Hollywood Reporter Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ‘Long Long Night’ Director Youm Kyu-bock on Creating: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using ‘Long Long Night’ Director Youm Kyu-bock on Creating as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ‘Long Long Night’ Director Youm Kyu-bock on Creating and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously The Hollywood Reporter",
+      "source_name": "News: animation",
+      "hook": "Animation: ‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 6 independent sources; published 1h ago; News: animation is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPS05iQVJ4UDMyTmVnYUw3cmpGZmZMOWhnSWwtM0FfVExvTDVudkxnVElqS3JVdmUxemhzWHJaVGxBbkljVlhjOVZWNlpUM0FzSlZDNVNUMnBqdHBRZThkaVR6MjRqTjBkUm1YQ1dPWlpOSTdpZ3VVSWlWdEkwdVpUMXV5NXZoZFJBMjhZcGx4bklDSE0wbWpjbWEzdlI2ZUpQWHNiUkJLSGNKcTcydXlXWU1n?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1794353461573-2-reel",
+      "title": "‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously (Reel)",
+      "source_title": "‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Reel_long-long-night-director-youm-kyu-bock-on-creating-animation",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Animation: ‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously\n\n‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously The Hollywood Reporter\n\nThe filmmaker's read: what this means for animation.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 6 independent sources; published 1h ago; News: animation is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#Animation #FilmNews #MovieNews #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Animation: ‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: ‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously The Hollywood Reporter Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ‘Long Long Night’ Director Youm Kyu-bock on Creating: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using ‘Long Long Night’ Director Youm Kyu-bock on Creating as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ‘Long Long Night’ Director Youm Kyu-bock on Creating and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously The Hollywood Reporter",
+      "source_name": "News: animation",
+      "hook": "Animation: ‘Long Long Night’ Director Youm Kyu-bock on Creating Animation That Takes Kids Seriously",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 6 independent sources; published 1h ago; News: animation is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPS05iQVJ4UDMyTmVnYUw3cmpGZmZMOWhnSWwtM0FfVExvTDVudkxnVElqS3JVdmUxemhzWHJaVGxBbkljVlhjOVZWNlpUM0FzSlZDNVNUMnBqdHBRZThkaVR6MjRqTjBkUm1YQ1dPWlpOSTdpZ3VVSWlWdEkwdVpUMXV5NXZoZFJBMjhZcGx4bklDSE0wbWpjbWEzdlI2ZUpQWHNiUkJLSGNKcTcydXlXWU1n?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461573-3",
+      "title": "Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions",
+      "source_title": "Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions",
+      "pillar": "Industry Watch",
+      "slug": "Post_austin-film-festival-reveals-audience-award-winners-sets-dat",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions\n\nEXCLUSIVE: The screenwriter-forward Austin Film Festival has officially wrapped its 2026 edition, revealing its Audience Award winners and turning to plans for 2027, setting the…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 2h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: EXCLUSIVE: The screenwriter-forward Austin Film Festival has officially wrapped its 2026 edition, revealing its Audience Award winners and turning to plans for 2027, setting the… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Austin Film Festival Reveals Audience Award Winners, Sets: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Austin Film Festival Reveals Audience Award Winners, Sets as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Austin Film Festival Reveals Audience Award Winners, Sets and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "EXCLUSIVE: The screenwriter-forward Austin Film Festival has officially wrapped its 2026 edition, revealing its Audience Award winners and turning to plans for 2027, setting the opening of submissions for its Film and Script competition beginning next month. Vincent Grashaw’s Bruton, the drama based on true story and starring Theo Rossi, Aya Cash, Tammy Blanchard and […]",
+      "source_name": "Deadline",
+      "hook": "Festival & awards: Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 2h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/11/austin-film-festival-audience-award-winners-2027-dates-1237218041/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1794353461573-3-reel",
+      "title": "Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions (Reel)",
+      "source_title": "Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions",
+      "pillar": "Industry Watch",
+      "slug": "Reel_austin-film-festival-reveals-audience-award-winners-sets-dat",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Festival & awards: Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions\n\nEXCLUSIVE: The screenwriter-forward Austin Film Festival has officially wrapped its 2026 edition, revealing its Audience Award winners and turning to plans for 2027, setting the…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 4 independent sources; published 2h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: EXCLUSIVE: The screenwriter-forward Austin Film Festival has officially wrapped its 2026 edition, revealing its Audience Award winners and turning to plans for 2027, setting the… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Austin Film Festival Reveals Audience Award Winners, Sets: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Austin Film Festival Reveals Audience Award Winners, Sets as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Austin Film Festival Reveals Audience Award Winners, Sets and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "EXCLUSIVE: The screenwriter-forward Austin Film Festival has officially wrapped its 2026 edition, revealing its Audience Award winners and turning to plans for 2027, setting the opening of submissions for its Film and Script competition beginning next month. Vincent Grashaw’s Bruton, the drama based on true story and starring Theo Rossi, Aya Cash, Tammy Blanchard and […]",
+      "source_name": "Deadline",
+      "hook": "Festival & awards: Austin Film Festival Reveals Audience Award Winners, Sets Dates For 2027 Film & Script Competitions",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 4 independent sources; published 2h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/11/austin-film-festival-audience-award-winners-2027-dates-1237218041/",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461573-4",
+      "title": "Why Godzilla Minus Zero Blew Everyone Away At The Box Office",
+      "source_title": "Why Godzilla Minus Zero Blew Everyone Away At The Box Office - Looper",
+      "pillar": "Industry Watch",
+      "slug": "Post_why-godzilla-minus-zero-blew-everyone-away-at-the-box-office",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Box office: Why Godzilla Minus Zero Blew Everyone Away At The Box Office\n\nWhy Godzilla Minus Zero Blew Everyone Away At The Box Office Looper\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 2h ago; News: box office is a box-office source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Box office: Why Godzilla Minus Zero Blew Everyone Away At The Box Office\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Why Godzilla Minus Zero Blew Everyone Away At The Box Office Looper Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Why Godzilla Minus Zero Blew Everyone Away At: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Why Godzilla Minus Zero Blew Everyone Away At as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Why Godzilla Minus Zero Blew Everyone Away At and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "Why Godzilla Minus Zero Blew Everyone Away At The Box Office Looper",
+      "source_name": "News: box office",
+      "hook": "Box office: Why Godzilla Minus Zero Blew Everyone Away At The Box Office",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 2h ago; News: box office is a box-office source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFB3UU8xQzQ0RExLZ2ptMzdGWno2UFRmYlV3OWo3Q2dOOElzRXM4Z2FTRFR5OGg3VzhRT05iMF93bms4VkNpOUV5VmRnWlJNMEVSdXFQRnJNazBva2xEWGh6UEIwWnppdXY1cldVVEtxdw?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1794353461573-4-reel",
+      "title": "Why Godzilla Minus Zero Blew Everyone Away At The Box Office (Reel)",
+      "source_title": "Why Godzilla Minus Zero Blew Everyone Away At The Box Office - Looper",
+      "pillar": "Industry Watch",
+      "slug": "Reel_why-godzilla-minus-zero-blew-everyone-away-at-the-box-office",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Box office: Why Godzilla Minus Zero Blew Everyone Away At The Box Office\n\nWhy Godzilla Minus Zero Blew Everyone Away At The Box Office Looper\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 2h ago; News: box office is a box-office source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Box office: Why Godzilla Minus Zero Blew Everyone Away At The Box Office\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Why Godzilla Minus Zero Blew Everyone Away At The Box Office Looper Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Why Godzilla Minus Zero Blew Everyone Away At: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Why Godzilla Minus Zero Blew Everyone Away At as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Why Godzilla Minus Zero Blew Everyone Away At and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "Why Godzilla Minus Zero Blew Everyone Away At The Box Office Looper",
+      "source_name": "News: box office",
+      "hook": "Box office: Why Godzilla Minus Zero Blew Everyone Away At The Box Office",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 2h ago; News: box office is a box-office source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFB3UU8xQzQ0RExLZ2ptMzdGWno2UFRmYlV3OWo3Q2dOOElzRXM4Z2FTRFR5OGg3VzhRT05iMF93bms4VkNpOUV5VmRnWlJNMEVSdXFQRnJNazBva2xEWGh6UEIwWnppdXY1cldVVEtxdw?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461573-5",
+      "title": "Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening",
+      "source_title": "Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening - Rotten Tomatoes",
+      "pillar": "Industry Watch",
+      "slug": "Post_weekend-box-office-godzilla-minus-zero-roars-to-monster-open",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Box office: Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening\n\nWeekend Box Office: Godzilla Minus Zero Roars to Monster Opening Rotten Tomatoes ‘Ramayana’ Makes History as First Indian Film to Top U.K., Ireland Box Office as ‘Godzilla Minus Zero’ Debuts in Third Variety Latest Godzilla release sets box office records for Japanese film Financial Times\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 44h ago; News: box office is a box-office source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Box office: Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening Rotten Tomatoes ‘Ramayana’ Makes History as First Indian Film to Top U.K., Ireland Box Office as ‘Godzilla Minus Zero’ Debuts in Third Variety Latest Godzilla release sets box office records for Japanese film Financial Times Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Weekend Box Office: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Weekend Box Office as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Weekend Box Office and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening Rotten Tomatoes ‘Ramayana’ Makes History as First Indian Film to Top U.K., Ireland Box Office as ‘Godzilla Minus Zero’ Debuts in Third Variety Latest Godzilla release sets box office records for Japanese film Financial Times",
+      "source_name": "News: box office",
+      "hook": "Box office: Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 44h ago; News: box office is a box-office source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPR09Mb1c4NjhOc2c3bjVqZDRrU1VpaUJ3S2czQUE1elFWcnlRTlBlV0duRFBTNlR1SFhJUERLTkRrM08ydzhzZHpRZ29RZmVhZU8tTW5ydFZHS1BnLXNmcUl4WmxnLVpkbGtJbEVLaEVzdERIQnZCN2duMlhWVURrWXpOSGRlWkV1WmJyMVZaYWx0NmNnX1E?oc=5",
+      "duplicate_note": "Similar to existing post “Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening - Rotten Tomatoes” (match 100%) but carries a current change/news angle, so it is allowed as a rework."
+    },
+    {
+      "id": "scout-1794353461573-5-reel",
+      "title": "Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening (Reel)",
+      "source_title": "Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening - Rotten Tomatoes",
+      "pillar": "Industry Watch",
+      "slug": "Reel_weekend-box-office-godzilla-minus-zero-roars-to-monster-open",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Box office: Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening\n\nWeekend Box Office: Godzilla Minus Zero Roars to Monster Opening Rotten Tomatoes ‘Ramayana’ Makes History as First Indian Film to Top U.K., Ireland Box Office as ‘Godzilla Minus Zero’ Debuts in Third Variety Latest Godzilla release sets box office records for Japanese film Financial Times\n\nThe filmmaker's read: what the numbers say about the market right now.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 44h ago; News: box office is a box-office source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#BoxOffice #FilmNews #FilmIndustry #MovieNews #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Box office: Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening Rotten Tomatoes ‘Ramayana’ Makes History as First Indian Film to Top U.K., Ireland Box Office as ‘Godzilla Minus Zero’ Debuts in Third Variety Latest Godzilla release sets box office records for Japanese film Financial Times Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Weekend Box Office: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Weekend Box Office as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Weekend Box Office and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.573Z",
+      "source": "Topic Scout",
+      "suggestion": "Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening Rotten Tomatoes ‘Ramayana’ Makes History as First Indian Film to Top U.K., Ireland Box Office as ‘Godzilla Minus Zero’ Debuts in Third Variety Latest Godzilla release sets box office records for Japanese film Financial Times",
+      "source_name": "News: box office",
+      "hook": "Box office: Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 44h ago; News: box office is a box-office source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPR09Mb1c4NjhOc2c3bjVqZDRrU1VpaUJ3S2czQUE1elFWcnlRTlBlV0duRFBTNlR1SFhJUERLTkRrM08ydzhzZHpRZ29RZmVhZU8tTW5ydFZHS1BnLXNmcUl4WmxnLVpkbGtJbEVLaEVzdERIQnZCN2duMlhWVURrWXpOSGRlWkV1WmJyMVZaYWx0NmNnX1E?oc=5",
+      "duplicate_note": "Similar to existing post “Weekend Box Office: Godzilla Minus Zero Roars to Monster Opening - Rotten Tomatoes” (match 100%) but carries a current change/news angle, so it is allowed as a rework.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461573-6",
+      "title": "John Goodman to Narrate Animated Short Adaptation of 'Everybody'",
+      "source_title": "John Goodman to Narrate Animated Short Adaptation of 'Everybody' - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Post_john-goodman-to-narrate-animated-short-adaptation-of-everybo",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Animation: John Goodman to Narrate Animated Short Adaptation of 'Everybody'\n\nJohn Goodman to Narrate Animated Short Adaptation of 'Everybody' The Hollywood Reporter\n\nThe filmmaker's read: what this means for animation.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 2h ago; News: animation is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#Animation #FilmNews #MovieNews #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Animation: John Goodman to Narrate Animated Short Adaptation of 'Everybody'\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: John Goodman to Narrate Animated Short Adaptation of 'Everybody' The Hollywood Reporter Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of John Goodman to Narrate Animated Short Adaptation of: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using John Goodman to Narrate Animated Short Adaptation of as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with John Goodman to Narrate Animated Short Adaptation of and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "John Goodman to Narrate Animated Short Adaptation of 'Everybody' The Hollywood Reporter",
+      "source_name": "News: animation",
+      "hook": "Animation: John Goodman to Narrate Animated Short Adaptation of 'Everybody'",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 2h ago; News: animation is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdk96LUhwMkNXUXo5WktHMHhiZlFyMGV5WVk4ODgxakt4em4xWm4yZS12Sm9IWnFRY0s0X1pGajB5c2hLOUZBeWxZczhGMWVQUG5naFhNeHRCakg0LTJ3VlNybzFjS28yRVM0MTRnSXpqa0gzbURWb2J1UmxSY0cyUFo0azBKVFNXTklxUUtwY1pyU1Q0aVZ4MUtmdFphXzJXS2ItX0hLNllCRjEwNHExOGZHRzZ5cTI5UkI3M0NkWQ?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1794353461573-6-reel",
+      "title": "John Goodman to Narrate Animated Short Adaptation of 'Everybody' (Reel)",
+      "source_title": "John Goodman to Narrate Animated Short Adaptation of 'Everybody' - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Reel_john-goodman-to-narrate-animated-short-adaptation-of-everybo",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Animation: John Goodman to Narrate Animated Short Adaptation of 'Everybody'\n\nJohn Goodman to Narrate Animated Short Adaptation of 'Everybody' The Hollywood Reporter\n\nThe filmmaker's read: what this means for animation.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 2h ago; News: animation is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#Animation #FilmNews #MovieNews #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Animation: John Goodman to Narrate Animated Short Adaptation of 'Everybody'\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: John Goodman to Narrate Animated Short Adaptation of 'Everybody' The Hollywood Reporter Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of John Goodman to Narrate Animated Short Adaptation of: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using John Goodman to Narrate Animated Short Adaptation of as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with John Goodman to Narrate Animated Short Adaptation of and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "John Goodman to Narrate Animated Short Adaptation of 'Everybody' The Hollywood Reporter",
+      "source_name": "News: animation",
+      "hook": "Animation: John Goodman to Narrate Animated Short Adaptation of 'Everybody'",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 2h ago; News: animation is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdk96LUhwMkNXUXo5WktHMHhiZlFyMGV5WVk4ODgxakt4em4xWm4yZS12Sm9IWnFRY0s0X1pGajB5c2hLOUZBeWxZczhGMWVQUG5naFhNeHRCakg0LTJ3VlNybzFjS28yRVM0MTRnSXpqa0gzbURWb2J1UmxSY0cyUFo0azBKVFNXTklxUUtwY1pyU1Q0aVZ4MUtmdFphXzJXS2ItX0hLNllCRjEwNHExOGZHRzZ5cTI5UkI3M0NkWQ?oc=5",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461574-7",
+      "title": "Casey Bloys to Receive Producers Guild’s Milestone Award",
+      "source_title": "Casey Bloys to Receive Producers Guild’s Milestone Award",
+      "pillar": "Industry Watch",
+      "slug": "Post_casey-bloys-to-receive-producers-guild-s-milestone-award",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Festival & awards: Casey Bloys to Receive Producers Guild’s Milestone Award\n\nThe HBO and Skydance streaming chief will be honored at the 2027 Producers Guild Awards in February The post Casey Bloys to Receive Producers Guild’s Milestone Award appeared…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; TheWrap is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Casey Bloys to Receive Producers Guild’s Milestone Award\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: The HBO and Skydance streaming chief will be honored at the 2027 Producers Guild Awards in February The post Casey Bloys to Receive Producers Guild’s Milestone Award appeared… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Casey Bloys to Receive Producers Guild’s Milestone Award: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Casey Bloys to Receive Producers Guild’s Milestone Award as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Casey Bloys to Receive Producers Guild’s Milestone Award and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "The HBO and Skydance streaming chief will be honored at the 2027 Producers Guild Awards in February The post Casey Bloys to Receive Producers Guild’s Milestone Award appeared first on TheWrap .",
+      "source_name": "TheWrap",
+      "hook": "Festival & awards: Casey Bloys to Receive Producers Guild’s Milestone Award",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; TheWrap is a trade source.",
+      "evidence_url": "https://www.thewrap.com/industry-news/awards/casey-bloys-producers-guild-milestone-award/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1794353461574-7-reel",
+      "title": "Casey Bloys to Receive Producers Guild’s Milestone Award (Reel)",
+      "source_title": "Casey Bloys to Receive Producers Guild’s Milestone Award",
+      "pillar": "Industry Watch",
+      "slug": "Reel_casey-bloys-to-receive-producers-guild-s-milestone-award",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Festival & awards: Casey Bloys to Receive Producers Guild’s Milestone Award\n\nThe HBO and Skydance streaming chief will be honored at the 2027 Producers Guild Awards in February The post Casey Bloys to Receive Producers Guild’s Milestone Award appeared…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; TheWrap is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Festival & awards: Casey Bloys to Receive Producers Guild’s Milestone Award\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: The HBO and Skydance streaming chief will be honored at the 2027 Producers Guild Awards in February The post Casey Bloys to Receive Producers Guild’s Milestone Award appeared… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Casey Bloys to Receive Producers Guild’s Milestone Award: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Casey Bloys to Receive Producers Guild’s Milestone Award as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Casey Bloys to Receive Producers Guild’s Milestone Award and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "The HBO and Skydance streaming chief will be honored at the 2027 Producers Guild Awards in February The post Casey Bloys to Receive Producers Guild’s Milestone Award appeared first on TheWrap .",
+      "source_name": "TheWrap",
+      "hook": "Festival & awards: Casey Bloys to Receive Producers Guild’s Milestone Award",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; TheWrap is a trade source.",
+      "evidence_url": "https://www.thewrap.com/industry-news/awards/casey-bloys-producers-guild-milestone-award/",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461574-8",
+      "title": "‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy",
+      "source_title": "‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy",
+      "pillar": "Industry Watch",
+      "slug": "Post_ramy-s-ramy-youssef-steve-way-reteaming-on-disability-themed",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy\n\nRamy Youssef and Steve Way, collaborators on the Peabody Award and Golden Globe-winning Hulu comedy Ramy, are set to reteam with longtime friend and collaborator Jon Braylock on a…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Ramy Youssef and Steve Way, collaborators on the Peabody Award and Golden Globe-winning Hulu comedy Ramy, are set to reteam with longtime friend and collaborator Jon Braylock on a… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ‘Ramy’s Ramy Youssef & Steve Way Reteaming On: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using ‘Ramy’s Ramy Youssef & Steve Way Reteaming On as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ‘Ramy’s Ramy Youssef & Steve Way Reteaming On and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "Ramy Youssef and Steve Way, collaborators on the Peabody Award and Golden Globe-winning Hulu comedy Ramy, are set to reteam with longtime friend and collaborator Jon Braylock on a disability-themed body swap comedy. Currently untitled, the film revolves around a man with muscular dystrophy (Way) who swap bodies with his burly caregiver with hilarious consequences. […]",
+      "source_name": "Deadline",
+      "hook": "‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/11/ramy-youssef-steve-way-body-swap-comedy-1237218636/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1794353461574-8-reel",
+      "title": "‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy (Reel)",
+      "source_title": "‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy",
+      "pillar": "Industry Watch",
+      "slug": "Reel_ramy-s-ramy-youssef-steve-way-reteaming-on-disability-themed",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: ‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy\n\nRamy Youssef and Steve Way, collaborators on the Peabody Award and Golden Globe-winning Hulu comedy Ramy, are set to reteam with longtime friend and collaborator Jon Braylock on a…\n\nThe filmmaker's read: what the festival run signals for the film.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFestival #FilmNews #IndieFilm #Filmmaking #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Ramy Youssef and Steve Way, collaborators on the Peabody Award and Golden Globe-winning Hulu comedy Ramy, are set to reteam with longtime friend and collaborator Jon Braylock on a… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of ‘Ramy’s Ramy Youssef & Steve Way Reteaming On: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using ‘Ramy’s Ramy Youssef & Steve Way Reteaming On as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with ‘Ramy’s Ramy Youssef & Steve Way Reteaming On and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "Ramy Youssef and Steve Way, collaborators on the Peabody Award and Golden Globe-winning Hulu comedy Ramy, are set to reteam with longtime friend and collaborator Jon Braylock on a disability-themed body swap comedy. Currently untitled, the film revolves around a man with muscular dystrophy (Way) who swap bodies with his burly caregiver with hilarious consequences. […]",
+      "source_name": "Deadline",
+      "hook": "‘Ramy’s Ramy Youssef & Steve Way Reteaming On Disability-Themed Body Swap Comedy",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 3 independent sources; published 1h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/11/ramy-youssef-steve-way-body-swap-comedy-1237218636/",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461574-9",
+      "title": "Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”",
+      "source_title": "Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”",
+      "pillar": "Industry Watch",
+      "slug": "Post_federal-film-tv-tax-credit-champ-steven-paul-tells-afm-we-ha",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”\n\nIn the wake of a blue wave in Congress, the drivers of the federal film and TV tax credit took the stage at AFM to express their determination about getting the bill passed during…\n\nThe filmmaker's read: what it means for the money side of the business.\n\nWhy it's on the list: corroborated by 4 independent sources; published 1h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFinance #FilmNews #IndieFilm #FilmBudgeting #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: In the wake of a blue wave in Congress, the drivers of the federal film and TV tax credit took the stage at AFM to express their determination about getting the bill passed during… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Federal Film & TV Tax Credit Champ Steven: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Federal Film & TV Tax Credit Champ Steven as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Federal Film & TV Tax Credit Champ Steven and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "In the wake of a blue wave in Congress, the drivers of the federal film and TV tax credit took the stage at AFM to express their determination about getting the bill passed during a lame duck session on Capitol Hill. Sitting on today’s panel were SP Media Boss Steven Paul, and SP Media COO […]",
+      "source_name": "Deadline",
+      "hook": "Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”",
+      "confidence_reason": "corroborated by 4 independent sources; published 1h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/11/film-and-tv-tax-1237218857/",
+      "duplicate_note": "No close match in the existing-post corpus."
+    },
+    {
+      "id": "scout-1794353461574-9-reel",
+      "title": "Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year” (Reel)",
+      "source_title": "Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”",
+      "pillar": "Industry Watch",
+      "slug": "Reel_federal-film-tv-tax-credit-champ-steven-paul-tells-afm-we-ha",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”\n\nIn the wake of a blue wave in Congress, the drivers of the federal film and TV tax credit took the stage at AFM to express their determination about getting the bill passed during…\n\nThe filmmaker's read: what it means for the money side of the business.\n\nWhy it's on the list: corroborated by 4 independent sources; published 1h ago; Deadline is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmFinance #FilmNews #IndieFilm #FilmBudgeting #FilmIndustry",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: In the wake of a blue wave in Congress, the drivers of the federal film and TV tax credit took the stage at AFM to express their determination about getting the bill passed during… Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Federal Film & TV Tax Credit Champ Steven: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Federal Film & TV Tax Credit Champ Steven as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Federal Film & TV Tax Credit Champ Steven and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "In the wake of a blue wave in Congress, the drivers of the federal film and TV tax credit took the stage at AFM to express their determination about getting the bill passed during a lame duck session on Capitol Hill. Sitting on today’s panel were SP Media Boss Steven Paul, and SP Media COO […]",
+      "source_name": "Deadline",
+      "hook": "Federal Film & TV Tax Credit Champ Steven Paul Tells AFM, “We Have To Get This Accomplished Before The End Of The Year”",
+      "confidence_reason": "corroborated by 4 independent sources; published 1h ago; Deadline is a trade source.",
+      "evidence_url": "https://deadline.com/2026/11/film-and-tv-tax-1237218857/",
+      "duplicate_note": "No close match in the existing-post corpus.",
+      "video_url": null,
+      "cover_url": null
+    },
+    {
+      "id": "scout-1794353461574-10",
+      "title": "Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive)",
+      "source_title": "Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Post_lisa-s-always-lalisa-heads-to-youtube-premium-singer-to-rele",
+      "slide_count": 6,
+      "build_type": "both",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "Release: Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive)\n\nLisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) The Hollywood Reporter\n\nThe filmmaker's read: what the release plan tells us.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 5h ago; News: movie releases is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmNews #ReleaseDate #MovieNews #FilmIndustry #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Release: Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive)\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) The Hollywood Reporter Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "image_urls": [],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) The Hollywood Reporter",
+      "source_name": "News: movie releases",
+      "hook": "Release: Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive)",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 5h ago; News: movie releases is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPMGhuQ0pYU1FUMUtydHN0Skt6aTR4NGxtN1gyejY1dm96UmxWT0x4UzVIRHltR1BFWmlQZ0lDS1VsQzNFV0Z5aDNSSkEwbDlPZkFNQlB3MWlZS0djRnl0VHhsVHlsYlVPTk5PX0dzcld2VkRxS0d6b1MwTXFQMHU2aVRlNUZvQkxwWGZfSDFhUi14VnlMd0pVb3AzbU1kQjBSWnA3clpaT2dtbWNvaXhVZllxTExRNG9nQVNxdTl5VFJZeGtWMlRleU93?oc=5",
+      "duplicate_note": "Similar to existing post “Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) - The Hollywood Reporter” (match 100%) but carries a current change/news angle, so it is allowed as a rework."
+    },
+    {
+      "id": "scout-1794353461574-10-reel",
+      "title": "Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) (Reel)",
+      "source_title": "Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) - The Hollywood Reporter",
+      "pillar": "Industry Watch",
+      "slug": "Reel_lisa-s-always-lalisa-heads-to-youtube-premium-singer-to-rele",
+      "slide_count": 6,
+      "build_type": "reel",
+      "original_schedule": null,
+      "proposed_schedule": null,
+      "caption": "REEL: Release: Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive)\n\nLisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) The Hollywood Reporter\n\nThe filmmaker's read: what the release plan tells us.\n\nWhy it's on the list: carries a clear current film-news angle; corroborated by 5 independent sources; published 5h ago; News: movie releases is a trade source.\n\nWhat's your take — does this change anything for the films you're working on? Drop it in the comments.\n\nFollow @garyfilmbudgets for daily film industry news.",
+      "hashtags": "#FilmNews #ReleaseDate #MovieNews #FilmIndustry #Filmmaking",
+      "slides": [
+        {
+          "slide": 1,
+          "heading": "Hook",
+          "prompt_summary": "Hook slide — the story in one line: \"Release: Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive)\". Large, plain, instantly readable on a phone."
+        },
+        {
+          "slide": 2,
+          "heading": "What happened",
+          "prompt_summary": "Report the news in two or three plain sentences: Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) The Hollywood Reporter Cover who, what and when. No speculation."
+        },
+        {
+          "slide": 3,
+          "heading": "The detail",
+          "prompt_summary": "Zoom in on the specifics of Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer: the names, numbers, dates or terms a film professional would actually want."
+        },
+        {
+          "slide": 4,
+          "heading": "Why it matters",
+          "prompt_summary": "Explain what this signals for people who make films, using Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer as the example. Concrete, not abstract — name the practical consequence."
+        },
+        {
+          "slide": 5,
+          "heading": "What to watch",
+          "prompt_summary": "Say what happens next with Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer and what to keep an eye on. Forward-looking and specific."
+        },
+        {
+          "slide": 6,
+          "heading": "CTA",
+          "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
+        }
+      ],
+      "status": "ready",
+      "has_images": false,
+      "image_file_names": [
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png"
+      ],
+      "created_at": "2026-11-10T23:31:01.574Z",
+      "source": "Topic Scout",
+      "suggestion": "Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) The Hollywood Reporter",
+      "source_name": "News: movie releases",
+      "hook": "Release: Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive)",
+      "confidence_reason": "carries a clear current film-news angle; corroborated by 5 independent sources; published 5h ago; News: movie releases is a trade source.",
+      "evidence_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPMGhuQ0pYU1FUMUtydHN0Skt6aTR4NGxtN1gyejY1dm96UmxWT0x4UzVIRHltR1BFWmlQZ0lDS1VsQzNFV0Z5aDNSSkEwbDlPZkFNQlB3MWlZS0djRnl0VHhsVHlsYlVPTk5PX0dzcld2VkRxS0d6b1MwTXFQMHU2aVRlNUZvQkxwWGZfSDFhUi14VnlMd0pVb3AzbU1kQjBSWnA3clpaT2dtbWNvaXhVZllxTExRNG9nQVNxdTl5VFJZeGtWMlRleU93?oc=5",
+      "duplicate_note": "Similar to existing post “Lisa’s ‘Always Lalisa’ Heads to YouTube Premium, Singer to Release New Single “Leave With Me” (Exclusive) - The Hollywood Reporter” (match 100%) but carries a current change/news angle, so it is allowed as a rework.",
+      "video_url": null,
+      "cover_url": null
     }
   ],
   "updated_at": "2026-10-13T05:01:44.519523Z"
