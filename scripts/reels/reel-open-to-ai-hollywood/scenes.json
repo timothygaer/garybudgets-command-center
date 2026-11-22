@@ -1,0 +1,62 @@
+{
+  "_source": "Variety, 'Open to AI: Why Hollywood Embraces Artificial Intelligence' (2026-10), https://variety.com/2026/digital/features/ai-hollywood-embraces-artificial-intelligence-1236909213/",
+  "scenes": [
+    {
+      "bg": "01.jpg",
+      "kicker": "Industry Watch",
+      "headline": ["THE AI TABOO", "JUST DIED AT", "STAGE 21"],
+      "lede": "Three-quarters into 2026, AI stopped being Hollywood’s unmentionable — and started showing up as a line item."
+    },
+    {
+      "bg": "03.jpg",
+      "kicker": "Where it’s happening",
+      "headline": ["STAGE 21,", "MANHATTAN", "BEACH"],
+      "items": [
+        "Same lot as the “volume” screens where Jon Favreau shot The Mandalorian.",
+        "Lightstorm Entertainment — James Cameron’s Na’vi shop — sits alongside it.",
+        "Stage 21 now houses Innovative Dreams, an AI offshoot of Jon Erwin’s Wonder Project.",
+        "COO Bryan Yee is the one walking journalists through the LED screens."
+      ]
+    },
+    {
+      "bg": "02.jpg",
+      "kicker": "The number that sells it",
+      "headline": ["BITCOIN: $200M", "DOWN TO $70M"],
+      "items": [
+        "Doug Liman’s “Bitcoin”, produced by Ryan Kavanaugh’s Acme Studios.",
+        "Kavanaugh credits AI with the cut — and says so out loud."
+      ],
+      "stat": "$130M → $35M",
+      "stat_caption": "Below-the-line on the same film, before and after."
+    },
+    {
+      "bg": "04.jpg",
+      "kicker": "Nobody’s whispering now",
+      "headline": ["THE QUIET", "PART IS OVER"],
+      "items": [
+        "Scorsese: filmmakers have to be “open to how [film] can evolve”.",
+        "Lucas, in July: “There’s nothing you can do about it.”",
+        "Witherspoon: “the AI revolution has begun.”",
+        "Tribeca premiered the AI docudrama “Dreams of Violets”."
+      ]
+    },
+    {
+      "bg": "05.jpg",
+      "kicker": "What to watch next",
+      "headline": ["WATCH THE", "DISCLOSURE", "FIGHT"],
+      "items": [
+        "Kathleen Kennedy helped convene an industry group to agree how Hollywood talks about AI.",
+        "Pew and Gallup both show public fear rising, not falling.",
+        "Below-the-line is where the savings land — and where crews feel it first.",
+        "Erwin’s read: it “heightens your creativity and did not diminish it at all”."
+      ]
+    },
+    {
+      "bg": "06.jpg",
+      "kicker": "Gary Budgets",
+      "headline": ["BUDGET IT", "BEFORE YOU", "SHOOT IT"],
+      "cta": "garybudgets.com",
+      "cta_sub": ["Follow @garyfilmbudgets for daily film industry news."]
+    }
+  ]
+}

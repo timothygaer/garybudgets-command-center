@@ -1,0 +1,16 @@
+{
+  "slug": "reel-open-to-ai-hollywood",
+  "title": "Open to AI: Hollywood Is Embracing AI Tools Despite Doomsday Fears",
+  "music": "public/reels/audio/music-licensing-traps-bed.m4a",
+  "music_volume": 0.34,
+  "out_video": "public/reels/reel-open-to-ai-hollywood.mp4",
+  "out_montage": "public/reels/reel-open-to-ai-hollywood-montage.jpg",
+  "scenes": [
+    {"img": "public/reels/frames/reel-open-to-ai-hollywood/01.png", "duration": 4.6, "motion": "zoom_in"},
+    {"img": "public/reels/frames/reel-open-to-ai-hollywood/02.png", "duration": 5.2, "motion": "pan_up"},
+    {"img": "public/reels/frames/reel-open-to-ai-hollywood/03.png", "duration": 5.2, "motion": "zoom_out"},
+    {"img": "public/reels/frames/reel-open-to-ai-hollywood/04.png", "duration": 5.2, "motion": "pan_down"},
+    {"img": "public/reels/frames/reel-open-to-ai-hollywood/05.png", "duration": 5.2, "motion": "zoom_in"},
+    {"img": "public/reels/frames/reel-open-to-ai-hollywood/06.png", "duration": 4.2, "motion": "zoom_out"}
+  ]
+}
