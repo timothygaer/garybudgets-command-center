@@ -77,9 +77,39 @@ The chrome-use relay was required — the CLI `chatgpt-imagegen --backend web` f
 - Audio: loudnorm to −16 LUFS (phone-standard)
 - File: 1080×1920, 30fps, H.264, AAC 128k, ~12.9 MB
 
-## Post-deployment steps
-1. Commit + push: git add + commit + git push
-2. Deploy: `npx vercel --prod --yes`
-3. Update manifest entry: set status="posted", add instagram_url/instagram_media_id
-4. Post via Instagram Graph API: container flow (create_video → poll → publish)
-5. Update `music-library.json` with last_used_reel increment
+## Publishing (VERIFIED 2026-11-24 — do it exactly this way)
+1. Commit + push, then `npx vercel --prod --yes` (the deploy takes ~3 min; the CLI call must be
+   allowed to finish or the site silently serves stale files).
+2. Manifest entry MUST be:
+   - `"media_type": "reel"`  ← `gb_post_reel_standalone.py` refuses anything else
+   - `"status": "approved"`
+   - `"video_url"` and `"cover_url"` = ABSOLUTE `https://garybudgets-command-center.vercel.app/...`
+     (relative paths fail container creation)
+3. Verify the mp4 is publicly fetchable (`curl -sI` → 200 + video/mp4) BEFORE posting.
+4. Publish from the Oracle VM (token lives there, never in git):
+   `ssh ubuntu@192.9.153.72 'cd ~/garybudgets/repo && git pull --ff-only && python3 scripts/gb_post_reel_standalone.py <post_id>'`
+5. Verify: Graph API `/<media_id>?fields=permalink` + the public permalink returns HTTP 200.
+
+**DO NOT post reels via the Vercel `/api/publish` route.** It polls the container inline and the
+300s function limit kills the request mid-flow (video processing routinely takes 4–6 min).
+
+**BUG FIXED 2026-11-24:** the poster polled `graph.instagram.com/v21.0/<IG_ID>/<container_id>`,
+which returns `error: nonexisting field`. The old code silently kept `status_code="IN_PROGRESS"` and
+polled for 2 h without publishing. Status lookups must be node-level: `/v21.0/<container_id>`.
+If a container is already FINISHED, publish it directly with
+`POST /v21.0/<IG_ID>/media_publish {"creation_id": <cid>}` instead of re-rendering.
+
+## Music
+- Bed used here: `public/reels/audio/music-licensing-traps-bed.m4a` at volume 0.34.
+- **User directive (2026-11-24): vary the music for every future reel.** Pick the next track from
+  `scripts/reels/music-library.json` (lowest `last_used_reel`), never reuse the just-used bed.
+- Swap: update `music` + `music_volume` in `designed.json`, re-run `make_designed_reel.py`.
+  Bed must be >= reel length; `loudnorm` to −16 LUFS is applied at assembly.
+
+## Style notes for the next one (user feedback 2026-11-24)
+- "Still looks AI generated" → push prompts toward photographic realism: name a real camera/lens
+  and film stock, add imperfect practical lighting, visible grain, slight underexposure, real set
+  dressing clutter. Avoid symmetrical compositions and glowing/teal-orange hero shots.
+- "It's all Ken Burns effect" → vary motion per scene: beat-cut hard cuts, slow push with
+  rack-focus feel, lateral slide with parallax, whip-pan transitions. Do not apply zoom/pan to
+  every scene.

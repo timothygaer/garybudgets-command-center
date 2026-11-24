@@ -21,6 +21,11 @@ import sys, os, json, time, datetime, urllib.parse, requests, fcntl, subprocess
 
 IG_ID = "17841414649666554"
 BASE = "https://graph.instagram.com/v21.0/" + IG_ID
+# Container STATUS lookups are node-level: /v21.0/<container_id>, NOT /v21.0/<IG_ID>/<id>.
+# Prepending IG_ID returns {"error": "Tried accessing nonexisting field (id)"} which the old
+# code silently swallowed (status_code missing -> kept "IN_PROGRESS") and the poster polled for
+# 2h and never published. Fixed 2026-11-24.
+NODE = "https://graph.instagram.com/v21.0/"
 TOKEN_PATH = os.path.expanduser("~") + "/garybudgets/scripts/ig_token.txt"
 REPO_DIR = os.path.expanduser("~") + "/garybudgets/repo"
 MANIFEST = REPO_DIR + "/manifest.json"
@@ -75,8 +80,10 @@ def wait_finished(cid, tok, timeout=7200):
     last = "IN_PROGRESS"
     while time.time() < deadline:
         try:
-            r = requests.get(BASE + "/" + cid + "?fields=status_code&access_token=" + tok, timeout=30)
+            r = requests.get(NODE + cid + "?fields=status_code&access_token=" + tok, timeout=30)
             data = r.json()
+            if "error" in data:
+                raise RuntimeError("status query error: " + json.dumps(data)[:300])
             last = data.get("status_code", last)
             print(datetime.datetime.now().isoformat(), "container status:", last)
         except Exception as e:
