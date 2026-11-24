@@ -1,7 +1,7 @@
 # Open to AI: Hollywood Is Embracing AI (Reel Pipeline — 2026-11-21)
 
 ## What was built
-- 6 cinematic background images via chatgpt-imagegen (web backend) using `scripts/chatgpt_web_drive.py` through the chrome-use relay.
+- 6 cinematic background images via `scripts/reels/gb_bg_gen.py` (drives your logged-in Chrome through `chrome-use`).
   - Each image ~1.0–1.4 MB, 941×1672 (ChatGPT returns ~941×1672 PNG even when requesting JPEG).
   - All images saved to `public/reels/bg/reel-open-to-ai-hollywood/01.jpg` through `06.jpg`.
 
@@ -12,22 +12,22 @@ Each prompt must include: `Photorealistic cinematic film still, vertical 9:16` +
 
 | File | Subject | Prompt file |
 |------|---------|-------------|
-| 01.jpg | Soundstage at night, LED volume wall glow, cable runs, dolly silhouette | /tmp/gb_bg1.txt |
-| 02.jpg | Dark production office, monitors with colour-graded film, budget ledger, coffee cup | /tmp/gb_bg2.txt |
-| 03.jpg | Hollywood soundstage exterior, closed stage door, work-light, wet asphalt | /tmp/gb_bg3.txt |
-| 04.jpg | Empty studio screening room, dark seats, screen glow from front | /tmp/gb_bg4.txt |
-| 05.jpg | Post-production suite, blinking network gear rack, laptop, cable | /tmp/gb_bg5.txt |
-| 06.jpg | Empty soundstage floor at dawn, director's chair, bare bulb, haze | /tmp/gb_bg6.txt |
+| 01.jpg | Soundstage at night, LED volume wall glow, cable runs, dolly silhouette | prompts/01.txt |
+| 02.jpg | Dark production office, monitors with colour-graded film, budget ledger, coffee cup | prompts/02.txt |
+| 03.jpg | Hollywood soundstage exterior, closed stage door, work-light, wet asphalt | prompts/03.txt |
+| 04.jpg | Empty studio screening room, dark seats, screen glow from front | prompts/04.txt |
+| 05.jpg | Post-production suite, blinking network gear rack, laptop, cable | prompts/05.txt |
+| 06.jpg | Empty soundstage floor at dawn, director's chair, bare bulb, haze | prompts/06.txt |
 
 ### How to regenerate any background
 ```bash
 export PATH="/Users/dit/.local/bin:/usr/local/bin:/opt/homebrew/bin:$PATH"
-python3 /Users/dit/.hermes/cache/scratch/gb_bg_gen.py \
-  --prompt-file /tmp/gb_bg1.txt \
+python3 scripts/reels/gb_bg_gen.py \
+  --prompt-file prompts/01.txt \
   --out public/reels/bg/reel-open-to-ai-hollywood/01.jpg \
   --timeout 420
 ```
-The script (`gb_bg_gen.py`) uses `chrome-use --session chatgpt-web` to:
+`scripts/reels/gb_bg_gen.py` (restored 2026-11-24, verified end-to-end) uses `chrome-use --session chatgpt-web` to:
   1. Open chatgpt.com
   2. Send the prompt to the composer
   3. Poll for `Generated image N` button completion
@@ -35,7 +35,13 @@ The script (`gb_bg_gen.py`) uses `chrome-use --session chatgpt-web` to:
 Skip if the output file already exists and >500KB (idempotent).
 
 ### Rate limit note
-~13–15 generations per hour before ChatGPT rate-limits. Sleep 45s between images.
+~13–15 generations per hour before ChatGPT rate-limits. Sleep 45s between images (`--gap`).
+All six at once:
+
+```bash
+python3 scripts/reels/gb_bg_gen.py --batch scripts/reels/reel-open-to-ai-hollywood/prompts \
+  --out-dir public/reels/bg/reel-open-to-ai-hollywood
+```
 The chrome-use relay was required — the CLI `chatgpt-imagegen --backend web` fails with a false "login wall" every time.
 
 ## Scene composition
