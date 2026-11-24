@@ -1,9 +1,10 @@
 {
-  "_rule": "No song repeats within 10 consecutive reels (2-week window). pick_track.py selects the least-recently-used track for the requested mood. Usage is appended by the picker and committed with each reel.",
+  "_rule": "No song repeats within 10 consecutive reels. Use scripts/reels/pick_track.py (--mood dark_cinematic|tension|driving_urban|upbeat_energetic|warm_emotive [--mark]) — it skips tracks whose file is missing, respects the 10-reel window, and records usage. Motion Array beds are local_only (~/Music/gb-reels/ma): never commit them.",
   "_sources": {
-    "motionarray": "User's paid Motion Array sub \u2014 30 tracks (ma-<mood>-NN.mp3) downloaded manually to Drive 'Gary Budgets > Reel Music'. NEVER automate downloads (ToS).",
-    "jamendo": "Free Jamendo API client_id (user registers at api.jamendo.com \u2014 sheet 'Gary Budgets \u2014 TikTok & Music Launch Checklist' step 3). CC-BY tracks need caption credit.",
-    "youtube": "No-copyright tracks via yt-dlp (fallback)."
+    "motionarray": "User's paid Motion Array sub. 71 tracks converted to 128k mp3 at ~/Music/gb-reels/ma/ (2026-11-24) from the raw WAV downloads. local_only=true: kept OUT of git and off public URLs for licensing safety — they are build-time assets only. NEVER automate MA downloads (ToS).",
+    "jamendo": "Free Jamendo API client_id (user registers at api.jamendo.com — sheet 'Gary Budgets — TikTok & Music Launch Checklist' step 3). CC-BY tracks need caption credit.",
+    "youtube": "No-copyright tracks via yt-dlp (fallback).",
+    "local_dir": "~/Music/gb-reels/ma/"
   },
   "tracks": [
     {
@@ -11,7 +12,7 @@
       "source": "youtube",
       "file": "public/reels/audio/music-licensing-traps-bed.m4a",
       "mood": "dark_cinematic",
-      "credit": "Soundridemusic \u2014 Dark Cinematic Trailer (no copyright)",
+      "credit": "Soundridemusic — Dark Cinematic Trailer (no copyright)",
       "last_used_reel": 1
     },
     {
@@ -19,7 +20,7 @@
       "source": "internet_archive",
       "file": "public/reels/audio/bed-exorcist-teaser-impending-doom.mp3",
       "mood": "dark_cinematic",
-      "credit": "Phantasm Nocturnes \u2014 \"Impending Doom\" (Internet Archive / SPNet, CC BY-SA 3.0)",
+      "credit": "Phantasm Nocturnes — \"Impending Doom\" (Internet Archive / SPNet, CC BY-SA 3.0)",
       "last_used_reel": 0,
       "attribution_required": true
     },
@@ -28,7 +29,7 @@
       "source": "internet_archive",
       "file": "public/reels/audio/bed-exorcist-trailer-glass-darkly.mp3",
       "mood": "tension",
-      "credit": "Doc & Lena Selyanina \u2014 \"Through A Glass Darkly\" (Internet Archive / FMA, CC BY 3.0)",
+      "credit": "Doc & Lena Selyanina — \"Through A Glass Darkly\" (Internet Archive / FMA, CC BY 3.0)",
       "last_used_reel": 0,
       "attribution_required": true
     },
@@ -37,7 +38,7 @@
       "source": "internet_archive",
       "file": "public/reels/audio/bed-skydance-merger-the-office.mp3",
       "mood": "dark_cinematic",
-      "credit": "Dj Hollow Life \u2014 \"The Office\", from The Haunted Mansion (Internet Archive / FMA, CC BY 3.0)",
+      "credit": "Dj Hollow Life — \"The Office\", from The Haunted Mansion (Internet Archive / FMA, CC BY 3.0)",
       "last_used_reel": 0,
       "attribution_required": true
     },
@@ -46,7 +47,7 @@
       "source": "internet_archive",
       "file": "public/reels/audio/reel-1-65movies-graycelluloid-train-sequence-cut.mp3",
       "mood": "dark_cinematic",
-      "credit": "DJ_Iterate (Thomas Park) \u2014 \"Train Sequence\", from Gray Celluloid (Internet Archive / treetrunk, Public Domain Mark 1.0)",
+      "credit": "DJ_Iterate (Thomas Park) — \"Train Sequence\", from Gray Celluloid (Internet Archive / treetrunk, Public Domain Mark 1.0)",
       "item": "https://archive.org/details/GrayCelluloid",
       "license": "PD Mark 1.0",
       "reel": "scout-1791844872235-1-reel",
@@ -57,7 +58,7 @@
       "source": "internet_archive",
       "file": "public/reels/audio/reel-2-papertiger-darkness-arrive-cut.mp3",
       "mood": "tension",
-      "credit": "Mad God \u2014 \"Intro\", from Darkness Arrive (Internet Archive / Genetic Trance, CC0 1.0)",
+      "credit": "Mad God — \"Intro\", from Darkness Arrive (Internet Archive / Genetic Trance, CC0 1.0)",
       "item": "https://archive.org/details/gt561SteamFlow-DarknessArrive",
       "license": "CC0 1.0",
       "reel": "scout-1791844892010-2-reel",
@@ -68,7 +69,7 @@
       "source": "internet_archive",
       "file": "public/reels/audio/reel-3-rjmitte-midnight-noir-cut.mp3",
       "mood": "emotional",
-      "credit": "Thomas Park \u2014 \"Midnight Noir 1\" (Internet Archive / treetrunk, Public Domain Mark 1.0)",
+      "credit": "Thomas Park — \"Midnight Noir 1\" (Internet Archive / treetrunk, Public Domain Mark 1.0)",
       "item": "https://archive.org/details/MidnightNoir",
       "license": "PD Mark 1.0",
       "reel": "scout-1791844892011-3-reel",
@@ -79,7 +80,7 @@
       "source": "internet_archive",
       "file": "public/reels/audio/reel-4-digger-bride-of-frankenstone-cut.mp3",
       "mood": "dark_cinematic",
-      "credit": "DJ Frankenstone \u2014 \"Bride 1\", from Bride Of Frankenstone (Internet Archive / treetrunk, Public Domain Mark 1.0)",
+      "credit": "DJ Frankenstone — \"Bride 1\", from Bride Of Frankenstone (Internet Archive / treetrunk, Public Domain Mark 1.0)",
       "item": "https://archive.org/details/BrideOfFrankenstone",
       "license": "PD Mark 1.0",
       "reel": "scout-1791844892011-4-reel",
@@ -90,11 +91,650 @@
       "source": "internet_archive",
       "file": "public/reels/audio/reel-5-visionquest-her-face-from-the-tombstone-cut.mp3",
       "mood": "tension",
-      "credit": "Steam Flow \u2014 \"Her Face From The Tombstone\" (Internet Archive / Genetic Trance, CC0 1.0)",
+      "credit": "Steam Flow — \"Her Face From The Tombstone\" (Internet Archive / Genetic Trance, CC0 1.0)",
       "item": "https://archive.org/details/gt421SteamFlow-HerFaceFromTheTombstone",
       "license": "CC0 1.0",
       "reel": "scout-1791844892011-5-reel",
       "last_used_reel": 105
+    },
+    {
+      "id": "ma-dark_cinematic-frankschlimbach-darklullaby",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-frankschlimbach-darklullaby.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Frank Schlimbach — Dark Lullaby (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-rocamusic-spookylullaby",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-rocamusic-spookylullaby.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Roca Music — Spooky Lullaby (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-vpstudios-brahmslullabyhorror",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-vpstudios-brahmslullabyhorror.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Vpstudios — Brahms Lullaby Horror (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-gvidon-hammerofwitches",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-gvidon-hammerofwitches.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Gvidon — Hammer Of Witches (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-awesomemusic-thelullabyofdarkworlds",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-awesomemusic-thelullabyofdarkworlds.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Awesome Music — The Lullaby Of Dark Worlds (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-frankschlimbach-sinisterlullaby",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-frankschlimbach-sinisterlullaby.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Frank Schlimbach — Sinister Lullaby (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-starjammusic-shadowedrealms",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-starjammusic-shadowedrealms.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Starjammusic — Shadowed Realms (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-sound-gallery-creepy-music-box-04",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-sound-gallery-creepy-music-box-04.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Sound — Gallery Creepy Music Box (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-the-evil-rises-horror-trailer-music-evil-dark-scar",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-the-evil-rises-horror-trailer-music-evil-dark-scar.mp3",
+      "mood": "dark_cinematic",
+      "credit": "the-evil-rises-horror-trailer-music-evil-dark-scary-156049 (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-vasilyatsevich-devastatorsrevenge",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-vasilyatsevich-devastatorsrevenge.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Vasil Yatsevich — Devastators Revenge (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-brainmire-thunder",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-brainmire-thunder.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Brain Mire — Thunder (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-dark_cinematic-brainmire-rage",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-dark_cinematic-brainmire-rage.mp3",
+      "mood": "dark_cinematic",
+      "credit": "Brain Mire — Rage (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-tension-synthezx-confrontation-and-tension",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-tension-synthezx-confrontation-and-tension.mp3",
+      "mood": "tension",
+      "credit": "Synthezx — Confrontation And Tension (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-tension-rovador-rageandfire",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-tension-rovador-rageandfire.mp3",
+      "mood": "tension",
+      "credit": "Rovador — Rage And Fire (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-tension-pashastriker-suspensefuldarkatmosphere",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-tension-pashastriker-suspensefuldarkatmosphere.mp3",
+      "mood": "tension",
+      "credit": "Pasha Striker — Suspenseful Dark Atmosphere (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-tension-invisible-language-take-us-back",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-tension-invisible-language-take-us-back.mp3",
+      "mood": "tension",
+      "credit": "Invisible — Language Take Us Back (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-tension-sviridpavlov-unfolding",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-tension-sviridpavlov-unfolding.mp3",
+      "mood": "tension",
+      "credit": "Sviridpavlov — Unfolding (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-tension-brainmire-hewego-full",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-tension-brainmire-hewego-full.mp3",
+      "mood": "tension",
+      "credit": "Brain Mire — He We Go Full (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-tension-digitaljam-badtype",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-tension-digitaljam-badtype.mp3",
+      "mood": "tension",
+      "credit": "Digital Jam — Bad Type (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-tension-artjomschmidt-throughthewind",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-tension-artjomschmidt-throughthewind.mp3",
+      "mood": "tension",
+      "credit": "Artjom Schmidt — Through The Wind (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-sethparson-drive",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-sethparson-drive.mp3",
+      "mood": "driving_urban",
+      "credit": "Seth Parson — Drive (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-cloudsystem-driveclub",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-cloudsystem-driveclub.mp3",
+      "mood": "driving_urban",
+      "credit": "Cloud System — Drive Club (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-puremusic-cityoffuture",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-puremusic-cityoffuture.mp3",
+      "mood": "driving_urban",
+      "credit": "Puremusic — City Of Future (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-lexmusic-digitallandscapes",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-lexmusic-digitallandscapes.mp3",
+      "mood": "driving_urban",
+      "credit": "Lex Music — Digital Landscapes (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-ninianvalenta-streetrep",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-ninianvalenta-streetrep.mp3",
+      "mood": "driving_urban",
+      "credit": "Ninian Valenta — Street Rep (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-rattlesnake-streetstyle",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-rattlesnake-streetstyle.mp3",
+      "mood": "driving_urban",
+      "credit": "Rattlesnake — Street Style (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-rattlesnake-streetculture",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-rattlesnake-streetculture.mp3",
+      "mood": "driving_urban",
+      "credit": "Rattlesnake — Street Culture (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-stockartmusic-backstreetfreedom",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-stockartmusic-backstreetfreedom.mp3",
+      "mood": "driving_urban",
+      "credit": "Stock Art Music — Backstreet Freedom (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-stockartmusic-urbanevasion",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-stockartmusic-urbanevasion.mp3",
+      "mood": "driving_urban",
+      "credit": "Stock Art Music — Urban Evasion (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-trackboutique-retrosneakers",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-trackboutique-retrosneakers.mp3",
+      "mood": "driving_urban",
+      "credit": "Track Boutique — Retro Sneakers (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-bluefoxmusic-settostun",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-bluefoxmusic-settostun.mp3",
+      "mood": "driving_urban",
+      "credit": "Blue Fox Music — Set To Stun (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-raspberrymusic-turbulence",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-raspberrymusic-turbulence.mp3",
+      "mood": "driving_urban",
+      "credit": "Raspberrymusic — Turbulence (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-dam-hall-ontheedge",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-dam-hall-ontheedge.mp3",
+      "mood": "driving_urban",
+      "credit": "Dam — Hall On The Edge (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-608-empty-city-streets",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-608-empty-city-streets.mp3",
+      "mood": "driving_urban",
+      "credit": "608 — EMPTY CITY STREETS (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-deep-future-garage-royalty-free-music-163081",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-deep-future-garage-royalty-free-music-163081.mp3",
+      "mood": "driving_urban",
+      "credit": "deep-future-garage-royalty-free-music-163081 (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-driving_urban-dopestuff-coffeeshopjamz",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-driving_urban-dopestuff-coffeeshopjamz.mp3",
+      "mood": "driving_urban",
+      "credit": "Dopestuff — Coffeeshop Jamz (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-sviridpavlov-getdown",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-sviridpavlov-getdown.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Sviridpavlov — Get Down (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-sviridpavlov-feelright",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-sviridpavlov-feelright.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Sviridpavlov — Feel Right (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-burgundy-dropit",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-burgundy-dropit.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Burgundy — Drop It (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-motionaudio-hyped",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-motionaudio-hyped.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Motion Audio — Hyped (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-rexchroexcellentflow",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-rexchroma-excellentflow.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Rex Chroma — Excellent Flow (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-moonlightsounds-levelupflow",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-moonlightsounds-levelupflow.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Moonlight Sounds — Level Up Flow (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-maximus-houseoffashion",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-maximus-houseoffashion.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Maximus — House Of Fashion (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-colorfulsound-skydisco",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-colorfulsound-skydisco.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Colorful Sound — Sky Disco (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-soniqbranding-twerky-town",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-soniqbranding-twerky-town.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Soniq Branding — Twerky Town (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-moodtronix-candycoated",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-moodtronix-candycoated.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Moodtronix — Candy Coated (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-abe-coolsummernight",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-abe-coolsummernight.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Abe — Cool Summer Night (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-agustinrodas-tothemusic",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-agustinrodas-tothemusic.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Agustin Rodas — To The Music (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-jonchapman-whatsup",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-jonchapman-whatsup.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Jon Chapman — Whats Up (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-equilibrio-funwithoutlimits",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-equilibrio-funwithoutlimits.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Equilibrio — Fun Without Limits (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-raspberrymusic-startnow",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-raspberrymusic-startnow.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Raspberrymusic — Start Now (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-soundthelimit-chaosunleashed",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-soundthelimit-chaosunleashed.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Sound The Limit — Chaos Unleashed (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-nathangunaselvam-bringitup",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-nathangunaselvam-bringitup.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Nathan Gunaselvam — Bring It Up (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-artiss-feel-the-bass",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-artiss-feel-the-bass.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Art Iss — Feel The Bass (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-upbeat_energetic-rattlesnake-rockyou",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-upbeat_energetic-rattlesnake-rockyou.mp3",
+      "mood": "upbeat_energetic",
+      "credit": "Rattlesnake — Rock You (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-jakeschneider-holdmeclose",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-jakeschneider-holdmeclose.mp3",
+      "mood": "warm_emotive",
+      "credit": "Jake Schneider — Hold Me Close (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-blakewolf-hereforyou",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-blakewolf-hereforyou.mp3",
+      "mood": "warm_emotive",
+      "credit": "Blake Wolf — Here For You (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-fleming-cloudnine",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-fleming-cloudnine.mp3",
+      "mood": "warm_emotive",
+      "credit": "Fleming — Cloud Nine (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-fleming-ladyluck",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-fleming-ladyluck.mp3",
+      "mood": "warm_emotive",
+      "credit": "Fleming — Lady Luck (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-fleming-trippin",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-fleming-trippin.mp3",
+      "mood": "warm_emotive",
+      "credit": "Fleming — Trippin (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-pb-j-daydream",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-pb-j-daydream.mp3",
+      "mood": "warm_emotive",
+      "credit": "Pb&J — Daydream (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-monumentmusic-auras",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-monumentmusic-auras.mp3",
+      "mood": "warm_emotive",
+      "credit": "Monument Music — Auras (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-blesksound-wonderful-days",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-blesksound-wonderful-days.mp3",
+      "mood": "warm_emotive",
+      "credit": "Blesk Sound — Wonderful Days (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-skunk-californialemonade",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-skunk-californialemonade.mp3",
+      "mood": "warm_emotive",
+      "credit": "Skunk — California Lemonade (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-yelatone-mangolover",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-yelatone-mangolover.mp3",
+      "mood": "warm_emotive",
+      "credit": "Yelatone — Mango Lover (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-ndfy-iwannabeateen",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-ndfy-iwannabeateen.mp3",
+      "mood": "warm_emotive",
+      "credit": "Ndfy — IWanna Be ATeen (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-soniqbranding-coco-la-bouche",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-soniqbranding-coco-la-bouche.mp3",
+      "mood": "warm_emotive",
+      "credit": "Soniq Branding — Coco la Bouche (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-eugenevysokov-afterparty-main",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-eugenevysokov-afterparty-main.mp3",
+      "mood": "warm_emotive",
+      "credit": "Eugene Vysokov — Afterparty (main) (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-dux-igotyou",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-dux-igotyou.mp3",
+      "mood": "warm_emotive",
+      "credit": "Dux — IGot You (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-lemonmusicstudio-fromthedepth",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-lemonmusicstudio-fromthedepth.mp3",
+      "mood": "warm_emotive",
+      "credit": "Lemon Music Studio — Fromthe Depth (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
+    },
+    {
+      "id": "ma-warm_emotive-odyssey-diveintorhythm",
+      "source": "motionarray",
+      "file": "/Users/dit/Music/gb-reels/ma/ma-warm_emotive-odyssey-diveintorhythm.mp3",
+      "mood": "warm_emotive",
+      "credit": "Odyssey — Dive Into Rhythm (Motion Array)",
+      "last_used_reel": 0,
+      "local_only": true
     }
   ],
   "usage_log": [
