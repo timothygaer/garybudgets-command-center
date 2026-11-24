@@ -6118,7 +6118,7 @@
           "prompt_summary": "Close with the Gary Budgets call to action: follow @garyfilmbudgets for daily film industry news."
         }
       ],
-      "status": "approved",
+      "status": "posted",
       "has_images": false,
       "image_file_names": [
         "1.png",
@@ -6141,7 +6141,10 @@
       "type": "reel",
       "images_built_at": "2026-11-21T20:45:00Z",
       "media_type": "reel",
-      "stuck": false
+      "stuck": false,
+      "posted_at": "2026-11-24T23:08:59+00:00",
+      "instagram_url": "https://www.instagram.com/reel/DgJFtmkFMb5/",
+      "instagram_media_id": "18023655968728430"
     },
     {
       "id": "scout-1791909791124-2",
